@@ -1,0 +1,150 @@
+.shell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-raised);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: var(--text-h);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 0.25rem;
+}
+
+.brand:hover {
+  color: var(--accent);
+}
+
+.brand[aria-current="page"] {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.navLink:hover {
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+.navLink[aria-current="page"] {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.fonts,
+.theme {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.theme {
+  margin-left: auto;
+}
+
+.chip {
+  font: inherit;
+  font-size: 0.9rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.main {
+  flex: 1;
+  width: min(64rem, 100%);
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 4rem;
+}
+
+@media (min-width: 800px) {
+  .bar {
+    flex-wrap: nowrap;
+    padding: 0.55rem 1.25rem;
+  }
+
+  .main {
+    padding: 2.25rem 2rem 5rem;
+  }
+}
+
+@media (max-width: 799px) {
+  .bar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .theme {
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: 0;
+    justify-self: end;
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .fonts {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}

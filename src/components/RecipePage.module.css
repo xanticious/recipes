@@ -1,0 +1,196 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.randomBar {
+  margin: 0;
+}
+
+.randomAgain {
+  font: inherit;
+  min-height: 44px;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.randomAgain:hover {
+  border-color: var(--accent);
+}
+
+.header h1 {
+  margin: 0 0 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.star {
+  font-family: var(--serif);
+  font-size: 0.7em;
+  font-style: normal;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.occasion {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.tags {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tags li {
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.meta {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+.times {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-raised);
+}
+
+.times div {
+  margin: 0;
+}
+
+.times dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.times dd {
+  margin: 0.15rem 0 0;
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ingredients h2,
+.steps h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+.ingredients ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ingredients li {
+  padding: 0.15rem 0 0.15rem 0.85rem;
+  border-left: 3px solid var(--olive-border);
+  line-height: 1.45;
+}
+
+.steps ol {
+  margin: 0;
+  padding-left: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 42rem;
+}
+
+.steps li {
+  padding-left: 0.35rem;
+  line-height: 1.55;
+}
+
+.notes {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  max-width: 42rem;
+}
+
+.notes h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+}
+
+.notes p {
+  margin: 0;
+}
+
+.missing h1 {
+  margin: 0 0 0.5rem;
+}
+
+.missing p {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+}
+
+.missingLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.missingLinks a {
+  color: var(--accent);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (min-width: 560px) {
+  .times {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 800px) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(16rem, 18.5rem) 1fr;
+    gap: 2.75rem;
+    align-items: start;
+  }
+
+  .ingredients {
+    position: sticky;
+    top: 5.5rem;
+  }
+}

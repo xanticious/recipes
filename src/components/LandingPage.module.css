@@ -1,0 +1,113 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  max-width: 46rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+}
+
+.lede {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+}
+
+.section h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.45rem;
+}
+
+.section h3 {
+  margin: 1.4rem 0 0.45rem;
+  font-size: 1.1rem;
+}
+
+.section p {
+  margin: 0 0 0.75rem;
+  max-width: 42rem;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-width: 42rem;
+}
+
+.mealRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mealLink {
+  font: inherit;
+  min-height: 44px;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.mealLink:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-raised);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.table thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: var(--chip-bg);
+}
+
+.table tbody th {
+  font-weight: 600;
+  color: var(--text-h);
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.exceptions {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 42rem;
+}
