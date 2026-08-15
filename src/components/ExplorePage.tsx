@@ -3,8 +3,9 @@ import { useAppActor } from "../actors.tsx";
 import {
   CUISINES,
   CUISINE_LABELS,
-  DIET_TAGS,
+  ALLERGY_TAGS,
   DIET_TAG_LABELS,
+  PATTERN_TAGS,
   filterRecipes,
   groupRecipes,
   ingredientLookup,
@@ -38,8 +39,8 @@ export function ExplorePage() {
       <header className={styles.header}>
         <h1>Explore Recipes</h1>
         <p className={styles.lede}>
-          Combine meal type, cuisine, and diet tags. Filters use AND — a recipe must match every
-          selected tag.
+          Combine meal type, cuisine, diet tags, and eating patterns. Filters use AND — a recipe
+          must match every selected tag, including listed substitutions.
         </p>
       </header>
 
@@ -99,7 +100,26 @@ export function ExplorePage() {
         <fieldset className={styles.group}>
           <legend>Diet tags</legend>
           <div className={styles.chips}>
-            {DIET_TAGS.map((tag) => (
+            {ALLERGY_TAGS.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                className={styles.chip}
+                aria-pressed={explore.tags.includes(tag)}
+                onClick={() => {
+                  appActor.send({ type: "toggleExploreTag", tag });
+                }}
+              >
+                {DIET_TAG_LABELS[tag]}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset className={styles.group}>
+          <legend>Eating patterns</legend>
+          <div className={styles.chips}>
+            {PATTERN_TAGS.map((tag) => (
               <button
                 key={tag}
                 type="button"

@@ -3,8 +3,9 @@ import { useAppActor } from "../actors.tsx";
 import {
   CUISINES,
   CUISINE_LABELS,
-  DIET_TAGS,
+  ALLERGY_TAGS,
   DIET_TAG_LABELS,
+  PATTERN_TAGS,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
 } from "../data/index.ts";
@@ -86,7 +87,26 @@ export function RandomPage() {
       <fieldset className={styles.group}>
         <legend>Diet tags</legend>
         <div className={styles.chips}>
-          {DIET_TAGS.map((tag) => (
+          {ALLERGY_TAGS.map((tag) => (
+            <button
+              key={tag}
+              type="button"
+              className={styles.chip}
+              aria-pressed={random.tags.includes(tag)}
+              onClick={() => {
+                appActor.send({ type: "toggleRandomTag", tag });
+              }}
+            >
+              {DIET_TAG_LABELS[tag]}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className={styles.group}>
+        <legend>Eating patterns</legend>
+        <div className={styles.chips}>
+          {PATTERN_TAGS.map((tag) => (
             <button
               key={tag}
               type="button"

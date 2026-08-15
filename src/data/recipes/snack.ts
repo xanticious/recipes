@@ -1,3 +1,4 @@
+import { yogurtBaseSubstitutions } from "../subs.ts";
 import type { Recipe } from "../types.ts";
 
 export const snack: Recipe[] = [
@@ -105,7 +106,13 @@ export const snack: Recipe[] = [
     cookMinutes: 0,
     servings: 4,
     ingredients: [
-      { ingredientId: "greek-yogurt", amount: 1.5, unit: "cup" },
+      {
+        slot: "yogurt",
+        ingredientId: "greek-yogurt",
+        amount: 1.5,
+        unit: "cup",
+        substitutions: yogurtBaseSubstitutions(),
+      },
       { ingredientId: "cucumber", amount: 1, unit: null, preparation: "grated and squeezed dry" },
       { ingredientId: "cumin", amount: 0.5, unit: "tsp" },
       { ingredientId: "mint", amount: 2, unit: "tbsp", preparation: "chopped" },
@@ -115,7 +122,7 @@ export const snack: Recipe[] = [
     ],
     steps: [
       "Grate the cucumber and squeeze out as much water as you can in a towel.",
-      "Stir the cucumber into the yogurt with cumin, mint, lemon, and salt.",
+      "Stir the cucumber into the {{yogurt}} with cumin, mint, lemon, and salt.",
       "Taste and adjust the salt and lemon.",
       "Serve as a dip with carrot sticks, or spoon it next to dinner.",
     ],

@@ -1,3 +1,4 @@
+import { cheeseSubstitutions, fetaSubstitutions } from "../subs.ts";
 import type { Recipe } from "../types.ts";
 
 export const lunch: Recipe[] = [
@@ -17,16 +18,22 @@ export const lunch: Recipe[] = [
       { ingredientId: "tomato", amount: 1, unit: null, preparation: "sliced" },
       { ingredientId: "mayonnaise", amount: 2, unit: "tbsp" },
       { ingredientId: "mustard", amount: 1, unit: "tsp", optional: true },
-      { ingredientId: "cheddar", amount: 2, unit: "slice", optional: true },
+      {
+        slot: "cheese",
+        ingredientId: "cheddar",
+        amount: 2,
+        unit: "slice",
+        substitutions: cheeseSubstitutions(),
+      },
     ],
     steps: [
       "Lay out the sourdough slices and spread mayonnaise on each one. Add mustard if you like it.",
-      "Pile turkey on two of the slices. Add optional cheddar.",
+      "Pile turkey on two of the slices.{{cheese: Add {name}.|Skip the cheese.}}",
       "Top with romaine and tomato.",
       "Close the sandwiches, cut in half, and serve.",
     ],
     notes:
-      "Sourdough is the household gluten exception. Skip the cheddar for a lactose-free lunch.",
+      "Sourdough is the household gluten exception. Use the cheddar chips for a lactose-free or vegan sandwich.",
   },
   {
     id: "chicken-salad-lettuce",
@@ -99,7 +106,14 @@ export const lunch: Recipe[] = [
       { ingredientId: "olive-oil", amount: 3, unit: "tbsp" },
       { ingredientId: "lemon", amount: 2, unit: "tbsp", preparation: "juiced" },
       { ingredientId: "oregano", amount: 1, unit: "tsp" },
-      { ingredientId: "feta", amount: 0.5, unit: "cup", preparation: "crumbled", optional: true },
+      {
+        slot: "cheese",
+        ingredientId: "feta",
+        amount: 0.5,
+        unit: "cup",
+        preparation: "crumbled",
+        substitutions: fetaSubstitutions(),
+      },
       { ingredientId: "salt", amount: null, unit: null, preparation: "to taste" },
       { ingredientId: "black-pepper", amount: null, unit: null, preparation: "to taste" },
     ],
@@ -107,9 +121,9 @@ export const lunch: Recipe[] = [
       "Pile the romaine, cucumber, tomato, and bell pepper in a wide bowl.",
       "Whisk the olive oil, lemon juice, oregano, salt, and pepper.",
       "Pour the dressing over the vegetables and toss.",
-      "Scatter optional feta on top just before serving.",
+      "{{cheese:Scatter {name} on top just before serving.|Serve the salad without feta.}}",
     ],
-    notes: "Leave off the feta for a lactose-free salad. No onion or garlic.",
+    notes: "No onion or garlic. Use the feta chips to leave it off or swap it.",
   },
   {
     id: "cheese-quesadilla",
@@ -123,22 +137,24 @@ export const lunch: Recipe[] = [
     ingredients: [
       { ingredientId: "corn-tortilla", amount: 4, unit: null },
       {
+        slot: "cheese",
         ingredientId: "cheddar",
         amount: 1,
         unit: "cup",
         preparation: "shredded",
-        optional: true,
+        substitutions: cheeseSubstitutions(),
       },
       { ingredientId: "salsa", amount: 0.5, unit: "cup" },
       { ingredientId: "cilantro", amount: 2, unit: "tbsp", preparation: "chopped", optional: true },
     ],
     steps: [
       "Warm a dry skillet over medium heat.",
-      "Lay down a tortilla. Sprinkle optional cheddar over it and top with a second tortilla.",
+      "Lay down a tortilla.{{cheese: Sprinkle {name} over it and top with a second tortilla.|Top with a second tortilla.}}",
       "Cook until the bottom is spotted brown, about 2 minutes, then flip and cook the other side.",
       "Repeat with the remaining tortillas. Cut into wedges and serve with salsa and cilantro.",
     ],
-    notes: "Without cheddar it is a toasted tortilla with salsa — still a fine quick lunch.",
+    notes:
+      "Without cheddar it is a toasted tortilla with salsa. Use the cheese chips to swap or leave it off.",
   },
   {
     id: "tomato-basil-soup",

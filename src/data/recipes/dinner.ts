@@ -1,3 +1,10 @@
+import {
+  cheeseSubstitutions,
+  fetaSubstitutions,
+  omitOption,
+  yogurtBaseSubstitutions,
+  yogurtGarnishSubstitutions,
+} from "../subs.ts";
 import type { Recipe } from "../types.ts";
 
 export const dinner: Recipe[] = [
@@ -85,20 +92,21 @@ export const dinner: Recipe[] = [
       { ingredientId: "smoked-paprika", amount: 1, unit: "tsp" },
       { ingredientId: "salt", amount: null, unit: null, preparation: "to taste" },
       {
+        slot: "cheese",
         ingredientId: "cheddar",
         amount: 0.5,
         unit: "cup",
         preparation: "shredded",
-        optional: true,
+        substitutions: cheeseSubstitutions(),
       },
     ],
     steps: [
       "Brown the beef in a pot over medium-high heat, breaking it up, about 6 minutes.",
       "Add the onion and cook until soft. Stir in the garlic, chili powder, cumin, and paprika.",
       "Pour in the tomatoes and both beans. Simmer 25 minutes, stirring now and then.",
-      "Season with salt. Ladle into bowls and add optional cheddar.",
+      "Season with salt. Ladle into bowls.{{cheese: Top with {name}.| Serve without cheese.}}",
     ],
-    notes: "Skip the cheddar for a lactose-free pot.",
+    notes: "Open the LF or VG chip on the cheddar to leave it off or swap it.",
   },
   {
     id: "skillet-burgers",
@@ -110,23 +118,64 @@ export const dinner: Recipe[] = [
     cookMinutes: 12,
     servings: 4,
     ingredients: [
-      { ingredientId: "ground-beef", amount: 1.5, unit: "lb" },
+      {
+        slot: "patty",
+        ingredientId: "ground-beef",
+        amount: 1.5,
+        unit: "lb",
+        substitutions: [
+          {
+            tags: ["vegan"],
+            options: [
+              { ingredientId: "tofu", amount: 14, unit: "oz", preparation: "pressed" },
+              { ingredientId: "veggie-patty", amount: 4, unit: null },
+            ],
+          },
+        ],
+      },
       { ingredientId: "salt", amount: 1, unit: "tsp" },
       { ingredientId: "black-pepper", amount: 0.5, unit: "tsp" },
-      { ingredientId: "gf-bread", amount: 4, unit: "slice", optional: true },
-      { ingredientId: "cheddar", amount: 4, unit: "slice", optional: true },
+      {
+        slot: "bun",
+        ingredientId: "gf-bread",
+        amount: 4,
+        unit: "slice",
+        substitutions: [
+          {
+            tags: ["keto", "paleo", "carnivore"],
+            options: [omitOption("Serve without bread", "lettuce wraps")],
+          },
+        ],
+      },
+      {
+        slot: "cheese",
+        ingredientId: "cheddar",
+        amount: 4,
+        unit: "slice",
+        substitutions: cheeseSubstitutions(),
+      },
       { ingredientId: "romaine", amount: 4, unit: "leaf" },
       { ingredientId: "tomato", amount: 1, unit: null, preparation: "sliced" },
-      { ingredientId: "ketchup", amount: null, unit: null, preparation: "for serving" },
+      {
+        slot: "ketchup",
+        ingredientId: "ketchup",
+        amount: null,
+        unit: null,
+        preparation: "for serving",
+        substitutions: [
+          { tags: ["keto", "paleo"], options: [omitOption("Leave ketchup out", "no ketchup")] },
+        ],
+      },
       { ingredientId: "mustard", amount: null, unit: null, preparation: "for serving" },
     ],
     steps: [
-      "Divide the beef into four patties. Season both sides with salt and pepper.",
+      "Form the {{patty}} into four patties. Season both sides with salt and pepper.",
       "Heat a skillet over medium-high heat. Cook the patties 4–5 minutes on the first side.",
-      "Flip and cook 3–4 minutes more. Add optional cheddar for the last minute.",
-      "Serve on optional toasted gf bread with lettuce, tomato, ketchup, and mustard.",
+      "Flip and cook 3–4 minutes more. {{cheese:Add {name} for the last minute.|Skip the cheese.}}",
+      "{{bun:Serve on toasted {name}|Serve in lettuce wraps}} with lettuce and tomato{{ketchup:, {name},|}} and mustard.",
     ],
-    notes: "Fine without the bun or the cheese. No onion or garlic in the patties.",
+    notes:
+      "No onion or garlic in the patties. Use the chips on cheese, bread, or ketchup to match a diet tag.",
   },
   {
     id: "baked-salmon",
@@ -201,16 +250,23 @@ export const dinner: Recipe[] = [
       { ingredientId: "romaine", amount: 2, unit: "cup", preparation: "shredded" },
       { ingredientId: "lime", amount: 1, unit: null, preparation: "wedged" },
       { ingredientId: "cilantro", amount: 0.25, unit: "cup", preparation: "chopped" },
-      { ingredientId: "cheddar", amount: 1, unit: "cup", preparation: "shredded", optional: true },
+      {
+        slot: "cheese",
+        ingredientId: "cheddar",
+        amount: 1,
+        unit: "cup",
+        preparation: "shredded",
+        substitutions: cheeseSubstitutions(),
+      },
     ],
     steps: [
       "Brown the beef in a skillet, breaking it up. Drain extra fat if you want to.",
       "Stir in chili powder, cumin, paprika, and salt. Cook 1 minute.",
       "Warm the tortillas in a dry skillet or wrapped in a towel in a low oven.",
-      "Set out salsa, lettuce, lime, cilantro, and optional cheddar.",
+      "Set out salsa, lettuce, lime, cilantro{{cheese:, and {name}|}}.",
       "Let everyone build their own tacos.",
     ],
-    notes: "Skip the cheddar for a lactose-free night. Salsa has onion and garlic.",
+    notes: "Salsa has onion and garlic. Use the cheddar chips for a lactose-free or vegan topping.",
   },
   {
     id: "salsa-chicken",
@@ -230,11 +286,12 @@ export const dinner: Recipe[] = [
       { ingredientId: "cilantro", amount: 0.25, unit: "cup", preparation: "chopped" },
       { ingredientId: "lime", amount: 1, unit: null, preparation: "wedged" },
       {
+        slot: "cheese",
         ingredientId: "cheddar",
         amount: 0.5,
         unit: "cup",
         preparation: "shredded",
-        optional: true,
+        substitutions: cheeseSubstitutions(),
       },
     ],
     steps: [
@@ -242,9 +299,9 @@ export const dinner: Recipe[] = [
       "Season the chicken with cumin. Nestle it in a skillet and pour the salsa over it.",
       "Cover and simmer over medium-low heat until the chicken is cooked, 18–22 minutes.",
       "Shred the chicken in the salsa with two forks.",
-      "Serve over rice with cilantro, lime, and optional cheddar.",
+      "Serve over rice with cilantro and lime{{cheese:, and {name}|}}.",
     ],
-    notes: "Skip the cheddar for a lactose-free plate. Salsa has onion and garlic.",
+    notes: "Salsa has onion and garlic. Use the cheddar chips for a lactose-free or vegan topping.",
   },
   {
     id: "rice-and-beans",
@@ -475,7 +532,14 @@ export const dinner: Recipe[] = [
       { ingredientId: "oregano", amount: 2, unit: "tsp" },
       { ingredientId: "cucumber", amount: 1, unit: null, preparation: "sliced" },
       { ingredientId: "tomato", amount: 2, unit: null, preparation: "wedged" },
-      { ingredientId: "feta", amount: 0.5, unit: "cup", preparation: "crumbled", optional: true },
+      {
+        slot: "cheese",
+        ingredientId: "feta",
+        amount: 0.5,
+        unit: "cup",
+        preparation: "crumbled",
+        substitutions: fetaSubstitutions(),
+      },
       { ingredientId: "salt", amount: 1, unit: "tsp" },
       { ingredientId: "black-pepper", amount: null, unit: null, preparation: "to taste" },
     ],
@@ -483,9 +547,9 @@ export const dinner: Recipe[] = [
       "Heat the oven to 425°F. Toss the chicken with oil, lemon juice and zest, garlic, oregano, and salt.",
       "Spread the thighs on a sheet pan and roast 25–30 minutes, until cooked through.",
       "Pile cucumber and tomato on a platter.",
-      "Set the chicken on top. Add optional feta and a grind of pepper.",
+      "Set the chicken on top.{{cheese: Add {name} and a grind of pepper.|Add a grind of pepper.}}",
     ],
-    notes: "Leave off the feta for a lactose-free plate.",
+    notes: "Use the feta chips to leave it off or swap in lactose-free feta.",
   },
   {
     id: "baked-white-fish",
@@ -535,15 +599,21 @@ export const dinner: Recipe[] = [
       { ingredientId: "coriander", amount: 0.5, unit: "tsp" },
       { ingredientId: "salt", amount: 1, unit: "tsp" },
       { ingredientId: "mixed-greens", amount: 4, unit: "cup" },
-      { ingredientId: "yogurt", amount: 0.5, unit: "cup", optional: true },
+      {
+        slot: "yogurt",
+        ingredientId: "yogurt",
+        amount: 0.5,
+        unit: "cup",
+        substitutions: yogurtGarnishSubstitutions(),
+      },
     ],
     steps: [
       "Toss the chicken with oil, lemon, garlic, cumin, paprika, turmeric, coriander, and salt.",
       "Heat a skillet over medium-high heat. Cook the thighs 6–7 minutes per side.",
       "Rest 5 minutes, then slice.",
-      "Serve over mixed greens with optional yogurt on the side.",
+      "Serve over mixed greens{{yogurt: with {name} on the side|}}.",
     ],
-    notes: "Skip the yogurt for a lactose-free plate.",
+    notes: "Use the yogurt chips to leave it off or swap in a lactose-free or coconut yogurt.",
   },
   {
     id: "weeknight-dal",
@@ -587,7 +657,13 @@ export const dinner: Recipe[] = [
     servings: 4,
     ingredients: [
       { ingredientId: "chicken-thigh", amount: 2, unit: "lb" },
-      { ingredientId: "yogurt", amount: 1, unit: "cup" },
+      {
+        slot: "yogurt",
+        ingredientId: "yogurt",
+        amount: 1,
+        unit: "cup",
+        substitutions: yogurtBaseSubstitutions(),
+      },
       { ingredientId: "garlic", amount: 3, unit: "clove", preparation: "minced" },
       { ingredientId: "ginger", amount: 1, unit: "tbsp", preparation: "minced" },
       { ingredientId: "garam-masala", amount: 2, unit: "tsp" },
@@ -598,7 +674,7 @@ export const dinner: Recipe[] = [
       { ingredientId: "vegetable-oil", amount: 1, unit: "tbsp" },
     ],
     steps: [
-      "Stir the yogurt with garlic, ginger, garam masala, cumin, turmeric, lemon, and salt.",
+      "Stir the {{yogurt}} with garlic, ginger, garam masala, cumin, turmeric, lemon, and salt.",
       "Coat the chicken and rest 15 minutes on the counter, or longer in the fridge if you have time.",
       "Heat the oil in a skillet over medium heat. Shake off extra marinade and add the chicken.",
       "Cook 6–8 minutes per side, until cooked through and browned in spots.",

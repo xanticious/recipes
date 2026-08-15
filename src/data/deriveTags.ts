@@ -1,42 +1,46 @@
+import { getIngredient, indexIngredients, type IngredientLookup } from "./lookup.ts";
+import { resolveRecipeLines, substitutionCandidateIds } from "./substitutions.ts";
 import { FLAG_TO_TAG, FODMAP_SUBGROUP_TAGS } from "./tags.ts";
-import type { DietTag, Ingredient, IngredientFlag, IngredientLine, Recipe } from "./types.ts";
+import type { DietTag, IngredientFlag, IngredientLine, Recipe, RecipeSelections } from "./types.ts";
 
-export type IngredientLookup = ReadonlyMap<string, Ingredient>;
+export type { IngredientLookup } from "./lookup.ts";
+export { getIngredient, indexIngredients };
 
-export function indexIngredients(list: readonly Ingredient[]): IngredientLookup {
-  return new Map(list.map((item) => [item.id, item]));
-}
-
-export function getIngredient(lookup: IngredientLookup, id: string): Ingredient {
-  const found = lookup.get(id);
-  if (!found) {
-    throw new Error(`Unknown ingredient: ${id}`);
-  }
-  return found;
-}
+export type TagDerivationMode = "as-written" | "with-alterations";
 
 function lineCarriesFlag(
   line: IngredientLine,
   flag: IngredientFlag,
   lookup: IngredientLookup,
+  mode: TagDerivationMode,
 ): boolean {
   if (line.optional) {
     return false;
   }
 
-  const candidates = [line.ingredientId, ...(line.substitutions ?? [])];
-  return candidates.every((id) => getIngredient(lookup, id).flags.includes(flag));
+  if (mode === "as-written") {
+    return getIngredient(lookup, line.ingredientId).flags.includes(flag);
+  }
+
+  const candidates = substitutionCandidateIds(line);
+  if (candidates.some((id) => id === null)) {
+    return false;
+  }
+
+  const ids = candidates.filter((id): id is string => id !== null);
+  return ids.every((id) => getIngredient(lookup, id).flags.includes(flag));
 }
 
-export function recipeTotalMinutes(recipe: Recipe): number {
-  return recipe.totalMinutes ?? recipe.prepMinutes + recipe.cookMinutes;
-}
-
-export function deriveTags(recipe: Recipe, lookup: IngredientLookup): DietTag[] {
+function tagsFromLines(
+  lines: readonly IngredientLine[],
+  lookup: IngredientLookup,
+  mode: TagDerivationMode,
+  tagOverrides?: Recipe["tagOverrides"],
+): DietTag[] {
   const earned = new Set<DietTag>();
 
   for (const [flag, tag] of Object.entries(FLAG_TO_TAG) as [IngredientFlag, DietTag][]) {
-    const blocked = recipe.ingredients.some((line) => lineCarriesFlag(line, flag, lookup));
+    const blocked = lines.some((line) => lineCarriesFlag(line, flag, lookup, mode));
     if (!blocked) {
       earned.add(tag);
     }
@@ -55,8 +59,8 @@ export function deriveTags(recipe: Recipe, lookup: IngredientLookup): DietTag[] 
     earned.add("low-fop");
   }
 
-  if (recipe.tagOverrides) {
-    for (const [tag, force] of Object.entries(recipe.tagOverrides) as [DietTag, boolean][]) {
+  if (tagOverrides) {
+    for (const [tag, force] of Object.entries(tagOverrides) as [DietTag, boolean][]) {
       if (force) {
         earned.add(tag);
       } else {
@@ -66,4 +70,28 @@ export function deriveTags(recipe: Recipe, lookup: IngredientLookup): DietTag[] 
   }
 
   return [...earned];
+}
+
+export function recipeTotalMinutes(recipe: Recipe): number {
+  return recipe.totalMinutes ?? recipe.prepMinutes + recipe.cookMinutes;
+}
+
+export function deriveTags(
+  recipe: Recipe,
+  lookup: IngredientLookup,
+  mode: TagDerivationMode = "with-alterations",
+): DietTag[] {
+  return tagsFromLines(recipe.ingredients, lookup, mode, recipe.tagOverrides);
+}
+
+export function deriveTagsForSelections(
+  recipe: Recipe,
+  lookup: IngredientLookup,
+  selections: RecipeSelections,
+): DietTag[] {
+  const resolved = resolveRecipeLines(recipe, selections, lookup);
+  const lines = resolved.map((item) =>
+    item.omitted ? { ...item.line, optional: true } : item.line,
+  );
+  return tagsFromLines(lines, lookup, "as-written", recipe.tagOverrides);
 }

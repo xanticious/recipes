@@ -1,5 +1,5 @@
 import { assign, setup } from "xstate";
-import type { Cuisine, DietTag, MealType } from "../data/types.ts";
+import type { Cuisine, DietTag, IngredientSelection, MealType } from "../data/types.ts";
 import { parseHash, routesEqual, type Route } from "../routing.ts";
 
 export type ExploreFilters = {
@@ -17,16 +17,23 @@ export type RandomFilters = {
   noMatch: boolean;
 };
 
+export type RecipeView = {
+  recipeId: string | null;
+  expanded: { slot: string; tag: DietTag } | null;
+  selections: Record<string, IngredientSelection>;
+};
+
 export type AppContext = {
   route: Route;
   explore: ExploreFilters;
   random: RandomFilters;
+  recipeView: RecipeView;
 };
 
 export type AppEvent =
   | { type: "navigate"; route: Route }
   | { type: "hashChanged"; hash: string }
-  | { type: "openExplore"; mealType?: MealType }
+  | { type: "openExplore"; mealType?: MealType; tag?: DietTag }
   | { type: "setExploreQuery"; query: string }
   | { type: "toggleExploreMealType"; mealType: MealType }
   | { type: "toggleExploreCuisine"; cuisine: Cuisine }
@@ -36,7 +43,17 @@ export type AppEvent =
   | { type: "setRandomCuisine"; cuisine: Cuisine | null }
   | { type: "toggleRandomTag"; tag: DietTag }
   | { type: "randomMiss" }
-  | { type: "openRandomRecipe"; id: string };
+  | { type: "openRandomRecipe"; id: string }
+  | { type: "toggleSubPanel"; recipeId: string; slot: string; tag: DietTag }
+  | {
+      type: "selectSubstitution";
+      recipeId: string;
+      slot: string;
+      tag: DietTag;
+      optionIndex: number;
+    }
+  | { type: "clearSubstitution"; recipeId: string; slot: string }
+  | { type: "collapseSubPanel" };
 
 const emptyExplore: ExploreFilters = {
   mealTypes: [],
@@ -52,6 +69,23 @@ const emptyRandom: RandomFilters = {
   lastRecipeId: null,
   noMatch: false,
 };
+
+const emptyRecipeView: RecipeView = {
+  recipeId: null,
+  expanded: null,
+  selections: {},
+};
+
+function recipeIdFromRoute(route: Route): string | null {
+  return route.name === "recipe" ? route.id : null;
+}
+
+function recipeViewFor(recipeId: string | null, previous: RecipeView): RecipeView {
+  if (recipeId === previous.recipeId) {
+    return previous;
+  }
+  return { recipeId, expanded: null, selections: {} };
+}
 
 function toggleItem<T extends string>(list: T[], item: T): T[] {
   return list.includes(item) ? list.filter((value) => value !== item) : [...list, item];
@@ -73,17 +107,22 @@ export const appMachine = setup({
     route: input?.route ?? parseHash(currentHash()),
     explore: emptyExplore,
     random: emptyRandom,
+    recipeView: emptyRecipeView,
   }),
   on: {
     navigate: {
       actions: assign({
         route: ({ event }) => event.route,
+        recipeView: ({ context, event }) =>
+          recipeViewFor(recipeIdFromRoute(event.route), context.recipeView),
       }),
     },
     hashChanged: {
       guard: ({ context, event }) => !routesEqual(context.route, parseHash(event.hash)),
       actions: assign({
         route: ({ event }) => parseHash(event.hash),
+        recipeView: ({ context, event }) =>
+          recipeViewFor(recipeIdFromRoute(parseHash(event.hash)), context.recipeView),
       }),
     },
     openExplore: {
@@ -92,7 +131,9 @@ export const appMachine = setup({
         explore: ({ event }) => ({
           ...emptyExplore,
           mealTypes: event.mealType ? [event.mealType] : [],
+          tags: event.tag ? [event.tag] : [],
         }),
+        recipeView: ({ context }) => recipeViewFor(null, context.recipeView),
       }),
     },
     setExploreQuery: {
@@ -169,6 +210,49 @@ export const appMachine = setup({
           lastRecipeId: event.id,
           noMatch: false,
         }),
+        recipeView: ({ context, event }) => recipeViewFor(event.id, context.recipeView),
+      }),
+    },
+    toggleSubPanel: {
+      actions: assign({
+        recipeView: ({ context, event }) => {
+          const view = recipeViewFor(event.recipeId, context.recipeView);
+          const already = view.expanded?.slot === event.slot && view.expanded.tag === event.tag;
+          return {
+            ...view,
+            expanded: already ? null : { slot: event.slot, tag: event.tag },
+          };
+        },
+      }),
+    },
+    selectSubstitution: {
+      actions: assign({
+        recipeView: ({ context, event }) => {
+          const view = recipeViewFor(event.recipeId, context.recipeView);
+          return {
+            ...view,
+            expanded: null,
+            selections: {
+              ...view.selections,
+              [event.slot]: { tag: event.tag, optionIndex: event.optionIndex },
+            },
+          };
+        },
+      }),
+    },
+    clearSubstitution: {
+      actions: assign({
+        recipeView: ({ context, event }) => {
+          const view = recipeViewFor(event.recipeId, context.recipeView);
+          const selections = { ...view.selections };
+          delete selections[event.slot];
+          return { ...view, expanded: null, selections };
+        },
+      }),
+    },
+    collapseSubPanel: {
+      actions: assign({
+        recipeView: ({ context }) => ({ ...context.recipeView, expanded: null }),
       }),
     },
   },

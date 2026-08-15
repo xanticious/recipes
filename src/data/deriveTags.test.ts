@@ -1,20 +1,51 @@
 import { expect, test } from "vitest";
-import { deriveTags, indexIngredients, recipeTotalMinutes } from "./deriveTags.ts";
+import { deriveTags, deriveTagsForSelections, recipeTotalMinutes } from "./deriveTags.ts";
+import { indexIngredients } from "./lookup.ts";
 import type { Ingredient, Recipe } from "./types.ts";
 
 const catalog = indexIngredients([
-  { id: "rice", name: "rice", kind: "grain", flags: [] },
-  { id: "chicken", name: "chicken", kind: "protein", flags: [] },
-  { id: "garlic", name: "garlic", kind: "produce", flags: ["fructan"] },
-  { id: "honey", name: "honey", kind: "sweetener", flags: ["fructose"] },
-  { id: "cheddar", name: "cheddar", kind: "dairy", flags: ["lactose"] },
-  { id: "lactose-free-cheddar", name: "lactose-free cheddar", kind: "dairy", flags: [] },
-  { id: "black-beans", name: "black beans", kind: "protein", flags: ["gos"] },
-  { id: "apple", name: "apple", kind: "produce", flags: ["fructose", "sorbitol"] },
-  { id: "mushroom", name: "mushrooms", kind: "produce", flags: ["mannitol"] },
-  { id: "wheat-flour", name: "wheat flour", kind: "grain", flags: ["gluten", "fructan"] },
-  { id: "sourdough-bread", name: "sourdough", kind: "grain", flags: [] },
-  { id: "olive-oil", name: "olive oil", kind: "fat", flags: [] },
+  { id: "rice", name: "rice", kind: "grain", flags: ["not-keto", "not-paleo", "not-carnivore"] },
+  { id: "chicken", name: "chicken", kind: "protein", flags: ["animal"] },
+  { id: "garlic", name: "garlic", kind: "produce", flags: ["fructan", "not-carnivore"] },
+  {
+    id: "honey",
+    name: "honey",
+    kind: "sweetener",
+    flags: ["fructose", "animal", "not-keto", "not-carnivore"],
+  },
+  { id: "cheddar", name: "cheddar", kind: "dairy", flags: ["lactose", "animal", "not-paleo"] },
+  {
+    id: "lactose-free-cheddar",
+    name: "lactose-free cheddar",
+    kind: "dairy",
+    flags: ["animal", "not-paleo"],
+  },
+  {
+    id: "black-beans",
+    name: "black beans",
+    kind: "protein",
+    flags: ["gos", "not-keto", "not-paleo", "not-carnivore"],
+  },
+  {
+    id: "apple",
+    name: "apple",
+    kind: "produce",
+    flags: ["fructose", "sorbitol", "not-keto", "not-carnivore"],
+  },
+  { id: "mushroom", name: "mushrooms", kind: "produce", flags: ["mannitol", "not-carnivore"] },
+  {
+    id: "wheat-flour",
+    name: "wheat flour",
+    kind: "grain",
+    flags: ["gluten", "fructan", "not-keto", "not-paleo", "not-carnivore"],
+  },
+  {
+    id: "sourdough-bread",
+    name: "sourdough",
+    kind: "grain",
+    flags: ["not-keto", "not-paleo", "not-carnivore"],
+  },
+  { id: "olive-oil", name: "olive oil", kind: "fat", flags: ["not-carnivore"] },
 ] satisfies Ingredient[]);
 
 function recipe(partial: Partial<Recipe> & Pick<Recipe, "ingredients">): Recipe {
@@ -32,7 +63,7 @@ function recipe(partial: Partial<Recipe> & Pick<Recipe, "ingredients">): Recipe 
   };
 }
 
-test("plain chicken and rice earns every diet tag", () => {
+test("plain chicken and rice earns the FODMAP tags but not vegan or keto", () => {
   const tags = deriveTags(
     recipe({
       ingredients: [
@@ -59,6 +90,10 @@ test("plain chicken and rice earns every diet tag", () => {
       "low-fop",
     ]),
   );
+  expect(tags).not.toContain("vegan");
+  expect(tags).not.toContain("keto");
+  expect(tags).not.toContain("paleo");
+  expect(tags).not.toContain("carnivore");
 });
 
 test("garlic blocks low-fructan, oligosaccharide, low-fodmap, and low-fop", () => {
@@ -94,23 +129,55 @@ test("optional cheese does not block lactose-free", () => {
   expect(tags).toContain("lactose-free");
 });
 
-test("a lactose-free substitution lets the recipe earn lactose-free", () => {
-  const tags = deriveTags(
-    recipe({
-      ingredients: [
-        { ingredientId: "chicken", amount: 1, unit: "lb" },
-        {
-          ingredientId: "cheddar",
-          amount: 0.5,
-          unit: "cup",
-          substitutions: ["lactose-free-cheddar"],
-        },
-      ],
-    }),
-    catalog,
-  );
+test("as-written cheddar blocks lactose-free; a listed swap unlocks it", () => {
+  const dish = recipe({
+    ingredients: [
+      { ingredientId: "chicken", amount: 1, unit: "lb" },
+      {
+        slot: "cheese",
+        ingredientId: "cheddar",
+        amount: 0.5,
+        unit: "cup",
+        substitutions: [
+          {
+            tags: ["lactose-free"],
+            options: [{ ingredientId: "lactose-free-cheddar" }],
+          },
+        ],
+      },
+    ],
+  });
 
-  expect(tags).toContain("lactose-free");
+  expect(deriveTags(dish, catalog, "as-written")).not.toContain("lactose-free");
+  expect(deriveTags(dish, catalog, "with-alterations")).toContain("lactose-free");
+});
+
+test("selecting a lactose-free swap updates this-version tags", () => {
+  const dish = recipe({
+    ingredients: [
+      { ingredientId: "chicken", amount: 1, unit: "lb" },
+      {
+        slot: "cheese",
+        ingredientId: "cheddar",
+        amount: 0.5,
+        unit: "cup",
+        substitutions: [
+          {
+            tags: ["lactose-free"],
+            options: [
+              { ingredientId: null, label: "Leave cheese out" },
+              { ingredientId: "lactose-free-cheddar" },
+            ],
+          },
+        ],
+      },
+    ],
+  });
+
+  expect(deriveTagsForSelections(dish, catalog, {})).not.toContain("lactose-free");
+  expect(
+    deriveTagsForSelections(dish, catalog, { cheese: { tag: "lactose-free", optionIndex: 0 } }),
+  ).toContain("lactose-free");
 });
 
 test("sourdough does not block gluten-free or low-fructan", () => {

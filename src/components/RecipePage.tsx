@@ -1,16 +1,24 @@
+import { useSelector } from "@xstate/react";
 import { useAppActor } from "../actors.tsx";
 import {
   CUISINE_LABELS,
   deriveTags,
+  deriveTagsForSelections,
+  DIET_TAG_ABBREVS,
   DIET_TAG_LABELS,
   DIET_TAGS,
+  fillRecipeSteps,
   getIngredient,
+  groupForTag,
   ingredientLookup,
   MEAL_TYPE_LABELS,
+  optionLabel,
   recipes,
   recipeTotalMinutes,
+  resolveRecipeLines,
+  substitutionTags,
 } from "../data/index.ts";
-import type { IngredientLine } from "../data/types.ts";
+import type { DietTag, IngredientLine } from "../data/types.ts";
 import { handleRouteClick, openRandomFromFilters } from "../navigation.ts";
 import { routeToHash } from "../routing.ts";
 import { MarkdownText } from "./MarkdownText.tsx";
@@ -53,6 +61,26 @@ function formatIngredientLine(line: IngredientLine): string {
   return quantity ? `${quantity} ${name}${prep}${optional}` : `${name}${prep}${optional}`;
 }
 
+function formatResolved(resolved: ReturnType<typeof resolveRecipeLines>[number]): string {
+  if (resolved.omitted) {
+    return resolved.label;
+  }
+  return formatIngredientLine(resolved.line);
+}
+
+function TagList({ tags }: { tags: DietTag[] }) {
+  if (tags.length === 0) {
+    return <p className={styles.noTags}>None of these tags as written.</p>;
+  }
+  return (
+    <ul className={styles.tags}>
+      {tags.map((tag) => (
+        <li key={tag}>{DIET_TAG_LABELS[tag]}</li>
+      ))}
+    </ul>
+  );
+}
+
 function RecipeNotFound() {
   const appActor = useAppActor();
   return (
@@ -83,14 +111,27 @@ function RecipeNotFound() {
 
 export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean }) {
   const appActor = useAppActor();
+  const recipeView = useSelector(appActor, (snapshot) => snapshot.context.recipeView);
   const recipe = recipes.find((item) => item.id === id);
 
   if (!recipe) {
     return <RecipeNotFound />;
   }
 
-  const earned = new Set(deriveTags(recipe, ingredientLookup));
-  const tags = DIET_TAGS.filter((tag) => earned.has(tag));
+  const selections = recipeView.recipeId === id ? recipeView.selections : {};
+  const expanded = recipeView.recipeId === id ? recipeView.expanded : null;
+  const resolved = resolveRecipeLines(recipe, selections, ingredientLookup);
+  const steps = fillRecipeSteps(recipe, resolved);
+
+  const asWritten = new Set(deriveTags(recipe, ingredientLookup, "as-written"));
+  const withAlterations = new Set(deriveTags(recipe, ingredientLookup, "with-alterations"));
+  const thisVersion = new Set(deriveTagsForSelections(recipe, ingredientLookup, selections));
+
+  const standardTags = DIET_TAGS.filter((tag) => asWritten.has(tag));
+  const alterationTags = DIET_TAGS.filter((tag) => withAlterations.has(tag));
+  const versionTags = DIET_TAGS.filter((tag) => thisVersion.has(tag));
+  const showAlterations = alterationTags.some((tag) => !asWritten.has(tag));
+  const hasSelections = Object.keys(selections).length > 0;
   const total = recipeTotalMinutes(recipe);
 
   return (
@@ -119,13 +160,26 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
           ) : null}
         </h1>
         {recipe.specialOccasion ? <p className={styles.occasion}>Special occasion</p> : null}
-        {tags.length > 0 ? (
-          <ul className={styles.tags}>
-            {tags.map((tag) => (
-              <li key={tag}>{DIET_TAG_LABELS[tag]}</li>
-            ))}
-          </ul>
-        ) : null}
+
+        <div className={styles.tagBlock}>
+          <div>
+            <h2 className={styles.tagHeading}>Standard recipe</h2>
+            <TagList tags={standardTags} />
+          </div>
+          {showAlterations ? (
+            <div>
+              <h2 className={styles.tagHeading}>With alterations</h2>
+              <TagList tags={alterationTags} />
+            </div>
+          ) : null}
+          {hasSelections ? (
+            <div>
+              <h2 className={styles.tagHeading}>This version</h2>
+              <TagList tags={versionTags} />
+            </div>
+          ) : null}
+        </div>
+
         <p className={styles.meta}>
           {MEAL_TYPE_LABELS[recipe.mealType]} · {CUISINE_LABELS[recipe.cuisine]}
         </p>
@@ -153,15 +207,128 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
         <section className={styles.ingredients} aria-labelledby="ingredients-heading">
           <h2 id="ingredients-heading">Ingredients</h2>
           <ul>
-            {recipe.ingredients.map((line, index) => (
-              <li key={`${line.ingredientId}-${String(index)}`}>{formatIngredientLine(line)}</li>
-            ))}
+            {resolved.map((item, index) => {
+              const original = recipe.ingredients[index];
+              if (!original) {
+                return null;
+              }
+              const tags = substitutionTags(original);
+              const panelOpen = expanded?.slot === item.slot;
+              const openTag = panelOpen ? expanded.tag : null;
+              const group = openTag ? groupForTag(original, openTag) : undefined;
+
+              return (
+                <li
+                  key={`${item.slot}-${String(index)}`}
+                  className={item.selected ? styles.swapped : undefined}
+                >
+                  <div className={styles.lineRow}>
+                    <span>{formatResolved(item)}</span>
+                    {tags.length > 0 ? (
+                      <span className={styles.subChips}>
+                        {tags.map((tag) => (
+                          <button
+                            key={tag}
+                            type="button"
+                            className={styles.subChip}
+                            aria-expanded={openTag === tag}
+                            aria-label={`Substitutions for ${DIET_TAG_LABELS[tag]}`}
+                            title={DIET_TAG_LABELS[tag]}
+                            onClick={() => {
+                              appActor.send({
+                                type: "toggleSubPanel",
+                                recipeId: recipe.id,
+                                slot: item.slot,
+                                tag,
+                              });
+                            }}
+                          >
+                            {DIET_TAG_ABBREVS[tag]}
+                          </button>
+                        ))}
+                      </span>
+                    ) : null}
+                    {item.selected ? (
+                      <button
+                        type="button"
+                        className={styles.reset}
+                        onClick={() => {
+                          appActor.send({
+                            type: "clearSubstitution",
+                            recipeId: recipe.id,
+                            slot: item.slot,
+                          });
+                        }}
+                      >
+                        Original
+                      </button>
+                    ) : null}
+                  </div>
+                  {group && openTag ? (
+                    <div className={styles.subPanel}>
+                      <p className={styles.subLead}>
+                        For {DIET_TAG_LABELS[openTag]} you can substitute:
+                      </p>
+                      <ul>
+                        <li>
+                          <button
+                            type="button"
+                            className={styles.subOption}
+                            onClick={() => {
+                              appActor.send({
+                                type: "clearSubstitution",
+                                recipeId: recipe.id,
+                                slot: item.slot,
+                              });
+                            }}
+                          >
+                            Use original
+                          </button>
+                        </li>
+                        {group.options.map((option, optionIndex) => (
+                          <li key={`${openTag}-${String(optionIndex)}`}>
+                            <button
+                              type="button"
+                              className={styles.subOption}
+                              aria-pressed={
+                                item.selected?.tag === openTag &&
+                                item.selected.optionIndex === optionIndex
+                              }
+                              onClick={() => {
+                                appActor.send({
+                                  type: "selectSubstitution",
+                                  recipeId: recipe.id,
+                                  slot: item.slot,
+                                  tag: openTag,
+                                  optionIndex,
+                                });
+                              }}
+                            >
+                              {optionLabel(option, ingredientLookup)}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                      <button
+                        type="button"
+                        className={styles.collapse}
+                        onClick={() => {
+                          appActor.send({ type: "collapseSubPanel" });
+                        }}
+                      >
+                        Collapse
+                      </button>
+                    </div>
+                  ) : null}
+                </li>
+              );
+            })}
           </ul>
         </section>
         <section className={styles.steps} aria-labelledby="steps-heading">
           <h2 id="steps-heading">Steps</h2>
           <ol>
-            {recipe.steps.map((step, index) => (
+            {steps.map((step, index) => (
               <li key={String(index)}>
                 <MarkdownText text={step} />
               </li>

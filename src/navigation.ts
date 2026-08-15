@@ -1,7 +1,7 @@
 import type { MouseEvent } from "react";
 import type { ActorRefFrom } from "xstate";
 import { filterRecipes, ingredientLookup, pickRandomId, recipes } from "./data/index.ts";
-import type { MealType } from "./data/types.ts";
+import type { DietTag, MealType } from "./data/types.ts";
 import type { appMachine } from "./machines/appMachine.ts";
 import { routeToHash, type Route } from "./routing.ts";
 
@@ -21,6 +21,11 @@ export function goToRoute(appActor: AppActor, route: Route): void {
 
 export function goOpenExplore(appActor: AppActor, mealType?: MealType): void {
   appActor.send({ type: "openExplore", mealType });
+  syncHash({ name: "explore" });
+}
+
+export function goOpenExploreWithTag(appActor: AppActor, tag: DietTag): void {
+  appActor.send({ type: "openExplore", tag });
   syncHash({ name: "explore" });
 }
 

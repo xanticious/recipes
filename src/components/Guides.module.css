@@ -1,0 +1,197 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 46rem;
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.45rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.crumbLink {
+  color: var(--text-muted);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.crumbLink:hover {
+  color: var(--accent);
+}
+
+.header h1 {
+  margin: 0 0 0.65rem;
+}
+
+.lede {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 40rem;
+}
+
+.disclaimer {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 42rem;
+}
+
+.cardGrid,
+.cardGridTwo {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-raised);
+  text-decoration: none;
+  color: inherit;
+  min-height: 44px;
+}
+
+.card:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--text-h);
+}
+
+.cardBlurb {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.group h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.section h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.35rem;
+}
+
+.section p {
+  margin: 0 0 0.75rem;
+  max-width: 42rem;
+}
+
+.swaps,
+.baseline,
+.steps,
+.recipes,
+.related {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.swaps li,
+.baseline li {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-raised);
+}
+
+.swapFrom {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.swapTo {
+  color: var(--text-h);
+}
+
+.baseline dt {
+  font-weight: 650;
+  color: var(--text-h);
+  margin: 0 0 0.2rem;
+}
+
+.baseline dd {
+  margin: 0;
+  color: var(--text);
+}
+
+.steps {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  max-width: 42rem;
+}
+
+.steps li {
+  padding-left: 0.25rem;
+}
+
+.recipeLink,
+.relatedLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-h);
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.recipeLink:hover,
+.relatedLink:hover {
+  color: var(--accent);
+}
+
+.exploreBtn {
+  font: inherit;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.exploreBtn:hover {
+  border-color: var(--accent);
+}
+
+@media (min-width: 800px) {
+  .cardGridTwo {
+    grid-template-columns: 1fr 1fr;
+  }
+}

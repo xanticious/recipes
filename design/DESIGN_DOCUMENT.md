@@ -52,6 +52,7 @@ Every page shares a top bar.
 | ---------------- | ------------------ | ------------------------------------------------------------------------------- |
 | Site name / Home | Left               | Goes to the landing page                                                        |
 | Explore Recipes  | Center / nav links | Recipe index                                                                    |
+| Guides           | Center / nav links | Allergy and eating-pattern kitchen guides                                       |
 | Random           | Center / nav links | Opens the random picker (meal type, cuisine, diet tags), then a matching recipe |
 | Font size        | Menu bar           | Small / Medium / Large                                                          |
 | Theme            | Top right          | Light / Dark toggle                                                             |
@@ -59,7 +60,7 @@ Every page shares a top bar.
 ### 6.1 Landing — “Welcome to Family Recipes”
 
 - Short welcome: this is our family cookbook for weeknight and special-occasion cooking.
-- How to use the site: Explore, open a recipe, or use Random.
+- How to use the site: Explore, open a recipe, use Random, or open Guides if a tag is new.
 - **Allergy and FODMAP legend** (see §9). This is the place that explains what each tag means, including the parts of the FODMAP diet and the household-specific **Low FOP** tag.
 - Optional short pointers into Explore by meal type (Breakfast, Lunch, Dinner, Snack, Dessert).
 
@@ -104,12 +105,12 @@ v1 content, in order:
 
 1. Title
 2. Special-occasion mark, if any
-3. Diet / allergy tags
+3. Diet / allergy tags, shown as **Standard recipe** (as written) and **With alterations** (after listed swaps). If the reader has picked swaps, a **This version** row reflects the current choices.
 4. Meal type and cuisine
 5. Prep time, cook time, total time
 6. Servings
-7. Ingredients with amounts (from structured data)
-8. Instructions: a numbered list of steps, with short prose where a step needs explanation
+7. Ingredients with amounts (from structured data). Lines that have swaps show short tag chips (LF, GF, VG, …). Click a chip to expand the options for that diet; click an option to replace the line and collapse, or collapse without changing.
+8. Instructions: a numbered list of steps. Step text can include `{{slot}}` placeholders that fill from the selected ingredient variant.
 
 No photo in v1.
 
@@ -127,6 +128,18 @@ The reader may:
 - Click Random again to get another match from the same filters (avoid showing the same recipe twice in a row when others exist)
 
 If nothing matches, say so and leave the filters in place so they can loosen them.
+
+### 6.5 Guides — living with allergies and eating patterns
+
+For people who are newly adjusting how they eat. The tone is calm and practical. These pages are household cooking notes, not medical advice.
+
+Three levels:
+
+1. **Hub** (`#/guides`) — two doors: food allergies and sensitivities, or eating patterns.
+2. **List** (`#/guides/allergies` or `#/guides/lifestyle`) — one card per tag in that group.
+3. **Guide** (`#/guides/:tag`) — what daily life looks like, the main swaps, a baseline plate, links to a few recipes in this catalog, and a button that opens Explore with that tag selected.
+
+Every diet tag in §9 has a guide. Example recipes on a guide must actually earn that tag (with listed alterations). Recipes we still need live in `design/recipe-ideas.md`.
 
 ## 7. Recipe information model
 
@@ -146,7 +159,7 @@ Recipes are a **hardcoded, curated collection** in the repo. The display layer s
 | `totalMinutes`    | number             | Can be derived if not stored                               |
 | `servings`        | number             | As written                                                 |
 | `ingredients`     | list               | Structured lines; see §7.2                                 |
-| `steps`           | list               | Each step is markdown text                                 |
+| `steps`           | list               | Markdown text; may include `{{slot}}` placeholders         |
 | `notes`           | markdown, optional | Extra prose after the steps                                |
 | `tagOverrides`    | optional           | Only if computed tags must be forced                       |
 
@@ -159,16 +172,24 @@ Computed (not hand-maintained as the source of truth):
 
 Each ingredient is structured so it can be checked against allergy lists later without re-tagging the whole recipe by hand.
 
-| Field           | Type             | Notes                                                                                           |
-| --------------- | ---------------- | ----------------------------------------------------------------------------------------------- |
-| `ingredientId`  | string           | Key into the ingredient catalog                                                                 |
-| `amount`        | number \| null   | Null when “to taste”                                                                            |
-| `unit`          | string \| null   | `cup`, `tbsp`, `g`, `clove`, etc.                                                               |
-| `preparation`   | string, optional | `diced`, `softened`, `optional`                                                                 |
-| `optional`      | boolean          | Omitted items can drop related tags only if the recipe says it is still acceptable without them |
-| `substitutions` | list, optional   | Alternate `ingredientId`s that keep the dish acceptable                                         |
+| Field           | Type             | Notes                                                                   |
+| --------------- | ---------------- | ----------------------------------------------------------------------- |
+| `slot`          | string, optional | Key for selections and `{{slot}}` in steps. Defaults to `ingredientId`. |
+| `ingredientId`  | string           | Key into the ingredient catalog                                         |
+| `amount`        | number \| null   | Null when “to taste”                                                    |
+| `unit`          | string \| null   | `cup`, `tbsp`, `g`, `clove`, etc.                                       |
+| `preparation`   | string, optional | `diced`, `softened`                                                     |
+| `optional`      | boolean          | Optional garnish: does not block tags as written                        |
+| `substitutions` | list, optional   | Groups of options, each group aimed at one or more diet tags            |
 
-v1 can ship substitutions as data even if the first 50 recipes only fill them in where we already know a swap (for example, omit the cheese and the dish is still good). Automatic “make this lactose-free” suggestions can deepen after the baseline catalog exists.
+Each substitution group has `tags` (the diets it is for) and `options`. An option is either another catalog `ingredientId` or `null` (leave the line out). The reader picks one option; that choice replaces the ingredient text and fills step placeholders.
+
+Step placeholders:
+
+- `{{cheese}}` becomes the selected name, or nothing if the line is omitted.
+- `{{cheese:Add {name} for the last minute.|Skip the cheese.}}` picks the left side when the line is present and the right side when it is omitted.
+
+Explore and Random filters use **with alterations**: a recipe matches lactose-free if a listed swap can make it so. The recipe page is honest about what is standard vs swapped.
 
 ### 7.3 Ingredient catalog
 
@@ -232,6 +253,15 @@ Tags describe **what the recipe supports**. Filters use **AND**.
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `gluten-free` | No gluten-containing ingredients as written. Gluten-free flours are allowed. Household exception: sourdough bread is treated as acceptable (see §9.4). |
 
+**Eating-pattern tags** (derived from the same catalog flags; household-practical, not medical advice):
+
+| Tag         | Means                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------- |
+| `vegan`     | No animal products: meat, fish, dairy, eggs, honey, fish sauce, or typical chicken broth.      |
+| `keto`      | No grains, sugars, starchy vegetables, most fruit, or legumes.                                 |
+| `paleo`     | No grains, dairy, legumes, corn products, soy sauce, or refined sugar. Honey and maple are ok. |
+| `carnivore` | Only animal foods plus salt, pepper, and water.                                                |
+
 **FODMAP subgroup tags** (the scientific parts people actually react to). FODMAP is four groups; Monash splits those into six types. v1 lists all six so the legend and filters stay specific:
 
 | Tag            | FODMAP part                       | Typical problem foods for this household                                                                                       |
@@ -263,10 +293,12 @@ The landing page explains, in plain language:
 1. What FODMAP stands for (Fermentable Oligosaccharides, Disaccharides, Monosaccharides, And Polyols).
 2. The six types we tag, with a few example foods each.
 3. That **gluten-free** is tracked separately. Wheat is often a fructan issue _and_ a gluten issue; we still keep both tags.
-4. That **Low FODMAP** means the recipe clears every FODMAP subgroup.
-5. That **Low FOP** means it clears fructose, oligosaccharides, and polyols — the cluster that matters most here.
-6. That filters are **AND**: lactose-free + gluten-free means both.
-7. Household exceptions (sourdough; inulin often hiding in probiotics and “fiber” additives).
+4. That **vegan, keto, paleo, and carnivore** are household-practical eating-pattern tags from the same catalog.
+5. That **Low FODMAP** means the recipe clears every FODMAP subgroup.
+6. That **Low FOP** means it clears fructose, oligosaccharides, and polyols — the cluster that matters most here.
+7. That filters are **AND**: lactose-free + gluten-free means both. Filters use the alteration-aware tags.
+8. That a recipe page distinguishes the standard recipe from listed swaps.
+9. Household exceptions (sourdough; inulin often hiding in probiotics and “fiber” additives).
 
 Keep the legend scannable: short headings, a compact table or definition list, not a medical essay.
 
@@ -281,12 +313,13 @@ Catalog ingredients carry flags that map onto the six FODMAP types plus gluten a
 - `cauliflower` → mannitol
 - `celery` → as recorded in the catalog (household avoid)
 - `asparagus` → as recorded in the catalog (household avoid)
-- `milk`, `cheddar` → lactose (hard aged cheeses may be flagged lighter or clear; decide per catalog entry)
-- `wheat-flour` → gluten and usually fructan
+- `milk`, `cheddar` → lactose and animal (hard aged cheeses may be flagged lighter or clear for lactose; decide per catalog entry)
+- `wheat-flour` → gluten, usually fructan, and the grain lifestyle flags
+- Animal proteins and dairy → `animal` (blocks vegan). Grains → `not-keto` and `not-paleo`. Most plants → `not-carnivore`.
 - `gluten-free-flour-blend` → neither, unless a specific blend adds a flagged gum or fiber
 - `sourdough-bread` → household-acceptable; do **not** apply gluten or fructan in a way that blocks `gluten-free` / `low-fructan` for this family
 
-A recipe earns a “low-X” or “-free” tag when **none** of its non-optional ingredients (after applying listed substitutions that the recipe marks as the tagged variant) carry that flag.
+A recipe earns a “low-X”, “-free”, or eating-pattern tag when **none** of its non-optional ingredients carry that flag. **As written** looks only at the default ingredient. **With alterations** also accepts a listed swap or omit that clears the flag. The reader’s current picks are a third view on the recipe page.
 
 ### 9.4 Household exceptions
 
@@ -366,11 +399,11 @@ This repo is already a static **Vite + TypeScript** app with **xState**, **CSS m
 | -------- | -------------------------------------------------------------------------------------------------------------- |
 | Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                 |
 | Routing  | Client-side routes that work on project Pages (hash or a Pages-friendly history setup)                         |
-| State    | xState for navigation, theme/font preferences, Explore filters, and Random                                     |
+| State    | xState for navigation, theme/font preferences, Explore filters, Random, and recipe substitutions               |
 | Data     | Typed TypeScript (or JSON imported into TS) for recipes and the ingredient catalog                             |
 | Styling  | CSS modules + a small set of theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`) |
 | Markdown | Render step/note markdown only; do not store the whole recipe as one unmanaged file                            |
-| Tests    | Pure functions for tag derivation, AND filtering, and random selection (no repeat when avoidable)              |
+| Tests    | Pure functions for tag derivation (as-written vs alterations), substitutions, AND filtering, and random        |
 
 Replace the placeholder counter machine. It is not part of the product.
 
@@ -379,6 +412,9 @@ URL shapes (illustrative):
 - `/` — landing
 - `/recipes` — Explore
 - `/recipes/:id` — detail
+- `/guides` — allergy and eating-pattern hub
+- `/guides/allergies` and `/guides/lifestyle` — guide lists
+- `/guides/:tag` — one guide per diet tag
 - Random is a nav action that lands on a detail URL, carrying current filters in memory or the query string so “Random again” keeps them.
 
 ## 13. Later versions (not v1)
@@ -389,7 +425,6 @@ When the catalog is in use, these are the natural follow-ons:
 - Favorites
 - Photos
 - Export
-- Richer substitutions and “show me the lactose-free version”
 - Import, if we ever want recipes from outside the curated set
 - Per-person allergen profiles, if one shared Low FOP filter is not enough
 
@@ -401,8 +436,9 @@ When the catalog is in use, these are the natural follow-ons:
 - Cuisines: American, Mexican, Italian, Asian, Mediterranean, Indian, Other.
 - Special occasion = icon/asterisk, not a separate list.
 - Structured ingredients + ingredient catalog; tags computed from flags.
-- Recipe page: title, tags, times, servings, ingredients, stepped instructions with prose. No photos.
-- Nav: Home, Explore Recipes, Random, font size, theme.
+- Recipe page: title, standard vs alteration tags, times, servings, ingredients with selectable swaps, stepped instructions that follow the selected variants. No photos.
+- Eating-pattern tags: vegan, keto, paleo, carnivore.
+- Nav: Home, Explore Recipes, Guides, Random, font size, theme.
 - Random filters: meal type, cuisine, diet tags; tags are AND; unfiltered is allowed.
 - Theme and type size apply site-wide and persist locally.
 - “Pears” are in scope as a fructose/polyol avoid; the earlier “Perez” note was a transcription error.
@@ -413,6 +449,7 @@ When the catalog is in use, these are the natural follow-ons:
 2. Ingredient catalog and tag-derivation rules, with tests.
 3. Recipe data type and a handful of real recipes to prove Explore + detail.
 4. Landing page plus the FODMAP / Low FOP legend.
+   4a. Guides hub, category lists, and one page per diet tag, with links into existing recipes.
 5. Explore grouping, filters, and search.
 6. Random with AND filters and “roll again.”
 7. Fill out the rest of the 50 recipes, tagging via the catalog, including no-onion/no-garlic options and a few special-occasion marks.

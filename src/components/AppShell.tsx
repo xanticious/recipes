@@ -23,6 +23,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const onLanding = route.name === "landing";
   const onExplore = route.name === "explore";
   const onRandom = route.name === "random";
+  const onGuides = route.name === "guides" || route.name === "guideList" || route.name === "guide";
 
   return (
     <div className={styles.shell}>
@@ -47,6 +48,16 @@ export function AppShell({ children }: { children: ReactNode }) {
             }}
           >
             Explore Recipes
+          </a>
+          <a
+            className={styles.navLink}
+            href={routeToHash({ name: "guides" })}
+            aria-current={onGuides ? "page" : undefined}
+            onClick={(event) => {
+              handleRouteClick(event, appActor, { name: "guides" });
+            }}
+          >
+            Guides
           </a>
           <a
             className={styles.navLink}

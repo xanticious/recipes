@@ -1,3 +1,4 @@
+import { cheeseSubstitutions, yogurtBaseSubstitutions } from "../subs.ts";
 import type { Recipe } from "../types.ts";
 
 export const breakfast: Recipe[] = [
@@ -16,20 +17,21 @@ export const breakfast: Recipe[] = [
       { ingredientId: "salt", amount: null, unit: null, preparation: "to taste" },
       { ingredientId: "black-pepper", amount: null, unit: null, preparation: "to taste" },
       {
+        slot: "cheese",
         ingredientId: "cheddar",
         amount: 0.25,
         unit: "cup",
         preparation: "shredded",
-        optional: true,
+        substitutions: cheeseSubstitutions(),
       },
     ],
     steps: [
       "Crack the eggs into a bowl and beat until the yolks and whites are just combined.",
       "Melt the butter in a nonstick skillet over **low** heat.",
       "Pour in the eggs. Stir slowly with a spatula, folding as they set, about 3–4 minutes.",
-      "Season with salt and pepper. Add the optional cheddar at the end if you want it.",
+      "Season with salt and pepper.{{cheese: Fold in the {name} at the end.|Skip the cheese.}}",
     ],
-    notes: "Still good without the cheese — that is the lactose-free version.",
+    notes: "Use the cheddar chips to leave the cheese off or swap it.",
   },
   {
     id: "blueberry-oatmeal",
@@ -92,14 +94,20 @@ export const breakfast: Recipe[] = [
     cookMinutes: 0,
     servings: 1,
     ingredients: [
-      { ingredientId: "greek-yogurt", amount: 1, unit: "cup" },
+      {
+        slot: "yogurt",
+        ingredientId: "greek-yogurt",
+        amount: 1,
+        unit: "cup",
+        substitutions: yogurtBaseSubstitutions(),
+      },
       { ingredientId: "strawberry", amount: 0.5, unit: "cup", preparation: "sliced" },
       { ingredientId: "blueberry", amount: 0.25, unit: "cup" },
       { ingredientId: "almonds", amount: 2, unit: "tbsp", preparation: "chopped" },
       { ingredientId: "maple-syrup", amount: 1, unit: "tsp", optional: true },
     ],
     steps: [
-      "Spoon the yogurt into a bowl.",
+      "Spoon the {{yogurt}} into a bowl.",
       "Top with strawberries, blueberries, and almonds.",
       "Drizzle maple syrup over the top if you want it sweeter.",
     ],
@@ -143,11 +151,12 @@ export const breakfast: Recipe[] = [
       { ingredientId: "corn-tortilla", amount: 6, unit: null },
       { ingredientId: "egg", amount: 6, unit: null },
       {
+        slot: "cheese",
         ingredientId: "cheddar",
         amount: 0.5,
         unit: "cup",
         preparation: "shredded",
-        optional: true,
+        substitutions: cheeseSubstitutions(),
       },
       { ingredientId: "salsa", amount: 0.5, unit: "cup" },
       { ingredientId: "cilantro", amount: 0.25, unit: "cup", preparation: "chopped" },
@@ -157,7 +166,7 @@ export const breakfast: Recipe[] = [
     steps: [
       "Warm the tortillas in a dry skillet or wrapped in a towel in a low oven.",
       "Melt the butter and scramble the eggs over medium-low heat. Season with salt.",
-      "Fill each tortilla with eggs, optional cheese, salsa, and cilantro.",
+      "Fill each tortilla with eggs{{cheese:, {name},|}}, salsa, and cilantro.",
     ],
   },
   {

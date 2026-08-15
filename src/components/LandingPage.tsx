@@ -1,9 +1,10 @@
 import { useAppActor } from "../actors.tsx";
 import { DIET_TAG_LABELS, MEAL_TYPES, MEAL_TYPE_LABELS, TAG_LEGEND } from "../data/index.ts";
-import { goOpenExplore } from "../navigation.ts";
+import { goOpenExplore, goToRoute } from "../navigation.ts";
 import styles from "./LandingPage.module.css";
 
 const fodmapEntries = TAG_LEGEND.filter((entry) => entry.group === "fodmap");
+const patternEntries = TAG_LEGEND.filter((entry) => entry.group === "pattern");
 
 export function LandingPage() {
   const appActor = useAppActor();
@@ -30,7 +31,31 @@ export function LandingPage() {
           <li>
             Use <strong>Random</strong> when you want the catalog to pick a matching dish for you.
           </li>
+          <li>
+            Open <strong>Guides</strong> if a tag is new to you. The pages are written for a first
+            week, not a final exam.
+          </li>
         </ol>
+      </section>
+
+      <section className={styles.section} aria-labelledby="guides-heading">
+        <h2 id="guides-heading">New to an allergy or eating pattern?</h2>
+        <p>
+          If you just found out you need to change how you eat, start with the short kitchen guides.
+          They explain one tag at a time, name the usual swaps, and link to a few recipes you can
+          cook tonight.
+        </p>
+        <div className={styles.mealRow}>
+          <button
+            type="button"
+            className={styles.mealLink}
+            onClick={() => {
+              goToRoute(appActor, { name: "guides" });
+            }}
+          >
+            Open the guides
+          </button>
+        </div>
       </section>
 
       <section className={styles.section} aria-labelledby="browse-meals">
@@ -54,8 +79,11 @@ export function LandingPage() {
       <section className={styles.section} aria-labelledby="legend-heading">
         <h2 id="legend-heading">Allergy and FODMAP legend</h2>
         <p>
-          Tags describe what a recipe <em>supports</em> — what it is safe for as written — not every
-          ingredient it happens to contain.
+          Tags describe what a recipe <em>supports</em> — what it is safe for — not every ingredient
+          it happens to contain. On a recipe page, <strong>Standard recipe</strong> is the dish as
+          written. <strong>With alterations</strong> is what you can reach by using the listed
+          swaps. Click a tag abbreviation on an ingredient (LF, GF, VG) to pick a substitution; the
+          ingredient line and the steps update.
         </p>
 
         <h3>What FODMAP means</h3>
@@ -77,6 +105,32 @@ export function LandingPage() {
             </thead>
             <tbody>
               {fodmapEntries.map((entry) => (
+                <tr key={entry.tag}>
+                  <th scope="row">{DIET_TAG_LABELS[entry.tag]}</th>
+                  <td>{entry.meaning}</td>
+                  <td>{entry.examples ?? "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Eating patterns</h3>
+        <p>
+          Vegan, keto, paleo, and carnivore are derived from the same ingredient catalog. They are
+          household-practical definitions, not medical advice.
+        </p>
+        <div className={styles.tableWrap}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th scope="col">Tag</th>
+                <th scope="col">Means</th>
+                <th scope="col">Example foods</th>
+              </tr>
+            </thead>
+            <tbody>
+              {patternEntries.map((entry) => (
                 <tr key={entry.tag}>
                   <th scope="row">{DIET_TAG_LABELS[entry.tag]}</th>
                   <td>{entry.meaning}</td>

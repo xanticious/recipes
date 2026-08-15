@@ -8,29 +8,69 @@ test("ingredient ids are unique", () => {
   expect(new Set(ids).size).toBe(ids.length);
 });
 
+test("the ingredient catalog is at least five times the original staple list", () => {
+  expect(ingredients.length).toBeGreaterThanOrEqual(785);
+});
+
 test("recipe ids are unique", () => {
   const ids = recipes.map((recipe) => recipe.id);
   expect(new Set(ids).size).toBe(ids.length);
 });
 
-test("the catalog has about 50 recipes and all five meal types", () => {
-  expect(recipes.length).toBeGreaterThanOrEqual(48);
-  expect(recipes.length).toBeLessThanOrEqual(55);
+test("the catalog has at least 300 recipes and all five meal types", () => {
+  expect(recipes.length).toBeGreaterThanOrEqual(300);
   const meals = new Set(recipes.map((recipe) => recipe.mealType));
   expect(meals).toEqual(new Set(["breakfast", "lunch", "dinner", "snack", "dessert"]));
 });
 
 test("every ingredient and substitution exists in the catalog", () => {
+  const missing: string[] = [];
   for (const recipe of recipes) {
     for (const line of recipe.ingredients) {
-      expect(ingredientLookup.has(line.ingredientId), `${recipe.id} → ${line.ingredientId}`).toBe(
-        true,
-      );
-      for (const swap of line.substitutions ?? []) {
-        expect(ingredientLookup.has(swap), `${recipe.id} swap → ${swap}`).toBe(true);
+      if (!ingredientLookup.has(line.ingredientId)) {
+        missing.push(`${recipe.id} → ${line.ingredientId}`);
+      }
+      for (const group of line.substitutions ?? []) {
+        for (const option of group.options) {
+          if (option.ingredientId && !ingredientLookup.has(option.ingredientId)) {
+            missing.push(`${recipe.id} swap → ${option.ingredientId}`);
+          }
+        }
       }
     }
   }
+  expect(missing).toEqual([]);
+});
+
+test("step placeholders refer to ingredient slots", () => {
+  const slotName = /\{\{([^}:]+)/g;
+  const unknown: string[] = [];
+  for (const recipe of recipes) {
+    const slots = new Set(recipe.ingredients.map((line) => line.slot ?? line.ingredientId));
+    for (const step of recipe.steps) {
+      for (const match of step.matchAll(slotName)) {
+        const slot = match[1]?.trim() ?? "";
+        if (!slots.has(slot)) {
+          unknown.push(`${recipe.id} unknown slot {{${slot}}}`);
+        }
+      }
+    }
+  }
+  expect(unknown).toEqual([]);
+});
+
+test("plant proteins are not flagged animal; typical broth is", () => {
+  expect(ingredientLookup.get("tofu")?.flags).not.toEqual(expect.arrayContaining(["animal"]));
+  expect(ingredientLookup.get("chickpeas")?.flags).toEqual(expect.arrayContaining(["gos"]));
+  expect(ingredientLookup.get("tempeh")?.flags).not.toEqual(expect.arrayContaining(["animal"]));
+  expect(ingredientLookup.get("chicken-broth")?.flags).toEqual(
+    expect.arrayContaining(["animal", "fructan"]),
+  );
+});
+
+test("exported cheddar carries lactose and animal flags", () => {
+  const cheddar = ingredientLookup.get("cheddar");
+  expect(cheddar?.flags).toEqual(expect.arrayContaining(["lactose", "animal", "not-paleo"]));
 });
 
 test("deriveTags runs for every recipe", () => {
