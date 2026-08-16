@@ -3,35 +3,37 @@ import { useAppActor } from "../actors.tsx";
 import {
   CUISINES,
   CUISINE_LABELS,
-  ALLERGY_TAGS,
-  DIET_TAG_LABELS,
-  PATTERN_TAGS,
+  EAT_OUT_FILTER_LABELS,
   filterRecipes,
   groupRecipes,
-  ingredientLookup,
+  HA_FILTER_LABELS,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
   recipes,
+  TERNARY_FILTERS,
 } from "../data/index.ts";
 import { handleRouteClick } from "../navigation.ts";
 import { routeToHash } from "../routing.ts";
 import styles from "./ExplorePage.module.css";
+import { RecipeMarks } from "./RecipeMarks.tsx";
 
 export function ExplorePage() {
   const appActor = useAppActor();
   const explore = useSelector(appActor, (snapshot) => snapshot.context.explore);
 
-  const matches = filterRecipes(recipes, ingredientLookup, {
+  const matches = filterRecipes(recipes, {
     mealTypes: explore.mealTypes,
     cuisines: explore.cuisines,
-    tags: explore.tags,
+    eatOut: explore.eatOut,
+    ha: explore.ha,
     query: explore.query,
   });
   const grouped = groupRecipes(matches);
   const hasFilters =
     explore.mealTypes.length > 0 ||
     explore.cuisines.length > 0 ||
-    explore.tags.length > 0 ||
+    explore.eatOut !== "all" ||
+    explore.ha !== "all" ||
     explore.query.trim().length > 0;
 
   return (
@@ -39,8 +41,8 @@ export function ExplorePage() {
       <header className={styles.header}>
         <h1>Explore Recipes</h1>
         <p className={styles.lede}>
-          Combine meal type, cuisine, diet tags, and eating patterns. Filters use AND — a recipe
-          must match every selected tag, including listed substitutions.
+          Filter by home cooking or eat-out, HA or not, and cuisine. Browse is still grouped by
+          meal.
         </p>
       </header>
 
@@ -79,6 +81,44 @@ export function ExplorePage() {
         </fieldset>
 
         <fieldset className={styles.group}>
+          <legend>Where</legend>
+          <div className={styles.chips}>
+            {TERNARY_FILTERS.map((value) => (
+              <button
+                key={value}
+                type="button"
+                className={styles.chip}
+                aria-pressed={explore.eatOut === value}
+                onClick={() => {
+                  appActor.send({ type: "setExploreEatOut", eatOut: value });
+                }}
+              >
+                {EAT_OUT_FILTER_LABELS[value]}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset className={styles.group}>
+          <legend>HA</legend>
+          <div className={styles.chips}>
+            {TERNARY_FILTERS.map((value) => (
+              <button
+                key={value}
+                type="button"
+                className={styles.chip}
+                aria-pressed={explore.ha === value}
+                onClick={() => {
+                  appActor.send({ type: "setExploreHa", ha: value });
+                }}
+              >
+                {HA_FILTER_LABELS[value]}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset className={styles.group}>
           <legend>Cuisine</legend>
           <div className={styles.chips}>
             {CUISINES.map((cuisine) => (
@@ -92,44 +132,6 @@ export function ExplorePage() {
                 }}
               >
                 {CUISINE_LABELS[cuisine]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset className={styles.group}>
-          <legend>Diet tags</legend>
-          <div className={styles.chips}>
-            {ALLERGY_TAGS.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className={styles.chip}
-                aria-pressed={explore.tags.includes(tag)}
-                onClick={() => {
-                  appActor.send({ type: "toggleExploreTag", tag });
-                }}
-              >
-                {DIET_TAG_LABELS[tag]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset className={styles.group}>
-          <legend>Eating patterns</legend>
-          <div className={styles.chips}>
-            {PATTERN_TAGS.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className={styles.chip}
-                aria-pressed={explore.tags.includes(tag)}
-                onClick={() => {
-                  appActor.send({ type: "toggleExploreTag", tag });
-                }}
-              >
-                {DIET_TAG_LABELS[tag]}
               </button>
             ))}
           </div>
@@ -149,7 +151,7 @@ export function ExplorePage() {
 
       {matches.length === 0 ? (
         <p className={styles.empty} role="status">
-          No recipes match these filters. Clear a tag or broaden the search.
+          No recipes match these filters. Clear a filter or broaden the search.
         </p>
       ) : (
         <div className={styles.results}>
@@ -180,12 +182,13 @@ export function ExplorePage() {
                             });
                           }}
                         >
-                          {recipe.title}
+                          <span>{recipe.title}</span>
                           {recipe.specialOccasion ? (
                             <abbr className={styles.star} title="Special occasion">
                               *
                             </abbr>
                           ) : null}
+                          <RecipeMarks recipe={recipe} compact />
                         </a>
                       </li>
                     ))}

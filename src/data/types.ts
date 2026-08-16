@@ -27,27 +27,11 @@ export type IngredientFlag =
   | "gos"
   | "sorbitol"
   | "mannitol"
-  | "animal"
-  | "not-keto"
-  | "not-paleo"
-  | "not-carnivore";
+  | "high-fat";
 
-export type DietTag =
-  | "gluten-free"
-  | "vegan"
-  | "keto"
-  | "paleo"
-  | "carnivore"
-  | "lactose-free"
-  | "low-fructose"
-  | "low-fructan"
-  | "low-gos"
-  | "low-sorbitol"
-  | "low-mannitol"
-  | "low-oligosaccharide"
-  | "low-polyol"
-  | "low-fodmap"
-  | "low-fop";
+export type HealthRating = "healthy" | "moderate" | "unhealthy";
+
+export type TernaryFilter = "all" | "yes" | "no";
 
 export type Ingredient = {
   id: string;
@@ -57,57 +41,43 @@ export type Ingredient = {
   notes?: string;
 };
 
-export type SubstitutionOption = {
-  /** Catalog ingredient to use, or `null` to leave the line out. */
-  ingredientId: string | null;
-  amount?: number | null;
-  unit?: string | null;
-  preparation?: string;
-  /** Ingredient-list wording. Defaults to the catalog name or “Leave it out”. */
-  label?: string;
-  /** Text inserted into `{{slot}}` in steps. Defaults to the catalog name. */
-  stepPhrase?: string;
-};
-
-export type SubstitutionGroup = {
-  /** Diet tags this group of options is meant to satisfy. */
-  tags: DietTag[];
-  options: SubstitutionOption[];
-};
-
 export type IngredientLine = {
-  /** Key for selections and `{{slot}}` in steps. Defaults to `ingredientId`. */
-  slot?: string;
   ingredientId: string;
   amount: number | null;
   unit: string | null;
   preparation?: string;
   optional?: boolean;
-  substitutions?: SubstitutionGroup[];
 };
 
-export type IngredientSelection = {
-  tag: DietTag;
-  optionIndex: number;
-};
-
-export type RecipeSelections = Readonly<Record<string, IngredientSelection>>;
-
-export type Recipe = {
+export type RecipeCore = {
   id: string;
   title: string;
   mealType: MealType;
   cuisine: Cuisine;
   specialOccasion: boolean;
+  /** Fits this household’s usual diet constraints. Shown as “HA”. */
+  ha: boolean;
+  healthRating: HealthRating;
+  relatedRecipeIds?: readonly string[];
+  notes?: string;
+};
+
+export type HomeRecipe = RecipeCore & {
+  eatOut: false;
   prepMinutes: number;
   cookMinutes: number;
   totalMinutes?: number;
   servings: number;
   ingredients: IngredientLine[];
   steps: string[];
-  notes?: string;
-  tagOverrides?: Partial<Record<DietTag, boolean>>;
 };
+
+export type EatOutRecipe = RecipeCore & {
+  eatOut: true;
+  description: string;
+};
+
+export type Recipe = HomeRecipe | EatOutRecipe;
 
 export type Theme = "light" | "dark";
 export type FontSize = "small" | "medium" | "large";

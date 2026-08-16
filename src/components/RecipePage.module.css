@@ -45,45 +45,14 @@
   color: var(--accent);
 }
 
-.tagBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  margin: 0 0 0.85rem;
+.marks {
+  margin: 0 0 0.65rem;
 }
 
-.tagHeading {
-  margin: 0 0 0.35rem;
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 650;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+.haNote {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-}
-
-.tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.noTags {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.tags li {
-  padding: 0.2rem 0.65rem;
-  border-radius: 999px;
-  background: var(--chip-bg);
-  border: 1px solid var(--border);
-  font-size: 0.85rem;
-  color: var(--text);
 }
 
 .meta {
@@ -146,101 +115,55 @@
   line-height: 1.45;
 }
 
-.swapped {
-  border-left-color: var(--accent);
+.order {
+  max-width: 42rem;
 }
 
-.lineRow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.4rem 0.55rem;
+.order h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
 }
 
-.subChips {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
+.order p {
+  margin: 0;
+  line-height: 1.55;
 }
 
-.subChip,
-.reset,
-.collapse,
-.subOption {
-  font: inherit;
-  cursor: pointer;
+.related {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
 }
 
-.subChip {
-  min-height: 28px;
-  padding: 0.05rem 0.4rem;
-  border-radius: 999px;
-  border: 1px solid var(--accent-border);
-  background: var(--accent-bg);
-  color: var(--text-h);
-  font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0.03em;
+.related h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.35rem;
 }
 
-.subChip[aria-expanded="true"] {
-  background: var(--accent);
-  color: var(--accent-contrast);
-  border-color: var(--accent);
-}
-
-.reset,
-.collapse {
-  min-height: 28px;
-  padding: 0 0.15rem;
-  border: 0;
-  background: none;
-  color: var(--accent);
-  font-size: 0.8rem;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-}
-
-.subPanel {
-  margin: 0.45rem 0 0.15rem;
-  padding: 0.55rem 0.7rem 0.65rem;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg-raised);
-}
-
-.subLead {
-  margin: 0 0 0.4rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.subPanel ul {
+.related ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-.subPanel li {
-  padding: 0;
-  border-left: 0;
+.related li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
 }
 
-.subOption {
-  width: 100%;
-  min-height: 36px;
-  padding: 0.2rem 0.35rem;
-  border: 0;
-  border-radius: 6px;
-  background: none;
+.related a {
   color: var(--text-h);
-  text-align: left;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
-.subOption:hover,
-.subOption[aria-pressed="true"] {
-  background: var(--accent-bg);
+.related a:hover {
+  color: var(--accent);
 }
 
 .steps ol {

@@ -13,6 +13,12 @@ html[data-theme="light"] {
   --accent-olive: #5c6b3a;
   --olive-border: #c5cbb0;
   --chip-bg: #efe8dc;
+  --health-healthy: #2f7d4a;
+  --health-healthy-bg: rgba(47, 125, 74, 0.12);
+  --health-moderate: #9a6b12;
+  --health-moderate-bg: rgba(154, 107, 18, 0.14);
+  --health-unhealthy: #b33a3a;
+  --health-unhealthy-bg: rgba(179, 58, 58, 0.12);
   --sans: "Segoe UI", system-ui, Roboto, sans-serif;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   color-scheme: light;
@@ -32,6 +38,12 @@ html[data-theme="dark"] {
   --accent-olive: #8a9a5c;
   --olive-border: #4a4e3a;
   --chip-bg: #2c2a26;
+  --health-healthy: #7dba8c;
+  --health-healthy-bg: rgba(125, 186, 140, 0.16);
+  --health-moderate: #d4a84b;
+  --health-moderate-bg: rgba(212, 168, 75, 0.16);
+  --health-unhealthy: #e07a7a;
+  --health-unhealthy-bg: rgba(224, 122, 122, 0.16);
   color-scheme: dark;
 }
 

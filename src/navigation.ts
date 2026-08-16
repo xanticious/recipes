@@ -1,7 +1,7 @@
 import type { MouseEvent } from "react";
 import type { ActorRefFrom } from "xstate";
-import { filterRecipes, ingredientLookup, pickRandomId, recipes } from "./data/index.ts";
-import type { DietTag, MealType } from "./data/types.ts";
+import { filterRecipes, pickRandomId, recipes } from "./data/index.ts";
+import type { MealType } from "./data/types.ts";
 import type { appMachine } from "./machines/appMachine.ts";
 import { routeToHash, type Route } from "./routing.ts";
 
@@ -24,11 +24,6 @@ export function goOpenExplore(appActor: AppActor, mealType?: MealType): void {
   syncHash({ name: "explore" });
 }
 
-export function goOpenExploreWithTag(appActor: AppActor, tag: DietTag): void {
-  appActor.send({ type: "openExplore", tag });
-  syncHash({ name: "explore" });
-}
-
 export function handleRouteClick(
   event: MouseEvent<HTMLAnchorElement>,
   appActor: AppActor,
@@ -43,10 +38,11 @@ export function handleRouteClick(
 
 export function openRandomFromFilters(appActor: AppActor): void {
   const { random } = appActor.getSnapshot().context;
-  const matches = filterRecipes(recipes, ingredientLookup, {
+  const matches = filterRecipes(recipes, {
     mealTypes: random.mealType ? [random.mealType] : undefined,
     cuisines: random.cuisine ? [random.cuisine] : undefined,
-    tags: random.tags,
+    eatOut: random.eatOut,
+    ha: random.ha,
   });
   const id = pickRandomId(
     matches.map((recipe) => recipe.id),

@@ -1,20 +1,16 @@
 import { expect, test } from "vitest";
-import { indexIngredients } from "./deriveTags.ts";
+import { isEatOutRecipe, isHomeRecipe } from "./recipe.ts";
 import { filterRecipes, groupRecipes } from "./filterRecipes.ts";
-import type { Ingredient, Recipe } from "./types.ts";
+import type { EatOutRecipe, HomeRecipe, Recipe } from "./types.ts";
 
-const lookup = indexIngredients([
-  { id: "rice", name: "rice", kind: "grain", flags: [] },
-  { id: "garlic", name: "garlic", kind: "produce", flags: ["fructan"] },
-] satisfies Ingredient[]);
-
-function recipe(partial: Partial<Recipe>): Recipe {
+function home(partial: Partial<HomeRecipe> & Pick<HomeRecipe, "id" | "title">): HomeRecipe {
   return {
-    id: "id",
-    title: "Recipe",
     mealType: "dinner",
     cuisine: "american",
     specialOccasion: false,
+    ha: false,
+    healthRating: "moderate",
+    eatOut: false,
     prepMinutes: 5,
     cookMinutes: 10,
     servings: 2,
@@ -24,29 +20,63 @@ function recipe(partial: Partial<Recipe>): Recipe {
   };
 }
 
-const chili = recipe({ id: "chili", title: "Chili", mealType: "dinner", cuisine: "american" });
-const tacos = recipe({ id: "tacos", title: "Tacos", mealType: "dinner", cuisine: "mexican" });
-const oats = recipe({
+function eatOut(
+  partial: Partial<EatOutRecipe> & Pick<EatOutRecipe, "id" | "title" | "description">,
+): EatOutRecipe {
+  return {
+    mealType: "lunch",
+    cuisine: "american",
+    specialOccasion: false,
+    ha: true,
+    healthRating: "healthy",
+    eatOut: true,
+    ...partial,
+  };
+}
+
+const chili = home({ id: "chili", title: "Chili" });
+const tacos = home({ id: "tacos", title: "Tacos", cuisine: "mexican", ha: true });
+const oats = home({
   id: "oats",
   title: "Blueberry Oatmeal",
   mealType: "breakfast",
-  cuisine: "american",
+  ha: true,
+  healthRating: "healthy",
 });
-const garlicChicken = recipe({
-  id: "garlic-chicken",
-  title: "Garlic Chicken",
-  ingredients: [{ ingredientId: "garlic", amount: 3, unit: "clove" }],
+const nuggets = eatOut({
+  id: "nuggets",
+  title: "Grilled Nuggets",
+  description: "Grilled nuggets, no sauce.",
 });
 
-const all = [chili, tacos, oats, garlicChicken];
+const all: Recipe[] = [chili, tacos, oats, nuggets];
 
-test("AND diet tags require every selected tag", () => {
-  const matches = filterRecipes(all, lookup, { tags: ["low-fructan", "gluten-free"] });
-  expect(matches.map((item) => item.id)).toEqual(["chili", "tacos", "oats"]);
+test("HA filter is exclusive, not AND tags", () => {
+  expect(filterRecipes(all, { ha: "yes" }).map((item) => item.id)).toEqual([
+    "tacos",
+    "oats",
+    "nuggets",
+  ]);
+  expect(filterRecipes(all, { ha: "no" }).map((item) => item.id)).toEqual(["chili"]);
+  expect(filterRecipes(all, { ha: "all" }).map((item) => item.id)).toEqual([
+    "chili",
+    "tacos",
+    "oats",
+    "nuggets",
+  ]);
+});
+
+test("eat-out filter is exclusive", () => {
+  expect(filterRecipes(all, { eatOut: "yes" }).map((item) => item.id)).toEqual(["nuggets"]);
+  expect(filterRecipes(all, { eatOut: "no" }).map((item) => item.id)).toEqual([
+    "chili",
+    "tacos",
+    "oats",
+  ]);
 });
 
 test("meal type and cuisine filters combine", () => {
-  const matches = filterRecipes(all, lookup, {
+  const matches = filterRecipes(all, {
     mealTypes: ["dinner"],
     cuisines: ["mexican"],
   });
@@ -54,16 +84,16 @@ test("meal type and cuisine filters combine", () => {
 });
 
 test("name search is case-insensitive", () => {
-  const matches = filterRecipes(all, lookup, { query: "blue" });
+  const matches = filterRecipes(all, { query: "blue" });
   expect(matches.map((item) => item.id)).toEqual(["oats"]);
 });
 
 test("empty filters return every recipe", () => {
-  expect(filterRecipes(all, lookup, {}).map((item) => item.id)).toEqual([
+  expect(filterRecipes(all, {}).map((item) => item.id)).toEqual([
     "chili",
     "tacos",
     "oats",
-    "garlic-chicken",
+    "nuggets",
   ]);
 });
 
@@ -72,4 +102,9 @@ test("groupRecipes nests cuisine inside meal type and sorts titles", () => {
   expect(grouped.map((group) => group.mealType)).toEqual(["breakfast", "dinner"]);
   expect(grouped[1]?.cuisines.map((item) => item.cuisine)).toEqual(["american", "mexican"]);
   expect(grouped[1]?.cuisines[0]?.recipes.map((item) => item.title)).toEqual(["Chili"]);
+});
+
+test("home and eat-out recipes are distinguished", () => {
+  expect(isHomeRecipe(chili)).toBe(true);
+  expect(isEatOutRecipe(nuggets)).toBe(true);
 });

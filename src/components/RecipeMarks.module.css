@@ -1,0 +1,78 @@
+.row,
+.compact {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.compact {
+  margin-left: 0.35rem;
+}
+
+.ha,
+.eatOut,
+.health {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.4rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+.ha {
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--text-h);
+}
+
+.eatOut {
+  background: var(--chip-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.health {
+  border: 1px solid transparent;
+  color: var(--health-text);
+  background: var(--health-bg);
+}
+
+.health[data-rating="healthy"] {
+  --health-text: var(--health-healthy);
+  --health-bg: var(--health-healthy-bg);
+}
+
+.health[data-rating="moderate"] {
+  --health-text: var(--health-moderate);
+  --health-bg: var(--health-moderate-bg);
+}
+
+.health[data-rating="unhealthy"] {
+  --health-text: var(--health-unhealthy);
+  --health-bg: var(--health-unhealthy-bg);
+}
+
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

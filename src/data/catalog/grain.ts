@@ -82,8 +82,8 @@ export const grain: Ingredient[] = [
     id: "sourdough-bread",
     name: "sourdough bread",
     kind: "grain",
-    flags: [],
-    notes: "Household exception: treated as acceptable for gluten-free and low-fructan.",
+    flags: ["gluten"],
+    notes: "Usually fine for fructans here; gluten still keeps it off HA plates.",
   },
 
   // Wheat, barley, rye

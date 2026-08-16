@@ -11,6 +11,7 @@ import { dinnerItalian } from "./dinner-italian.ts";
 import { dinnerMediterranean } from "./dinner-mediterranean.ts";
 import { dinnerMexican } from "./dinner-mexican.ts";
 import { dinnerOther } from "./dinner-other.ts";
+import { eatOut } from "./eat-out.ts";
 import { lunch } from "./lunch.ts";
 import { lunchMore } from "./lunch-more.ts";
 import { snack } from "./snack.ts";
@@ -33,4 +34,5 @@ export const recipes: Recipe[] = [
   ...snackMore,
   ...dessert,
   ...dessertMore,
+  ...eatOut,
 ];

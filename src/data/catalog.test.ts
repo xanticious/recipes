@@ -1,6 +1,7 @@
 import { expect, test } from "vitest";
-import { deriveTags } from "./deriveTags.ts";
+import { kitchenGuide } from "./guide.ts";
 import { ingredientLookup, ingredients } from "./ingredients.ts";
+import { isEatOutRecipe, isHomeRecipe, relatedRecipes } from "./recipe.ts";
 import { recipes } from "./recipes/index.ts";
 
 test("ingredient ids are unique", () => {
@@ -23,81 +24,81 @@ test("the catalog has at least 300 recipes and all five meal types", () => {
   expect(meals).toEqual(new Set(["breakfast", "lunch", "dinner", "snack", "dessert"]));
 });
 
-test("every ingredient and substitution exists in the catalog", () => {
+test("every home-recipe ingredient exists in the catalog", () => {
   const missing: string[] = [];
   for (const recipe of recipes) {
+    if (!isHomeRecipe(recipe)) {
+      continue;
+    }
     for (const line of recipe.ingredients) {
       if (!ingredientLookup.has(line.ingredientId)) {
         missing.push(`${recipe.id} → ${line.ingredientId}`);
-      }
-      for (const group of line.substitutions ?? []) {
-        for (const option of group.options) {
-          if (option.ingredientId && !ingredientLookup.has(option.ingredientId)) {
-            missing.push(`${recipe.id} swap → ${option.ingredientId}`);
-          }
-        }
       }
     }
   }
   expect(missing).toEqual([]);
 });
 
-test("step placeholders refer to ingredient slots", () => {
-  const slotName = /\{\{([^}:]+)/g;
-  const unknown: string[] = [];
+test("eat-out recipes have a description and no cook list", () => {
+  const eatOut = recipes.filter(isEatOutRecipe);
+  expect(eatOut.length).toBeGreaterThan(0);
+  for (const recipe of eatOut) {
+    expect(recipe.description.trim().length).toBeGreaterThan(0);
+  }
+});
+
+test("related recipe ids exist and do not point at themselves", () => {
+  const ids = new Set(recipes.map((recipe) => recipe.id));
+  const broken: string[] = [];
   for (const recipe of recipes) {
-    const slots = new Set(recipe.ingredients.map((line) => line.slot ?? line.ingredientId));
-    for (const step of recipe.steps) {
-      for (const match of step.matchAll(slotName)) {
-        const slot = match[1]?.trim() ?? "";
-        if (!slots.has(slot)) {
-          unknown.push(`${recipe.id} unknown slot {{${slot}}}`);
-        }
+    for (const relatedId of recipe.relatedRecipeIds ?? []) {
+      if (relatedId === recipe.id) {
+        broken.push(`${recipe.id} → self`);
+      }
+      if (!ids.has(relatedId)) {
+        broken.push(`${recipe.id} → ${relatedId}`);
       }
     }
+    expect(relatedRecipes(recipe, recipes).length).toBe(recipe.relatedRecipeIds?.length ?? 0);
   }
-  expect(unknown).toEqual([]);
+  expect(broken).toEqual([]);
 });
 
-test("plant proteins are not flagged animal; typical broth is", () => {
-  expect(ingredientLookup.get("tofu")?.flags).not.toEqual(expect.arrayContaining(["animal"]));
-  expect(ingredientLookup.get("chickpeas")?.flags).toEqual(expect.arrayContaining(["gos"]));
-  expect(ingredientLookup.get("tempeh")?.flags).not.toEqual(expect.arrayContaining(["animal"]));
-  expect(ingredientLookup.get("chicken-broth")?.flags).toEqual(
-    expect.arrayContaining(["animal", "fructan"]),
-  );
-});
-
-test("exported cheddar carries lactose and animal flags", () => {
-  const cheddar = ingredientLookup.get("cheddar");
-  expect(cheddar?.flags).toEqual(expect.arrayContaining(["lactose", "animal", "not-paleo"]));
-});
-
-test("deriveTags runs for every recipe", () => {
+test("HA and health ratings are present on every recipe", () => {
   for (const recipe of recipes) {
-    expect(() => deriveTags(recipe, ingredientLookup)).not.toThrow();
+    expect(typeof recipe.ha).toBe("boolean");
+    expect(["healthy", "moderate", "unhealthy"]).toContain(recipe.healthRating);
   }
+  expect(recipes.some((recipe) => recipe.ha)).toBe(true);
+  expect(recipes.some((recipe) => !recipe.ha)).toBe(true);
 });
 
-test("baseline recipes are gluten-free under household rules", () => {
-  const missing = recipes.filter(
-    (recipe) => !deriveTags(recipe, ingredientLookup).includes("gluten-free"),
-  );
-  expect(missing.map((recipe) => recipe.id)).toEqual([]);
-});
-
-test("special-occasion marks and the sourdough sandwich are present", () => {
+test("special-occasion marks and the Alfredo pair are present", () => {
   const special = recipes.filter((recipe) => recipe.specialOccasion).map((recipe) => recipe.id);
   expect(special).toEqual(
     expect.arrayContaining(["sunday-roast-chicken", "chicken-cacciatore", "parmesan-risotto"]),
   );
-  expect(recipes.some((recipe) => recipe.id === "sourdough-turkey-sandwich")).toBe(true);
+  const classic = recipes.find((recipe) => recipe.id === "fettuccine-alfredo");
+  const converted = recipes.find((recipe) => recipe.id === "fettuccine-alfredo-ha");
+  expect(classic?.ha).toBe(false);
+  expect(converted?.ha).toBe(true);
+  expect(classic?.relatedRecipeIds).toContain("fettuccine-alfredo-ha");
+  expect(converted?.relatedRecipeIds).toContain("fettuccine-alfredo");
 });
 
-test("several recipes have no onion or garlic at all", () => {
-  const allium = new Set(["onion", "garlic", "shallot", "leek", "garlic-powder", "onion-powder"]);
-  const clear = recipes.filter((recipe) =>
-    recipe.ingredients.every((line) => line.optional || !allium.has(line.ingredientId)),
-  );
-  expect(clear.length).toBeGreaterThanOrEqual(10);
+test("the kitchen guide has substitution sections", () => {
+  expect(kitchenGuide.sections.length).toBeGreaterThanOrEqual(6);
+  expect(kitchenGuide.sections.some((section) => section.id === "convert")).toBe(true);
+});
+
+test("exported cheddar carries lactose; lifestyle flags are gone", () => {
+  const cheddar = ingredientLookup.get("cheddar");
+  expect(cheddar?.flags).toEqual(expect.arrayContaining(["lactose"]));
+  expect(cheddar?.flags).not.toEqual(expect.arrayContaining(["animal"]));
+  expect(cheddar?.flags).not.toEqual(expect.arrayContaining(["not-paleo"]));
+});
+
+test("chickpeas still carry GOS; tofu is not flagged animal", () => {
+  expect(ingredientLookup.get("chickpeas")?.flags).toEqual(expect.arrayContaining(["gos"]));
+  expect(ingredientLookup.get("tofu")?.flags).not.toEqual(expect.arrayContaining(["animal"]));
 });

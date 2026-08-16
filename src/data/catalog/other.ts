@@ -197,7 +197,7 @@ export const other: Ingredient[] = [
     notes: "Typical pesto includes garlic and Parmesan.",
   },
   { id: "marinara", name: "marinara sauce", kind: "other", flags: ["fructan"] },
-  { id: "alfredo-sauce", name: "Alfredo sauce", kind: "other", flags: ["lactose"] },
+  { id: "alfredo-sauce", name: "Alfredo sauce", kind: "other", flags: ["lactose", "high-fat"] },
   { id: "enchilada-sauce", name: "enchilada sauce", kind: "other", flags: ["fructan"] },
   { id: "taco-sauce", name: "taco sauce", kind: "other", flags: ["fructan"] },
   { id: "mole", name: "mole sauce", kind: "other", flags: ["fructose", "fructan"] },

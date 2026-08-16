@@ -6,11 +6,9 @@ test("parseHash reads landing, explore, random, recipe, and guide urls", () => {
   expect(parseHash("#/")).toEqual({ name: "landing" });
   expect(parseHash("#/recipes")).toEqual({ name: "explore" });
   expect(parseHash("#/random")).toEqual({ name: "random" });
-  expect(parseHash("#/guides")).toEqual({ name: "guides" });
-  expect(parseHash("#/guides/allergies")).toEqual({ name: "guideList", category: "allergies" });
-  expect(parseHash("#/guides/lifestyle")).toEqual({ name: "guideList", category: "lifestyle" });
-  expect(parseHash("#/guides/low-fop")).toEqual({ name: "guide", tag: "low-fop" });
-  expect(parseHash("#/guides/not-a-tag")).toEqual({ name: "guides" });
+  expect(parseHash("#/guide")).toEqual({ name: "guide" });
+  expect(parseHash("#/guides")).toEqual({ name: "guide" });
+  expect(parseHash("#/ingredients")).toEqual({ name: "ingredients" });
   expect(parseHash("#/recipes/chili")).toEqual({
     name: "recipe",
     id: "chili",
@@ -28,9 +26,8 @@ test("routeToHash round-trips", () => {
     { name: "landing" },
     { name: "explore" },
     { name: "random" },
-    { name: "guides" },
-    { name: "guideList", category: "allergies" },
-    { name: "guide", tag: "vegan" },
+    { name: "guide" },
+    { name: "ingredients" },
     { name: "recipe", id: "chili", fromRandom: false },
     { name: "recipe", id: "chili", fromRandom: true },
   ];
@@ -47,5 +44,5 @@ test("routesEqual compares recipe identity and the random flag", () => {
       { name: "recipe", id: "a", fromRandom: false },
     ),
   ).toBe(false);
-  expect(routesEqual({ name: "guide", tag: "vegan" }, { name: "guide", tag: "keto" })).toBe(false);
+  expect(routesEqual({ name: "guide" }, { name: "explore" })).toBe(false);
 });

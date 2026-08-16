@@ -1,18 +1,22 @@
-import { deriveTags, type IngredientLookup } from "./deriveTags.ts";
-import type { Cuisine, DietTag, MealType, Recipe } from "./types.ts";
+import { isEatOutRecipe } from "./recipe.ts";
+import type { Cuisine, MealType, Recipe, TernaryFilter } from "./types.ts";
 
 export type RecipeFilters = {
   mealTypes?: readonly MealType[];
   cuisines?: readonly Cuisine[];
-  tags?: readonly DietTag[];
+  eatOut?: TernaryFilter;
+  ha?: TernaryFilter;
   query?: string;
 };
 
-export function recipeMatchesFilters(
-  recipe: Recipe,
-  lookup: IngredientLookup,
-  filters: RecipeFilters,
-): boolean {
+export function matchesTernary(value: boolean, filter: TernaryFilter | undefined): boolean {
+  if (!filter || filter === "all") {
+    return true;
+  }
+  return filter === "yes" ? value : !value;
+}
+
+export function recipeMatchesFilters(recipe: Recipe, filters: RecipeFilters): boolean {
   if (filters.mealTypes && filters.mealTypes.length > 0) {
     if (!filters.mealTypes.includes(recipe.mealType)) {
       return false;
@@ -25,11 +29,12 @@ export function recipeMatchesFilters(
     }
   }
 
-  if (filters.tags && filters.tags.length > 0) {
-    const tags = deriveTags(recipe, lookup);
-    if (!filters.tags.every((tag) => tags.includes(tag))) {
-      return false;
-    }
+  if (!matchesTernary(isEatOutRecipe(recipe), filters.eatOut)) {
+    return false;
+  }
+
+  if (!matchesTernary(recipe.ha, filters.ha)) {
+    return false;
   }
 
   const query = filters.query?.trim().toLowerCase();
@@ -40,12 +45,8 @@ export function recipeMatchesFilters(
   return true;
 }
 
-export function filterRecipes(
-  recipes: readonly Recipe[],
-  lookup: IngredientLookup,
-  filters: RecipeFilters,
-): Recipe[] {
-  return recipes.filter((recipe) => recipeMatchesFilters(recipe, lookup, filters));
+export function filterRecipes(recipes: readonly Recipe[], filters: RecipeFilters): Recipe[] {
+  return recipes.filter((recipe) => recipeMatchesFilters(recipe, filters));
 }
 
 export type GroupedRecipes = {

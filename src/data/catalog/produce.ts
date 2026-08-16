@@ -71,7 +71,7 @@ export const produce: Ingredient[] = [
     name: "celery",
     kind: "produce",
     flags: ["mannitol"],
-    notes: "Household avoid when claiming Low FOP / low-mannitol.",
+    notes: "Household avoid on HA plates.",
   },
   { id: "celery-root", name: "celery root", kind: "produce", flags: ["mannitol"] },
   { id: "potato", name: "potato", kind: "produce", flags: [] },
@@ -190,7 +190,7 @@ export const produce: Ingredient[] = [
     name: "cauliflower",
     kind: "produce",
     flags: ["mannitol"],
-    notes: "Household avoid.",
+    notes: "Household avoid on HA plates, including cooked.",
   },
   { id: "romanesco", name: "romanesco", kind: "produce", flags: ["mannitol"] },
   {
@@ -217,7 +217,13 @@ export const produce: Ingredient[] = [
   { id: "fennel-fronds", name: "fennel fronds", kind: "produce", flags: [] },
 
   // Mushrooms
-  { id: "mushroom", name: "mushrooms", kind: "produce", flags: ["mannitol"] },
+  {
+    id: "mushroom",
+    name: "mushrooms",
+    kind: "produce",
+    flags: ["mannitol"],
+    notes: "A problem raw; cooked is treated as acceptable for HA.",
+  },
   { id: "button-mushroom", name: "button mushrooms", kind: "produce", flags: ["mannitol"] },
   { id: "cremini", name: "cremini mushrooms", kind: "produce", flags: ["mannitol"] },
   { id: "portobello", name: "portobello mushrooms", kind: "produce", flags: ["mannitol"] },
@@ -255,7 +261,7 @@ export const produce: Ingredient[] = [
     name: "avocado",
     kind: "produce",
     flags: ["sorbitol"],
-    notes: "Household avoid when claiming Low FOP / low-sorbitol.",
+    notes: "Household avoid on HA plates (sorbitol).",
   },
   {
     id: "corn",

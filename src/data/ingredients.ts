@@ -7,10 +7,9 @@ import { protein } from "./catalog/protein.ts";
 import { spice } from "./catalog/spice.ts";
 import { sweetener } from "./catalog/sweetener.ts";
 import { indexIngredients } from "./lookup.ts";
-import { withLifestyleFlags } from "./lifestyleFlags.ts";
 import type { Ingredient } from "./types.ts";
 
-const catalog: Ingredient[] = [
+export const ingredients: readonly Ingredient[] = [
   ...produce,
   ...dairy,
   ...grain,
@@ -20,7 +19,5 @@ const catalog: Ingredient[] = [
   ...spice,
   ...other,
 ];
-
-export const ingredients: readonly Ingredient[] = catalog.map(withLifestyleFlags);
 
 export const ingredientLookup = indexIngredients(ingredients);

@@ -3,11 +3,11 @@ import { useAppActor } from "../actors.tsx";
 import {
   CUISINES,
   CUISINE_LABELS,
-  ALLERGY_TAGS,
-  DIET_TAG_LABELS,
-  PATTERN_TAGS,
+  EAT_OUT_FILTER_LABELS,
+  HA_FILTER_LABELS,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
+  TERNARY_FILTERS,
 } from "../data/index.ts";
 import { openRandomFromFilters } from "../navigation.ts";
 import styles from "./RandomPage.module.css";
@@ -21,8 +21,8 @@ export function RandomPage() {
       <header className={styles.header}>
         <h1>Random</h1>
         <p className={styles.lede}>
-          Leave meal type and cuisine open, or pick one of each. Diet tags combine with AND. We skip
-          the last recipe when another match exists.
+          Leave filters open, or pick meal type, cuisine, home vs eat-out, and HA. We skip the last
+          recipe when another match exists.
         </p>
       </header>
 
@@ -50,6 +50,44 @@ export function RandomPage() {
               }}
             >
               {MEAL_TYPE_LABELS[mealType]}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className={styles.group}>
+        <legend>Where</legend>
+        <div className={styles.chips}>
+          {TERNARY_FILTERS.map((value) => (
+            <button
+              key={value}
+              type="button"
+              className={styles.chip}
+              aria-pressed={random.eatOut === value}
+              onClick={() => {
+                appActor.send({ type: "setRandomEatOut", eatOut: value });
+              }}
+            >
+              {EAT_OUT_FILTER_LABELS[value]}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className={styles.group}>
+        <legend>HA</legend>
+        <div className={styles.chips}>
+          {TERNARY_FILTERS.map((value) => (
+            <button
+              key={value}
+              type="button"
+              className={styles.chip}
+              aria-pressed={random.ha === value}
+              onClick={() => {
+                appActor.send({ type: "setRandomHa", ha: value });
+              }}
+            >
+              {HA_FILTER_LABELS[value]}
             </button>
           ))}
         </div>
@@ -84,44 +122,6 @@ export function RandomPage() {
         </div>
       </fieldset>
 
-      <fieldset className={styles.group}>
-        <legend>Diet tags</legend>
-        <div className={styles.chips}>
-          {ALLERGY_TAGS.map((tag) => (
-            <button
-              key={tag}
-              type="button"
-              className={styles.chip}
-              aria-pressed={random.tags.includes(tag)}
-              onClick={() => {
-                appActor.send({ type: "toggleRandomTag", tag });
-              }}
-            >
-              {DIET_TAG_LABELS[tag]}
-            </button>
-          ))}
-        </div>
-      </fieldset>
-
-      <fieldset className={styles.group}>
-        <legend>Eating patterns</legend>
-        <div className={styles.chips}>
-          {PATTERN_TAGS.map((tag) => (
-            <button
-              key={tag}
-              type="button"
-              className={styles.chip}
-              aria-pressed={random.tags.includes(tag)}
-              onClick={() => {
-                appActor.send({ type: "toggleRandomTag", tag });
-              }}
-            >
-              {DIET_TAG_LABELS[tag]}
-            </button>
-          ))}
-        </div>
-      </fieldset>
-
       <button
         type="button"
         className={styles.roll}
@@ -134,7 +134,7 @@ export function RandomPage() {
 
       {random.noMatch ? (
         <p className={styles.miss} role="status">
-          Nothing matches these filters. Leave them as they are and loosen a tag or pick Any.
+          Nothing matches these filters. Leave them as they are and loosen one.
         </p>
       ) : null}
     </div>

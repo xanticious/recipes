@@ -9,7 +9,7 @@ src/
   main.tsx                 # app entry
   components/              # React views: render actor state, send events
   machines/                # xState machines and actors (all app state)
-  data/                    # recipes, ingredient catalog, tag derivation
+  data/                    # recipes, ingredient catalog, kitchen guide
   *.module.css             # styles colocated with the UI they style
 design/
   DESIGN_DOCUMENT.md       # product source of truth
@@ -37,7 +37,7 @@ Also available: `npm run dev` (Vite), `npm run build` (typecheck + static `dist/
 ## Code conventions
 
 - **Comments:** use them sparingly. Prefer clear names and structure. Comment only when the _why_ is not obvious from the code.
-- **DRY:** extract shared logic. Do not duplicate tag derivation, filter rules, or machine behavior.
-- **State:** all app state lives in xState machines / actors. Do not use `useState()` (or other React state hooks) for app state. React is for rendering and displaying actor snapshots and for sending events. Navigation, filters, theme, font size, and Random belong in machines.
+- **DRY:** extract shared logic. Do not duplicate filter rules or machine behavior.
+- **State:** all app state lives in xState machines / actors. Do not use `useState()` (or other React state hooks) for app state. React is for rendering and displaying actor snapshots and for sending events. Navigation, filters, theme, font size, Ingredients expand/collapse, and Random belong in machines.
 - **Styling:** CSS modules only (`*.module.css`), colocated with the component. Theme and type-scale tokens go on `:root` / `html` (`data-theme`, `data-font-size`).
 - **Dependencies:** add open-source packages only when needed. License must be MIT or similarly permissive. No proprietary or copyleft-restrictive packages.
