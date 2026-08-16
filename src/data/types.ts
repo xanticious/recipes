@@ -33,12 +33,19 @@ export type HealthRating = "healthy" | "moderate" | "unhealthy";
 
 export type TernaryFilter = "all" | "yes" | "no";
 
+/** House approval on an ingredient: approved, not approved, or still considering. */
+export type HaStatus = "yes" | "no" | "pending";
+
+export type HaFilter = "all" | HaStatus;
+
 export type Ingredient = {
   id: string;
   name: string;
   kind: IngredientKind;
   flags: readonly IngredientFlag[];
   notes?: string;
+  /** House approval. When omitted, Pending House Approval. */
+  ha?: HaStatus;
 };
 
 export type IngredientLine = {
@@ -55,8 +62,8 @@ export type RecipeCore = {
   mealType: MealType;
   cuisine: Cuisine;
   specialOccasion: boolean;
-  /** Fits this household’s usual diet constraints. Shown as “HA”. */
-  ha: boolean;
+  /** House approval. Hand-maintained. Shown as HA / Pending House Approval / Not House Approved. */
+  ha: HaStatus;
   healthRating: HealthRating;
   relatedRecipeIds?: readonly string[];
   notes?: string;

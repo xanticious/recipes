@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
 import { kitchenGuide } from "./guide.ts";
+import { ingredientHaStatus } from "./ha.ts";
 import { ingredientLookup, ingredients } from "./ingredients.ts";
 import { isEatOutRecipe, isHomeRecipe, relatedRecipes } from "./recipe.ts";
 import { recipes } from "./recipes/index.ts";
@@ -66,11 +67,10 @@ test("related recipe ids exist and do not point at themselves", () => {
 
 test("HA and health ratings are present on every recipe", () => {
   for (const recipe of recipes) {
-    expect(typeof recipe.ha).toBe("boolean");
+    expect(["yes", "no", "pending"]).toContain(recipe.ha);
     expect(["healthy", "moderate", "unhealthy"]).toContain(recipe.healthRating);
   }
-  expect(recipes.some((recipe) => recipe.ha)).toBe(true);
-  expect(recipes.some((recipe) => !recipe.ha)).toBe(true);
+  expect(recipes.every((recipe) => recipe.ha === "pending")).toBe(true);
 });
 
 test("special-occasion marks and the Alfredo pair are present", () => {
@@ -80,15 +80,19 @@ test("special-occasion marks and the Alfredo pair are present", () => {
   );
   const classic = recipes.find((recipe) => recipe.id === "fettuccine-alfredo");
   const converted = recipes.find((recipe) => recipe.id === "fettuccine-alfredo-ha");
-  expect(classic?.ha).toBe(false);
-  expect(converted?.ha).toBe(true);
+  expect(classic?.ha).toBe("pending");
+  expect(converted?.ha).toBe("pending");
   expect(classic?.relatedRecipeIds).toContain("fettuccine-alfredo-ha");
   expect(converted?.relatedRecipeIds).toContain("fettuccine-alfredo");
 });
 
-test("the kitchen guide has substitution sections", () => {
-  expect(kitchenGuide.sections.length).toBeGreaterThanOrEqual(6);
-  expect(kitchenGuide.sections.some((section) => section.id === "convert")).toBe(true);
+test("the kitchen guide has House Approved meaning and substitutions", () => {
+  expect(kitchenGuide.sections.map((section) => section.id)).toEqual([
+    "ha",
+    "sourdough",
+    "substitutions",
+  ]);
+  expect(kitchenGuide.sections.some((section) => (section.items?.length ?? 0) > 0)).toBe(true);
 });
 
 test("exported cheddar carries lactose; lifestyle flags are gone", () => {
@@ -98,7 +102,8 @@ test("exported cheddar carries lactose; lifestyle flags are gone", () => {
   expect(cheddar?.flags).not.toEqual(expect.arrayContaining(["not-paleo"]));
 });
 
-test("chickpeas still carry GOS; tofu is not flagged animal", () => {
-  expect(ingredientLookup.get("chickpeas")?.flags).toEqual(expect.arrayContaining(["gos"]));
-  expect(ingredientLookup.get("tofu")?.flags).not.toEqual(expect.arrayContaining(["animal"]));
+test("every catalog ingredient is pending House Approval", () => {
+  for (const ingredient of ingredients) {
+    expect(ingredientHaStatus(ingredient)).toBe("pending");
+  }
 });

@@ -1,14 +1,16 @@
 import { expect, test } from "vitest";
 import { parseHash, routesEqual, routeToHash, type Route } from "./routing.ts";
 
-test("parseHash reads landing, explore, random, recipe, and guide urls", () => {
+test("parseHash reads landing, explore, eat-out, random, recipe, and guide urls", () => {
   expect(parseHash("")).toEqual({ name: "landing" });
   expect(parseHash("#/")).toEqual({ name: "landing" });
   expect(parseHash("#/recipes")).toEqual({ name: "explore" });
+  expect(parseHash("#/eat-out")).toEqual({ name: "eatOut" });
   expect(parseHash("#/random")).toEqual({ name: "random" });
   expect(parseHash("#/guide")).toEqual({ name: "guide" });
   expect(parseHash("#/guides")).toEqual({ name: "guide" });
   expect(parseHash("#/ingredients")).toEqual({ name: "ingredients" });
+  expect(parseHash("#/ingredient-categorizer")).toEqual({ name: "ingredientCategorizer" });
   expect(parseHash("#/recipes/chili")).toEqual({
     name: "recipe",
     id: "chili",
@@ -25,9 +27,11 @@ test("routeToHash round-trips", () => {
   const routes: Route[] = [
     { name: "landing" },
     { name: "explore" },
+    { name: "eatOut" },
     { name: "random" },
     { name: "guide" },
     { name: "ingredients" },
+    { name: "ingredientCategorizer" },
     { name: "recipe", id: "chili", fromRandom: false },
     { name: "recipe", id: "chili", fromRandom: true },
   ];

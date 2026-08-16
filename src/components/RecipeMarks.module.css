@@ -11,7 +11,6 @@
 }
 
 .ha,
-.eatOut,
 .health {
   display: inline-flex;
   align-items: center;
@@ -26,15 +25,21 @@
 }
 
 .ha {
+  background: var(--chip-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.ha[data-status="yes"] {
   background: var(--accent-bg);
   border: 1px solid var(--accent-border);
   color: var(--text-h);
 }
 
-.eatOut {
-  background: var(--chip-bg);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
+.ha[data-status="pending"] {
+  background: var(--health-moderate-bg);
+  border: 1px solid var(--health-moderate);
+  color: var(--health-moderate);
 }
 
 .health {
@@ -58,11 +63,15 @@
   --health-bg: var(--health-unhealthy-bg);
 }
 
-.dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: currentColor;
+.thermometer {
+  display: block;
+  width: 0.85rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+}
+
+.compact .health {
+  padding-inline: 0.32rem;
 }
 
 .srOnly {

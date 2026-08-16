@@ -2,7 +2,10 @@ import { useAppActor } from "../actors.tsx";
 import {
   CUISINE_LABELS,
   getIngredient,
+  HA_FULL_LABEL,
   HA_LABEL,
+  HA_NOT_LABEL,
+  HA_PENDING_LABEL,
   HEALTH_RATING_LABELS,
   ingredientLookup,
   isEatOutRecipe,
@@ -78,7 +81,15 @@ function RecipeNotFound() {
             handleRouteClick(event, appActor, { name: "explore" });
           }}
         >
-          Explore Recipes
+          Recipes
+        </a>
+        <a
+          href={routeToHash({ name: "eatOut" })}
+          onClick={(event) => {
+            handleRouteClick(event, appActor, { name: "eatOut" });
+          }}
+        >
+          Eat Out
         </a>
       </p>
     </div>
@@ -160,9 +171,10 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
         <div className={styles.marks}>
           <RecipeMarks recipe={recipe} />
         </div>
-        {!recipe.ha ? (
+        {recipe.ha !== "yes" ? (
           <p className={styles.haNote}>
-            Not marked {HA_LABEL}. See the kitchen guide if you want to convert it.
+            {recipe.ha === "pending" ? HA_PENDING_LABEL : HA_NOT_LABEL}. {HA_LABEL} means{" "}
+            {HA_FULL_LABEL}.
           </p>
         ) : null}
 

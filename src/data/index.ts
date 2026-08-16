@@ -6,7 +6,16 @@ export {
 } from "./filterRecipes.ts";
 export { kitchenGuide, GUIDE_DISCLAIMER } from "./guide.ts";
 export type { GuideSection, GuideSwap } from "./guide.ts";
-export { ingredientIsHa } from "./ha.ts";
+export { ingredientHaStatus, ingredientIsHa, matchesHaFilter } from "./ha.ts";
+export {
+  CATEGORIZER_COLUMNS,
+  CATEGORIZER_COLUMN_KEYS,
+  CATEGORIZER_COLUMN_LABELS,
+  CATEGORIZER_KEY_COLUMNS,
+  categorizerExportJson,
+  ingredientsInColumn,
+} from "./ingredientCategorizer.ts";
+export type { CategorizerColumn } from "./ingredientCategorizer.ts";
 export {
   filterIngredients,
   groupIngredients,
@@ -14,6 +23,8 @@ export {
   INGREDIENT_SECTIONS,
   ingredientMatchesFilters,
   ingredientSection,
+  ingredientsInBrowseOrder,
+  isIngredientSection,
   recipesByIngredientId,
   recipesUsingIngredient,
 } from "./ingredientBrowse.ts";
@@ -31,9 +42,16 @@ export {
   CUISINE_LABELS,
   EAT_OUT_FILTER_LABELS,
   HA_FILTER_LABELS,
+  HA_FILTERS,
+  HA_FULL_LABEL,
   HA_LABEL,
+  HA_NOT_LABEL,
+  HA_PENDING_LABEL,
   HEALTH_RATING_LABELS,
   HEALTH_RATINGS,
+  INGREDIENT_HA_FILTER_LABELS,
+  INGREDIENT_HA_TAG_LABELS,
+  INGREDIENT_HA_TAG_TITLES,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
   TERNARY_FILTERS,
@@ -42,6 +60,8 @@ export type {
   Cuisine,
   EatOutRecipe,
   FontSize,
+  HaFilter,
+  HaStatus,
   HealthRating,
   HomeRecipe,
   Ingredient,

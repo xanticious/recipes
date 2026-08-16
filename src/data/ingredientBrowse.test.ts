@@ -3,6 +3,8 @@ import {
   filterIngredients,
   groupIngredients,
   ingredientSection,
+  ingredientsInBrowseOrder,
+  isIngredientSection,
   recipesByIngredientId,
   recipesUsingIngredient,
 } from "./ingredientBrowse.ts";
@@ -18,7 +20,7 @@ function home(partial: Partial<HomeRecipe> & Pick<HomeRecipe, "id" | "title">): 
     mealType: "dinner",
     cuisine: "american",
     specialOccasion: false,
-    ha: true,
+    ha: "yes",
     healthRating: "healthy",
     eatOut: false,
     prepMinutes: 5,
@@ -57,19 +59,71 @@ test("every catalog ingredient lands in a section and grouping covers the book",
   );
 });
 
-test("HA filter and name search combine", () => {
-  const garlic = item({ id: "garlic", name: "garlic", kind: "produce", flags: ["fructan"] });
-  const rice = item({ id: "white-rice", name: "white rice", kind: "grain" });
-  const catalog = [garlic, rice];
+test("browse order is grocery section then alphabetical name", () => {
+  const zucchini = item({ id: "zucchini", name: "zucchini", kind: "produce" });
+  const garlic = item({ id: "garlic", name: "garlic", kind: "produce" });
+  const apple = item({ id: "apple", name: "apple", kind: "produce" });
+  const chicken = item({ id: "chicken-breast", name: "chicken", kind: "protein" });
+  const catalog = [zucchini, apple, chicken, garlic];
+  expect(groupIngredients(catalog).map((group) => group.section)).toEqual([
+    "meat",
+    "vegetables",
+    "fruit",
+  ]);
+  expect(ingredientsInBrowseOrder(catalog).map((ingredient) => ingredient.id)).toEqual([
+    "chicken-breast",
+    "garlic",
+    "zucchini",
+    "apple",
+  ]);
+});
+
+test("HA filter, category, and name search combine", () => {
+  const garlic = item({
+    id: "garlic",
+    name: "garlic",
+    kind: "produce",
+    flags: ["fructan"],
+    ha: "no",
+  });
+  const rice = item({ id: "white-rice", name: "white rice", kind: "grain", ha: "yes" });
+  const chicken = item({ id: "chicken-breast", name: "chicken", kind: "protein", ha: "yes" });
+  const banana = item({
+    id: "banana",
+    name: "banana",
+    kind: "produce",
+    flags: ["fructan"],
+    ha: "pending",
+  });
+  const catalog = [garlic, rice, chicken, banana];
   expect(filterIngredients(catalog, { ha: "yes" }).map((ingredient) => ingredient.id)).toEqual([
     "white-rice",
+    "chicken-breast",
   ]);
   expect(filterIngredients(catalog, { ha: "no" }).map((ingredient) => ingredient.id)).toEqual([
     "garlic",
   ]);
+  expect(filterIngredients(catalog, { ha: "pending" }).map((ingredient) => ingredient.id)).toEqual([
+    "banana",
+  ]);
   expect(filterIngredients(catalog, { query: "RICE" }).map((ingredient) => ingredient.id)).toEqual([
     "white-rice",
   ]);
+  expect(
+    filterIngredients(catalog, { section: "meat" }).map((ingredient) => ingredient.id),
+  ).toEqual(["chicken-breast"]);
+  expect(
+    filterIngredients(catalog, { section: "grains", query: "rice" }).map(
+      (ingredient) => ingredient.id,
+    ),
+  ).toEqual(["white-rice"]);
+});
+
+test("isIngredientSection accepts grocery sections and rejects empty", () => {
+  expect(isIngredientSection("meat")).toBe(true);
+  expect(isIngredientSection("pantry")).toBe(true);
+  expect(isIngredientSection("")).toBe(false);
+  expect(isIngredientSection("protein")).toBe(false);
 });
 
 test("recipesUsingIngredient lists home recipes and skips eat-out", () => {
@@ -95,7 +149,7 @@ test("recipesUsingIngredient lists home recipes and skips eat-out", () => {
       mealType: "lunch",
       cuisine: "american",
       specialOccasion: false,
-      ha: true,
+      ha: "yes",
       healthRating: "healthy",
       eatOut: true,
       description: "Grilled nuggets.",

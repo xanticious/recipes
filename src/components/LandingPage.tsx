@@ -1,6 +1,6 @@
 import { useAppActor } from "../actors.tsx";
 import { MEAL_TYPES, MEAL_TYPE_LABELS } from "../data/index.ts";
-import { goOpenExplore, goToRoute } from "../navigation.ts";
+import { goOpenEatOut, goOpenExplore, goToRoute } from "../navigation.ts";
 import styles from "./LandingPage.module.css";
 
 export function LandingPage() {
@@ -13,7 +13,11 @@ export function LandingPage() {
         <p className={styles.lede}>
           This is our family cookbook: weeknight dinners, a few special-occasion meals, and the
           takeout orders we actually get. Practical food, grocery-store ingredients, and a short
-          kitchen guide when we need to convert a dish.
+          kitchen guide.
+        </p>
+        <p className={styles.lede}>
+          HA means House Approved: we can serve it without interfering with our food allergies, and
+          it does not taste bad to any of us :) .
         </p>
       </header>
 
@@ -35,6 +39,22 @@ export function LandingPage() {
         </div>
       </section>
 
+      <section className={styles.section} aria-labelledby="eat-out-heading">
+        <h2 id="eat-out-heading">Eat out</h2>
+        <p>Restaurant and takeout orders we actually get.</p>
+        <div className={styles.mealRow}>
+          <button
+            type="button"
+            className={styles.mealLink}
+            onClick={() => {
+              goOpenEatOut(appActor);
+            }}
+          >
+            Open eat out
+          </button>
+        </div>
+      </section>
+
       <section className={styles.section} aria-labelledby="browse-ingredients">
         <h2 id="browse-ingredients">Browse ingredients</h2>
         <div className={styles.mealRow}>
@@ -52,10 +72,7 @@ export function LandingPage() {
 
       <section className={styles.section} aria-labelledby="guide-heading">
         <h2 id="guide-heading">Kitchen guide</h2>
-        <p>
-          Substitutions, fiber and protein ideas, and how to turn a regular recipe into one that
-          fits this household.
-        </p>
+        <p>What House Approved means, and the substitutions we use.</p>
         <div className={styles.mealRow}>
           <button
             type="button"

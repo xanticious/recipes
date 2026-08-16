@@ -1,62 +1,86 @@
 import { assign, setup } from "xstate";
-import type { Cuisine, MealType, TernaryFilter } from "../data/types.ts";
+import type { CategorizerColumn } from "../data/ingredientCategorizer.ts";
+import type { IngredientSection } from "../data/ingredientBrowse.ts";
+import type { Cuisine, HaFilter, MealType, TernaryFilter } from "../data/types.ts";
 import { parseHash, routesEqual, type Route } from "../routing.ts";
 
-export type ExploreFilters = {
+export type CatalogFilters = {
   mealTypes: MealType[];
   cuisines: Cuisine[];
-  eatOut: TernaryFilter;
-  ha: TernaryFilter;
+  ha: HaFilter;
   query: string;
 };
+
+export type ExploreFilters = CatalogFilters;
 
 export type RandomFilters = {
   mealType: MealType | null;
   cuisine: Cuisine | null;
   eatOut: TernaryFilter;
-  ha: TernaryFilter;
+  ha: HaFilter;
   lastRecipeId: string | null;
   noMatch: boolean;
 };
 
 export type IngredientsBrowse = {
-  ha: TernaryFilter;
+  ha: HaFilter;
   query: string;
+  section: IngredientSection | null;
   expandedId: string | null;
+};
+
+export type IngredientCategorizer = {
+  overrides: Record<string, CategorizerColumn>;
+  selectedId: string | null;
+  dropTarget: CategorizerColumn | null;
+  copied: boolean;
+  suppressClick: boolean;
 };
 
 export type AppContext = {
   route: Route;
-  explore: ExploreFilters;
+  explore: CatalogFilters;
+  eatOutCatalog: CatalogFilters;
   random: RandomFilters;
   ingredients: IngredientsBrowse;
+  categorizer: IngredientCategorizer;
 };
 
 export type AppEvent =
   | { type: "navigate"; route: Route }
   | { type: "hashChanged"; hash: string }
   | { type: "openExplore"; mealType?: MealType }
+  | { type: "openEatOut" }
   | { type: "setExploreQuery"; query: string }
   | { type: "toggleExploreMealType"; mealType: MealType }
   | { type: "toggleExploreCuisine"; cuisine: Cuisine }
-  | { type: "setExploreEatOut"; eatOut: TernaryFilter }
-  | { type: "setExploreHa"; ha: TernaryFilter }
+  | { type: "setExploreHa"; ha: HaFilter }
   | { type: "clearExploreFilters" }
+  | { type: "setEatOutQuery"; query: string }
+  | { type: "toggleEatOutMealType"; mealType: MealType }
+  | { type: "toggleEatOutCuisine"; cuisine: Cuisine }
+  | { type: "setEatOutHa"; ha: HaFilter }
+  | { type: "clearEatOutFilters" }
   | { type: "setRandomMealType"; mealType: MealType | null }
   | { type: "setRandomCuisine"; cuisine: Cuisine | null }
   | { type: "setRandomEatOut"; eatOut: TernaryFilter }
-  | { type: "setRandomHa"; ha: TernaryFilter }
+  | { type: "setRandomHa"; ha: HaFilter }
   | { type: "randomMiss" }
   | { type: "openRandomRecipe"; id: string }
-  | { type: "setIngredientsHa"; ha: TernaryFilter }
+  | { type: "setIngredientsHa"; ha: HaFilter }
   | { type: "setIngredientsQuery"; query: string }
+  | { type: "setIngredientsSection"; section: IngredientSection | null }
   | { type: "toggleIngredient"; id: string }
-  | { type: "clearIngredientsFilters" };
+  | { type: "clearIngredientsFilters" }
+  | { type: "selectCategorizerIngredient"; id: string; suppressClick?: boolean }
+  | { type: "categorizerPrimaryClick"; id: string }
+  | { type: "moveCategorizerIngredient"; id: string; column: CategorizerColumn }
+  | { type: "setCategorizerDropTarget"; column: CategorizerColumn | null }
+  | { type: "categorizerCopied" };
 
-const emptyExplore: ExploreFilters = {
+const emptyCatalog: CatalogFilters = {
   mealTypes: [],
   cuisines: [],
-  eatOut: "all",
   ha: "all",
   query: "",
 };
@@ -73,7 +97,16 @@ const emptyRandom: RandomFilters = {
 const emptyIngredients: IngredientsBrowse = {
   ha: "all",
   query: "",
+  section: null,
   expandedId: null,
+};
+
+const emptyCategorizer: IngredientCategorizer = {
+  overrides: {},
+  selectedId: null,
+  dropTarget: null,
+  copied: false,
+  suppressClick: false,
 };
 
 function toggleItem<T extends string>(list: T[], item: T): T[] {
@@ -94,9 +127,11 @@ export const appMachine = setup({
   id: "app",
   context: ({ input }) => ({
     route: input?.route ?? parseHash(currentHash()),
-    explore: emptyExplore,
+    explore: emptyCatalog,
+    eatOutCatalog: emptyCatalog,
     random: emptyRandom,
     ingredients: emptyIngredients,
+    categorizer: emptyCategorizer,
   }),
   on: {
     navigate: {
@@ -114,9 +149,15 @@ export const appMachine = setup({
       actions: assign({
         route: { name: "explore" },
         explore: ({ event }) => ({
-          ...emptyExplore,
+          ...emptyCatalog,
           mealTypes: event.mealType ? [event.mealType] : [],
         }),
+      }),
+    },
+    openEatOut: {
+      actions: assign({
+        route: { name: "eatOut" },
+        eatOutCatalog: emptyCatalog,
       }),
     },
     setExploreQuery: {
@@ -140,11 +181,6 @@ export const appMachine = setup({
         }),
       }),
     },
-    setExploreEatOut: {
-      actions: assign({
-        explore: ({ context, event }) => ({ ...context.explore, eatOut: event.eatOut }),
-      }),
-    },
     setExploreHa: {
       actions: assign({
         explore: ({ context, event }) => ({ ...context.explore, ha: event.ha }),
@@ -152,7 +188,38 @@ export const appMachine = setup({
     },
     clearExploreFilters: {
       actions: assign({
-        explore: emptyExplore,
+        explore: emptyCatalog,
+      }),
+    },
+    setEatOutQuery: {
+      actions: assign({
+        eatOutCatalog: ({ context, event }) => ({ ...context.eatOutCatalog, query: event.query }),
+      }),
+    },
+    toggleEatOutMealType: {
+      actions: assign({
+        eatOutCatalog: ({ context, event }) => ({
+          ...context.eatOutCatalog,
+          mealTypes: toggleItem(context.eatOutCatalog.mealTypes, event.mealType),
+        }),
+      }),
+    },
+    toggleEatOutCuisine: {
+      actions: assign({
+        eatOutCatalog: ({ context, event }) => ({
+          ...context.eatOutCatalog,
+          cuisines: toggleItem(context.eatOutCatalog.cuisines, event.cuisine),
+        }),
+      }),
+    },
+    setEatOutHa: {
+      actions: assign({
+        eatOutCatalog: ({ context, event }) => ({ ...context.eatOutCatalog, ha: event.ha }),
+      }),
+    },
+    clearEatOutFilters: {
+      actions: assign({
+        eatOutCatalog: emptyCatalog,
       }),
     },
     setRandomMealType: {
@@ -216,6 +283,11 @@ export const appMachine = setup({
         ingredients: ({ context, event }) => ({ ...context.ingredients, query: event.query }),
       }),
     },
+    setIngredientsSection: {
+      actions: assign({
+        ingredients: ({ context, event }) => ({ ...context.ingredients, section: event.section }),
+      }),
+    },
     toggleIngredient: {
       actions: assign({
         ingredients: ({ context, event }) => ({
@@ -230,6 +302,54 @@ export const appMachine = setup({
           ...emptyIngredients,
           expandedId: context.ingredients.expandedId,
         }),
+      }),
+    },
+    selectCategorizerIngredient: {
+      actions: assign({
+        categorizer: ({ context, event }) => ({
+          ...context.categorizer,
+          selectedId: event.id,
+          suppressClick: event.suppressClick ?? false,
+        }),
+      }),
+    },
+    categorizerPrimaryClick: {
+      actions: assign({
+        categorizer: ({ context, event }) => {
+          if (context.categorizer.suppressClick) {
+            return { ...context.categorizer, suppressClick: false };
+          }
+          return {
+            ...context.categorizer,
+            overrides: { ...context.categorizer.overrides, [event.id]: "ha" },
+            selectedId: event.id,
+            copied: false,
+          };
+        },
+      }),
+    },
+    moveCategorizerIngredient: {
+      actions: assign({
+        categorizer: ({ context, event }) => ({
+          ...context.categorizer,
+          overrides: { ...context.categorizer.overrides, [event.id]: event.column },
+          selectedId: event.id,
+          copied: false,
+        }),
+      }),
+    },
+    setCategorizerDropTarget: {
+      guard: ({ context, event }) => context.categorizer.dropTarget !== event.column,
+      actions: assign({
+        categorizer: ({ context, event }) => ({
+          ...context.categorizer,
+          dropTarget: event.column,
+        }),
+      }),
+    },
+    categorizerCopied: {
+      actions: assign({
+        categorizer: ({ context }) => ({ ...context.categorizer, copied: true }),
       }),
     },
   },

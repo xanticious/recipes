@@ -5,6 +5,7 @@ import {
   CUISINE_LABELS,
   EAT_OUT_FILTER_LABELS,
   HA_FILTER_LABELS,
+  HA_FILTERS,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
   TERNARY_FILTERS,
@@ -21,8 +22,8 @@ export function RandomPage() {
       <header className={styles.header}>
         <h1>Random</h1>
         <p className={styles.lede}>
-          Leave filters open, or pick meal type, cuisine, home vs eat-out, and HA. We skip the last
-          recipe when another match exists.
+          Leave filters open, or pick meal type, cuisine, home vs eat-out, and House approval. We
+          skip the last recipe when another match exists.
         </p>
       </header>
 
@@ -75,9 +76,9 @@ export function RandomPage() {
       </fieldset>
 
       <fieldset className={styles.group}>
-        <legend>HA</legend>
+        <legend>House approval</legend>
         <div className={styles.chips}>
-          {TERNARY_FILTERS.map((value) => (
+          {HA_FILTERS.map((value) => (
             <button
               key={value}
               type="button"

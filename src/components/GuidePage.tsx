@@ -32,7 +32,7 @@ export function GuidePage() {
             </ul>
           ) : null}
           {section.items && section.items.length > 0 ? (
-            <ul className={section.id === "convert" ? styles.steps : styles.bullets}>
+            <ul className={styles.bullets}>
               {section.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}

@@ -22,6 +22,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   const onLanding = route.name === "landing";
   const onExplore = route.name === "explore";
+  const onEatOut = route.name === "eatOut";
   const onRandom = route.name === "random";
   const onGuide = route.name === "guide";
   const onIngredients = route.name === "ingredients";
@@ -48,7 +49,17 @@ export function AppShell({ children }: { children: ReactNode }) {
               handleRouteClick(event, appActor, { name: "explore" });
             }}
           >
-            Explore Recipes
+            Recipes
+          </a>
+          <a
+            className={styles.navLink}
+            href={routeToHash({ name: "eatOut" })}
+            aria-current={onEatOut ? "page" : undefined}
+            onClick={(event) => {
+              handleRouteClick(event, appActor, { name: "eatOut" });
+            }}
+          >
+            Eat Out
           </a>
           <a
             className={styles.navLink}
@@ -112,7 +123,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           ))}
         </div>
       </header>
-      <main className={styles.main}>{children}</main>
+      <main className={route.name === "ingredientCategorizer" ? styles.mainWide : styles.main}>
+        {children}
+      </main>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 export type Route =
   | { name: "landing" }
   | { name: "explore" }
+  | { name: "eatOut" }
   | { name: "recipe"; id: string; fromRandom: boolean }
   | { name: "random" }
   | { name: "guide" }
-  | { name: "ingredients" };
+  | { name: "ingredients" }
+  | { name: "ingredientCategorizer" };
 
 export function parseHash(hash: string): Route {
   const trimmed = hash.replace(/^#/, "");
@@ -25,6 +27,12 @@ export function parseHash(hash: string): Route {
   if (parts[0] === "ingredients") {
     return { name: "ingredients" };
   }
+  if (parts[0] === "ingredient-categorizer") {
+    return { name: "ingredientCategorizer" };
+  }
+  if (parts[0] === "eat-out") {
+    return { name: "eatOut" };
+  }
   if (parts[0] === "recipes" && parts[1]) {
     return { name: "recipe", id: parts[1], fromRandom: params.get("from") === "random" };
   }
@@ -40,12 +48,16 @@ export function routeToHash(route: Route): string {
       return "#/";
     case "explore":
       return "#/recipes";
+    case "eatOut":
+      return "#/eat-out";
     case "random":
       return "#/random";
     case "guide":
       return "#/guide";
     case "ingredients":
       return "#/ingredients";
+    case "ingredientCategorizer":
+      return "#/ingredient-categorizer";
     case "recipe":
       return route.fromRandom ? `#/recipes/${route.id}?from=random` : `#/recipes/${route.id}`;
   }

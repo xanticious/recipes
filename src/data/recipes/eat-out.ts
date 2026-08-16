@@ -7,7 +7,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "lunch",
     cuisine: "american",
     specialOccasion: false,
-    ha: true,
+    ha: "pending",
     healthRating: "healthy",
     eatOut: true,
     description:
@@ -21,7 +21,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "dinner",
     cuisine: "american",
     specialOccasion: false,
-    ha: true,
+    ha: "pending",
     healthRating: "healthy",
     eatOut: true,
     description:
@@ -33,7 +33,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "lunch",
     cuisine: "asian",
     specialOccasion: false,
-    ha: true,
+    ha: "pending",
     healthRating: "healthy",
     eatOut: true,
     description:
@@ -45,7 +45,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "lunch",
     cuisine: "mexican",
     specialOccasion: false,
-    ha: false,
+    ha: "pending",
     healthRating: "moderate",
     eatOut: true,
     description:
@@ -58,7 +58,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "lunch",
     cuisine: "american",
     specialOccasion: false,
-    ha: false,
+    ha: "pending",
     healthRating: "unhealthy",
     eatOut: true,
     description:
@@ -70,7 +70,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
-    ha: false,
+    ha: "pending",
     healthRating: "unhealthy",
     eatOut: true,
     description:
@@ -82,7 +82,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "dinner",
     cuisine: "asian",
     specialOccasion: false,
-    ha: false,
+    ha: "pending",
     healthRating: "moderate",
     eatOut: true,
     description:
@@ -94,7 +94,7 @@ export const eatOut: EatOutRecipe[] = [
     mealType: "dinner",
     cuisine: "american",
     specialOccasion: false,
-    ha: false,
+    ha: "pending",
     healthRating: "unhealthy",
     eatOut: true,
     description:

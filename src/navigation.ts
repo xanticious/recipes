@@ -24,6 +24,11 @@ export function goOpenExplore(appActor: AppActor, mealType?: MealType): void {
   syncHash({ name: "explore" });
 }
 
+export function goOpenEatOut(appActor: AppActor): void {
+  appActor.send({ type: "openEatOut" });
+  syncHash({ name: "eatOut" });
+}
+
 export function handleRouteClick(
   event: MouseEvent<HTMLAnchorElement>,
   appActor: AppActor,

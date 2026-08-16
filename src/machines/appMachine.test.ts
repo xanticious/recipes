@@ -16,12 +16,12 @@ test("openExplore can preselect a meal type", () => {
   actor.stop();
 });
 
-test("explore HA and eat-out filters are exclusive choices", () => {
+test("explore HA filter is an exclusive choice", () => {
   const actor = startApp();
   actor.send({ type: "setExploreHa", ha: "yes" });
-  actor.send({ type: "setExploreEatOut", eatOut: "no" });
   expect(actor.getSnapshot().context.explore.ha).toBe("yes");
-  expect(actor.getSnapshot().context.explore.eatOut).toBe("no");
+  actor.send({ type: "setExploreHa", ha: "pending" });
+  expect(actor.getSnapshot().context.explore.ha).toBe("pending");
   actor.send({ type: "setExploreHa", ha: "no" });
   expect(actor.getSnapshot().context.explore.ha).toBe("no");
   actor.stop();
@@ -36,10 +36,19 @@ test("clearExploreFilters resets search and chips", () => {
   expect(actor.getSnapshot().context.explore).toEqual({
     mealTypes: [],
     cuisines: [],
-    eatOut: "all",
     ha: "all",
     query: "",
   });
+  actor.stop();
+});
+
+test("openEatOut opens the eat-out catalog", () => {
+  const actor = startApp();
+  actor.send({ type: "openEatOut" });
+  expect(actor.getSnapshot().context.route).toEqual({ name: "eatOut" });
+  actor.send({ type: "setEatOutHa", ha: "yes" });
+  actor.send({ type: "clearEatOutFilters" });
+  expect(actor.getSnapshot().context.eatOutCatalog.ha).toBe("all");
   actor.stop();
 });
 
@@ -65,12 +74,46 @@ test("ingredient expand toggles and filters reset without losing the open row", 
   actor.send({ type: "toggleIngredient", id: "garlic" });
   actor.send({ type: "setIngredientsHa", ha: "yes" });
   actor.send({ type: "setIngredientsQuery", query: "gar" });
+  actor.send({ type: "setIngredientsSection", section: "meat" });
   actor.send({ type: "clearIngredientsFilters" });
   expect(actor.getSnapshot().context.ingredients).toEqual({
     ha: "all",
     query: "",
+    section: null,
     expandedId: "garlic",
   });
+  actor.stop();
+});
+
+test("categorizer moves keep a selected id and clear the copied flag", () => {
+  const actor = startApp();
+  actor.send({ type: "selectCategorizerIngredient", id: "garlic" });
+  expect(actor.getSnapshot().context.categorizer.selectedId).toBe("garlic");
+  actor.send({ type: "categorizerCopied" });
+  expect(actor.getSnapshot().context.categorizer.copied).toBe(true);
+  actor.send({ type: "moveCategorizerIngredient", id: "garlic", column: "ha" });
+  expect(actor.getSnapshot().context.categorizer).toEqual({
+    overrides: { garlic: "ha" },
+    selectedId: "garlic",
+    dropTarget: null,
+    copied: false,
+    suppressClick: false,
+  });
+  actor.send({ type: "setCategorizerDropTarget", column: "pending" });
+  expect(actor.getSnapshot().context.categorizer.dropTarget).toBe("pending");
+  actor.send({ type: "setCategorizerDropTarget", column: null });
+  expect(actor.getSnapshot().context.categorizer.dropTarget).toBeNull();
+  actor.stop();
+});
+
+test("categorizer left click sends to HA unless a drag just happened", () => {
+  const actor = startApp();
+  actor.send({ type: "categorizerPrimaryClick", id: "garlic" });
+  expect(actor.getSnapshot().context.categorizer.overrides).toEqual({ garlic: "ha" });
+  actor.send({ type: "selectCategorizerIngredient", id: "onion", suppressClick: true });
+  actor.send({ type: "categorizerPrimaryClick", id: "onion" });
+  expect(actor.getSnapshot().context.categorizer.overrides).toEqual({ garlic: "ha" });
+  expect(actor.getSnapshot().context.categorizer.suppressClick).toBe(false);
   actor.stop();
 });
 

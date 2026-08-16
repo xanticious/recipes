@@ -1,9 +1,8 @@
 import { produce } from "./catalog/produce.ts";
 import { protein } from "./catalog/protein.ts";
-import { matchesTernary } from "./filterRecipes.ts";
-import { ingredientIsHa } from "./ha.ts";
+import { ingredientHaStatus, matchesHaFilter } from "./ha.ts";
 import { isHomeRecipe } from "./recipe.ts";
-import type { Ingredient, Recipe, TernaryFilter } from "./types.ts";
+import type { HaFilter, Ingredient, Recipe } from "./types.ts";
 
 export type IngredientSection =
   | "meat"
@@ -114,15 +113,23 @@ export function ingredientSection(ingredient: Ingredient): IngredientSection {
 }
 
 export type IngredientFilters = {
-  ha?: TernaryFilter;
+  ha?: HaFilter;
   query?: string;
+  section?: IngredientSection | null;
 };
+
+export function isIngredientSection(value: string): value is IngredientSection {
+  return INGREDIENT_SECTIONS.some((section) => section === value);
+}
 
 export function ingredientMatchesFilters(
   ingredient: Ingredient,
   filters: IngredientFilters,
 ): boolean {
-  if (!matchesTernary(ingredientIsHa(ingredient), filters.ha)) {
+  if (filters.section && ingredientSection(ingredient) !== filters.section) {
+    return false;
+  }
+  if (!matchesHaFilter(ingredientHaStatus(ingredient), filters.ha)) {
     return false;
   }
   const query = filters.query?.trim().toLowerCase();
@@ -159,6 +166,10 @@ export function groupIngredients(catalog: readonly Ingredient[]): GroupedIngredi
     const ingredients = bySection.get(section);
     return ingredients && ingredients.length > 0 ? [{ section, ingredients }] : [];
   });
+}
+
+export function ingredientsInBrowseOrder(catalog: readonly Ingredient[]): Ingredient[] {
+  return groupIngredients(catalog).flatMap((group) => group.ingredients);
 }
 
 export function recipesByIngredientId(catalog: readonly Recipe[]): ReadonlyMap<string, Recipe[]> {

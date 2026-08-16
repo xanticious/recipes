@@ -1,52 +1,44 @@
 import { expect, test } from "vitest";
-import { ingredientIsHa } from "./ha.ts";
+import { ingredientHaStatus, ingredientIsHa } from "./ha.ts";
 import type { Ingredient } from "./types.ts";
 
 function item(partial: Partial<Ingredient> & Pick<Ingredient, "id" | "name" | "kind">): Ingredient {
   return { flags: [], ...partial };
 }
 
-test("plain rice and chicken are HA; problem foods are not", () => {
-  expect(ingredientIsHa(item({ id: "white-rice", name: "rice", kind: "grain" }))).toBe(true);
-  expect(ingredientIsHa(item({ id: "chicken-breast", name: "chicken", kind: "protein" }))).toBe(
-    true,
+test("ingredients are pending until an ha field is set", () => {
+  expect(ingredientHaStatus(item({ id: "white-rice", name: "rice", kind: "grain" }))).toBe(
+    "pending",
+  );
+  expect(ingredientHaStatus(item({ id: "chicken-breast", name: "chicken", kind: "protein" }))).toBe(
+    "pending",
   );
   expect(
-    ingredientIsHa(item({ id: "cheddar", name: "cheddar", kind: "dairy", flags: ["lactose"] })),
-  ).toBe(false);
+    ingredientHaStatus(item({ id: "cheddar", name: "cheddar", kind: "dairy", flags: ["lactose"] })),
+  ).toBe("pending");
   expect(
-    ingredientIsHa(item({ id: "honey", name: "honey", kind: "sweetener", flags: ["fructose"] })),
-  ).toBe(false);
-  expect(
-    ingredientIsHa(item({ id: "wheat-flour", name: "flour", kind: "grain", flags: ["gluten"] })),
-  ).toBe(false);
+    ingredientHaStatus(item({ id: "garlic", name: "garlic", kind: "produce", flags: ["fructan"] })),
+  ).toBe("pending");
+  expect(ingredientIsHa(item({ id: "white-rice", name: "rice", kind: "grain" }))).toBe(false);
 });
 
-test("garlic and onion are not HA; chives are", () => {
+test("an explicit ha field is the displayed status", () => {
   expect(
-    ingredientIsHa(item({ id: "garlic", name: "garlic", kind: "produce", flags: ["fructan"] })),
-  ).toBe(false);
-  expect(
-    ingredientIsHa(item({ id: "onion", name: "onion", kind: "produce", flags: ["fructan"] })),
-  ).toBe(false);
-  expect(ingredientIsHa(item({ id: "chives", name: "chives", kind: "produce" }))).toBe(true);
-});
-
-test("broccoli fructan does not block HA; cauliflower mannitol does", () => {
-  expect(
-    ingredientIsHa(item({ id: "broccoli", name: "broccoli", kind: "produce", flags: ["fructan"] })),
-  ).toBe(true);
-  expect(
-    ingredientIsHa(
-      item({ id: "cauliflower", name: "cauliflower", kind: "produce", flags: ["mannitol"] }),
+    ingredientHaStatus(
+      item({ id: "mystery", name: "mystery", kind: "other", flags: [], ha: "yes" }),
     ),
-  ).toBe(false);
-});
-
-test("cooked mushrooms are treated as HA even with a mannitol flag", () => {
+  ).toBe("yes");
   expect(
-    ingredientIsHa(
-      item({ id: "mushroom", name: "mushrooms", kind: "produce", flags: ["mannitol"] }),
+    ingredientHaStatus(
+      item({ id: "garlic", name: "garlic", kind: "produce", flags: ["fructan"], ha: "no" }),
     ),
-  ).toBe(true);
+  ).toBe("no");
+  expect(
+    ingredientHaStatus(
+      item({ id: "sourdough-bread", name: "sourdough bread", kind: "grain", ha: "pending" }),
+    ),
+  ).toBe("pending");
+  expect(ingredientIsHa(item({ id: "white-rice", name: "rice", kind: "grain", ha: "yes" }))).toBe(
+    true,
+  );
 });

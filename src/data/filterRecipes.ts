@@ -1,11 +1,12 @@
 import { isEatOutRecipe } from "./recipe.ts";
-import type { Cuisine, MealType, Recipe, TernaryFilter } from "./types.ts";
+import { matchesHaFilter } from "./ha.ts";
+import type { Cuisine, HaFilter, MealType, Recipe, TernaryFilter } from "./types.ts";
 
 export type RecipeFilters = {
   mealTypes?: readonly MealType[];
   cuisines?: readonly Cuisine[];
   eatOut?: TernaryFilter;
-  ha?: TernaryFilter;
+  ha?: HaFilter;
   query?: string;
 };
 
@@ -33,7 +34,7 @@ export function recipeMatchesFilters(recipe: Recipe, filters: RecipeFilters): bo
     return false;
   }
 
-  if (!matchesTernary(recipe.ha, filters.ha)) {
+  if (!matchesHaFilter(recipe.ha, filters.ha)) {
     return false;
   }
 

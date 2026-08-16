@@ -3,15 +3,18 @@ import { useAppActor } from "../actors.tsx";
 import {
   filterIngredients,
   groupIngredients,
-  HA_FILTER_LABELS,
-  HA_LABEL,
+  HA_FILTERS,
+  INGREDIENT_HA_FILTER_LABELS,
+  INGREDIENT_HA_TAG_LABELS,
+  INGREDIENT_HA_TAG_TITLES,
   INGREDIENT_SECTION_LABELS,
-  ingredientIsHa,
+  INGREDIENT_SECTIONS,
+  ingredientHaStatus,
   ingredients,
+  isIngredientSection,
   recipes,
   recipesByIngredientId,
   recipesUsingIngredient,
-  TERNARY_FILTERS,
 } from "../data/index.ts";
 import { handleRouteClick } from "../navigation.ts";
 import { routeToHash } from "../routing.ts";
@@ -27,9 +30,11 @@ export function IngredientsPage() {
   const matches = filterIngredients(ingredients, {
     ha: browse.ha,
     query: browse.query,
+    section: browse.section,
   });
   const grouped = groupIngredients(matches);
-  const hasFilters = browse.ha !== "all" || browse.query.trim().length > 0;
+  const hasFilters =
+    browse.ha !== "all" || browse.query.trim().length > 0 || browse.section !== null;
 
   return (
     <div className={styles.page}>
@@ -41,6 +46,29 @@ export function IngredientsPage() {
       </header>
 
       <div className={styles.filters}>
+        <label className={styles.searchLabel}>
+          <span className={styles.searchCaption}>Category</span>
+          <select
+            className={styles.combobox}
+            value={browse.section ?? ""}
+            aria-label="Filter ingredients by category"
+            onChange={(event) => {
+              const value = event.target.value;
+              appActor.send({
+                type: "setIngredientsSection",
+                section: isIngredientSection(value) ? value : null,
+              });
+            }}
+          >
+            <option value="">All categories</option>
+            {INGREDIENT_SECTIONS.map((section) => (
+              <option key={section} value={section}>
+                {INGREDIENT_SECTION_LABELS[section]}
+              </option>
+            ))}
+          </select>
+        </label>
+
         <label className={styles.searchLabel}>
           <span className={styles.searchCaption}>Search by name</span>
           <input
@@ -56,9 +84,9 @@ export function IngredientsPage() {
         </label>
 
         <fieldset className={styles.group}>
-          <legend>HA</legend>
+          <legend>House approval</legend>
           <div className={styles.chips}>
-            {TERNARY_FILTERS.map((value) => (
+            {HA_FILTERS.map((value) => (
               <button
                 key={value}
                 type="button"
@@ -68,7 +96,7 @@ export function IngredientsPage() {
                   appActor.send({ type: "setIngredientsHa", ha: value });
                 }}
               >
-                {HA_FILTER_LABELS[value]}
+                {INGREDIENT_HA_FILTER_LABELS[value]}
               </button>
             ))}
           </div>
@@ -102,7 +130,7 @@ export function IngredientsPage() {
                 {group.ingredients.map((ingredient) => {
                   const open = browse.expandedId === ingredient.id;
                   const usedIn = recipesUsingIngredient(ingredient.id, usage);
-                  const ha = ingredientIsHa(ingredient);
+                  const haStatus = ingredientHaStatus(ingredient);
                   return (
                     <li key={ingredient.id} className={styles.item}>
                       <button
@@ -114,14 +142,13 @@ export function IngredientsPage() {
                         }}
                       >
                         <span className={styles.name}>{ingredient.name}</span>
-                        {ha ? (
-                          <span
-                            className={styles.ha}
-                            title="Fits this household’s usual diet constraints"
-                          >
-                            {HA_LABEL}
-                          </span>
-                        ) : null}
+                        <span
+                          className={styles.haTag}
+                          data-status={haStatus}
+                          title={INGREDIENT_HA_TAG_TITLES[haStatus]}
+                        >
+                          {INGREDIENT_HA_TAG_LABELS[haStatus]}
+                        </span>
                         <span className={styles.usage}>
                           {usedIn.length === 0
                             ? "No recipes yet"

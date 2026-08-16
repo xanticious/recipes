@@ -8,7 +8,7 @@ function home(partial: Partial<HomeRecipe> & Pick<HomeRecipe, "id" | "title">): 
     mealType: "dinner",
     cuisine: "american",
     specialOccasion: false,
-    ha: false,
+    ha: "no",
     healthRating: "moderate",
     eatOut: false,
     prepMinutes: 5,
@@ -27,7 +27,7 @@ function eatOut(
     mealType: "lunch",
     cuisine: "american",
     specialOccasion: false,
-    ha: true,
+    ha: "yes",
     healthRating: "healthy",
     eatOut: true,
     ...partial,
@@ -35,13 +35,19 @@ function eatOut(
 }
 
 const chili = home({ id: "chili", title: "Chili" });
-const tacos = home({ id: "tacos", title: "Tacos", cuisine: "mexican", ha: true });
+const tacos = home({ id: "tacos", title: "Tacos", cuisine: "mexican", ha: "yes" });
 const oats = home({
   id: "oats",
   title: "Blueberry Oatmeal",
   mealType: "breakfast",
-  ha: true,
+  ha: "yes",
   healthRating: "healthy",
+});
+const salad = home({
+  id: "salad",
+  title: "Green Salad",
+  mealType: "lunch",
+  ha: "pending",
 });
 const nuggets = eatOut({
   id: "nuggets",
@@ -49,7 +55,7 @@ const nuggets = eatOut({
   description: "Grilled nuggets, no sauce.",
 });
 
-const all: Recipe[] = [chili, tacos, oats, nuggets];
+const all: Recipe[] = [chili, tacos, oats, salad, nuggets];
 
 test("HA filter is exclusive, not AND tags", () => {
   expect(filterRecipes(all, { ha: "yes" }).map((item) => item.id)).toEqual([
@@ -58,10 +64,12 @@ test("HA filter is exclusive, not AND tags", () => {
     "nuggets",
   ]);
   expect(filterRecipes(all, { ha: "no" }).map((item) => item.id)).toEqual(["chili"]);
+  expect(filterRecipes(all, { ha: "pending" }).map((item) => item.id)).toEqual(["salad"]);
   expect(filterRecipes(all, { ha: "all" }).map((item) => item.id)).toEqual([
     "chili",
     "tacos",
     "oats",
+    "salad",
     "nuggets",
   ]);
 });
@@ -72,6 +80,7 @@ test("eat-out filter is exclusive", () => {
     "chili",
     "tacos",
     "oats",
+    "salad",
   ]);
 });
 
@@ -93,6 +102,7 @@ test("empty filters return every recipe", () => {
     "chili",
     "tacos",
     "oats",
+    "salad",
     "nuggets",
   ]);
 });

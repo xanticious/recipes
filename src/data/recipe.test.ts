@@ -8,7 +8,7 @@ const base: HomeRecipe = {
   mealType: "dinner",
   cuisine: "american",
   specialOccasion: false,
-  ha: true,
+  ha: "yes",
   healthRating: "healthy",
   eatOut: false,
   prepMinutes: 10,
