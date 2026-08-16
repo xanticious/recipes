@@ -95,6 +95,8 @@ test("categorizer moves keep a selected id and clear the copied flag", () => {
   expect(actor.getSnapshot().context.categorizer).toEqual({
     overrides: { garlic: "ha" },
     selectedId: "garlic",
+    infoId: null,
+    draggingId: null,
     dropTarget: null,
     copied: false,
     suppressClick: false,
@@ -103,6 +105,37 @@ test("categorizer moves keep a selected id and clear the copied flag", () => {
   expect(actor.getSnapshot().context.categorizer.dropTarget).toBe("pending");
   actor.send({ type: "setCategorizerDropTarget", column: null });
   expect(actor.getSnapshot().context.categorizer.dropTarget).toBeNull();
+  actor.stop();
+});
+
+test("categorizer info toggles open and closed on the same ingredient", () => {
+  const actor = startApp();
+  actor.send({ type: "toggleCategorizerInfo", id: "garlic" });
+  expect(actor.getSnapshot().context.categorizer.infoId).toBe("garlic");
+  expect(actor.getSnapshot().context.categorizer.selectedId).toBe("garlic");
+  actor.send({ type: "toggleCategorizerInfo", id: "garlic" });
+  expect(actor.getSnapshot().context.categorizer.infoId).toBeNull();
+  actor.send({ type: "toggleCategorizerInfo", id: "onion" });
+  expect(actor.getSnapshot().context.categorizer.infoId).toBe("onion");
+  actor.send({ type: "toggleCategorizerInfo", id: "garlic" });
+  expect(actor.getSnapshot().context.categorizer.infoId).toBe("garlic");
+  actor.stop();
+});
+
+test("categorizer drag marks the ingredient and suppresses the following click", () => {
+  const actor = startApp();
+  actor.send({ type: "startCategorizerDrag", id: "garlic" });
+  expect(actor.getSnapshot().context.categorizer.draggingId).toBe("garlic");
+  expect(actor.getSnapshot().context.categorizer.selectedId).toBe("garlic");
+  expect(actor.getSnapshot().context.categorizer.suppressClick).toBe(true);
+  actor.send({ type: "setCategorizerDropTarget", column: "notHa" });
+  actor.send({ type: "moveCategorizerIngredient", id: "garlic", column: "notHa" });
+  actor.send({ type: "endCategorizerDrag" });
+  expect(actor.getSnapshot().context.categorizer.draggingId).toBeNull();
+  expect(actor.getSnapshot().context.categorizer.dropTarget).toBeNull();
+  expect(actor.getSnapshot().context.categorizer.overrides).toEqual({ garlic: "notHa" });
+  actor.send({ type: "categorizerPrimaryClick", id: "garlic" });
+  expect(actor.getSnapshot().context.categorizer.overrides).toEqual({ garlic: "notHa" });
   actor.stop();
 });
 

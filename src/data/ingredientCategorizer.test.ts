@@ -5,6 +5,7 @@ import {
   categorizerExportJson,
   defaultCategorizerColumn,
   ingredientsInColumn,
+  isCategorizerColumn,
 } from "./ingredientCategorizer.ts";
 import type { Ingredient } from "./types.ts";
 
@@ -19,6 +20,15 @@ const catalog: Ingredient[] = [
   item({ id: "d", name: "D", ha: "pending" }),
   item({ id: "e", name: "E" }),
 ];
+
+test("isCategorizerColumn accepts the four board columns", () => {
+  expect(isCategorizerColumn("ha")).toBe(true);
+  expect(isCategorizerColumn("notHa")).toBe(true);
+  expect(isCategorizerColumn("pending")).toBe(true);
+  expect(isCategorizerColumn("uncategorized")).toBe(true);
+  expect(isCategorizerColumn("yes")).toBe(false);
+  expect(isCategorizerColumn(null)).toBe(false);
+});
 
 test("pending ingredients start uncategorized; tagged ones keep HA / not HA", () => {
   expect(defaultCategorizerColumn(catalog[0])).toBe("ha");

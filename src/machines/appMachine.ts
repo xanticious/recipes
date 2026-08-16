@@ -32,6 +32,8 @@ export type IngredientsBrowse = {
 export type IngredientCategorizer = {
   overrides: Record<string, CategorizerColumn>;
   selectedId: string | null;
+  infoId: string | null;
+  draggingId: string | null;
   dropTarget: CategorizerColumn | null;
   copied: boolean;
   suppressClick: boolean;
@@ -76,6 +78,9 @@ export type AppEvent =
   | { type: "categorizerPrimaryClick"; id: string }
   | { type: "moveCategorizerIngredient"; id: string; column: CategorizerColumn }
   | { type: "setCategorizerDropTarget"; column: CategorizerColumn | null }
+  | { type: "startCategorizerDrag"; id: string }
+  | { type: "endCategorizerDrag" }
+  | { type: "toggleCategorizerInfo"; id: string }
   | { type: "categorizerCopied" };
 
 const emptyCatalog: CatalogFilters = {
@@ -104,6 +109,8 @@ const emptyIngredients: IngredientsBrowse = {
 const emptyCategorizer: IngredientCategorizer = {
   overrides: {},
   selectedId: null,
+  infoId: null,
+  draggingId: null,
   dropTarget: null,
   copied: false,
   suppressClick: false,
@@ -344,6 +351,34 @@ export const appMachine = setup({
         categorizer: ({ context, event }) => ({
           ...context.categorizer,
           dropTarget: event.column,
+        }),
+      }),
+    },
+    startCategorizerDrag: {
+      actions: assign({
+        categorizer: ({ context, event }) => ({
+          ...context.categorizer,
+          selectedId: event.id,
+          draggingId: event.id,
+          suppressClick: true,
+        }),
+      }),
+    },
+    endCategorizerDrag: {
+      actions: assign({
+        categorizer: ({ context }) => ({
+          ...context.categorizer,
+          draggingId: null,
+          dropTarget: null,
+        }),
+      }),
+    },
+    toggleCategorizerInfo: {
+      actions: assign({
+        categorizer: ({ context, event }) => ({
+          ...context.categorizer,
+          selectedId: event.id,
+          infoId: context.categorizer.infoId === event.id ? null : event.id,
         }),
       }),
     },

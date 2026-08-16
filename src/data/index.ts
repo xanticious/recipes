@@ -12,10 +12,14 @@ export {
   CATEGORIZER_COLUMN_KEYS,
   CATEGORIZER_COLUMN_LABELS,
   CATEGORIZER_KEY_COLUMNS,
+  categorizerColumnFromPoint,
   categorizerExportJson,
   ingredientsInColumn,
+  isCategorizerColumn,
 } from "./ingredientCategorizer.ts";
 export type { CategorizerColumn } from "./ingredientCategorizer.ts";
+export { describeIngredient } from "./ingredientInfo.ts";
+export type { IngredientInfo } from "./ingredientInfo.ts";
 export {
   filterIngredients,
   groupIngredients,

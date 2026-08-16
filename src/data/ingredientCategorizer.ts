@@ -27,6 +27,19 @@ export const CATEGORIZER_KEY_COLUMNS: Readonly<Record<string, CategorizerColumn>
   "4": "notHa",
 };
 
+export function isCategorizerColumn(value: string | null | undefined): value is CategorizerColumn {
+  return CATEGORIZER_COLUMNS.some((column) => column === value);
+}
+
+export function categorizerColumnFromPoint(x: number, y: number): CategorizerColumn | null {
+  const node = document.elementFromPoint(x, y);
+  if (!(node instanceof Element)) {
+    return null;
+  }
+  const value = node.closest("[data-column]")?.getAttribute("data-column");
+  return isCategorizerColumn(value) ? value : null;
+}
+
 export type CategorizerExport = {
   ha: string[];
   "not-ha": string[];
