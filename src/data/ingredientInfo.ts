@@ -1,14 +1,27 @@
 import { ingredientSection, type IngredientSection } from "./ingredientBrowse.ts";
+import {
+  formatFodmapInfo,
+  getIngredientFodmap,
+  type FodmapReason,
+  type FodmapStatus,
+} from "./ingredientFodmap.ts";
 import { CUISINE_LABELS, MEAL_TYPE_LABELS } from "./tags.ts";
 import type { Cuisine, Ingredient, MealType, Recipe } from "./types.ts";
 
 export type IngredientAvailability = "common" | "specialty" | "exotic";
+
+export type IngredientFodmapInfo = {
+  status: FodmapStatus;
+  reasons: readonly FodmapReason[];
+  label: string;
+};
 
 export type IngredientInfo = {
   what: string;
   commonness: string;
   uses: string;
   notes?: string;
+  fodmap: IngredientFodmapInfo;
 };
 
 const WHAT_KIND: Record<IngredientSection, string> = {
@@ -230,8 +243,24 @@ export function ingredientAvailability(ingredient: Ingredient): IngredientAvaila
 
 function whatSentence(ingredient: Ingredient): string {
   const name = capitalizeIngredientName(ingredient.name);
+  const fodmap = getIngredientFodmap(ingredient.id);
+  if (fodmap) {
+    return `${name} - ${fodmap.description}`;
+  }
   const kind = WHAT_KIND[ingredientSection(ingredient)];
   return `${name} is ${kind}.`;
+}
+
+function fodmapInfo(ingredient: Ingredient): IngredientFodmapInfo {
+  const entry = getIngredientFodmap(ingredient.id);
+  if (!entry) {
+    return { status: "low", reasons: [], label: "Low Fodmap" };
+  }
+  return {
+    status: entry.status,
+    reasons: entry.reasons,
+    label: formatFodmapInfo(entry),
+  };
 }
 
 function commonnessSentence(ingredient: Ingredient, usedIn: readonly Recipe[]): string {
@@ -294,6 +323,7 @@ export function describeIngredient(
     what: whatSentence(ingredient),
     commonness: commonnessSentence(ingredient, usedIn),
     uses: usesSentence(usedIn),
+    fodmap: fodmapInfo(ingredient),
     ...(notes ? { notes } : {}),
   };
 }

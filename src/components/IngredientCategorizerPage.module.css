@@ -338,6 +338,22 @@
   margin: 0;
 }
 
+.fodmap {
+  font-weight: 650;
+}
+
+.fodmap[data-status="low"] {
+  color: var(--health-healthy);
+}
+
+.fodmap[data-status="high"] {
+  color: var(--health-unhealthy);
+}
+
+.fodmap[data-status="depends"] {
+  color: var(--health-moderate);
+}
+
 .ghost {
   position: fixed;
   top: 0;

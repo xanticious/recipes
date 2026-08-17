@@ -102,8 +102,19 @@ test("exported cheddar carries lactose; lifestyle flags are gone", () => {
   expect(cheddar?.flags).not.toEqual(expect.arrayContaining(["not-paleo"]));
 });
 
-test("every catalog ingredient is pending House Approval", () => {
-  for (const ingredient of ingredients) {
-    expect(ingredientHaStatus(ingredient)).toBe("pending");
-  }
+test("categorized catalog ingredients keep House Approval; the rest stay pending", () => {
+  expect(ingredientLookup.get("chicken-breast")?.ha).toBe("yes");
+  expect(ingredientLookup.get("butter")?.ha).toBe("yes");
+  expect(ingredientLookup.get("broccoli")?.ha).toBe("yes");
+  expect(ingredientLookup.get("cheddar")?.ha).toBe("no");
+  expect(ingredientLookup.get("avocado")?.ha).toBe("no");
+  expect(ingredientHaStatus(ingredientLookup.get("garlic")!)).toBe("pending");
+  expect(ingredientHaStatus(ingredientLookup.get("beef-brisket")!)).toBe("pending");
+
+  const yes = ingredients.filter((ingredient) => ingredientHaStatus(ingredient) === "yes");
+  const no = ingredients.filter((ingredient) => ingredientHaStatus(ingredient) === "no");
+  const pending = ingredients.filter((ingredient) => ingredientHaStatus(ingredient) === "pending");
+  expect(yes).toHaveLength(63);
+  expect(no).toHaveLength(125);
+  expect(pending).toHaveLength(ingredients.length - 188);
 });

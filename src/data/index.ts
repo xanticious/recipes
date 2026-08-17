@@ -18,8 +18,15 @@ export {
   isCategorizerColumn,
 } from "./ingredientCategorizer.ts";
 export type { CategorizerColumn } from "./ingredientCategorizer.ts";
+export {
+  formatFodmapInfo,
+  FODMAP_REASON_LABELS,
+  FODMAP_STATUS_LABELS,
+  getIngredientFodmap,
+} from "./ingredientFodmap.ts";
+export type { FodmapReason, FodmapStatus, IngredientFodmap } from "./ingredientFodmap.ts";
 export { describeIngredient } from "./ingredientInfo.ts";
-export type { IngredientInfo } from "./ingredientInfo.ts";
+export type { IngredientFodmapInfo, IngredientInfo } from "./ingredientInfo.ts";
 export {
   filterIngredients,
   groupIngredients,

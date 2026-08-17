@@ -80,6 +80,9 @@ function IngredientInfoPanel({ ingredient }: { ingredient: Ingredient }) {
   return (
     <div className={styles.infoPanel}>
       <p>{info.what}</p>
+      <p className={styles.fodmap} data-status={info.fodmap.status}>
+        {info.fodmap.label}
+      </p>
       <p>{info.commonness}</p>
       <p>{info.uses}</p>
       {info.notes ? <p>{info.notes}</p> : null}
@@ -279,7 +282,8 @@ export function IngredientCategorizerPage() {
             Pending House Approval starts in Uncategorized. On a mouse, left click sends to HA,
             right click to Not HA, middle click to Pending. Drag — or press and hold on a tablet —
             to move, including back to Uncategorized. The handle starts a drag immediately. Tap the
-            info icon to read what an ingredient is; tap it again to hide the description.
+            info icon to read what an ingredient is and its FODMAP status; tap it again to hide the
+            description.
           </p>
         </div>
         <button type="button" className={styles.copy} onClick={copyToClipboard}>

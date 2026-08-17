@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
 import { recipesByIngredientId, recipesUsingIngredient } from "./ingredientBrowse.ts";
+import { formatFodmapInfo, FODMAP_STATUS_LABELS, getIngredientFodmap } from "./ingredientFodmap.ts";
 import {
   capitalizeIngredientName,
   describeIngredient,
@@ -50,7 +51,7 @@ test("garlic is a common vegetable; ajwain is specialty; ramps are exotic", () =
   );
 });
 
-test("describeIngredient covers what it is, how common it is, and how it is used", () => {
+test("describeIngredient covers what it is, FODMAP status, how common it is, and how it is used", () => {
   const garlic = item({ id: "garlic", name: "garlic", kind: "produce", flags: ["fructan"] });
   const info = describeIngredient(garlic, [
     home({
@@ -72,7 +73,12 @@ test("describeIngredient covers what it is, how common it is, and how it is used
       mealType: "lunch",
     }),
   ]);
-  expect(info.what).toBe("Garlic is a vegetable.");
+  expect(info.what).toBe(
+    "Garlic - pungent allium clove minced or crushed as a flavor base in nearly every cuisine.",
+  );
+  expect(info.fodmap.status).toBe("high");
+  expect(info.fodmap.reasons).toEqual(["fructans"]);
+  expect(info.fodmap.label).toBe("High Fodmap (fructans)");
   expect(info.commonness).toMatch(/common grocery-store/i);
   expect(info.commonness).toMatch(/3 recipes/);
   expect(info.uses).toMatch(/Asian, Italian, and Mexican cooking/);
@@ -89,7 +95,11 @@ test("unused exotic produce still explains what it is", () => {
     notes: "Seasonal wild leeks.",
   });
   const info = describeIngredient(ramps, []);
-  expect(info.what).toBe("Ramps is a vegetable.");
+  expect(info.what).toBe(
+    "Ramps - wild North American allium with broad leaves and a slender purple-tinged bulb, sautéed in spring dishes.",
+  );
+  expect(info.fodmap.status).toBe("high");
+  expect(info.fodmap.label).toBe("High Fodmap (fructans)");
   expect(info.commonness).toMatch(/exotic/i);
   expect(info.commonness).toMatch(/not used in this book yet/i);
   expect(info.uses).toMatch(/no recipes in this book/i);
@@ -102,12 +112,32 @@ test("capitalizeIngredientName only changes the first character", () => {
   expect(capitalizeIngredientName("")).toBe("");
 });
 
-test("every catalog ingredient gets a what / commonness / uses description", () => {
+test("every catalog ingredient gets a what / FODMAP / commonness / uses description", () => {
   const usage = recipesByIngredientId(recipes);
   for (const ingredient of ingredients) {
+    const fodmap = getIngredientFodmap(ingredient.id);
+    expect(fodmap).toBeDefined();
     const info = describeIngredient(ingredient, recipesUsingIngredient(ingredient.id, usage));
     expect(info.what.length).toBeGreaterThan(8);
+    expect(info.fodmap.label.length).toBeGreaterThan(8);
     expect(info.commonness.length).toBeGreaterThan(8);
     expect(info.uses.length).toBeGreaterThan(8);
   }
+});
+
+test("formatFodmapInfo uses status, reasons, and optional serving notes", () => {
+  expect(formatFodmapInfo({ description: "a carrot", status: "low", reasons: [] })).toBe(
+    FODMAP_STATUS_LABELS.low,
+  );
+  expect(formatFodmapInfo({ description: "garlic", status: "high", reasons: ["fructans"] })).toBe(
+    "High Fodmap (fructans)",
+  );
+  expect(
+    formatFodmapInfo({
+      description: "scallion",
+      status: "depends",
+      reasons: ["fructans"],
+      note: "fructans; green tops low at ~75g, white bulb high",
+    }),
+  ).toBe("Depends on serving size (fructans; green tops low at ~75g, white bulb high)");
 });
