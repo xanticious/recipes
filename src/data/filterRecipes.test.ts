@@ -8,7 +8,7 @@ function home(partial: Partial<HomeRecipe> & Pick<HomeRecipe, "id" | "title">): 
     mealType: "dinner",
     cuisine: "american",
     specialOccasion: false,
-    ha: "no",
+    ha: "not-ha-assumed",
     healthRating: "moderate",
     eatOut: false,
     prepMinutes: 5,
@@ -27,7 +27,7 @@ function eatOut(
     mealType: "lunch",
     cuisine: "american",
     specialOccasion: false,
-    ha: "yes",
+    ha: "ha-confirmed",
     healthRating: "healthy",
     eatOut: true,
     ...partial,
@@ -35,19 +35,19 @@ function eatOut(
 }
 
 const chili = home({ id: "chili", title: "Chili" });
-const tacos = home({ id: "tacos", title: "Tacos", cuisine: "mexican", ha: "yes" });
+const tacos = home({ id: "tacos", title: "Tacos", cuisine: "mexican", ha: "ha-confirmed" });
 const oats = home({
   id: "oats",
   title: "Blueberry Oatmeal",
   mealType: "breakfast",
-  ha: "yes",
+  ha: "ha-confirmed",
   healthRating: "healthy",
 });
 const salad = home({
   id: "salad",
   title: "Green Salad",
   mealType: "lunch",
-  ha: "pending",
+  ha: "unknown",
 });
 const nuggets = eatOut({
   id: "nuggets",
@@ -58,13 +58,13 @@ const nuggets = eatOut({
 const all: Recipe[] = [chili, tacos, oats, salad, nuggets];
 
 test("HA filter is exclusive, not AND tags", () => {
-  expect(filterRecipes(all, { ha: "yes" }).map((item) => item.id)).toEqual([
+  expect(filterRecipes(all, { ha: "ha-confirmed" }).map((item) => item.id)).toEqual([
     "tacos",
     "oats",
     "nuggets",
   ]);
-  expect(filterRecipes(all, { ha: "no" }).map((item) => item.id)).toEqual(["chili"]);
-  expect(filterRecipes(all, { ha: "pending" }).map((item) => item.id)).toEqual(["salad"]);
+  expect(filterRecipes(all, { ha: "not-ha-assumed" }).map((item) => item.id)).toEqual(["chili"]);
+  expect(filterRecipes(all, { ha: "unknown" }).map((item) => item.id)).toEqual(["salad"]);
   expect(filterRecipes(all, { ha: "all" }).map((item) => item.id)).toEqual([
     "chili",
     "tacos",

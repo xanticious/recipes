@@ -20,7 +20,7 @@ function home(
 ): HomeRecipe {
   return {
     specialOccasion: false,
-    ha: "pending",
+    ha: "unknown",
     healthRating: "healthy",
     eatOut: false,
     prepMinutes: 5,
@@ -74,11 +74,14 @@ test("describeIngredient covers what it is, FODMAP status, how common it is, and
     }),
   ]);
   expect(info.what).toBe(
-    "Garlic - pungent allium clove minced or crushed as a flavor base in nearly every cuisine.",
+    "Garlic is pungent allium clove minced or crushed as a flavor base in nearly every cuisine.",
   );
   expect(info.fodmap.status).toBe("high");
   expect(info.fodmap.reasons).toEqual(["fructans"]);
   expect(info.fodmap.label).toBe("High Fodmap (fructans)");
+  expect(info.lactose).toBe("free");
+  expect(info.gluten).toBe("free");
+  expect(info.diet.fodmap.types.fructans.level).toBe("high");
   expect(info.commonness).toMatch(/common grocery-store/i);
   expect(info.commonness).toMatch(/3 recipes/);
   expect(info.uses).toMatch(/Asian, Italian, and Mexican cooking/);
@@ -96,7 +99,7 @@ test("unused exotic produce still explains what it is", () => {
   });
   const info = describeIngredient(ramps, []);
   expect(info.what).toBe(
-    "Ramps - wild North American allium with broad leaves and a slender purple-tinged bulb, sautéed in spring dishes.",
+    "Ramps is wild North American allium with broad leaves and a slender purple-tinged bulb, sautéed in spring dishes.",
   );
   expect(info.fodmap.status).toBe("high");
   expect(info.fodmap.label).toBe("High Fodmap (fructans)");
@@ -139,5 +142,5 @@ test("formatFodmapInfo uses status, reasons, and optional serving notes", () => 
       reasons: ["fructans"],
       note: "fructans; green tops low at ~75g, white bulb high",
     }),
-  ).toBe("Depends on serving size (fructans; green tops low at ~75g, white bulb high)");
+  ).toBe("Watch serving size (fructans; green tops low at ~75g, white bulb high)");
 });

@@ -52,6 +52,15 @@ export function LandingPage() {
           >
             Open eat out
           </button>
+          <button
+            type="button"
+            className={styles.mealLink}
+            onClick={() => {
+              goToRoute(appActor, { name: "restaurants" });
+            }}
+          >
+            Davis County restaurants
+          </button>
         </div>
       </section>
 

@@ -1,9 +1,10 @@
 import { expect, test } from "vitest";
 import { kitchenGuide } from "./guide.ts";
-import { ingredientHaStatus } from "./ha.ts";
+import { classifyRecipeHa, ingredientHaStatus, isConfirmedHa } from "./ha.ts";
 import { ingredientLookup, ingredients } from "./ingredients.ts";
 import { isEatOutRecipe, isHomeRecipe, relatedRecipes } from "./recipe.ts";
 import { recipes } from "./recipes/index.ts";
+import { HA_STATUSES } from "./tags.ts";
 
 test("ingredient ids are unique", () => {
   const ids = ingredients.map((item) => item.id);
@@ -67,10 +68,18 @@ test("related recipe ids exist and do not point at themselves", () => {
 
 test("HA and health ratings are present on every recipe", () => {
   for (const recipe of recipes) {
-    expect(["yes", "no", "pending"]).toContain(recipe.ha);
+    expect(HA_STATUSES).toContain(recipe.ha);
     expect(["healthy", "moderate", "unhealthy"]).toContain(recipe.healthRating);
   }
-  expect(recipes.every((recipe) => recipe.ha === "pending")).toBe(true);
+});
+
+test("unconfirmed recipe HA matches the ingredient classifier", () => {
+  for (const recipe of recipes) {
+    if (isConfirmedHa(recipe.ha)) {
+      continue;
+    }
+    expect(recipe.ha).toBe(classifyRecipeHa(recipe, ingredientLookup));
+  }
 });
 
 test("special-occasion marks and the Alfredo pair are present", () => {
@@ -80,8 +89,6 @@ test("special-occasion marks and the Alfredo pair are present", () => {
   );
   const classic = recipes.find((recipe) => recipe.id === "fettuccine-alfredo");
   const converted = recipes.find((recipe) => recipe.id === "fettuccine-alfredo-ha");
-  expect(classic?.ha).toBe("pending");
-  expect(converted?.ha).toBe("pending");
   expect(classic?.relatedRecipeIds).toContain("fettuccine-alfredo-ha");
   expect(converted?.relatedRecipeIds).toContain("fettuccine-alfredo");
 });
@@ -102,19 +109,24 @@ test("exported cheddar carries lactose; lifestyle flags are gone", () => {
   expect(cheddar?.flags).not.toEqual(expect.arrayContaining(["not-paleo"]));
 });
 
-test("categorized catalog ingredients keep House Approval; the rest stay pending", () => {
-  expect(ingredientLookup.get("chicken-breast")?.ha).toBe("yes");
-  expect(ingredientLookup.get("butter")?.ha).toBe("yes");
-  expect(ingredientLookup.get("broccoli")?.ha).toBe("yes");
-  expect(ingredientLookup.get("cheddar")?.ha).toBe("no");
-  expect(ingredientLookup.get("avocado")?.ha).toBe("no");
-  expect(ingredientHaStatus(ingredientLookup.get("garlic")!)).toBe("pending");
-  expect(ingredientHaStatus(ingredientLookup.get("beef-brisket")!)).toBe("pending");
+test("categorized catalog ingredients keep confirmed House Approval; the rest follow diet metadata", () => {
+  expect(ingredientLookup.get("chicken-breast")?.ha).toBe("ha-confirmed");
+  expect(ingredientLookup.get("butter")?.ha).toBe("ha-confirmed");
+  expect(ingredientLookup.get("broccoli")?.ha).toBe("ha-confirmed");
+  expect(ingredientLookup.get("cheddar")?.ha).toBe("not-ha-confirmed");
+  expect(ingredientLookup.get("avocado")?.ha).toBe("not-ha-confirmed");
+  expect(ingredientHaStatus(ingredientLookup.get("garlic")!)).toBe("not-ha-assumed");
+  expect(ingredientHaStatus(ingredientLookup.get("white-rice")!)).toBe("ha-assumed");
+  expect(ingredientHaStatus(ingredientLookup.get("sourdough-bread")!)).toBe("unknown");
+  expect(ingredientHaStatus(ingredientLookup.get("beef-brisket")!)).toBe("ha-assumed");
 
-  const yes = ingredients.filter((ingredient) => ingredientHaStatus(ingredient) === "yes");
-  const no = ingredients.filter((ingredient) => ingredientHaStatus(ingredient) === "no");
-  const pending = ingredients.filter((ingredient) => ingredientHaStatus(ingredient) === "pending");
-  expect(yes).toHaveLength(63);
-  expect(no).toHaveLength(125);
-  expect(pending).toHaveLength(ingredients.length - 188);
+  const confirmed = ingredients.filter(
+    (ingredient) => ingredientHaStatus(ingredient) === "ha-confirmed",
+  );
+  const notHaConfirmed = ingredients.filter(
+    (ingredient) => ingredientHaStatus(ingredient) === "not-ha-confirmed",
+  );
+  expect(confirmed).toHaveLength(63);
+  expect(notHaConfirmed).toHaveLength(125);
+  expect(confirmed.length + notHaConfirmed.length).toBe(188);
 });

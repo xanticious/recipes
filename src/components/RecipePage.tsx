@@ -4,9 +4,8 @@ import {
   getIngredient,
   HA_FULL_LABEL,
   HA_LABEL,
-  HA_NOT_LABEL,
-  HA_PENDING_LABEL,
   HEALTH_RATING_LABELS,
+  RECIPE_HA_TAG_TITLES,
   ingredientLookup,
   isEatOutRecipe,
   isHomeRecipe,
@@ -171,10 +170,9 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
         <div className={styles.marks}>
           <RecipeMarks recipe={recipe} />
         </div>
-        {recipe.ha !== "yes" ? (
+        {recipe.ha !== "ha-confirmed" ? (
           <p className={styles.haNote}>
-            {recipe.ha === "pending" ? HA_PENDING_LABEL : HA_NOT_LABEL}. {HA_LABEL} means{" "}
-            {HA_FULL_LABEL}.
+            {RECIPE_HA_TAG_TITLES[recipe.ha]}. {HA_LABEL} means {HA_FULL_LABEL}.
           </p>
         ) : null}
 

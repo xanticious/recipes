@@ -1,3 +1,4 @@
+import type { FodmapLevel } from "./types.ts";
 import { ingredientFodmapById } from "./ingredientFodmap.data.ts";
 
 export { ingredientFodmapById };
@@ -7,10 +8,10 @@ export const FODMAP_STATUSES = ["low", "high", "depends"] as const;
 export type FodmapStatus = (typeof FODMAP_STATUSES)[number];
 
 export const FODMAP_REASONS = [
+  "fructose",
   "fructans",
   "gos",
   "lactose",
-  "fructose",
   "sorbitol",
   "mannitol",
 ] as const;
@@ -27,17 +28,33 @@ export type IngredientFodmap = {
 export const FODMAP_STATUS_LABELS: Record<FodmapStatus, string> = {
   low: "Low Fodmap",
   high: "High Fodmap",
-  depends: "Depends on serving size",
+  depends: "Watch serving size",
 };
 
 export const FODMAP_REASON_LABELS: Record<FodmapReason, string> = {
+  fructose: "fructose",
   fructans: "fructans",
   gos: "GOS",
   lactose: "lactose",
-  fructose: "excess fructose",
   sorbitol: "sorbitol",
   mannitol: "mannitol",
 };
+
+export const FODMAP_TYPE_LABELS: Record<FodmapReason, string> = {
+  fructose: "Fructose",
+  fructans: "Fructans",
+  gos: "GOS",
+  lactose: "Lactose",
+  sorbitol: "Sorbitol",
+  mannitol: "Mannitol",
+};
+
+export function fodmapLevelFromStatus(status: FodmapStatus): FodmapLevel {
+  if (status === "depends") {
+    return "watch";
+  }
+  return status;
+}
 
 export function joinFodmapReasons(reasons: readonly FodmapReason[]): string {
   const labels = reasons.map((reason) => FODMAP_REASON_LABELS[reason]);

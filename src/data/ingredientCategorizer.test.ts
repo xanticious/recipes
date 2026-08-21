@@ -14,48 +14,54 @@ function item(partial: Partial<Ingredient> & Pick<Ingredient, "id" | "name">): I
 }
 
 const catalog: Ingredient[] = [
-  item({ id: "a", name: "A", ha: "yes" }),
-  item({ id: "b", name: "B" }),
-  item({ id: "c", name: "C", ha: "no" }),
-  item({ id: "d", name: "D", ha: "pending" }),
-  item({ id: "e", name: "E" }),
+  item({ id: "a", name: "A", ha: "ha-confirmed" }),
+  item({ id: "white-rice", name: "B" }),
+  item({ id: "c", name: "C", ha: "not-ha-confirmed" }),
+  item({ id: "garlic", name: "D" }),
+  item({ id: "sourdough-bread", name: "E", flags: ["gluten"] }),
 ];
 
-test("isCategorizerColumn accepts the four board columns", () => {
-  expect(isCategorizerColumn("ha")).toBe(true);
-  expect(isCategorizerColumn("notHa")).toBe(true);
-  expect(isCategorizerColumn("pending")).toBe(true);
-  expect(isCategorizerColumn("uncategorized")).toBe(true);
-  expect(isCategorizerColumn("yes")).toBe(false);
+test("isCategorizerColumn accepts the five board columns", () => {
+  expect(isCategorizerColumn("ha-confirmed")).toBe(true);
+  expect(isCategorizerColumn("ha-assumed")).toBe(true);
+  expect(isCategorizerColumn("unknown")).toBe(true);
+  expect(isCategorizerColumn("not-ha-assumed")).toBe(true);
+  expect(isCategorizerColumn("not-ha-confirmed")).toBe(true);
+  expect(isCategorizerColumn("ha")).toBe(false);
+  expect(isCategorizerColumn("pending")).toBe(false);
   expect(isCategorizerColumn(null)).toBe(false);
 });
 
-test("pending ingredients start uncategorized; tagged ones keep HA / not HA", () => {
-  expect(defaultCategorizerColumn(catalog[0])).toBe("ha");
-  expect(defaultCategorizerColumn(catalog[1])).toBe("uncategorized");
-  expect(defaultCategorizerColumn(catalog[2])).toBe("notHa");
-  expect(defaultCategorizerColumn(catalog[3])).toBe("uncategorized");
+test("confirmed tags keep their columns; the rest follow diet assumptions", () => {
+  expect(defaultCategorizerColumn(catalog[0])).toBe("ha-confirmed");
+  expect(defaultCategorizerColumn(catalog[1])).toBe("ha-assumed");
+  expect(defaultCategorizerColumn(catalog[2])).toBe("not-ha-confirmed");
+  expect(defaultCategorizerColumn(catalog[3])).toBe("not-ha-assumed");
+  expect(defaultCategorizerColumn(catalog[4])).toBe("unknown");
   expect(
-    ingredientsInColumn(catalog, {}, "uncategorized").map((ingredient) => ingredient.id),
-  ).toEqual(["b", "d", "e"]);
-  expect(ingredientsInColumn(catalog, {}, "ha").map((ingredient) => ingredient.id)).toEqual(["a"]);
-  expect(ingredientsInColumn(catalog, {}, "pending")).toEqual([]);
-  expect(ingredientsInColumn(catalog, {}, "notHa").map((ingredient) => ingredient.id)).toEqual([
-    "c",
+    ingredientsInColumn(catalog, {}, "ha-confirmed").map((ingredient) => ingredient.id),
+  ).toEqual(["a"]);
+  expect(ingredientsInColumn(catalog, {}, "ha-assumed").map((ingredient) => ingredient.id)).toEqual(
+    ["white-rice"],
+  );
+  expect(ingredientsInColumn(catalog, {}, "unknown").map((ingredient) => ingredient.id)).toEqual([
+    "sourdough-bread",
   ]);
+  expect(
+    ingredientsInColumn(catalog, {}, "not-ha-assumed").map((ingredient) => ingredient.id),
+  ).toEqual(["garlic"]);
+  expect(
+    ingredientsInColumn(catalog, {}, "not-ha-confirmed").map((ingredient) => ingredient.id),
+  ).toEqual(["c"]);
 });
 
 test("moved ingredients keep Ingredients-page order inside a column", () => {
-  const overrides = { e: "ha" as const, b: "ha" as const };
-  expect(categorizerColumn(catalog[1], overrides)).toBe("ha");
-  expect(ingredientsInColumn(catalog, overrides, "ha").map((ingredient) => ingredient.id)).toEqual([
-    "a",
-    "b",
-    "e",
-  ]);
+  const overrides = { garlic: "ha-confirmed" as const, "white-rice": "ha-confirmed" as const };
+  expect(categorizerColumn(catalog[1], overrides)).toBe("ha-confirmed");
   expect(
-    ingredientsInColumn(catalog, overrides, "uncategorized").map((ingredient) => ingredient.id),
-  ).toEqual(["d"]);
+    ingredientsInColumn(catalog, overrides, "ha-confirmed").map((ingredient) => ingredient.id),
+  ).toEqual(["a", "white-rice", "garlic"]);
+  expect(ingredientsInColumn(catalog, overrides, "ha-assumed")).toEqual([]);
 });
 
 test("columns follow grocery section then alphabetical name, not file order", () => {
@@ -65,18 +71,35 @@ test("columns follow grocery section then alphabetical name, not file order", ()
     item({ id: "chicken-breast", name: "chicken", kind: "protein" }),
     item({ id: "garlic", name: "garlic", kind: "produce" }),
   ];
+  expect(ingredientsInColumn(mixed, {}, "ha-assumed").map((ingredient) => ingredient.id)).toEqual([
+    "chicken-breast",
+    "zucchini",
+  ]);
   expect(
-    ingredientsInColumn(mixed, {}, "uncategorized").map((ingredient) => ingredient.id),
-  ).toEqual(["chicken-breast", "garlic", "zucchini", "apple"]);
+    ingredientsInColumn(mixed, {}, "not-ha-assumed").map((ingredient) => ingredient.id),
+  ).toEqual(["garlic", "apple"]);
 });
 
-test("export lists HA and Not HA ids in Ingredients-page order", () => {
-  const overrides = { d: "notHa" as const, b: "pending" as const };
+test("export lists every column in Ingredients-page order", () => {
+  const overrides = { garlic: "not-ha-confirmed" as const, "sourdough-bread": "unknown" as const };
   expect(categorizerExport(catalog, overrides)).toEqual({
-    ha: ["a"],
-    "not-ha": ["c", "d"],
+    "ha-confirmed": ["a"],
+    "ha-assumed": ["white-rice"],
+    unknown: ["sourdough-bread"],
+    "not-ha-assumed": [],
+    "not-ha-confirmed": ["c", "garlic"],
   });
   expect(categorizerExportJson(catalog, overrides)).toBe(
-    `${JSON.stringify({ ha: ["a"], "not-ha": ["c", "d"] }, null, 2)}\n`,
+    `${JSON.stringify(
+      {
+        "ha-confirmed": ["a"],
+        "ha-assumed": ["white-rice"],
+        unknown: ["sourdough-bread"],
+        "not-ha-assumed": [],
+        "not-ha-confirmed": ["c", "garlic"],
+      },
+      null,
+      2,
+    )}\n`,
   );
 });

@@ -9,6 +9,7 @@ import { IngredientsPage } from "./components/IngredientsPage.tsx";
 import { LandingPage } from "./components/LandingPage.tsx";
 import { RandomPage } from "./components/RandomPage.tsx";
 import { RecipePage } from "./components/RecipePage.tsx";
+import { RestaurantsPage } from "./components/RestaurantsPage.tsx";
 import styles from "./app.module.css";
 
 export function App() {
@@ -27,6 +28,7 @@ export function App() {
         {route.name === "random" ? <RandomPage /> : null}
         {route.name === "guide" ? <GuidePage /> : null}
         {route.name === "ingredients" ? <IngredientsPage /> : null}
+        {route.name === "restaurants" ? <RestaurantsPage /> : null}
         {route.name === "ingredientCategorizer" ? <IngredientCategorizerPage /> : null}
       </div>
     </AppShell>

@@ -1,7 +1,19 @@
 import { assign, setup } from "xstate";
-import type { CategorizerColumn } from "../data/ingredientCategorizer.ts";
+import {
+  showsFodmapTypeRow,
+  type FodmapBrowseLevel,
+  type FodmapBrowseType,
+} from "../data/fodmapIngredients.ts";
 import type { IngredientSection } from "../data/ingredientBrowse.ts";
-import type { Cuisine, HaFilter, MealType, TernaryFilter } from "../data/types.ts";
+import type { RestaurantCityFilter } from "../data/restaurantBrowse.ts";
+import type { CategorizerColumn } from "../data/ingredientCategorizer.ts";
+import type {
+  Cuisine,
+  HaFilter,
+  IngredientHaFilter,
+  MealType,
+  TernaryFilter,
+} from "../data/types.ts";
 import { parseHash, routesEqual, type Route } from "../routing.ts";
 
 export type CatalogFilters = {
@@ -23,9 +35,16 @@ export type RandomFilters = {
 };
 
 export type IngredientsBrowse = {
-  ha: HaFilter;
+  ha: IngredientHaFilter;
   query: string;
   section: IngredientSection | null;
+  level: FodmapBrowseLevel;
+  type: FodmapBrowseType;
+  expandedId: string | null;
+};
+
+export type RestaurantsBrowse = {
+  city: RestaurantCityFilter;
   expandedId: string | null;
 };
 
@@ -45,6 +64,7 @@ export type AppContext = {
   eatOutCatalog: CatalogFilters;
   random: RandomFilters;
   ingredients: IngredientsBrowse;
+  restaurants: RestaurantsBrowse;
   categorizer: IngredientCategorizer;
 };
 
@@ -69,11 +89,17 @@ export type AppEvent =
   | { type: "setRandomHa"; ha: HaFilter }
   | { type: "randomMiss" }
   | { type: "openRandomRecipe"; id: string }
-  | { type: "setIngredientsHa"; ha: HaFilter }
+  | { type: "setIngredientsHa"; ha: IngredientHaFilter }
   | { type: "setIngredientsQuery"; query: string }
   | { type: "setIngredientsSection"; section: IngredientSection | null }
+  | { type: "setIngredientsFodmapLevel"; level: FodmapBrowseLevel }
+  | { type: "setIngredientsFodmapType"; fodmapType: FodmapBrowseType }
   | { type: "toggleIngredient"; id: string }
+  | { type: "closeIngredient" }
   | { type: "clearIngredientsFilters" }
+  | { type: "setRestaurantCity"; city: RestaurantCityFilter }
+  | { type: "toggleRestaurant"; id: string }
+  | { type: "closeRestaurant" }
   | { type: "selectCategorizerIngredient"; id: string; suppressClick?: boolean }
   | { type: "categorizerPrimaryClick"; id: string }
   | { type: "moveCategorizerIngredient"; id: string; column: CategorizerColumn }
@@ -103,6 +129,13 @@ const emptyIngredients: IngredientsBrowse = {
   ha: "all",
   query: "",
   section: null,
+  level: "all",
+  type: "all",
+  expandedId: null,
+};
+
+const emptyRestaurants: RestaurantsBrowse = {
+  city: "all",
   expandedId: null,
 };
 
@@ -138,6 +171,7 @@ export const appMachine = setup({
     eatOutCatalog: emptyCatalog,
     random: emptyRandom,
     ingredients: emptyIngredients,
+    restaurants: emptyRestaurants,
     categorizer: emptyCategorizer,
   }),
   on: {
@@ -295,6 +329,25 @@ export const appMachine = setup({
         ingredients: ({ context, event }) => ({ ...context.ingredients, section: event.section }),
       }),
     },
+    setIngredientsFodmapLevel: {
+      actions: assign({
+        ingredients: ({ context, event }) => ({
+          ...context.ingredients,
+          level: event.level,
+          type: showsFodmapTypeRow(event.level) ? context.ingredients.type : "all",
+          expandedId: null,
+        }),
+      }),
+    },
+    setIngredientsFodmapType: {
+      actions: assign({
+        ingredients: ({ context, event }) => ({
+          ...context.ingredients,
+          type: event.fodmapType,
+          expandedId: null,
+        }),
+      }),
+    },
     toggleIngredient: {
       actions: assign({
         ingredients: ({ context, event }) => ({
@@ -303,11 +356,43 @@ export const appMachine = setup({
         }),
       }),
     },
+    closeIngredient: {
+      actions: assign({
+        ingredients: ({ context }) => ({
+          ...context.ingredients,
+          expandedId: null,
+        }),
+      }),
+    },
     clearIngredientsFilters: {
       actions: assign({
         ingredients: ({ context }) => ({
           ...emptyIngredients,
           expandedId: context.ingredients.expandedId,
+        }),
+      }),
+    },
+    setRestaurantCity: {
+      actions: assign({
+        restaurants: ({ event }) => ({
+          city: event.city,
+          expandedId: null,
+        }),
+      }),
+    },
+    toggleRestaurant: {
+      actions: assign({
+        restaurants: ({ context, event }) => ({
+          ...context.restaurants,
+          expandedId: context.restaurants.expandedId === event.id ? null : event.id,
+        }),
+      }),
+    },
+    closeRestaurant: {
+      actions: assign({
+        restaurants: ({ context }) => ({
+          ...context.restaurants,
+          expandedId: null,
         }),
       }),
     },
@@ -328,7 +413,7 @@ export const appMachine = setup({
           }
           return {
             ...context.categorizer,
-            overrides: { ...context.categorizer.overrides, [event.id]: "ha" },
+            overrides: { ...context.categorizer.overrides, [event.id]: "ha-confirmed" },
             selectedId: event.id,
             copied: false,
           };

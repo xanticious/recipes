@@ -1,0 +1,67 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.description,
+.notes {
+  margin: 0;
+}
+
+.fodmap {
+  margin: 0;
+  font-weight: 650;
+}
+
+.fodmap[data-level="low"] {
+  color: var(--health-healthy);
+}
+
+.fodmap[data-level="watch"] {
+  color: var(--health-moderate);
+}
+
+.fodmap[data-level="high"] {
+  color: var(--health-unhealthy);
+}
+
+.none {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.recipeBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.recipeHeading {
+  margin: 0.35rem 0 0;
+  font-weight: 650;
+}
+
+.recipes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeLink {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  padding: 0.15rem 0;
+  color: var(--text-h);
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.recipeLink:hover {
+  color: var(--accent);
+}

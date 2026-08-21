@@ -170,44 +170,46 @@
   font-size: 1.45rem;
 }
 
-.list {
+.grid {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.85rem;
 }
 
-.item {
-  border-bottom: 1px solid var(--border);
-}
-
-.item:last-child {
-  border-bottom: 0;
-}
-
-.toggle {
+.card {
   font: inherit;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem 0.65rem;
-  min-height: 44px;
-  padding: 0.35rem 0.15rem;
-  border: 0;
-  background: none;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-raised);
   color: var(--text-h);
   cursor: pointer;
-  text-align: left;
+  text-align: center;
 }
 
-.toggle:hover .name {
-  color: var(--accent);
+.card:hover {
+  border-color: var(--accent-border);
 }
 
-.name {
+.card[aria-expanded="true"] {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+
+.cardName {
+  display: block;
+  padding: 0.5rem 0.45rem 0.65rem;
   font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .haTag {
@@ -219,72 +221,103 @@
   font-size: 0.72rem;
   font-weight: 650;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
-.haTag[data-status="yes"] {
+.haTag[data-status="ha-confirmed"] {
   background: var(--accent-bg);
   border: 1px solid var(--accent-border);
   color: var(--text-h);
 }
 
-.haTag[data-status="pending"] {
-  background: var(--health-moderate-bg);
-  border: 1px solid var(--health-moderate);
-  color: var(--health-moderate);
+.haTag[data-status="ha-assumed"] {
+  background: var(--health-healthy-bg);
+  border: 1px solid var(--health-healthy);
+  color: var(--health-healthy);
 }
 
-.haTag[data-status="no"] {
+.haTag[data-status="unknown"] {
   background: var(--chip-bg);
   border: 1px solid var(--border);
   color: var(--text-muted);
 }
 
-.usage {
-  margin-left: auto;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.haTag[data-status="not-ha-assumed"] {
+  background: var(--health-moderate-bg);
+  border: 1px solid var(--health-moderate);
+  color: var(--health-moderate);
 }
 
-.panel {
-  padding: 0 0.15rem 0.85rem 0.85rem;
+.haTag[data-status="not-ha-confirmed"] {
+  background: var(--health-unhealthy-bg);
+  border: 1px solid var(--health-unhealthy);
+  color: var(--health-unhealthy);
 }
 
-.none {
-  margin: 0;
-  color: var(--text-muted);
-}
-
-.recipes {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(20, 16, 12, 0.45);
 }
 
-.recipeLink {
+.dialog {
+  width: min(36rem, 100%);
+  max-height: min(88svh, 48rem);
+  overflow: auto;
+  padding: 1rem 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 16px 16px 12px 12px;
+  background: var(--bg-raised);
+  color: var(--text);
+}
+
+.dialogBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.dialogBar h2 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.35rem;
-  min-height: 44px;
-  padding: 0.15rem 0;
-  color: var(--text-h);
-  text-decoration: none;
-  border-radius: 6px;
+  gap: 0.4rem 0.55rem;
+  margin: 0;
+  font-size: 1.45rem;
 }
 
-.recipeLink:hover {
-  color: var(--accent);
+.close {
+  font: inherit;
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.3rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: var(--accent-border);
+  color: var(--text-h);
 }
 
 @media (min-width: 800px) {
-  .list {
-    columns: 2;
-    column-gap: 2rem;
+  .backdrop {
+    align-items: center;
+    padding: 2rem;
   }
 
-  .item {
-    break-inside: avoid;
+  .dialog {
+    border-radius: 16px;
+    padding: 1.25rem 1.4rem 1.5rem;
   }
 }

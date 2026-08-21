@@ -1,0 +1,75 @@
+.figure,
+.fillFigure {
+  margin: 0;
+  width: 100%;
+}
+
+.figure {
+  max-width: 18rem;
+}
+
+.frame,
+.placeholder,
+.fillPlaceholder {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--image-w) / var(--image-h);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.figure .frame {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.photo,
+.svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.photo {
+  object-fit: cover;
+  object-position: center;
+  background: var(--chip-bg);
+}
+
+.credit {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.creditLink {
+  color: inherit;
+}
+
+.creditLink:hover {
+  color: var(--accent);
+}
+
+.placeholder,
+.fillPlaceholder {
+  background: hsl(var(--hue) 32% var(--placeholder-l));
+  color: hsl(var(--hue) 28% var(--placeholder-fg-l));
+}
+
+.placeholder {
+  max-width: 18rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.svg {
+  fill: currentColor;
+  font-family: var(--sans);
+}
+
+.placeholderFill {
+  fill: hsl(var(--hue) 32% var(--placeholder-l));
+}

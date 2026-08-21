@@ -20,7 +20,7 @@ function home(partial: Partial<HomeRecipe> & Pick<HomeRecipe, "id" | "title">): 
     mealType: "dinner",
     cuisine: "american",
     specialOccasion: false,
-    ha: "yes",
+    ha: "ha-confirmed",
     healthRating: "healthy",
     eatOut: false,
     prepMinutes: 5,
@@ -84,27 +84,30 @@ test("HA filter, category, and name search combine", () => {
     name: "garlic",
     kind: "produce",
     flags: ["fructan"],
-    ha: "no",
+    ha: "not-ha-confirmed",
   });
-  const rice = item({ id: "white-rice", name: "white rice", kind: "grain", ha: "yes" });
-  const chicken = item({ id: "chicken-breast", name: "chicken", kind: "protein", ha: "yes" });
+  const rice = item({ id: "white-rice", name: "white rice", kind: "grain", ha: "ha-confirmed" });
+  const chicken = item({
+    id: "chicken-breast",
+    name: "chicken",
+    kind: "protein",
+    ha: "ha-confirmed",
+  });
   const banana = item({
-    id: "banana",
+    id: "sourdough-bread",
     name: "banana",
     kind: "produce",
-    flags: ["fructan"],
-    ha: "pending",
+    flags: ["gluten"],
   });
   const catalog = [garlic, rice, chicken, banana];
-  expect(filterIngredients(catalog, { ha: "yes" }).map((ingredient) => ingredient.id)).toEqual([
-    "white-rice",
-    "chicken-breast",
-  ]);
-  expect(filterIngredients(catalog, { ha: "no" }).map((ingredient) => ingredient.id)).toEqual([
-    "garlic",
-  ]);
-  expect(filterIngredients(catalog, { ha: "pending" }).map((ingredient) => ingredient.id)).toEqual([
-    "banana",
+  expect(
+    filterIngredients(catalog, { ha: "ha-confirmed" }).map((ingredient) => ingredient.id),
+  ).toEqual(["white-rice", "chicken-breast"]);
+  expect(
+    filterIngredients(catalog, { ha: "not-ha-confirmed" }).map((ingredient) => ingredient.id),
+  ).toEqual(["garlic"]);
+  expect(filterIngredients(catalog, { ha: "unknown" }).map((ingredient) => ingredient.id)).toEqual([
+    "sourdough-bread",
   ]);
   expect(filterIngredients(catalog, { query: "RICE" }).map((ingredient) => ingredient.id)).toEqual([
     "white-rice",
@@ -149,7 +152,7 @@ test("recipesUsingIngredient lists home recipes and skips eat-out", () => {
       mealType: "lunch",
       cuisine: "american",
       specialOccasion: false,
-      ha: "yes",
+      ha: "ha-confirmed",
       healthRating: "healthy",
       eatOut: true,
       description: "Grilled nuggets.",

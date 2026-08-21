@@ -20,6 +20,7 @@ import {
   type Ingredient,
 } from "../data/index.ts";
 import styles from "./IngredientCategorizerPage.module.css";
+import { IngredientDietDetails } from "./IngredientDietDetails.tsx";
 
 const DRAG_THRESHOLD_PX = 10;
 const LONG_PRESS_MS = 320;
@@ -80,9 +81,7 @@ function IngredientInfoPanel({ ingredient }: { ingredient: Ingredient }) {
   return (
     <div className={styles.infoPanel}>
       <p>{info.what}</p>
-      <p className={styles.fodmap} data-status={info.fodmap.status}>
-        {info.fodmap.label}
-      </p>
+      <IngredientDietDetails diet={info.diet} />
       <p>{info.commonness}</p>
       <p>{info.uses}</p>
       {info.notes ? <p>{info.notes}</p> : null}
@@ -279,15 +278,15 @@ export function IngredientCategorizerPage() {
         <div>
           <h1>Ingredient categorizer</h1>
           <p className={styles.lede}>
-            Pending House Approval starts in Uncategorized. On a mouse, left click sends to HA,
-            right click to Not HA, middle click to Pending. Drag — or press and hold on a tablet —
-            to move, including back to Uncategorized. The handle starts a drag immediately. Tap the
-            info icon to read what an ingredient is and its FODMAP status; tap it again to hide the
-            description.
+            Confirmed tags stay put; the rest start in HA Assumed, Not-HA Assumed, or Unknown from
+            lactose, gluten, cheese, and FODMAP notes. On a mouse, left click sends to HA -
+            Confirmed, right click to Not-HA Confirmed, middle click to Unknown. Drag — or press and
+            hold on a tablet — to move. The handle starts a drag immediately. Tap the info icon for
+            the description and diet notes; tap it again to hide them.
           </p>
         </div>
         <button type="button" className={styles.copy} onClick={copyToClipboard}>
-          {categorizer.copied ? "Copied" : "Copy HA / Not HA as JSON"}
+          {categorizer.copied ? "Copied" : "Copy categories as JSON"}
         </button>
       </header>
 
@@ -295,7 +294,7 @@ export function IngredientCategorizerPage() {
         <p className={styles.selected}>
           {selected
             ? `Selected: ${selected.name}`
-            : "Select an ingredient to move it with the buttons or keys 1–4."}
+            : "Select an ingredient to move it with the buttons or keys 1–5."}
         </p>
         <div className={styles.moves}>
           {CATEGORIZER_COLUMNS.map((column) => (
@@ -393,7 +392,7 @@ export function IngredientCategorizerPage() {
                                   appActor.send({
                                     type: "moveCategorizerIngredient",
                                     id: ingredient.id,
-                                    column: "notHa",
+                                    column: "not-ha-confirmed",
                                   });
                                 }}
                                 onMouseDown={(event) => {
@@ -409,7 +408,7 @@ export function IngredientCategorizerPage() {
                                   appActor.send({
                                     type: "moveCategorizerIngredient",
                                     id: ingredient.id,
-                                    column: "pending",
+                                    column: "unknown",
                                   });
                                 }}
                               >

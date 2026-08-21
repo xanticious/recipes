@@ -26,7 +26,7 @@ export const kitchenGuide: {
       id: "ha",
       title: "House Approved",
       paragraphs: [
-        "HA means House Approved. A recipe is HA if we can serve it without interfering with our food allergies and it does not taste bad to all of us.",
+        "HA means House Approved. A recipe is HA if we can serve it without interfering with our food allergies and it does not taste bad to all of us. Recipes and ingredients use the same tags: HA - Confirmed, HA - Assumed, Unknown, Not-HA Assumed, and Not-HA Confirmed. Confirmed is a household yes or no. Assumed recipe tags come from the ingredients as written.",
       ],
     },
     {

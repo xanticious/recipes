@@ -1,8 +1,8 @@
 import { produce } from "./catalog/produce.ts";
 import { protein } from "./catalog/protein.ts";
-import { ingredientHaStatus, matchesHaFilter } from "./ha.ts";
+import { ingredientHaStatus, matchesIngredientHaFilter } from "./ha.ts";
 import { isHomeRecipe } from "./recipe.ts";
-import type { HaFilter, Ingredient, Recipe } from "./types.ts";
+import type { Ingredient, IngredientHaFilter, Recipe } from "./types.ts";
 
 export type IngredientSection =
   | "meat"
@@ -113,7 +113,7 @@ export function ingredientSection(ingredient: Ingredient): IngredientSection {
 }
 
 export type IngredientFilters = {
-  ha?: HaFilter;
+  ha?: IngredientHaFilter;
   query?: string;
   section?: IngredientSection | null;
 };
@@ -129,7 +129,7 @@ export function ingredientMatchesFilters(
   if (filters.section && ingredientSection(ingredient) !== filters.section) {
     return false;
   }
-  if (!matchesHaFilter(ingredientHaStatus(ingredient), filters.ha)) {
+  if (!matchesIngredientHaFilter(ingredientHaStatus(ingredient), filters.ha)) {
     return false;
   }
   const query = filters.query?.trim().toLowerCase();
@@ -151,7 +151,10 @@ export type GroupedIngredients = {
   ingredients: Ingredient[];
 }[];
 
-export function groupIngredients(catalog: readonly Ingredient[]): GroupedIngredients {
+export function groupIngredients(
+  catalog: readonly Ingredient[],
+  sectionOrder: readonly IngredientSection[] = INGREDIENT_SECTIONS,
+): GroupedIngredients {
   const bySection = new Map<IngredientSection, Ingredient[]>();
   for (const ingredient of catalog) {
     const section = ingredientSection(ingredient);
@@ -162,7 +165,7 @@ export function groupIngredients(catalog: readonly Ingredient[]): GroupedIngredi
   for (const list of bySection.values()) {
     list.sort((a, b) => a.name.localeCompare(b.name));
   }
-  return INGREDIENT_SECTIONS.flatMap((section) => {
+  return sectionOrder.flatMap((section) => {
     const ingredients = bySection.get(section);
     return ingredients && ingredients.length > 0 ? [{ section, ingredients }] : [];
   });

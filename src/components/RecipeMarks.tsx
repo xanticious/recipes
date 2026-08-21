@@ -1,8 +1,7 @@
 import {
-  HA_LABEL,
   HEALTH_RATING_LABELS,
-  INGREDIENT_HA_TAG_LABELS,
-  INGREDIENT_HA_TAG_TITLES,
+  RECIPE_HA_TAG_LABELS,
+  RECIPE_HA_TAG_TITLES,
   type HealthRating,
   type Recipe,
 } from "../data/index.ts";
@@ -50,12 +49,8 @@ function HealthThermometer({ rating }: { rating: HealthRating }) {
 export function RecipeMarks({ recipe, compact = false }: { recipe: Recipe; compact?: boolean }) {
   return (
     <span className={compact ? styles.compact : styles.row}>
-      <span
-        className={styles.ha}
-        data-status={recipe.ha}
-        title={INGREDIENT_HA_TAG_TITLES[recipe.ha]}
-      >
-        {recipe.ha === "yes" ? HA_LABEL : INGREDIENT_HA_TAG_LABELS[recipe.ha]}
+      <span className={styles.ha} data-status={recipe.ha} title={RECIPE_HA_TAG_TITLES[recipe.ha]}>
+        {RECIPE_HA_TAG_LABELS[recipe.ha]}
       </span>
       <span
         className={styles.health}

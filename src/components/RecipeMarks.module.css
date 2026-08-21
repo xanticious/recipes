@@ -30,16 +30,34 @@
   color: var(--text-muted);
 }
 
-.ha[data-status="yes"] {
+.ha[data-status="ha-confirmed"] {
   background: var(--accent-bg);
   border: 1px solid var(--accent-border);
   color: var(--text-h);
 }
 
-.ha[data-status="pending"] {
+.ha[data-status="ha-assumed"] {
+  background: var(--health-healthy-bg);
+  border: 1px solid var(--health-healthy);
+  color: var(--health-healthy);
+}
+
+.ha[data-status="unknown"] {
+  background: var(--chip-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.ha[data-status="not-ha-assumed"] {
   background: var(--health-moderate-bg);
   border: 1px solid var(--health-moderate);
   color: var(--health-moderate);
+}
+
+.ha[data-status="not-ha-confirmed"] {
+  background: var(--health-unhealthy-bg);
+  border: 1px solid var(--health-unhealthy);
+  color: var(--health-unhealthy);
 }
 
 .health {

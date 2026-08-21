@@ -19,6 +19,8 @@ html[data-theme="light"] {
   --health-moderate-bg: rgba(154, 107, 18, 0.14);
   --health-unhealthy: #b33a3a;
   --health-unhealthy-bg: rgba(179, 58, 58, 0.12);
+  --placeholder-l: 86%;
+  --placeholder-fg-l: 28%;
   --sans: "Segoe UI", system-ui, Roboto, sans-serif;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   color-scheme: light;
@@ -44,6 +46,8 @@ html[data-theme="dark"] {
   --health-moderate-bg: rgba(212, 168, 75, 0.16);
   --health-unhealthy: #e07a7a;
   --health-unhealthy-bg: rgba(224, 122, 122, 0.16);
+  --placeholder-l: 22%;
+  --placeholder-fg-l: 88%;
   color-scheme: dark;
 }
 

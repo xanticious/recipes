@@ -1,12 +1,12 @@
 import { ingredientSection, type IngredientSection } from "./ingredientBrowse.ts";
 import {
-  formatFodmapInfo,
-  getIngredientFodmap,
-  type FodmapReason,
-  type FodmapStatus,
-} from "./ingredientFodmap.ts";
+  describeIngredientDiet,
+  formatHighestFodmap,
+  type IngredientDiet,
+} from "./ingredientDiet.ts";
+import { getIngredientFodmap, type FodmapReason, type FodmapStatus } from "./ingredientFodmap.ts";
 import { CUISINE_LABELS, MEAL_TYPE_LABELS } from "./tags.ts";
-import type { Cuisine, Ingredient, MealType, Recipe } from "./types.ts";
+import type { Cuisine, GlutenLevel, Ingredient, LactoseLevel, MealType, Recipe } from "./types.ts";
 
 export type IngredientAvailability = "common" | "specialty" | "exotic";
 
@@ -21,7 +21,10 @@ export type IngredientInfo = {
   commonness: string;
   uses: string;
   notes?: string;
+  lactose: LactoseLevel;
+  gluten: GlutenLevel;
   fodmap: IngredientFodmapInfo;
+  diet: IngredientDiet;
 };
 
 const WHAT_KIND: Record<IngredientSection, string> = {
@@ -245,7 +248,7 @@ function whatSentence(ingredient: Ingredient): string {
   const name = capitalizeIngredientName(ingredient.name);
   const fodmap = getIngredientFodmap(ingredient.id);
   if (fodmap) {
-    return `${name} - ${fodmap.description}`;
+    return `${name} is ${fodmap.description}`;
   }
   const kind = WHAT_KIND[ingredientSection(ingredient)];
   return `${name} is ${kind}.`;
@@ -253,13 +256,15 @@ function whatSentence(ingredient: Ingredient): string {
 
 function fodmapInfo(ingredient: Ingredient): IngredientFodmapInfo {
   const entry = getIngredientFodmap(ingredient.id);
+  const diet = describeIngredientDiet(ingredient);
+  const label = formatHighestFodmap(diet.fodmap);
   if (!entry) {
-    return { status: "low", reasons: [], label: "Low Fodmap" };
+    return { status: "low", reasons: [], label };
   }
   return {
     status: entry.status,
     reasons: entry.reasons,
-    label: formatFodmapInfo(entry),
+    label,
   };
 }
 
@@ -319,11 +324,15 @@ export function describeIngredient(
   usedIn: readonly Recipe[],
 ): IngredientInfo {
   const notes = ingredient.notes?.trim();
+  const diet = describeIngredientDiet(ingredient);
   return {
     what: whatSentence(ingredient),
     commonness: commonnessSentence(ingredient, usedIn),
     uses: usesSentence(usedIn),
+    lactose: diet.lactose,
+    gluten: diet.gluten,
     fodmap: fodmapInfo(ingredient),
+    diet,
     ...(notes ? { notes } : {}),
   };
 }

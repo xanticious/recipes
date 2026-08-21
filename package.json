@@ -15,6 +15,7 @@
     "format": "oxfmt",
     "fmt:check": "oxfmt --check",
     "typecheck": "tsc --noEmit",
+    "classify-ha": "node --experimental-strip-types scripts/classify-recipe-ha.ts",
     "validate": "npm run format && npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {

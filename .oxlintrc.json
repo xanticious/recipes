@@ -21,7 +21,7 @@
       }
     },
     {
-      "files": ["vite.config.ts"],
+      "files": ["vite.config.ts", "scripts/**/*.ts"],
       "env": {
         "node": true
       }

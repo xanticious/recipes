@@ -26,6 +26,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const onRandom = route.name === "random";
   const onGuide = route.name === "guide";
   const onIngredients = route.name === "ingredients";
+  const onRestaurants = route.name === "restaurants";
 
   return (
     <div className={styles.shell}>
@@ -60,6 +61,16 @@ export function AppShell({ children }: { children: ReactNode }) {
             }}
           >
             Eat Out
+          </a>
+          <a
+            className={styles.navLink}
+            href={routeToHash({ name: "restaurants" })}
+            aria-current={onRestaurants ? "page" : undefined}
+            onClick={(event) => {
+              handleRouteClick(event, appActor, { name: "restaurants" });
+            }}
+          >
+            Restaurants
           </a>
           <a
             className={styles.navLink}
@@ -123,7 +134,15 @@ export function AppShell({ children }: { children: ReactNode }) {
           ))}
         </div>
       </header>
-      <main className={route.name === "ingredientCategorizer" ? styles.mainWide : styles.main}>
+      <main
+        className={
+          route.name === "ingredientCategorizer" ||
+          route.name === "ingredients" ||
+          route.name === "restaurants"
+            ? styles.mainWide
+            : styles.main
+        }
+      >
         {children}
       </main>
     </div>

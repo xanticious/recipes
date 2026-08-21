@@ -1,0 +1,34 @@
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.meta p {
+  margin: 0;
+}
+
+.meta p[data-level="low"] {
+  color: var(--health-healthy);
+  font-weight: 650;
+}
+
+.meta p[data-level="watch"] {
+  color: var(--health-moderate);
+  font-weight: 650;
+}
+
+.meta p[data-level="high"] {
+  color: var(--health-unhealthy);
+  font-weight: 650;
+}
+
+.types {
+  margin: 0.15rem 0 0;
+  padding: 0 0 0 1.1rem;
+  color: var(--text);
+}
+
+.types li {
+  margin: 0;
+}

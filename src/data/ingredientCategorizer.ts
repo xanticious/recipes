@@ -2,29 +2,38 @@ import { ingredientsInBrowseOrder } from "./ingredientBrowse.ts";
 import { ingredientHaStatus } from "./ha.ts";
 import type { Ingredient } from "./types.ts";
 
-export const CATEGORIZER_COLUMNS = ["uncategorized", "ha", "pending", "notHa"] as const;
+export const CATEGORIZER_COLUMNS = [
+  "ha-confirmed",
+  "ha-assumed",
+  "unknown",
+  "not-ha-assumed",
+  "not-ha-confirmed",
+] as const;
 
 export type CategorizerColumn = (typeof CATEGORIZER_COLUMNS)[number];
 
 export const CATEGORIZER_COLUMN_LABELS: Record<CategorizerColumn, string> = {
-  uncategorized: "Uncategorized",
-  ha: "HA",
-  pending: "Pending",
-  notHa: "Not HA",
+  "ha-confirmed": "HA - Confirmed",
+  "ha-assumed": "HA - Assumed",
+  unknown: "Unknown",
+  "not-ha-assumed": "Not-HA Assumed",
+  "not-ha-confirmed": "Not-HA Confirmed",
 };
 
 export const CATEGORIZER_COLUMN_KEYS: Record<CategorizerColumn, string> = {
-  uncategorized: "1",
-  ha: "2",
-  pending: "3",
-  notHa: "4",
+  "ha-confirmed": "1",
+  "ha-assumed": "2",
+  unknown: "3",
+  "not-ha-assumed": "4",
+  "not-ha-confirmed": "5",
 };
 
 export const CATEGORIZER_KEY_COLUMNS: Readonly<Record<string, CategorizerColumn>> = {
-  "1": "uncategorized",
-  "2": "ha",
-  "3": "pending",
-  "4": "notHa",
+  "1": "ha-confirmed",
+  "2": "ha-assumed",
+  "3": "unknown",
+  "4": "not-ha-assumed",
+  "5": "not-ha-confirmed",
 };
 
 export function isCategorizerColumn(value: string | null | undefined): value is CategorizerColumn {
@@ -40,20 +49,10 @@ export function categorizerColumnFromPoint(x: number, y: number): CategorizerCol
   return isCategorizerColumn(value) ? value : null;
 }
 
-export type CategorizerExport = {
-  ha: string[];
-  "not-ha": string[];
-};
+export type CategorizerExport = Record<CategorizerColumn, string[]>;
 
 export function defaultCategorizerColumn(ingredient: Ingredient): CategorizerColumn {
-  const status = ingredientHaStatus(ingredient);
-  if (status === "yes") {
-    return "ha";
-  }
-  if (status === "no") {
-    return "notHa";
-  }
-  return "uncategorized";
+  return ingredientHaStatus(ingredient);
 }
 
 export function categorizerColumn(
@@ -77,17 +76,17 @@ export function categorizerExport(
   catalog: readonly Ingredient[],
   overrides: Readonly<Record<string, CategorizerColumn>>,
 ): CategorizerExport {
-  const ha: string[] = [];
-  const notHa: string[] = [];
+  const lists: CategorizerExport = {
+    "ha-confirmed": [],
+    "ha-assumed": [],
+    unknown: [],
+    "not-ha-assumed": [],
+    "not-ha-confirmed": [],
+  };
   for (const ingredient of ingredientsInBrowseOrder(catalog)) {
-    const column = categorizerColumn(ingredient, overrides);
-    if (column === "ha") {
-      ha.push(ingredient.id);
-    } else if (column === "notHa") {
-      notHa.push(ingredient.id);
-    }
+    lists[categorizerColumn(ingredient, overrides)].push(ingredient.id);
   }
-  return { ha, "not-ha": notHa };
+  return lists;
 }
 
 export function categorizerExportJson(

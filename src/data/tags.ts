@@ -3,9 +3,14 @@ import type {
   HaFilter,
   HaStatus,
   HealthRating,
+  IngredientHaFilter,
+  IngredientHaStatus,
   MealType,
   TernaryFilter,
 } from "./types.ts";
+import { HA_STATUSES } from "./ha.ts";
+
+export { HA_STATUSES } from "./ha.ts";
 
 export const MEAL_TYPES: readonly MealType[] = ["breakfast", "lunch", "dinner", "snack", "dessert"];
 
@@ -23,7 +28,9 @@ export const HEALTH_RATINGS: readonly HealthRating[] = ["healthy", "moderate", "
 
 export const TERNARY_FILTERS: readonly TernaryFilter[] = ["all", "yes", "no"];
 
-export const HA_FILTERS: readonly HaFilter[] = ["all", "yes", "pending", "no"];
+export const HA_FILTERS: readonly HaFilter[] = ["all", ...HA_STATUSES];
+
+export const INGREDIENT_HA_FILTERS: readonly IngredientHaFilter[] = HA_FILTERS;
 
 export const MEAL_TYPE_LABELS: Record<MealType, string> = {
   breakfast: "Breakfast",
@@ -53,10 +60,6 @@ export const HA_LABEL = "HA";
 
 export const HA_FULL_LABEL = "House Approved";
 
-export const HA_PENDING_LABEL = "Pending House Approval";
-
-export const HA_NOT_LABEL = "Not House Approved";
-
 export const EAT_OUT_FILTER_LABELS: Record<TernaryFilter, string> = {
   all: "All meals",
   yes: "Eat out",
@@ -65,21 +68,35 @@ export const EAT_OUT_FILTER_LABELS: Record<TernaryFilter, string> = {
 
 export const HA_FILTER_LABELS: Record<HaFilter, string> = {
   all: "All",
-  yes: HA_FULL_LABEL,
-  pending: HA_PENDING_LABEL,
-  no: HA_NOT_LABEL,
+  "ha-confirmed": "HA - Confirmed",
+  "ha-assumed": "HA - Assumed",
+  unknown: "Unknown",
+  "not-ha-assumed": "Not-HA Assumed",
+  "not-ha-confirmed": "Not-HA Confirmed",
 };
 
-export const INGREDIENT_HA_FILTER_LABELS: Record<HaFilter, string> = HA_FILTER_LABELS;
+export const INGREDIENT_HA_FILTER_LABELS: Record<IngredientHaFilter, string> = HA_FILTER_LABELS;
 
-export const INGREDIENT_HA_TAG_LABELS: Record<HaStatus, string> = {
-  yes: HA_LABEL,
-  pending: HA_PENDING_LABEL,
-  no: HA_NOT_LABEL,
+export const HA_TAG_LABELS: Record<HaStatus, string> = {
+  "ha-confirmed": HA_LABEL,
+  "ha-assumed": "HA assumed",
+  unknown: "Unknown",
+  "not-ha-assumed": "Not-HA assumed",
+  "not-ha-confirmed": "Not-HA",
 };
 
-export const INGREDIENT_HA_TAG_TITLES: Record<HaStatus, string> = {
-  yes: HA_FULL_LABEL,
-  pending: HA_PENDING_LABEL,
-  no: HA_NOT_LABEL,
+export const HA_TAG_TITLES: Record<HaStatus, string> = {
+  "ha-confirmed": "HA - Confirmed",
+  "ha-assumed": "HA - Assumed",
+  unknown: "Unknown",
+  "not-ha-assumed": "Not-HA Assumed",
+  "not-ha-confirmed": "Not-HA Confirmed",
 };
+
+export const INGREDIENT_HA_TAG_LABELS: Record<IngredientHaStatus, string> = HA_TAG_LABELS;
+
+export const INGREDIENT_HA_TAG_TITLES: Record<IngredientHaStatus, string> = HA_TAG_TITLES;
+
+export const RECIPE_HA_TAG_LABELS: Record<HaStatus, string> = HA_TAG_LABELS;
+
+export const RECIPE_HA_TAG_TITLES: Record<HaStatus, string> = HA_TAG_TITLES;

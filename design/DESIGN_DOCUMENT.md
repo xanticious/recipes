@@ -33,7 +33,7 @@ The following are out of scope for the first release. Several are desirable late
 - Scaling servings up or down
 - Browser editing of recipes (the catalog is curated in the repo)
 - Dynamic ingredient substitution on a recipe page
-- Allergy-type tags, FODMAP subgroup tags, and eating-pattern tags (vegan, keto, paleo, carnivore)
+- Recipe-level allergy chips, eating-pattern tags (vegan, keto, paleo, carnivore), and FODMAP filters on Recipes / Eat Out / Random
 
 ## 4. Users and access
 
@@ -58,6 +58,7 @@ Every page shares a top bar.
 | Site name / Home | Left               | Goes to the landing page                        |
 | Recipes          | Center / nav links | Home-cooking recipe index                       |
 | Eat Out          | Center / nav links | Restaurant and takeout orders                   |
+| Restaurants      | Center / nav links | Davis County restaurant catalog                 |
 | Ingredients      | Center / nav links | Ingredient catalog                              |
 | Guide            | Center / nav links | Single kitchen guide                            |
 | Random           | Center / nav links | Opens the random picker, then a matching recipe |
@@ -70,6 +71,7 @@ Every page shares a top bar.
 - **HA** means House Approved: we can serve it without interfering with our food allergies, and it does not taste bad to all of us.
 - Links to **browse by meal** (Breakfast, Lunch, Dinner, Snack, Dessert) — these open Recipes (home cooking).
 - A link to **Eat Out**.
+- A link to **Restaurants** (Davis County places to eat).
 - A link to **Ingredients**.
 - A link to the **Guide**.
 - Do not explain FODMAP science or categories on the landing page.
@@ -99,11 +101,11 @@ A list of home-cooking recipe names, grouped so the catalog stays coherent as it
 **Filters:**
 
 - Meal type (multi-select, for jumping in from the landing page)
-- **House approval:** all / House Approved / Pending House Approval / Not House Approved (exclusive)
+- **House approval:** all / HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (exclusive)
 - Cuisine (multi-select)
 - Name search
 
-Special-occasion recipes stay in the same lists. They are marked with an asterisk beside the name. House approval is marked with a small chip (HA, Pending House Approval, or Not House Approved). Health rating is a color-coded thermometer (see §9).
+Special-occasion recipes stay in the same lists. They are marked with an asterisk beside the name. House approval is marked with a small chip (HA, HA assumed, Unknown, Not-HA assumed, or Not-HA). Health rating is a color-coded thermometer (see §9).
 
 No favorites in v1.
 
@@ -111,35 +113,43 @@ No favorites in v1.
 
 A list of restaurant and takeout orders (`#/eat-out`). Same grouping and House Approval / cuisine / meal / search filters as Recipes. No ingredient lists; each entry is what we actually order.
 
-### 6.4 Ingredients
+### 6.4 Restaurants
 
-A grocery-style catalog of every ingredient in the book.
+A card catalog of places to eat in Davis County (`#/restaurants`). This is separate from Eat Out: Eat Out is household orders; Restaurants is a local directory.
 
-**Grouping:**
+Cities in the catalog: Bountiful, Centerville, Farmington, Kaysville, Layton, North Salt Lake, Woods Cross.
 
-- Meat
-- Seafood
-- Eggs
-- Dairy
-- Vegetables
-- Fruit
-- Herbs
-- Grains
-- Beans and plant proteins
-- Fats and oils
-- Sweeteners
-- Spices
-- Pantry
+**City (exclusive):** All, or one of those cities.
+
+**Grouping:** cuisine, in this order: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Other. Cards are alphabetical by name inside each cuisine, then by city when names match. A restaurant may list extra cuisine types; grouping uses the first (primary) cuisine. When the same restaurant has more than one city in the catalog, the card and details title show the city in parentheses, e.g. Texas Roadhouse (Bountiful).
+
+Each card is a placeholder or Street View storefront photo with the restaurant name below. Click a card for:
+
+- City
+- Cuisine type(s)
+- Brief description
+- Photo sized for the details panel (or a placeholder with the name fitted to that box)
+- **5 most popular menu items** (five slots; empty until filled in the catalog)
+- **Favorite** (`isFavorite`) — a catalog field for later household tagging. Not a login or device-saved favorites system.
+
+Photos are Google Street View stills of the storefront, fetched with `scripts/fetch-restaurant-photos.ts`. If Street View has no nearby coverage, keep the placeholder. Callers request width and height; placeholders fill that same image box with a colored background and wrap the name so it stays visible on thin cards.
+
+### 6.5 Ingredients
+
+A grocery-style card catalog of every ingredient in the book (`#/ingredients`). This is not a recipe filter. `#/fodmap-ingredients` still opens this page so old links do not 404.
+
+**Grouping:** Fruit first, Vegetables second, then the remaining grocery sections in alphabetical order. Cards are alphabetical by name inside each section.
 
 **Filters:**
 
-- **Category:** all, or one grocery section (Meat, Seafood, Eggs, and the rest of the grouping above). Exclusive combobox.
-- **House approval:** all / House Approved / Pending House Approval / Not House Approved (exclusive). Hand-tagged. When `ha` is omitted on an ingredient, it is Pending House Approval. Pending is for foods still under consideration or without a clear yes/no. It is not the same as “used in an HA recipe.”
+- **Category:** all, or one grocery section (Meat, Seafood, Eggs, Dairy, Vegetables, Fruit, Herbs, Grains, Beans and plant proteins, Fats and oils, Sweeteners, Spices, Pantry). Exclusive combobox.
+- **House approval:** all / HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (exclusive). Confirmed tags are hand-tagged. When `ha` is omitted, status is assumed from diet metadata (lactose, gluten, cheese, FODMAP) or left Unknown. Assumed is not the same as a household yes/no.
 - Name search
+- **FODMAP level (exclusive):** All, Low Fodmap, Medium Fodmap (watch serving size), High Fodmap. When Medium or High is selected, a second exclusive chip row filters by FODMAP type: All, Fructose, Fructans, GOS, Lactose, Sorbitol, Mannitol. All and Low have no type row.
 
-Click an ingredient to expand the list of **home recipes** that use it. Eat-out entries have no ingredient list, so they do not appear here. If nothing in the book uses that ingredient yet, show “No recipes yet.”
+Each card is the ingredient photo (or placeholder) with the name below. Click a card for the HA tag, description, FODMAP serving notes, lactose / gluten / per-type ratings, and the home recipes that use it. Eat-out entries have no ingredient list, so they do not appear here. If nothing in the book uses that ingredient yet, show “No recipes yet.”
 
-### 6.5 Recipe detail
+### 6.6 Recipe detail
 
 Shown when a recipe is chosen from Recipes, Eat Out, or Random.
 
@@ -147,7 +157,7 @@ Shown when a recipe is chosen from Recipes, Eat Out, or Random.
 
 1. Title
 2. Special-occasion mark, if any
-3. HA / Pending House Approval / Not House Approved chip and health rating
+3. HA chip (HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed) and health rating
 4. Meal type and cuisine
 5. Prep time, cook time, total time
 6. Servings
@@ -159,7 +169,7 @@ Shown when a recipe is chosen from Recipes, Eat Out, or Random.
 **Eat-out entries**, in order:
 
 1. Title
-2. HA / Pending House Approval / Not House Approved chip and health rating
+2. HA chip (HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed) and health rating
 3. Meal type and cuisine
 4. The order: a short description of what to ask for
 5. Notes, if any
@@ -169,7 +179,7 @@ No photos in v1. No in-page ingredient substitution.
 
 Instructions and eat-out descriptions are rendered as formatted markdown: headings if needed, lists, emphasis, and enough vertical rhythm that the page is comfortable to cook (or order) from.
 
-### 6.6 Random
+### 6.7 Random
 
 Available from the top bar on every page.
 
@@ -177,13 +187,13 @@ The reader may:
 
 - Leave meal type and cuisine **unfiltered**, or pick one of each
 - Choose all / eat out / home cooking
-- Choose all / House Approved / Pending House Approval / Not House Approved
+- Choose all / HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed
 - Click Random to open one matching recipe
 - Click Random again to get another match from the same filters (avoid showing the same recipe twice in a row when others exist)
 
 If nothing matches, say so and leave the filters in place so they can loosen them.
 
-### 6.7 Guide
+### 6.8 Guide
 
 One page (`#/guide`). Household cooking notes, not medical advice. Keep the disclaimer that this is not a diagnosis or treatment plan. The page itself stays impersonal:
 
@@ -199,18 +209,18 @@ Recipes are a **hardcoded, curated collection** in the repo. The display layer s
 
 ### 7.1 Shared fields
 
-| Field              | Type               | Notes                                                                             |
-| ------------------ | ------------------ | --------------------------------------------------------------------------------- |
-| `id`               | string             | Stable slug, used in the URL                                                      |
-| `title`            | string             | Display name. HA versions may include `(HA)` in the title                         |
-| `mealType`         | enum               | `breakfast` \| `lunch` \| `dinner` \| `snack` \| `dessert`                        |
-| `cuisine`          | enum               | See §8.2                                                                          |
-| `specialOccasion`  | boolean            | Shows asterisk / icon                                                             |
-| `ha`               | enum               | `yes` \| `no` \| `pending`. Hand-maintained House Approval                        |
-| `healthRating`     | enum               | `healthy` \| `moderate` \| `unhealthy`. `moderate` displays as Moderately healthy |
-| `eatOut`           | boolean            | Discriminant for home vs restaurant                                               |
-| `relatedRecipeIds` | list, optional     | Sibling recipes (classic ↔ HA, or a related order)                                |
-| `notes`            | markdown, optional | Extra prose                                                                       |
+| Field              | Type               | Notes                                                                                                                                                                       |
+| ------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`               | string             | Stable slug, used in the URL                                                                                                                                                |
+| `title`            | string             | Display name. HA versions may include `(HA)` in the title                                                                                                                   |
+| `mealType`         | enum               | `breakfast` \| `lunch` \| `dinner` \| `snack` \| `dessert`                                                                                                                  |
+| `cuisine`          | enum               | See §8.2                                                                                                                                                                    |
+| `specialOccasion`  | boolean            | Shows asterisk / icon                                                                                                                                                       |
+| `ha`               | enum               | `ha-confirmed` \| `ha-assumed` \| `unknown` \| `not-ha-assumed` \| `not-ha-confirmed`. Confirmed is household yes/no. Otherwise assumed from ingredients (eat-out: unknown) |
+| `healthRating`     | enum               | `healthy` \| `moderate` \| `unhealthy`. `moderate` displays as Moderately healthy                                                                                           |
+| `eatOut`           | boolean            | Discriminant for home vs restaurant                                                                                                                                         |
+| `relatedRecipeIds` | list, optional     | Sibling recipes (classic ↔ HA, or a related order)                                                                                                                          |
+| `notes`            | markdown, optional | Extra prose                                                                                                                                                                 |
 
 ### 7.2 Home recipe
 
@@ -247,16 +257,40 @@ No substitution groups. No `{{slot}}` placeholders in steps.
 
 A separate list of known foods, not copied into every recipe.
 
-| Field   | Type             | Notes                                                                        |
-| ------- | ---------------- | ---------------------------------------------------------------------------- |
-| `id`    | string           | e.g. `garlic`, `cheddar`, `honey`                                            |
-| `name`  | string           | Display name                                                                 |
-| `kind`  | enum             | `produce`, `dairy`, `grain`, `protein`, `fat`, `sweetener`, `spice`, `other` |
-| `flags` | set              | Problem flags for authors; see §9.3                                          |
-| `ha`    | enum, optional   | `yes` \| `no` \| `pending`. When omitted, Pending House Approval             |
-| `notes` | string, optional | Household caveats                                                            |
+| Field     | Type             | Notes                                                                                     |
+| --------- | ---------------- | ----------------------------------------------------------------------------------------- |
+| `id`      | string           | e.g. `garlic`, `cheddar`, `honey`                                                         |
+| `name`    | string           | Display name                                                                              |
+| `kind`    | enum             | `produce`, `dairy`, `grain`, `protein`, `fat`, `sweetener`, `spice`, `other`              |
+| `flags`   | set              | Authoring hints; see §9.3                                                                 |
+| `ha`      | enum, optional   | `ha-confirmed` \| `not-ha-confirmed`. When omitted, assumed or unknown from diet metadata |
+| `lactose` | enum, optional   | `free` \| `low` \| `high`. Override; otherwise derived                                    |
+| `gluten`  | enum, optional   | `free` \| `low` \| `high`. Override; otherwise derived                                    |
+| `notes`   | string, optional | Household caveats                                                                         |
 
-`ha` on a recipe is **hand-tagged**, not computed at runtime. Ingredient House Approval is also hand-tagged; when omitted it is Pending House Approval. Flags are not shown as filter chips; the three House Approval tags are.
+Diet metadata (lactose, gluten, FODMAP overall and per type) is derived from the catalog flags, names, and the FODMAP study. Recipe House Approval uses the same five tags as ingredients. Confirmed recipe tags are household yes/no. Unconfirmed home recipes are classified from their ingredient list (worst ingredient wins) with `scripts/classify-recipe-ha.ts`. Eat-out entries have no ingredient list, so they stay Unknown until confirmed. Ingredient House Approval is confirmed when `ha` is set; otherwise it is assumed:
+
+- **HA - Assumed** if lactose-free, gluten-free, and low or watch-serving-size FODMAP
+- **Not-HA Assumed** if high lactose, the ingredient is cheese, or FODMAP is high
+- **Unknown** otherwise
+
+LF, GF, HA, and FODMAP notes are shown in the Ingredients details dialog.
+
+### 7.6 Restaurant catalog
+
+A typed list of Davis County restaurants, separate from eat-out recipe entries.
+
+| Field              | Type           | Notes                                                                               |
+| ------------------ | -------------- | ----------------------------------------------------------------------------------- |
+| `id`               | string         | Stable slug, unique across cities                                                   |
+| `name`             | string         | Display name                                                                        |
+| `city`             | enum           | Bountiful, Centerville, Farmington, Kaysville, Layton, North Salt Lake, Woods Cross |
+| `description`      | string         | Short prose about the place                                                         |
+| `cuisines`         | list           | At least one. First value is the grouping category                                  |
+| `popularMenuItems` | list of string | Up to five. Empty strings are omitted; unused slots show as blank in the UI         |
+| `isFavorite`       | boolean        | Catalog placeholder for later household tagging. Defaults to false                  |
+
+Restaurant cuisine buckets: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Other.
 
 ## 8. How recipes are organized
 
@@ -296,19 +330,35 @@ Most recipes should be **core rotation**: repeatable weeknights.
 
 ### 9.1 HA
 
-**HA** means **House Approved**. It is the only diet tag.
+**HA** means **House Approved**. Recipes and ingredients use the same five-way House Approval status.
 
 A recipe or order is HA if we can serve it without interfering with our food allergies and it does not taste bad to all of us.
 
 Sourdough bread is an okay alternative to wheat bread.
 
-On **recipes** and **ingredients**, show one of three tags:
+Show one of five tags:
 
-- **HA** (House Approved)
-- **Pending House Approval** — still considering, or without a household yes/no
-- **Not House Approved**
+- **HA - Confirmed** — household yes
+- **HA - Assumed** — not confirmed; classified as likely HA
+- **Unknown** — not confirmed and not assumed either way
+- **Not-HA Assumed** — not confirmed; classified as likely not HA
+- **Not-HA Confirmed** — household no
 
-A recipe or ingredient is pending until someone records a yes or no. Ingredient flags stay as authoring hints. An optional `ha` field on the catalog entry is the displayed status; when it is omitted, the ingredient is pending.
+Confirmed tags are a household yes or no stored on the catalog entry.
+
+Unconfirmed **ingredients** are classified from diet metadata:
+
+- **HA - Assumed** if lactose-free, gluten-free, and low or watch-serving-size FODMAP
+- **Not-HA Assumed** if high lactose, the ingredient is cheese, or FODMAP is high
+- **Unknown** otherwise
+
+Unconfirmed **home recipes** are classified from the ingredient list as written (optional lines count). The worst ingredient wins:
+
+- **Not-HA Assumed** if any ingredient is Not-HA Confirmed or Not-HA Assumed
+- **Unknown** if any ingredient is Unknown (or missing from the catalog)
+- **HA - Assumed** if every ingredient is HA Confirmed or HA Assumed
+
+The classifier never writes Confirmed. Use `scripts/classify-recipe-ha.ts` with an ingredient list, or `--write` to tag the catalog. Eat-out entries have no ingredient list, so they stay **Unknown** until confirmed.
 
 When a favorite recipe is not HA, add a second recipe instead of swapping ingredients on the page. Link them with `relatedRecipeIds`.
 
@@ -324,13 +374,17 @@ Every recipe has a color-coded health rating. It is a household shorthand, not a
 
 Show it on Recipes and Eat Out (thermometer icon) and on the recipe page (thermometer plus labeled chip).
 
-### 9.3 Ingredient flags
+### 9.3 Ingredient diet metadata
 
-Catalog ingredients may carry:
+Catalog ingredients may still carry authoring flags:
 
 - `gluten`, `lactose`, `fructose`, `fructan`, `gos`, `sorbitol`, `mannitol`, `high-fat`
 
-These are authoring hints. They are not user-facing tags.
+The Ingredients page shows derived diet notes, not the raw flags:
+
+- **Lactose:** None / Low / High (Lactose Free, Low Lactose, High Lactose)
+- **Gluten:** None / Low / High
+- **FODMAP:** overall High, Watch serving size (with the low serving when known), or Low, plus per-type ratings for fructose, fructans, GOS, lactose, sorbitol, and mannitol
 
 ## 10. Presentation and accessibility
 
@@ -371,7 +425,7 @@ Keep all five meal types visible. Prefer ingredients from a normal supermarket.
 
 - Most are core rotation.
 - A minority are special occasion (asterisk).
-- HA is tagged honestly. Do not force every recipe to be HA. Until a household yes or no is recorded, entries stay **Pending House Approval**.
+- HA is tagged honestly. Do not force every recipe to be HA. Unconfirmed home recipes are assumed from their ingredients; eat-out stays Unknown until confirmed.
 - Include HA conversions of household favorites as separate recipes when we actually cook them that way.
 - Include a small set of eat-out orders, some HA and some not.
 
@@ -379,15 +433,15 @@ Keep all five meal types visible. Prefer ingredients from a normal supermarket.
 
 This repo is a static **Vite + TypeScript** app with **xState**, **CSS modules**, Oxlint, Oxfmt, Vitest, and GitHub Pages.
 
-| Concern  | Approach                                                                                               |
-| -------- | ------------------------------------------------------------------------------------------------------ |
-| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                         |
-| Routing  | Client-side hash routes                                                                                |
-| State    | xState for navigation, theme/font preferences, Recipes/Eat Out filters, Ingredients browse, and Random |
-| Data     | Typed TypeScript for recipes and the ingredient catalog                                                |
-| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)        |
-| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file        |
-| Tests    | Filtering (eat-out, HA, cuisine), related-recipe links, random, and catalog integrity                  |
+| Concern  | Approach                                                                                                                                    |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                              |
+| Routing  | Client-side hash routes                                                                                                                     |
+| State    | xState for navigation, theme/font preferences, Recipes/Eat Out filters, Ingredients browse, Restaurants city filter and details, and Random |
+| Data     | Typed TypeScript for recipes, the ingredient catalog, and the restaurant catalog                                                            |
+| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                             |
+| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                             |
+| Tests    | Filtering (eat-out, HA, cuisine), related-recipe links, random, restaurant grouping, and catalog integrity                                  |
 
 URL shapes:
 
@@ -395,7 +449,8 @@ URL shapes:
 - `/recipes` — Recipes (home cooking)
 - `/recipes/:id` — detail (home or eat-out)
 - `/eat-out` — Eat Out
-- `/ingredients` — ingredient catalog
+- `/restaurants` — Davis County restaurant catalog
+- `/ingredients` — ingredient catalog (`#/fodmap-ingredients` still opens this page)
 - `/guide` — kitchen guide
 - `/random` — random picker
 
@@ -404,7 +459,8 @@ URL shapes:
 ## 13. Later versions (not v1)
 
 - Weekly planner
-- Favorites
+- Device-saved favorites / “we made this”
+- Fill restaurant popular menu items and `isFavorite` as the household actually uses places
 - Photos
 - Export / import
 - More HA conversions and eat-out orders as the household actually uses them
@@ -416,11 +472,11 @@ URL shapes:
 - Cuisines: American, Mexican, Italian, Asian, Mediterranean, Indian, Other.
 - Special occasion = icon/asterisk, not a separate list.
 - Structured ingredients for home recipes; eat-out entries are descriptions.
-- One diet tag: **HA** (House Approved). Recipes and ingredients use HA / Pending House Approval / Not House Approved. Recipes are hand-maintained. Ingredients default to pending when `ha` is omitted. No dynamic substitutions.
+- One diet tag: **HA** (House Approved). Recipes and ingredients use HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed. Confirmed tags are household yes/no. Unconfirmed ingredients are assumed from lactose, gluten, cheese, and FODMAP metadata. Unconfirmed home recipes are assumed from that ingredient list (worst ingredient wins); eat-out stays Unknown until confirmed. No dynamic substitutions.
 - Related recipes link classic and HA (or other siblings).
 - Health rating: healthy / moderately healthy / unhealthy, color-coded thermometer.
-- Filters: House Approved / Pending House Approval / not (Recipes, Eat Out, Random, and Ingredients); cuisine (plus meal type and name search).
-- Nav: Home, Recipes, Eat Out, Ingredients, Guide, Random, font size, theme.
+- Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search).
+- Nav: Home, Recipes, Eat Out, Restaurants, Ingredients, Guide, Random, font size, theme.
 - Theme and type size apply site-wide and persist locally.
 - No household first names in code or copy.
 

@@ -1,0 +1,51 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.favorite {
+  margin: 0;
+  font-weight: 650;
+}
+
+.favorite[data-on="false"] {
+  color: var(--text-muted);
+}
+
+.description {
+  margin: 0;
+}
+
+.menuBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.heading {
+  margin: 0.2rem 0 0;
+  font-weight: 650;
+}
+
+.menu {
+  margin: 0;
+  padding-left: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.emptyItem {
+  color: var(--text-muted);
+}
