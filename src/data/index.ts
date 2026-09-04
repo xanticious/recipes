@@ -112,6 +112,24 @@ export type {
   IngredientSection,
 } from "./ingredientBrowse.ts";
 export { ingredientLookup, ingredients } from "./ingredients.ts";
+export {
+  filterMealIdeas,
+  groupMealIdeas,
+  isMealIdeaOccasion,
+  mealIdeaMatchesFilters,
+  mealIdeaLookup,
+  relatedMealIdeas,
+  resolveMealIdeaRecipes,
+  MEAL_IDEA_OCCASION_FILTERS,
+  MEAL_IDEA_OCCASION_FILTER_LABELS,
+} from "./mealIdeaBrowse.ts";
+export type {
+  GroupedMealIdeas,
+  MealIdeaFilters,
+  MealIdeaOccasionFilter,
+  ResolvedMealIdeaRecipe,
+} from "./mealIdeaBrowse.ts";
+export { mealIdeas } from "./mealIdeas.ts";
 export { pickRandomId } from "./pickRandom.ts";
 export { isEatOutRecipe, isHomeRecipe, recipeTotalMinutes, relatedRecipes } from "./recipe.ts";
 export { recipes } from "./recipes/index.ts";
@@ -132,6 +150,8 @@ export {
   INGREDIENT_HA_FILTERS,
   INGREDIENT_HA_TAG_LABELS,
   INGREDIENT_HA_TAG_TITLES,
+  MEAL_IDEA_OCCASIONS,
+  MEAL_IDEA_OCCASION_LABELS,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
   RECIPE_HA_TAG_LABELS,
@@ -170,6 +190,9 @@ export type {
   HaStatus,
   HealthRating,
   HomeRecipe,
+  MealIdea,
+  MealIdeaOccasion,
+  MealIdeaRecipeRef,
   Ingredient,
   IngredientHaFilter,
   IngredientHaStatus,

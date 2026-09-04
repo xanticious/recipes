@@ -57,6 +57,7 @@ Every page shares a top bar.
 | ---------------- | ------------------ | ----------------------------------------------- |
 | Site name / Home | Left               | Goes to the landing page                        |
 | Recipes          | Center / nav links | Home-cooking recipe index                       |
+| Meal Ideas       | Center / nav links | Full plates (protein + sides + drink)           |
 | Eat Out          | Center / nav links | Restaurant and takeout orders                   |
 | Restaurants      | Center / nav links | Davis County restaurant catalog                 |
 | Ingredients      | Center / nav links | Ingredient catalog                              |
@@ -70,6 +71,7 @@ Every page shares a top bar.
 - Short welcome: this is our family cookbook for weeknight cooking, special occasions, and a few takeout orders.
 - **HA** means House Approved: we can serve it without interfering with our food allergies, and it does not taste bad to all of us.
 - Links to **browse by meal** (Breakfast, Lunch, Dinner, Snack, Dessert) — these open Recipes (home cooking).
+- A link to **Meal Ideas** (full plates, not single recipes).
 - A link to **Eat Out**.
 - A link to **Restaurants** (Davis County places to eat).
 - A link to **Ingredients**.
@@ -121,7 +123,7 @@ Cities in the catalog: Bountiful, Centerville, Farmington, Kaysville, Layton, No
 
 **City (exclusive):** All, or one of those cities.
 
-**Grouping:** cuisine, in this order: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Other. Cards are alphabetical by name inside each cuisine, then by city when names match. A restaurant may list extra cuisine types; grouping uses the first (primary) cuisine. When the same restaurant has more than one city in the catalog, the card and details title show the city in parentheses, e.g. Texas Roadhouse (Bountiful).
+**Grouping:** cuisine, in this order: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Fast Food, Dessert, Drinks, Grocery, Other. Cards are alphabetical by name inside each cuisine, then by city when names match. A restaurant may list extra cuisine types; grouping uses the first (primary) cuisine. When the same restaurant has more than one city in the catalog, the card and details title show the city in parentheses, e.g. Texas Roadhouse (Bountiful).
 
 Each card is a placeholder or Street View storefront photo with the restaurant name below. Click a card for:
 
@@ -199,9 +201,28 @@ One page (`#/guide`). Household cooking notes, not medical advice. Keep the disc
 
 - **HA** means House Approved. A recipe is HA if we can serve it without interfering with our food allergies and it does not taste bad to all of us.
 - Sourdough bread is an okay alternative to wheat bread.
-- Substitutions as separate points (almond milk or whole milk; sourdough for wheat/white bread; and the other household swaps)
+- Substitutions as separate points (almond milk for milk; Daiya dairy-free cheddar shreds for cheddar; Follow Your Heart dairy-free American cheese slices for American cheese; sourdough for wheat/white bread; and the other household swaps)
 
 Old per-tag allergy and eating-pattern guides are out of scope.
+
+### 6.9 Meal Ideas
+
+A catalog of **full plates**, not single recipes (`#/meal-ideas`). When planning dinner, “pork chops, mashed potatoes, gravy, green beans, water” is a stronger starting point than a list of disconnected recipes.
+
+**Primary grouping:** occasion — Breakfast, Lunch, Dinner, Snack, Dessert, Drinks.
+
+**Filters:** exclusive occasion (including All) and name search.
+
+Click a plate name to expand details:
+
+- **Frequently paired with** — drinks and sides that usually show up with that plate
+- **Common substitutions** — easy swaps (almond milk, sourdough, rice instead of potatoes)
+- **Related meals** — other plates with real overlap, still distinct enough to list separately. Breakfasts often have none.
+- **Linked recipes** — recipes in the book for the plate or a part of it. Mixing cereal and milk does not need a recipe. If a useful recipe is not in the book yet, show the name with a **Not in the book yet** mark.
+
+This is still a catalog, not a planner. It does not write the weekly meal plan, scale servings, or build a shopping list.
+
+Starter ideas come from the NHANES 2021–2023 plate lists in `design/nhanes-analysis/`. The live catalog is curated; do not import the analysis files as-is.
 
 ## 7. Recipe information model
 
@@ -290,7 +311,21 @@ A typed list of Davis County restaurants, separate from eat-out recipe entries.
 | `popularMenuItems` | list of string | Up to five. Empty strings are omitted; unused slots show as blank in the UI         |
 | `isFavorite`       | boolean        | Catalog placeholder for later household tagging. Defaults to false                  |
 
-Restaurant cuisine buckets: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Other.
+Restaurant cuisine buckets: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Fast Food, Dessert, Drinks, Grocery, Other.
+
+### 7.7 Meal idea
+
+| Field            | Type           | Notes                                                                  |
+| ---------------- | -------------- | ---------------------------------------------------------------------- |
+| `id`             | string         | Stable slug                                                            |
+| `title`          | string         | Short plate name, e.g. Cereal and Milk                                 |
+| `occasion`       | enum           | `breakfast` \| `lunch` \| `dinner` \| `snack` \| `dessert` \| `drinks` |
+| `pairings`       | list of string | Frequently paired drinks and sides                                     |
+| `substitutions`  | list, optional | Common swaps                                                           |
+| `relatedMealIds` | list, optional | Other meal ideas with real overlap                                     |
+| `recipes`        | list, optional | Linked recipes for the plate or a part                                 |
+
+Each linked recipe: `label` and optional `recipeId`. If `recipeId` is omitted or not in the book, the UI shows **Not in the book yet**. Omit `recipes` when the plate is too simple to need one.
 
 ## 8. How recipes are organized
 

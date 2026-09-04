@@ -1069,6 +1069,12 @@ Low Fodmap
 Lactose-free sour cream - sour cream treated with lactase and used as a topping and in cooking.
 Low Fodmap
 
+Daiya dairy-free cheddar shreds - coconut-oil cheddar-style shreds from Daiya, used for melting, nachos, and topping.
+Depends on serving size (coconut-oil cheddar-style about 40 g / 1/3 cup is typically Low; watch pea protein, oat flour, inulin, onion, and garlic in newer formulas)
+
+Follow Your Heart dairy-free American cheese slices - coconut-oil American-style slices from Follow Your Heart, used on burgers and grilled cheese.
+Depends on serving size (coconut-oil American-style about 40 g / 2 slices is typically Low; watch inulin, onion, and garlic if the formula changes)
+
 White rice - staple cooked grain served plain, in bowls, or as a side.
 Low Fodmap
 

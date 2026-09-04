@@ -359,3 +359,299 @@ export const zaoMenu = [
   "Noodle bowl",
   "Super green salad",
 ] as const;
+
+export const mcdonaldsMenu = [
+  "Big Mac",
+  "Quarter Pounder with Cheese",
+  "McNuggets",
+  "World Famous Fries",
+  "McFlurry",
+] as const;
+
+export const burgerKingMenu = [
+  "Whopper",
+  "Chicken Fries",
+  "Bacon King",
+  "Onion rings",
+  "Hershey's Sundae Pie",
+] as const;
+
+export const wendysMenu = [
+  "Dave's Single",
+  "Spicy Chicken sandwich",
+  "Baconator",
+  "Frosty",
+  "Nuggets",
+] as const;
+
+export const arbysMenu = [
+  "Classic Roast Beef",
+  "Beef 'n Cheddar",
+  "Curly fries",
+  "Chicken tenders",
+  "Jamocha shake",
+] as const;
+
+export const tacoBellMenu = [
+  "Crunchwrap Supreme",
+  "Doritos Locos Tacos",
+  "Bean burrito",
+  "Nachos BellGrande",
+  "Baja Blast",
+] as const;
+
+export const kfcMenu = [
+  "Original Recipe chicken",
+  "Extra Crispy chicken",
+  "Famous Bowl",
+  "Chicken sandwich",
+  "Buttermilk biscuit",
+] as const;
+
+export const sonicMenu = [
+  "Cherry Limeade",
+  "Cheeseburger",
+  "Tots",
+  "Ocean Water",
+  "Blast",
+] as const;
+
+export const carlsJrMenu = [
+  "Western Bacon Cheeseburger",
+  "Famous Star",
+  "Hand-breaded chicken tenders",
+  "Crisscut fries",
+  "Hand-scooped shake",
+] as const;
+
+export const jackInTheBoxMenu = [
+  "Jumbo Jack",
+  "Tacos",
+  "Curly fries",
+  "Tiny tacos",
+  "Egg rolls",
+] as const;
+
+export const popeyesMenu = [
+  "Classic chicken sandwich",
+  "Spicy chicken sandwich",
+  "Bonafide chicken",
+  "Cajun fries",
+  "Cajun rice",
+] as const;
+
+export const fiizMenu = [
+  "Dirty soda",
+  "Raspberry coconut cream soda",
+  "Frozen FiiZ",
+  "Italian soda",
+  "Popcorn",
+] as const;
+
+export const swigMenu = [
+  "The Dirty soda",
+  "The Founder",
+  "Coconut cream Dr Pepper",
+  "Refresher",
+  "Cookie",
+] as const;
+
+export const dutchBrosMenu = [
+  "Annihilator",
+  "Golden Eagle",
+  "Rebel energy drink",
+  "Dutch Freeze",
+  "Americano",
+] as const;
+
+export const jambaMenu = [
+  "Caribbean Passion smoothie",
+  "Mango-a-go-go",
+  "Orange dream machine",
+  "Aloha pineapple smoothie",
+  "Acai super-antioxidant smoothie",
+] as const;
+
+export const crumblMenu = [
+  "Milk chocolate chip cookie",
+  "Pink sugar cookie",
+  "Weekly flavor cookie",
+  "Mini cookies",
+  "Cookie cake",
+] as const;
+
+export const coldStoneMenu = [
+  "Cake batter ice cream creation",
+  "Mint mint chocolate chocolate chip",
+  "Cookie doughn't you want some",
+  "Milkshake",
+  "Ice cream cookie sandwich",
+] as const;
+
+export const snelgroveMenu = [
+  "Burnt almond fudge",
+  "Canadian vanilla",
+  "Caramel cashew",
+  "Mint brownie",
+  "Double cone",
+] as const;
+
+export const nielsensMenu = [
+  "Vanilla frozen custard",
+  "Concrete mixer",
+  "Turtle sundae",
+  "Cheeseburger",
+  "Onion rings",
+] as const;
+
+export const handelsMenu = [
+  "Handel's Hurricane",
+  "Chocolate-dipped cone",
+  "Buckeye ice cream",
+  "Sundae",
+  "Pint to go",
+] as const;
+
+export const dairyQueenMenu = [
+  "Blizzard",
+  "Dipped cone",
+  "Hot fudge sundae",
+  "Chicken strip basket",
+  "Cheeseburger",
+] as const;
+
+export const baskinRobbinsMenu = [
+  "31 flavors scoop",
+  "Mint chocolate chip",
+  "Jamoca almond fudge",
+  "Ice cream cake",
+  "Milkshake",
+] as const;
+
+export const nothingBundtMenu = [
+  "Chocolate chocolate chip bundtlet",
+  "White chocolate raspberry bundtlet",
+  "Lemon bundtlet",
+  "Red velvet bundtlet",
+  "Classic vanilla bundtlet",
+] as const;
+
+export const mrsCavanaughsMenu = [
+  "Mint meltaway chocolates",
+  "Caramel pecans",
+  "Ice cream scoop",
+  "Chocolate-covered cinnamon bears",
+  "Truffles",
+] as const;
+
+export const subwayMenu = [
+  "Turkey breast sub",
+  "Italian B.M.T.",
+  "Meatball Marinara",
+  "Chicken teriyaki sub",
+  "Cookies",
+] as const;
+
+export const starbucksMenu = [
+  "Pike Place roast",
+  "Caramel macchiato",
+  "Pink Drink",
+  "Bacon gouda sandwich",
+  "Lemon loaf",
+] as const;
+
+export const beansAndBrewsMenu = [
+  "House drip coffee",
+  "Dirty chai",
+  "Blended mocha",
+  "Breakfast sandwich",
+  "Italian soda",
+] as const;
+
+export const delTacoMenu = [
+  "Bean and cheese burrito",
+  "Crunchtada",
+  "Del Taco",
+  "Chicken taco",
+  "Crinkle-cut fries",
+] as const;
+
+export const elPolloLocoMenu = [
+  "Fire-grilled chicken",
+  "Chicken avocado burrito",
+  "Double chicken taco",
+  "Chicken tostada",
+  "Pinto beans and rice",
+] as const;
+
+export const potbellyMenu = [
+  "A Wreck sandwich",
+  "Turkey apple cheddar",
+  "Chicken salad sandwich",
+  "Skinny sandwich",
+  "Oatmeal chocolate chip cookie",
+] as const;
+
+export const quiznosMenu = [
+  "Classic Italian sub",
+  "Turkey ranch Swiss",
+  "Prime rib sandwich",
+  "Chicken carbonara",
+  "Broccoli cheddar soup",
+] as const;
+
+export const firstWatchMenu = [
+  "The Traditional",
+  "Tri-fecta",
+  "Lemon ricotta pancakes",
+  "A.M. Superfoods bowl",
+  "Smoked salmon eggs Benedict",
+] as const;
+
+export const twistedSugarMenu = [
+  "Twisted sugar cookie",
+  "Salted caramel sugar cookie",
+  "Sugardoodle",
+  "Dirty soda",
+  "Cookie sandwich",
+] as const;
+
+export const krispyKremeMenu = [
+  "Original Glazed doughnut",
+  "Chocolate iced glaze",
+  "Filled doughnut",
+  "Dozen box",
+  "Coffee",
+] as const;
+
+export const menchiesMenu = [
+  "Self-serve frozen yogurt",
+  "Yogurt with toppings",
+  "Swirl cup",
+  "Waffle bowl",
+  "Sorbet",
+] as const;
+
+export const costcoMenu = [
+  "Food Court pizza",
+  "Hot dog and soda",
+  "Chicken bake",
+  "Churro",
+  "Rotisserie chicken",
+] as const;
+
+export const harmonsMenu = [
+  "Gelato",
+  "Pizza",
+  "Bakery donuts",
+  "Sushi",
+  "Rotisserie chicken",
+] as const;
+
+export const groceryDeliMenu = [
+  "Rotisserie chicken",
+  "Deli sandwich",
+  "Pizza",
+  "Bakery donuts",
+  "Sushi",
+] as const;

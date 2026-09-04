@@ -1,6 +1,6 @@
 import { useAppActor } from "../actors.tsx";
 import { MEAL_TYPES, MEAL_TYPE_LABELS } from "../data/index.ts";
-import { goOpenEatOut, goOpenExplore, goToRoute } from "../navigation.ts";
+import { goOpenEatOut, goOpenExplore, goOpenMealIdeas, goToRoute } from "../navigation.ts";
 import styles from "./LandingPage.module.css";
 
 export function LandingPage() {
@@ -36,6 +36,22 @@ export function LandingPage() {
               {MEAL_TYPE_LABELS[mealType]}
             </button>
           ))}
+        </div>
+      </section>
+
+      <section className={styles.section} aria-labelledby="meal-ideas-heading">
+        <h2 id="meal-ideas-heading">Meal ideas</h2>
+        <p>Full plates for when you need a dinner in mind, not just a recipe name.</p>
+        <div className={styles.mealRow}>
+          <button
+            type="button"
+            className={styles.mealLink}
+            onClick={() => {
+              goOpenMealIdeas(appActor);
+            }}
+          >
+            Open meal ideas
+          </button>
         </div>
       </section>
 

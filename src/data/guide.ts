@@ -39,7 +39,9 @@ export const kitchenGuide: {
       title: "Substitutions",
       paragraphs: [],
       items: [
-        "Substitute almond milk or whole milk.",
+        "Substitute almond milk for milk.",
+        "Substitute Daiya dairy-free cheddar shreds for cheddar.",
+        "Substitute Follow Your Heart dairy-free American cheese slices for American cheese.",
         "Substitute sourdough bread for wheat or white bread.",
         "Substitute gluten-free pasta, rice, or rice noodles for wheat pasta.",
         "Substitute corn tortillas for flour tortillas.",

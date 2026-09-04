@@ -355,4 +355,18 @@ export const dairy: Ingredient[] = [
     flags: [],
     ha: "not-ha-confirmed",
   },
+  {
+    id: "daiya-dairy-free-cheddar-shreds",
+    name: "Daiya dairy-free cheddar shreds",
+    kind: "dairy",
+    flags: [],
+    ha: "ha-confirmed",
+  },
+  {
+    id: "follow-your-heart-dairy-free-american-cheese-slices",
+    name: "Follow Your Heart dairy-free American cheese slices",
+    kind: "dairy",
+    flags: [],
+    ha: "ha-confirmed",
+  },
 ];

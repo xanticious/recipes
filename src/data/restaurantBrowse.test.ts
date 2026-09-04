@@ -106,5 +106,9 @@ test("type guards accept cities and cuisines", () => {
   expect(isRestaurantCity("kaysville")).toBe(true);
   expect(isRestaurantCity("clearfield")).toBe(false);
   expect(isRestaurantCuisine("bbq")).toBe(true);
+  expect(isRestaurantCuisine("fast-food")).toBe(true);
+  expect(isRestaurantCuisine("dessert")).toBe(true);
+  expect(isRestaurantCuisine("drinks")).toBe(true);
+  expect(isRestaurantCuisine("grocery")).toBe(true);
   expect(isRestaurantCuisine("french")).toBe(false);
 });

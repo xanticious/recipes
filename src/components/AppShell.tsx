@@ -27,6 +27,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const onGuide = route.name === "guide";
   const onIngredients = route.name === "ingredients";
   const onRestaurants = route.name === "restaurants";
+  const onMealIdeas = route.name === "mealIdeas";
 
   return (
     <div className={styles.shell}>
@@ -51,6 +52,16 @@ export function AppShell({ children }: { children: ReactNode }) {
             }}
           >
             Recipes
+          </a>
+          <a
+            className={styles.navLink}
+            href={routeToHash({ name: "mealIdeas" })}
+            aria-current={onMealIdeas ? "page" : undefined}
+            onClick={(event) => {
+              handleRouteClick(event, appActor, { name: "mealIdeas" });
+            }}
+          >
+            Meal Ideas
           </a>
           <a
             className={styles.navLink}

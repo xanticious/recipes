@@ -1,0 +1,260 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.header h1 {
+  margin: 0 0 0.5rem;
+}
+
+.lede {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 42rem;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-raised);
+}
+
+.searchLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.searchCaption {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.search {
+  font: inherit;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+.search:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.group legend {
+  padding: 0 0 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  font: inherit;
+  font-size: 0.92rem;
+  min-height: 44px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.clear {
+  font: inherit;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0.35rem 0.95rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.clear:hover:not(:disabled) {
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.clear:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.empty {
+  margin: 0;
+  padding: 1.5rem 0;
+  color: var(--text-muted);
+}
+
+.count {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.section h2 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.45rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-raised);
+}
+
+.card[data-open="true"] {
+  border-color: var(--accent-border);
+}
+
+.toggle {
+  font: inherit;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: 0.65rem 0.95rem;
+  border: 0;
+  background: transparent;
+  color: var(--text-h);
+  text-align: left;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  color: var(--accent);
+}
+
+.title {
+  font-weight: 650;
+}
+
+.hint {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1rem 1rem;
+}
+
+.block {
+  margin: 0;
+}
+
+.block h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.block ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.none {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.relatedButton,
+.recipeLink {
+  font: inherit;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.relatedButton:hover,
+.recipeLink:hover {
+  color: var(--text-h);
+}
+
+.missing {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.missingMark {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--chip-bg);
+  color: var(--text-muted);
+}

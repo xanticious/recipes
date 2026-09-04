@@ -83,6 +83,8 @@ const CHEESE_IDS = new Set([
   "lactose-free-cheese-curds",
   "lactose-free-feta",
   "lactose-free-cream-cheese",
+  "daiya-dairy-free-cheddar-shreds",
+  "follow-your-heart-dairy-free-american-cheese-slices",
 ]);
 
 const LOW_AT = /low(?: only)? at (?:about |up to )?/i;

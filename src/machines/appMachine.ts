@@ -5,6 +5,7 @@ import {
   type FodmapBrowseType,
 } from "../data/fodmapIngredients.ts";
 import type { IngredientSection } from "../data/ingredientBrowse.ts";
+import type { MealIdeaOccasionFilter } from "../data/mealIdeaBrowse.ts";
 import type { RestaurantCityFilter } from "../data/restaurantBrowse.ts";
 import type { CategorizerColumn } from "../data/ingredientCategorizer.ts";
 import type {
@@ -48,6 +49,12 @@ export type RestaurantsBrowse = {
   expandedId: string | null;
 };
 
+export type MealIdeasBrowse = {
+  occasion: MealIdeaOccasionFilter;
+  query: string;
+  expandedId: string | null;
+};
+
 export type IngredientCategorizer = {
   overrides: Record<string, CategorizerColumn>;
   selectedId: string | null;
@@ -65,6 +72,7 @@ export type AppContext = {
   random: RandomFilters;
   ingredients: IngredientsBrowse;
   restaurants: RestaurantsBrowse;
+  mealIdeas: MealIdeasBrowse;
   categorizer: IngredientCategorizer;
 };
 
@@ -100,6 +108,13 @@ export type AppEvent =
   | { type: "setRestaurantCity"; city: RestaurantCityFilter }
   | { type: "toggleRestaurant"; id: string }
   | { type: "closeRestaurant" }
+  | { type: "openMealIdeas"; occasion?: MealIdeaOccasionFilter }
+  | { type: "setMealIdeasOccasion"; occasion: MealIdeaOccasionFilter }
+  | { type: "setMealIdeasQuery"; query: string }
+  | { type: "toggleMealIdea"; id: string }
+  | { type: "openMealIdea"; id: string }
+  | { type: "closeMealIdea" }
+  | { type: "clearMealIdeasFilters" }
   | { type: "selectCategorizerIngredient"; id: string; suppressClick?: boolean }
   | { type: "categorizerPrimaryClick"; id: string }
   | { type: "moveCategorizerIngredient"; id: string; column: CategorizerColumn }
@@ -139,6 +154,12 @@ const emptyRestaurants: RestaurantsBrowse = {
   expandedId: null,
 };
 
+const emptyMealIdeas: MealIdeasBrowse = {
+  occasion: "all",
+  query: "",
+  expandedId: null,
+};
+
 const emptyCategorizer: IngredientCategorizer = {
   overrides: {},
   selectedId: null,
@@ -172,6 +193,7 @@ export const appMachine = setup({
     random: emptyRandom,
     ingredients: emptyIngredients,
     restaurants: emptyRestaurants,
+    mealIdeas: emptyMealIdeas,
     categorizer: emptyCategorizer,
   }),
   on: {
@@ -393,6 +415,64 @@ export const appMachine = setup({
         restaurants: ({ context }) => ({
           ...context.restaurants,
           expandedId: null,
+        }),
+      }),
+    },
+    openMealIdeas: {
+      actions: assign({
+        route: { name: "mealIdeas" },
+        mealIdeas: ({ event }) => ({
+          ...emptyMealIdeas,
+          occasion: event.occasion ?? "all",
+        }),
+      }),
+    },
+    setMealIdeasOccasion: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          occasion: event.occasion,
+          expandedId: null,
+        }),
+      }),
+    },
+    setMealIdeasQuery: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          query: event.query,
+        }),
+      }),
+    },
+    toggleMealIdea: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          expandedId: context.mealIdeas.expandedId === event.id ? null : event.id,
+        }),
+      }),
+    },
+    openMealIdea: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          expandedId: event.id,
+        }),
+      }),
+    },
+    closeMealIdea: {
+      actions: assign({
+        mealIdeas: ({ context }) => ({
+          ...context.mealIdeas,
+          expandedId: null,
+        }),
+      }),
+    },
+    clearMealIdeasFilters: {
+      actions: assign({
+        mealIdeas: ({ context }) => ({
+          ...emptyMealIdeas,
+          expandedId: context.mealIdeas.expandedId,
         }),
       }),
     },

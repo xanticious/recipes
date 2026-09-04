@@ -7,6 +7,7 @@ export type Route =
   | { name: "guide" }
   | { name: "ingredients" }
   | { name: "restaurants" }
+  | { name: "mealIdeas" }
   | { name: "ingredientCategorizer" };
 
 export function parseHash(hash: string): Route {
@@ -30,6 +31,9 @@ export function parseHash(hash: string): Route {
   }
   if (parts[0] === "restaurants") {
     return { name: "restaurants" };
+  }
+  if (parts[0] === "meal-ideas") {
+    return { name: "mealIdeas" };
   }
   if (parts[0] === "ingredient-categorizer") {
     return { name: "ingredientCategorizer" };
@@ -62,6 +66,8 @@ export function routeToHash(route: Route): string {
       return "#/ingredients";
     case "restaurants":
       return "#/restaurants";
+    case "mealIdeas":
+      return "#/meal-ideas";
     case "ingredientCategorizer":
       return "#/ingredient-categorizer";
     case "recipe":

@@ -7,6 +7,7 @@ import { GuidePage } from "./components/GuidePage.tsx";
 import { IngredientCategorizerPage } from "./components/IngredientCategorizerPage.tsx";
 import { IngredientsPage } from "./components/IngredientsPage.tsx";
 import { LandingPage } from "./components/LandingPage.tsx";
+import { MealIdeasPage } from "./components/MealIdeasPage.tsx";
 import { RandomPage } from "./components/RandomPage.tsx";
 import { RecipePage } from "./components/RecipePage.tsx";
 import { RestaurantsPage } from "./components/RestaurantsPage.tsx";
@@ -29,6 +30,7 @@ export function App() {
         {route.name === "guide" ? <GuidePage /> : null}
         {route.name === "ingredients" ? <IngredientsPage /> : null}
         {route.name === "restaurants" ? <RestaurantsPage /> : null}
+        {route.name === "mealIdeas" ? <MealIdeasPage /> : null}
         {route.name === "ingredientCategorizer" ? <IngredientCategorizerPage /> : null}
       </div>
     </AppShell>

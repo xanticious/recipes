@@ -44,7 +44,7 @@ export const other: Ingredient[] = [
   { id: "coconut-milk", name: "canned coconut milk", kind: "other", flags: [] },
   { id: "coconut-cream", name: "coconut cream", kind: "other", flags: [] },
   { id: "coconut-water", name: "coconut water", kind: "other", flags: ["sorbitol"] },
-  { id: "almond-milk", name: "almond milk", kind: "other", flags: [] },
+  { id: "almond-milk", name: "almond milk", kind: "other", flags: [], ha: "ha-confirmed" },
   { id: "oat-milk", name: "oat milk", kind: "other", flags: [] },
   { id: "soy-milk", name: "soy milk", kind: "other", flags: ["gos"] },
   { id: "rice-milk", name: "rice milk", kind: "other", flags: [] },

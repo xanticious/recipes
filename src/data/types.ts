@@ -1,5 +1,22 @@
 export type MealType = "breakfast" | "lunch" | "dinner" | "snack" | "dessert";
 
+export type MealIdeaOccasion = MealType | "drinks";
+
+export type MealIdeaRecipeRef = {
+  label: string;
+  recipeId?: string;
+};
+
+export type MealIdea = {
+  id: string;
+  title: string;
+  occasion: MealIdeaOccasion;
+  pairings: readonly string[];
+  substitutions?: readonly string[];
+  relatedMealIds?: readonly string[];
+  recipes?: readonly MealIdeaRecipeRef[];
+};
+
 export type Cuisine =
   | "american"
   | "mexican"
@@ -133,6 +150,10 @@ export type RestaurantCuisine =
   | "indian"
   | "bbq"
   | "breakfast"
+  | "fast-food"
+  | "dessert"
+  | "drinks"
+  | "grocery"
   | "other";
 
 export type Restaurant = {

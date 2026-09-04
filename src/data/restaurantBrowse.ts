@@ -29,6 +29,10 @@ export const RESTAURANT_CUISINES = [
   "indian",
   "bbq",
   "breakfast",
+  "fast-food",
+  "dessert",
+  "drinks",
+  "grocery",
   "other",
 ] as const satisfies readonly RestaurantCuisine[];
 
@@ -41,6 +45,10 @@ export const RESTAURANT_CUISINE_LABELS: Record<RestaurantCuisine, string> = {
   indian: "Indian",
   bbq: "BBQ",
   breakfast: "Breakfast & Cafe",
+  "fast-food": "Fast Food",
+  dessert: "Dessert",
+  drinks: "Drinks",
+  grocery: "Grocery",
   other: "Other",
 };
 

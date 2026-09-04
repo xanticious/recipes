@@ -5,6 +5,7 @@ import type {
   HealthRating,
   IngredientHaFilter,
   IngredientHaStatus,
+  MealIdeaOccasion,
   MealType,
   TernaryFilter,
 } from "./types.ts";
@@ -13,6 +14,8 @@ import { HA_STATUSES } from "./ha.ts";
 export { HA_STATUSES } from "./ha.ts";
 
 export const MEAL_TYPES: readonly MealType[] = ["breakfast", "lunch", "dinner", "snack", "dessert"];
+
+export const MEAL_IDEA_OCCASIONS: readonly MealIdeaOccasion[] = [...MEAL_TYPES, "drinks"];
 
 export const CUISINES: readonly Cuisine[] = [
   "american",
@@ -38,6 +41,11 @@ export const MEAL_TYPE_LABELS: Record<MealType, string> = {
   dinner: "Dinner",
   snack: "Snack",
   dessert: "Dessert",
+};
+
+export const MEAL_IDEA_OCCASION_LABELS: Record<MealIdeaOccasion, string> = {
+  ...MEAL_TYPE_LABELS,
+  drinks: "Drinks",
 };
 
 export const CUISINE_LABELS: Record<Cuisine, string> = {

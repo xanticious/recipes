@@ -218,6 +218,33 @@ test("restaurant city filter resets details, and cards toggle and close", () => 
   actor.stop();
 });
 
+test("meal ideas occasion filter resets the open card, and cards toggle and close", () => {
+  const actor = startApp();
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "all",
+    query: "",
+    expandedId: null,
+  });
+  actor.send({ type: "openMealIdeas", occasion: "dinner" });
+  expect(actor.getSnapshot().context.route).toEqual({ name: "mealIdeas" });
+  expect(actor.getSnapshot().context.mealIdeas.occasion).toBe("dinner");
+  actor.send({ type: "toggleMealIdea", id: "pork-chops-plate" });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBe("pork-chops-plate");
+  actor.send({ type: "setMealIdeasOccasion", occasion: "breakfast" });
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "breakfast",
+    query: "",
+    expandedId: null,
+  });
+  actor.send({ type: "toggleMealIdea", id: "cereal-and-milk" });
+  actor.send({ type: "toggleMealIdea", id: "cereal-and-milk" });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
+  actor.send({ type: "openMealIdea", id: "oatmeal-bowl" });
+  actor.send({ type: "closeMealIdea" });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
+  actor.stop();
+});
+
 test("randomMiss keeps filters and flags the empty result", () => {
   const actor = startApp();
   actor.send({ type: "setRandomMealType", mealType: "dessert" });

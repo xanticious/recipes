@@ -114,6 +114,11 @@ test("categorized catalog ingredients keep confirmed House Approval; the rest fo
   expect(ingredientLookup.get("butter")?.ha).toBe("ha-confirmed");
   expect(ingredientLookup.get("broccoli")?.ha).toBe("ha-confirmed");
   expect(ingredientLookup.get("cheddar")?.ha).toBe("not-ha-confirmed");
+  expect(ingredientLookup.get("daiya-dairy-free-cheddar-shreds")?.ha).toBe("ha-confirmed");
+  expect(ingredientLookup.get("follow-your-heart-dairy-free-american-cheese-slices")?.ha).toBe(
+    "ha-confirmed",
+  );
+  expect(ingredientLookup.get("almond-milk")?.ha).toBe("ha-confirmed");
   expect(ingredientLookup.get("avocado")?.ha).toBe("not-ha-confirmed");
   expect(ingredientHaStatus(ingredientLookup.get("garlic")!)).toBe("not-ha-assumed");
   expect(ingredientHaStatus(ingredientLookup.get("white-rice")!)).toBe("ha-assumed");
@@ -126,7 +131,7 @@ test("categorized catalog ingredients keep confirmed House Approval; the rest fo
   const notHaConfirmed = ingredients.filter(
     (ingredient) => ingredientHaStatus(ingredient) === "not-ha-confirmed",
   );
-  expect(confirmed).toHaveLength(63);
+  expect(confirmed).toHaveLength(66);
   expect(notHaConfirmed).toHaveLength(125);
-  expect(confirmed.length + notHaConfirmed.length).toBe(188);
+  expect(confirmed.length + notHaConfirmed.length).toBe(191);
 });

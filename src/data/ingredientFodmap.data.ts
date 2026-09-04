@@ -2023,6 +2023,20 @@ export const ingredientFodmapById: Readonly<Record<string, IngredientFodmap>> = 
     status: "low",
     reasons: [],
   },
+  "daiya-dairy-free-cheddar-shreds": {
+    description:
+      "coconut-oil cheddar-style shreds from Daiya, used for melting, nachos, and topping.",
+    status: "depends",
+    reasons: ["fructans", "gos"],
+    note: "coconut-oil cheddar-style about 40 g / 1/3 cup is typically Low; watch pea protein, oat flour, inulin, onion, and garlic in newer formulas",
+  },
+  "follow-your-heart-dairy-free-american-cheese-slices": {
+    description:
+      "coconut-oil American-style slices from Follow Your Heart, used on burgers and grilled cheese.",
+    status: "depends",
+    reasons: ["fructans"],
+    note: "coconut-oil American-style about 40 g / 2 slices is typically Low; watch inulin, onion, and garlic if the formula changes",
+  },
   "white-rice": {
     description: "staple cooked grain served plain, in bowls, or as a side.",
     status: "low",
