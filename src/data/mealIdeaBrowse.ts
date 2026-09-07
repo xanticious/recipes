@@ -1,4 +1,5 @@
 import { placeholderHue } from "./catalogImage.ts";
+import { recipeIsHa } from "./ha.ts";
 import {
   MEAL_IDEA_OCCASION_LABELS,
   MEAL_IDEA_OCCASIONS,
@@ -144,4 +145,27 @@ export function resolveMealIdeaRecipes(
     const missing = recipeId === undefined || !ids.has(recipeId);
     return { label: ref.label, recipeId, missing };
   });
+}
+
+const RECIPE_FAMILY_SUFFIX = /\s*\((?:Not-)?HA\)\s*$/i;
+
+export function mealIdeaRecipeFamily(label: string): string {
+  return label.replace(RECIPE_FAMILY_SUFFIX, "").trim();
+}
+
+export function mealIdeaHasHaRecipes(
+  idea: MealIdea,
+  recipeById: ReadonlyMap<string, Recipe>,
+): boolean {
+  if (!idea.recipes || idea.recipes.length === 0) {
+    return false;
+  }
+  const families = new Map<string, boolean>();
+  for (const ref of idea.recipes) {
+    const family = mealIdeaRecipeFamily(ref.label);
+    const recipe = ref.recipeId === undefined ? undefined : recipeById.get(ref.recipeId);
+    const hasHa = recipe !== undefined && recipeIsHa(recipe);
+    families.set(family, (families.get(family) ?? false) || hasHa);
+  }
+  return families.size > 0 && [...families.values()].every(Boolean);
 }

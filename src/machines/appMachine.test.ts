@@ -283,6 +283,31 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
   actor.stop();
 });
 
+test("leaving meal ideas closes the open card", () => {
+  const actor = startApp();
+  actor.send({ type: "openMealIdeas" });
+  actor.send({ type: "toggleMealIdea", id: "pork-chops-plate" });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBe("pork-chops-plate");
+  actor.send({
+    type: "navigate",
+    route: { name: "recipe", id: "pork-chops", fromRandom: false },
+  });
+  expect(actor.getSnapshot().context.route).toEqual({
+    name: "recipe",
+    id: "pork-chops",
+    fromRandom: false,
+  });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
+  actor.send({ type: "navigate", route: { name: "mealIdeas" } });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
+  actor.send({ type: "openMealIdea", id: "pork-chops-plate" });
+  actor.send({ type: "hashChanged", hash: "#/recipes/pork-chops" });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
+  actor.send({ type: "hashChanged", hash: "#/meal-ideas" });
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
+  actor.stop();
+});
+
 test("meal ideas display toggle is independent of filters", () => {
   const actor = startApp();
   actor.send({ type: "setMealIdeasDisplay", display: "pictures" });

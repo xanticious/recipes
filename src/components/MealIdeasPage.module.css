@@ -195,6 +195,16 @@
   font-weight: 650;
 }
 
+.haCheck {
+  flex-shrink: 0;
+  font-size: 0.95em;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--health-healthy);
+  text-decoration: none;
+  border: 0;
+}
+
 .regionTags {
   display: inline-flex;
   flex-wrap: wrap;
@@ -271,7 +281,11 @@
 }
 
 .pinName {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.2rem 0.35rem;
   padding: 0.5rem 0.5rem 0.65rem;
   font-weight: 600;
   font-size: 0.9rem;

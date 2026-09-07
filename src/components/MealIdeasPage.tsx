@@ -15,6 +15,7 @@ import {
   MEAL_IDEA_REGION_ABBREVS,
   MEAL_IDEA_REGION_LABELS,
   MEAL_IDEA_REGIONS,
+  mealIdeaHasHaRecipes,
   mealIdeaLookup,
   mealIdeaMatchesFilters,
   mealIdeaPinSize,
@@ -30,6 +31,10 @@ import { routeToHash } from "../routing.ts";
 import styles from "./MealIdeasPage.module.css";
 
 const lookup = mealIdeaLookup(mealIdeas);
+const recipeById = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+const mealIdeasWithHaRecipes = new Set(
+  mealIdeas.filter((idea) => mealIdeaHasHaRecipes(idea, recipeById)).map((idea) => idea.id),
+);
 
 function mealIdeaCardId(id: string) {
   return `meal-idea-${id}`;
@@ -240,7 +245,10 @@ export function MealIdeasPage() {
                               height={pin.height}
                               fill
                             />
-                            <span className={styles.pinName}>{idea.title}</span>
+                            <span className={styles.pinName}>
+                              <span>{idea.title}</span>
+                              <MealIdeaHaCheck show={mealIdeasWithHaRecipes.has(idea.id)} />
+                            </span>
                           </button>
                         </li>
                       );
@@ -286,6 +294,7 @@ export function MealIdeasPage() {
             <div className={styles.dialogBar}>
               <h2 id="meal-idea-title" className={styles.dialogTitle}>
                 <span>{openIdea.title}</span>
+                <MealIdeaHaCheck show={mealIdeasWithHaRecipes.has(openIdea.id)} />
                 <MealIdeaRegionTags idea={openIdea} />
               </h2>
               <button
@@ -303,6 +312,17 @@ export function MealIdeasPage() {
         </div>
       ) : null}
     </div>
+  );
+}
+
+function MealIdeaHaCheck({ show }: { show: boolean }) {
+  if (!show) {
+    return null;
+  }
+  return (
+    <abbr className={styles.haCheck} title="Has House Approved recipes">
+      ✓
+    </abbr>
   );
 }
 
@@ -342,6 +362,7 @@ function MealIdeaCard({
       >
         <span className={styles.titleRow}>
           <span className={styles.title}>{idea.title}</span>
+          <MealIdeaHaCheck show={mealIdeasWithHaRecipes.has(idea.id)} />
           <MealIdeaRegionTags idea={idea} />
         </span>
         <span className={styles.hint}>{open ? "Hide" : "Details"}</span>

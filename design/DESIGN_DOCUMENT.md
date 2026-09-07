@@ -213,7 +213,7 @@ A catalog of **full plates**, not single recipes (`#/meal-ideas`). When planning
 
 **Filters:** exclusive occasion (including All), exclusive **region** (including All), and name search. A plate can have several region tags. The region filter keeps plates tagged for that place. The list shows abbreviated region tags next to each plate name (US, CA, MX, BR, UK, IT, EU, CN, JP, KR, AU, NZ). Full names stay in the expanded Common in section.
 
-**Display:** exclusive **List View** or **Pictures View**. List View is the name list; click a name to expand details on the page. Pictures View is a Pinterest-style photo board inside each occasion group, with the plate name under the image. Click a picture to open the same details in a panel. The last chosen display is stored locally on that device and used the next time Meal Ideas opens.
+**Display:** exclusive **List View** or **Pictures View**. List View is the name list; click a name to expand details on the page. Pictures View is a Pinterest-style photo board inside each occasion group, with the plate name under the image. Click a picture to open the same details in a panel. The last chosen display is stored locally on that device and used the next time Meal Ideas opens. A green checkmark next to the plate name means every linked recipe family has an HA version in the book (Steak and Potatoes when both steak and potatoes have HA recipes).
 
 Click a plate name (list) or picture (pictures) to expand details:
 

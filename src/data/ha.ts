@@ -55,6 +55,10 @@ export function ingredientIsHa(ingredient: Ingredient): boolean {
   return status === "ha-confirmed" || status === "ha-assumed";
 }
 
+export function recipeIsHa(recipe: Recipe): boolean {
+  return recipe.ha === "ha-confirmed" || recipe.ha === "ha-assumed";
+}
+
 export function assumedHaFromStatuses(statuses: readonly HaStatus[]): AssumedHaStatus {
   if (statuses.length === 0) {
     return "unknown";

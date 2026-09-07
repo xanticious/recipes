@@ -190,6 +190,13 @@ const emptyMealIdeas: MealIdeasBrowse = {
   expandedId: null,
 };
 
+function mealIdeasForRoute(mealIdeas: MealIdeasBrowse, route: Route): MealIdeasBrowse {
+  if (route.name === "mealIdeas" || mealIdeas.expandedId === null) {
+    return mealIdeas;
+  }
+  return { ...mealIdeas, expandedId: null };
+}
+
 const emptyCategorizer: IngredientCategorizer = {
   overrides: {},
   selectedId: null,
@@ -231,14 +238,19 @@ export const appMachine = setup({
   }),
   on: {
     navigate: {
-      actions: assign({
-        route: ({ event }) => event.route,
-      }),
+      actions: assign(({ context, event }) => ({
+        route: event.route,
+        mealIdeas: mealIdeasForRoute(context.mealIdeas, event.route),
+      })),
     },
     hashChanged: {
       guard: ({ context, event }) => !routesEqual(context.route, parseHash(event.hash)),
-      actions: assign({
-        route: ({ event }) => parseHash(event.hash),
+      actions: assign(({ context, event }) => {
+        const route = parseHash(event.hash);
+        return {
+          route,
+          mealIdeas: mealIdeasForRoute(context.mealIdeas, route),
+        };
       }),
     },
     openExplore: {

@@ -12,6 +12,7 @@ import {
   ingredientHaStatus,
   ingredientIsHa,
   recipeHaBreakdown,
+  recipeIsHa,
 } from "./ha.ts";
 import { indexIngredients } from "./lookup.ts";
 import type { Ingredient, Recipe } from "./types.ts";
@@ -35,6 +36,10 @@ test("ingredients without a confirmed tag are assumed from diet metadata", () =>
   ).toBe("not-ha-assumed");
   expect(ingredientIsHa(item({ id: "white-rice", name: "rice", kind: "grain" }))).toBe(true);
   expect(ingredientIsHa(item({ id: "garlic", name: "garlic", kind: "produce" }))).toBe(false);
+  expect(recipeIsHa({ ha: "ha-assumed" } as Recipe)).toBe(true);
+  expect(recipeIsHa({ ha: "ha-confirmed" } as Recipe)).toBe(true);
+  expect(recipeIsHa({ ha: "not-ha-assumed" } as Recipe)).toBe(false);
+  expect(recipeIsHa({ ha: "unknown" } as Recipe)).toBe(false);
 });
 
 test("an explicit confirmed ha field is the displayed status", () => {

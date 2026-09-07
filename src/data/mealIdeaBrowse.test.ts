@@ -3,8 +3,10 @@ import {
   filterMealIdeas,
   groupMealIdeas,
   isMealIdeaDisplay,
+  mealIdeaHasHaRecipes,
   mealIdeaLookup,
   mealIdeaPinSize,
+  mealIdeaRecipeFamily,
   relatedMealIdeas,
   resolveMealIdeaRecipes,
 } from "./mealIdeaBrowse.ts";
@@ -128,4 +130,45 @@ test("display is list or pictures", () => {
   expect(isMealIdeaDisplay("list")).toBe(true);
   expect(isMealIdeaDisplay("pictures")).toBe(true);
   expect(isMealIdeaDisplay("gallery")).toBe(false);
+});
+
+test("recipe family strips HA suffixes", () => {
+  expect(mealIdeaRecipeFamily("Grilled Steak (HA)")).toBe("Grilled Steak");
+  expect(mealIdeaRecipeFamily("Mashed Potatoes (Not-HA)")).toBe("Mashed Potatoes");
+  expect(mealIdeaRecipeFamily("Roasted Green Beans")).toBe("Roasted Green Beans");
+});
+
+test("a meal idea has HA recipes when every linked family has an HA version", () => {
+  const recipeById = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+  const lookupById = mealIdeaLookup(mealIdeas);
+  const steak = lookupById.get("steak-and-potatoes");
+  const smoothie = lookupById.get("breakfast-smoothie");
+  const cereal = lookupById.get("cereal-and-milk");
+  expect(steak).toBeDefined();
+  expect(smoothie).toBeDefined();
+  expect(cereal).toBeDefined();
+  expect(mealIdeaHasHaRecipes(steak as MealIdea, recipeById)).toBe(true);
+  expect(mealIdeaHasHaRecipes(cereal as MealIdea, recipeById)).toBe(true);
+  expect(mealIdeaHasHaRecipes(smoothie as MealIdea, recipeById)).toBe(false);
+
+  const mixed: MealIdea = {
+    id: "mixed-plate",
+    title: "Mixed Plate",
+    occasion: "dinner",
+    description: "A test plate with one HA family and one Not-HA-only family.",
+    regions: ["united-states"],
+    pairings: [],
+    recipes: [
+      { label: "Grilled Steak (HA)", recipeId: "grilled-steak" },
+      { label: "Banana Smoothie (Not-HA)", recipeId: "banana-smoothie" },
+    ],
+  };
+  expect(mealIdeaHasHaRecipes(mixed, recipeById)).toBe(false);
+  expect(
+    mealIdeaHasHaRecipes(
+      { ...mixed, recipes: [{ label: "Grilled Steak (HA)", recipeId: "grilled-steak" }] },
+      recipeById,
+    ),
+  ).toBe(true);
+  expect(mealIdeaHasHaRecipes({ ...mixed, recipes: undefined }, recipeById)).toBe(false);
 });
