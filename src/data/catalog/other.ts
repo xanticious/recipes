@@ -301,6 +301,17 @@ export const other: Ingredient[] = [
   },
   { id: "protein-powder", name: "protein powder", kind: "other", flags: [] },
   { id: "nutritional-yeast", name: "nutritional yeast", kind: "other", flags: [] },
+  { id: "energy-drink", name: "energy drink", kind: "other", flags: [] },
+  { id: "sports-drink", name: "sports drink", kind: "other", flags: [] },
+  {
+    id: "vegemite",
+    name: "Vegemite",
+    kind: "other",
+    flags: ["gluten"],
+    notes: "Yeast spread; typically contains gluten.",
+  },
+  { id: "natto", name: "natto", kind: "other", flags: ["gos"] },
+  { id: "mochi", name: "mochi", kind: "other", flags: [] },
   { id: "tofu-skin", name: "tofu skin", kind: "other", flags: ["gos"] },
 
   // Alcohol used in cooking

@@ -24,6 +24,10 @@ const coreMealIdeas: MealIdea[] = [
     ],
     substitutions: ["Almond milk or another plant milk"],
     relatedMealIds: ["granola-and-milk-idea"],
+    recipes: [
+      { label: "Cereal and Milk (Not-HA)", recipeId: "cereal-and-milk" },
+      { label: "Cereal and Milk (HA)", recipeId: "cereal-and-milk-ha" },
+    ],
   },
   {
     id: "eggs-and-toast",
@@ -52,9 +56,11 @@ const coreMealIdeas: MealIdea[] = [
       "bacon-and-eggs",
     ],
     recipes: [
-      { label: "Soft Scrambled Eggs", recipeId: "scrambled-eggs" },
-      { label: "Fried Eggs and Toast", recipeId: "fried-eggs-toast" },
-      { label: "Cheese Omelette", recipeId: "cheese-omelette" },
+      { label: "Soft Scrambled Eggs (Not-HA)", recipeId: "scrambled-eggs" },
+      { label: "Soft Scrambled Eggs (HA)", recipeId: "scrambled-eggs-ha" },
+      { label: "Fried Eggs and Toast (HA)", recipeId: "fried-eggs-toast" },
+      { label: "Cheese Omelette (Not-HA)", recipeId: "cheese-omelette" },
+      { label: "Cheese Omelette (HA)", recipeId: "cheese-omelette-ha" },
     ],
   },
   {
@@ -67,7 +73,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or water", "Fruit"],
     substitutions: ["Sourdough, a biscuit, or a wrap"],
     relatedMealIds: ["eggs-and-toast", "breakfast-burrito"],
-    recipes: [{ label: "Breakfast Sandwich", recipeId: "breakfast-sandwich" }],
+    recipes: [
+      { label: "Breakfast Sandwich (Not-HA)", recipeId: "breakfast-sandwich" },
+      { label: "Breakfast Sandwich (HA)", recipeId: "breakfast-sandwich-ha" },
+    ],
   },
   {
     id: "oatmeal-bowl",
@@ -88,9 +97,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Almond milk", "Overnight oats if mornings are rushed"],
     relatedMealIds: ["yogurt-and-fruit", "cereal-and-milk"],
     recipes: [
-      { label: "Blueberry Oatmeal", recipeId: "blueberry-oatmeal" },
-      { label: "Cinnamon Oatmeal", recipeId: "cinnamon-oatmeal" },
-      { label: "Overnight Oats", recipeId: "overnight-oats" },
+      { label: "Blueberry Oatmeal (HA)", recipeId: "blueberry-oatmeal" },
+      { label: "Cinnamon Oatmeal (HA)", recipeId: "cinnamon-oatmeal" },
+      { label: "Overnight Oats (Not-HA)", recipeId: "overnight-oats" },
+      { label: "Overnight Oats (HA)", recipeId: "overnight-oats-ha" },
     ],
   },
   {
@@ -114,8 +124,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Cottage cheese", "A dairy-free yogurt"],
     relatedMealIds: ["oatmeal-bowl", "granola-and-milk-idea"],
     recipes: [
-      { label: "Yogurt Berry Bowl", recipeId: "yogurt-berry-bowl" },
-      { label: "Yogurt Parfait", recipeId: "yogurt-parfait" },
+      { label: "Yogurt Berry Bowl (Not-HA)", recipeId: "yogurt-berry-bowl" },
+      { label: "Yogurt Berry Bowl (HA)", recipeId: "yogurt-berry-bowl-ha" },
+      { label: "Yogurt Parfait (Not-HA)", recipeId: "yogurt-parfait" },
+      { label: "Yogurt Parfait (HA)", recipeId: "yogurt-parfait-ha" },
     ],
   },
   {
@@ -128,7 +140,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or orange juice", "Fruit"],
     substitutions: ["Butter or peanut butter", "Sourdough toast if bagels are too much"],
     relatedMealIds: ["croissant", "brioche-toast"],
-    recipes: [{ label: "Bagels" }],
+    recipes: [
+      { label: "Bagel and Cream Cheese (Not-HA)", recipeId: "bagel-and-cream-cheese" },
+      { label: "Bagel and Cream Cheese (HA)", recipeId: "bagel-and-cream-cheese-ha" },
+    ],
   },
   {
     id: "pancakes-or-waffles",
@@ -141,9 +156,11 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["French toast"],
     relatedMealIds: ["eggs-and-toast", "french-toast", "pancakes", "waffles"],
     recipes: [
-      { label: "Banana Pancakes", recipeId: "banana-pancakes" },
-      { label: "Waffles", recipeId: "gf-waffles" },
-      { label: "French Toast", recipeId: "french-toast" },
+      { label: "Banana Pancakes (Not-HA)", recipeId: "banana-pancakes" },
+      { label: "Waffles (Not-HA)", recipeId: "gf-waffles" },
+      { label: "Waffles (HA)", recipeId: "gf-waffles-ha" },
+      { label: "French Toast (Not-HA)", recipeId: "french-toast" },
+      { label: "French Toast (HA)", recipeId: "french-toast-ha" },
     ],
   },
   {
@@ -157,8 +174,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A quesadilla if you are out of tortillas for wrapping"],
     relatedMealIds: ["breakfast-sandwich", "quesadilla", "huevos-or-chilaquiles"],
     recipes: [
-      { label: "Breakfast Burrito", recipeId: "breakfast-burrito" },
-      { label: "Breakfast Tacos", recipeId: "breakfast-tacos" },
+      { label: "Breakfast Burrito (Not-HA)", recipeId: "breakfast-burrito" },
+      { label: "Breakfast Burrito (HA)", recipeId: "breakfast-burrito-ha" },
+      { label: "Breakfast Tacos (Not-HA)", recipeId: "breakfast-tacos" },
+      { label: "Breakfast Tacos (HA)", recipeId: "breakfast-tacos-ha" },
     ],
   },
   {
@@ -172,9 +191,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Sausage instead of bacon"],
     relatedMealIds: ["eggs-and-toast", "breakfast-sandwich"],
     recipes: [
-      { label: "Bacon and Eggs", recipeId: "bacon-and-eggs" },
-      { label: "Sausage and Eggs", recipeId: "sausage-and-eggs" },
-      { label: "Breakfast Potatoes", recipeId: "breakfast-potatoes" },
+      { label: "Bacon and Eggs (HA)", recipeId: "bacon-and-eggs" },
+      { label: "Sausage and Eggs (HA)", recipeId: "sausage-and-eggs" },
+      { label: "Breakfast Potatoes (Not-HA)", recipeId: "breakfast-potatoes" },
+      { label: "Breakfast Potatoes (HA)", recipeId: "breakfast-potatoes-ha" },
     ],
   },
   {
@@ -197,9 +217,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A smoothie bowl with granola on top"],
     relatedMealIds: ["yogurt-and-fruit", "protein-shake"],
     recipes: [
-      { label: "Banana Smoothie", recipeId: "banana-smoothie" },
-      { label: "Berry Smoothie", recipeId: "berry-smoothie" },
-      { label: "Smoothie Bowl", recipeId: "smoothie-bowl" },
+      { label: "Banana Smoothie (Not-HA)", recipeId: "banana-smoothie" },
+      { label: "Berry Smoothie (Not-HA)", recipeId: "berry-smoothie" },
+      { label: "Smoothie Bowl (Not-HA)", recipeId: "smoothie-bowl" },
     ],
   },
   {
@@ -212,7 +232,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or milk", "Fruit if you want it to feel like a meal"],
     substitutions: ["A toaster strudel, or leftover pastry"],
     relatedMealIds: ["toaster-strudel", "doughnut-and-coffee", "muffin"],
-    recipes: [{ label: "Pop-Tarts" }],
+    recipes: [
+      { label: "Toaster Pastry (Not-HA)", recipeId: "pop-tarts" },
+      { label: "Toaster Pastry (HA)", recipeId: "pop-tarts-ha" },
+    ],
   },
   {
     id: "toaster-strudel",
@@ -224,7 +247,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or milk"],
     substitutions: ["A toaster pastry if you want something faster"],
     relatedMealIds: ["toaster-pastry", "croissant", "hot-pocket"],
-    recipes: [{ label: "Toaster Strudel" }],
+    recipes: [
+      { label: "Toaster Strudel (Not-HA)", recipeId: "toaster-strudel" },
+      { label: "Toaster Strudel (HA)", recipeId: "toaster-strudel-ha" },
+    ],
   },
   {
     id: "doughnut-and-coffee",
@@ -245,7 +271,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee, milk, or orange juice"],
     substitutions: ["A muffin or cinnamon roll"],
     relatedMealIds: ["muffin", "cinnamon-roll", "doughnut-dessert"],
-    recipes: [{ label: "Doughnuts" }],
+    recipes: [
+      { label: "Doughnuts (Not-HA)", recipeId: "doughnuts" },
+      { label: "Doughnuts (HA)", recipeId: "doughnuts-ha" },
+    ],
   },
   {
     id: "muffin",
@@ -257,7 +286,11 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or tea", "Fruit or yogurt"],
     substitutions: ["Banana bread", "A leftover pastry in the afternoon"],
     relatedMealIds: ["doughnut-and-coffee", "leftover-pastry-snack", "banana-bread-dessert"],
-    recipes: [{ label: "Breakfast Muffins" }, { label: "Banana Bread", recipeId: "banana-bread" }],
+    recipes: [
+      { label: "Breakfast Muffins (Not-HA)", recipeId: "breakfast-muffins" },
+      { label: "Breakfast Muffins (HA)", recipeId: "breakfast-muffins-ha" },
+      { label: "Banana Bread (Not-HA)", recipeId: "banana-bread" },
+    ],
   },
   {
     id: "croissant",
@@ -278,7 +311,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or orange juice", "Fruit, or ham and cheese inside"],
     substitutions: ["Brioche toast if you want it simpler"],
     relatedMealIds: ["bagel-and-cream-cheese", "brioche-toast"],
-    recipes: [{ label: "Croissants" }],
+    recipes: [
+      { label: "Croissants (Not-HA)", recipeId: "croissants" },
+      { label: "Croissants (HA)", recipeId: "croissants-ha" },
+    ],
   },
   {
     id: "brioche-toast",
@@ -290,7 +326,11 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee", "Jam, butter, or eggs"],
     substitutions: ["Sourdough or a bagel"],
     relatedMealIds: ["eggs-and-toast", "croissant", "french-toast"],
-    recipes: [{ label: "Brioche Toast" }, { label: "Toast and Jam", recipeId: "toast-and-jam" }],
+    recipes: [
+      { label: "Brioche Toast (Not-HA)", recipeId: "brioche-toast" },
+      { label: "Brioche Toast (HA)", recipeId: "brioche-toast-ha" },
+      { label: "Toast and Jam (HA)", recipeId: "toast-and-jam" },
+    ],
   },
   {
     id: "crepes",
@@ -302,7 +342,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or fruit", "A savory filling if you skip the sweet toppings"],
     substitutions: ["Pancakes or French toast"],
     relatedMealIds: ["pancakes-or-waffles", "french-toast"],
-    recipes: [{ label: "Crepes" }],
+    recipes: [
+      { label: "Crepes (Not-HA)", recipeId: "crepes" },
+      { label: "Crepes (HA)", recipeId: "crepes-ha" },
+    ],
   },
   {
     id: "pan-dulce",
@@ -314,7 +357,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or hot chocolate"],
     substitutions: ["A muffin or cinnamon roll"],
     relatedMealIds: ["doughnut-and-coffee", "cinnamon-roll", "hot-chocolate"],
-    recipes: [{ label: "Pan Dulce" }],
+    recipes: [
+      { label: "Pan Dulce (Not-HA)", recipeId: "pan-dulce" },
+      { label: "Pan Dulce (HA)", recipeId: "pan-dulce-ha" },
+    ],
   },
   {
     id: "cinnamon-roll",
@@ -326,7 +372,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or milk"],
     substitutions: ["A doughnut, or brioche toast with cinnamon sugar"],
     relatedMealIds: ["doughnut-and-coffee", "muffin"],
-    recipes: [{ label: "Cinnamon Rolls" }],
+    recipes: [
+      { label: "Cinnamon Rolls (Not-HA)", recipeId: "cinnamon-rolls" },
+      { label: "Cinnamon Rolls (HA)", recipeId: "cinnamon-rolls-ha" },
+    ],
   },
   {
     id: "scone",
@@ -338,7 +387,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Tea or coffee", "Jam or butter"],
     substitutions: ["A muffin"],
     relatedMealIds: ["muffin", "croissant"],
-    recipes: [{ label: "Scones" }],
+    recipes: [
+      { label: "Scones (Not-HA)", recipeId: "scones" },
+      { label: "Scones (HA)", recipeId: "scones-ha" },
+    ],
   },
   {
     id: "biscuits-and-gravy",
@@ -350,7 +402,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee", "Eggs if you want more protein"],
     substitutions: ["Toast and sausage if you do not want to make biscuits"],
     relatedMealIds: ["bacon-and-eggs", "breakfast-sandwich"],
-    recipes: [{ label: "Biscuits and Gravy" }],
+    recipes: [{ label: "Biscuits and Gravy (Not-HA)", recipeId: "biscuits-and-gravy" }],
   },
   {
     id: "french-toast",
@@ -371,7 +423,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee, milk, or fruit", "Bacon or sausage if you want a bigger plate"],
     substitutions: ["Pancakes or brioche toast"],
     relatedMealIds: ["pancakes-or-waffles", "brioche-toast"],
-    recipes: [{ label: "French Toast", recipeId: "french-toast" }],
+    recipes: [
+      { label: "French Toast (Not-HA)", recipeId: "french-toast" },
+      { label: "French Toast (HA)", recipeId: "french-toast-ha" },
+    ],
   },
   {
     id: "grits",
@@ -383,7 +438,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee", "Butter, cheese, or eggs"],
     substitutions: ["Oatmeal if you are out of grits"],
     relatedMealIds: ["oatmeal-bowl", "potato-hash-and-eggs"],
-    recipes: [{ label: "Breakfast Grits", recipeId: "breakfast-grits" }],
+    recipes: [
+      { label: "Breakfast Grits (Not-HA)", recipeId: "breakfast-grits" },
+      { label: "Breakfast Grits (HA)", recipeId: "breakfast-grits-ha" },
+    ],
   },
   {
     id: "potato-hash-and-eggs",
@@ -396,8 +454,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Sweet potato hash"],
     relatedMealIds: ["bacon-and-eggs", "eggs-and-toast"],
     recipes: [
-      { label: "Potato Breakfast Hash", recipeId: "breakfast-hash" },
-      { label: "Sweet Potato Hash", recipeId: "sweet-potato-hash" },
+      { label: "Potato Breakfast Hash (Not-HA)", recipeId: "breakfast-hash" },
+      { label: "Potato Breakfast Hash (HA)", recipeId: "breakfast-hash-ha" },
+      { label: "Sweet Potato Hash (Not-HA)", recipeId: "sweet-potato-hash" },
+      { label: "Sweet Potato Hash (HA)", recipeId: "sweet-potato-hash-ha" },
     ],
   },
   {
@@ -410,7 +470,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Bread for dipping", "Coffee or tea"],
     substitutions: ["Huevos rancheros if you want tortillas instead"],
     relatedMealIds: ["huevos-or-chilaquiles", "eggs-and-toast"],
-    recipes: [{ label: "Shakshuka", recipeId: "shakshuka" }],
+    recipes: [
+      { label: "Shakshuka (Not-HA)", recipeId: "shakshuka" },
+      { label: "Shakshuka (HA)", recipeId: "shakshuka-ha" },
+    ],
   },
   {
     id: "huevos-or-chilaquiles",
@@ -428,9 +491,11 @@ const coreMealIdeas: MealIdea[] = [
       "chilaquiles-plate",
     ],
     recipes: [
-      { label: "Huevos Rancheros", recipeId: "huevos-rancheros" },
-      { label: "Chilaquiles", recipeId: "chilaquiles" },
-      { label: "Migas", recipeId: "migas" },
+      { label: "Huevos Rancheros (Not-HA)", recipeId: "huevos-rancheros" },
+      { label: "Huevos Rancheros (HA)", recipeId: "huevos-rancheros-ha" },
+      { label: "Chilaquiles (Not-HA)", recipeId: "chilaquiles" },
+      { label: "Migas (Not-HA)", recipeId: "migas" },
+      { label: "Migas (HA)", recipeId: "migas-ha" },
     ],
   },
   {
@@ -452,8 +517,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Sourdough", "A rice cake if wheat is a problem"],
     relatedMealIds: ["eggs-and-toast", "brioche-toast"],
     recipes: [
-      { label: "Avocado Toast", recipeId: "avocado-toast" },
-      { label: "Rice Cakes with Avocado", recipeId: "rice-cake-avocado" },
+      { label: "Avocado Toast (Not-HA)", recipeId: "avocado-toast" },
+      { label: "Rice Cakes with Avocado (Not-HA)", recipeId: "rice-cake-avocado" },
     ],
   },
   {
@@ -474,7 +539,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Fruit on top", "Coffee or water"],
     substitutions: ["Boxed cereal", "Yogurt instead of milk"],
     relatedMealIds: ["cereal-and-milk", "yogurt-and-fruit"],
-    recipes: [{ label: "Granola and Milk", recipeId: "granola-and-milk" }],
+    recipes: [
+      { label: "Granola and Milk (Not-HA)", recipeId: "granola-and-milk" },
+      { label: "Granola and Milk (HA)", recipeId: "granola-and-milk-ha" },
+    ],
   },
   {
     id: "turkey-sandwich",
@@ -487,9 +555,11 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Sourdough", "Lettuce wraps"],
     relatedMealIds: ["soup-and-sandwich", "grilled-cheese"],
     recipes: [
-      { label: "Sourdough Turkey Sandwich", recipeId: "sourdough-turkey-sandwich" },
-      { label: "Ham and Cheese Sandwich", recipeId: "ham-cheese-sandwich" },
-      { label: "BLT", recipeId: "blt" },
+      { label: "Sourdough Turkey Sandwich (Not-HA)", recipeId: "sourdough-turkey-sandwich" },
+      { label: "Sourdough Turkey Sandwich (HA)", recipeId: "sourdough-turkey-sandwich-ha" },
+      { label: "Ham and Cheese Sandwich (Not-HA)", recipeId: "ham-cheese-sandwich" },
+      { label: "Ham and Cheese Sandwich (HA)", recipeId: "ham-cheese-sandwich-ha" },
+      { label: "BLT (HA)", recipeId: "blt" },
     ],
   },
   {
@@ -503,9 +573,12 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Rice cakes on the side instead of a second bread"],
     relatedMealIds: ["turkey-sandwich", "grilled-cheese", "soup-night"],
     recipes: [
-      { label: "Tomato Basil Soup", recipeId: "tomato-basil-soup" },
-      { label: "Chicken Noodle Soup", recipeId: "chicken-noodle-soup" },
-      { label: "Grilled Cheese", recipeId: "grilled-cheese" },
+      { label: "Tomato Basil Soup (Not-HA)", recipeId: "tomato-basil-soup" },
+      { label: "Tomato Basil Soup (HA)", recipeId: "tomato-basil-soup-ha" },
+      { label: "Chicken Noodle Soup (Not-HA)", recipeId: "chicken-noodle-soup" },
+      { label: "Chicken Noodle Soup (HA)", recipeId: "chicken-noodle-soup-ha" },
+      { label: "Grilled Cheese (Not-HA)", recipeId: "grilled-cheese" },
+      { label: "Grilled Cheese (HA)", recipeId: "grilled-cheese-ha" },
     ],
   },
   {
@@ -518,7 +591,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Tomato soup, or water", "Pickles or fruit"],
     substitutions: ["Dairy-free slices if you need them"],
     relatedMealIds: ["soup-and-sandwich", "quesadilla"],
-    recipes: [{ label: "Grilled Cheese", recipeId: "grilled-cheese" }],
+    recipes: [
+      { label: "Grilled Cheese (Not-HA)", recipeId: "grilled-cheese" },
+      { label: "Grilled Cheese (HA)", recipeId: "grilled-cheese-ha" },
+    ],
   },
   {
     id: "pb-and-j",
@@ -529,7 +605,10 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-states", "canada", "australia"],
     pairings: ["Milk or water", "An apple, banana, or chips"],
     substitutions: ["Almond butter", "Sourdough or rice cakes"],
-    recipes: [{ label: "Peanut Butter and Jelly Sandwich" }],
+    recipes: [
+      { label: "Peanut Butter and Jelly Sandwich (Not-HA)", recipeId: "pb-and-j" },
+      { label: "Peanut Butter and Jelly Sandwich (HA)", recipeId: "pb-and-j-ha" },
+    ],
   },
   {
     id: "quesadilla",
@@ -541,7 +620,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Salsa or sour cream", "Water or a soda"],
     substitutions: ["Add leftover chicken or beans"],
     relatedMealIds: ["taco-night", "burrito-bowl", "breakfast-burrito"],
-    recipes: [{ label: "Cheese Quesadilla", recipeId: "cheese-quesadilla" }],
+    recipes: [
+      { label: "Cheese Quesadilla (Not-HA)", recipeId: "cheese-quesadilla" },
+      { label: "Cheese Quesadilla (HA)", recipeId: "cheese-quesadilla-ha" },
+    ],
   },
   {
     id: "leftover-rice-bowl-idea",
@@ -554,8 +636,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Quinoa if that is what is left"],
     relatedMealIds: ["stir-fry-night", "burrito-bowl", "leftover-dinner-plate", "fried-rice-lunch"],
     recipes: [
-      { label: "Leftover Rice Bowl", recipeId: "leftover-rice-bowl" },
-      { label: "Leftover Stir-Fry Bowl", recipeId: "leftover-stir-fry-bowl" },
+      { label: "Leftover Rice Bowl (HA)", recipeId: "leftover-rice-bowl" },
+      { label: "Leftover Stir-Fry Bowl (HA)", recipeId: "leftover-stir-fry-bowl" },
     ],
   },
   {
@@ -579,9 +661,11 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A wrap if you want it handheld"],
     relatedMealIds: ["turkey-sandwich", "wrap-lunch", "hummus-and-veg"],
     recipes: [
-      { label: "Greek Salad", recipeId: "greek-salad" },
-      { label: "Cobb Salad", recipeId: "cobb-salad" },
-      { label: "Chef Salad", recipeId: "chef-salad" },
+      { label: "Greek Salad (Not-HA)", recipeId: "greek-salad" },
+      { label: "Greek Salad (HA)", recipeId: "greek-salad-ha" },
+      { label: "Cobb Salad (Not-HA)", recipeId: "cobb-salad" },
+      { label: "Chef Salad (Not-HA)", recipeId: "chef-salad" },
+      { label: "Chef Salad (HA)", recipeId: "chef-salad-ha" },
     ],
   },
   {
@@ -595,8 +679,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Leftover chili over rice"],
     relatedMealIds: ["chili-night", "soup-and-sandwich", "baked-potato-lunch-idea"],
     recipes: [
-      { label: "Leftover Chili Bowl", recipeId: "leftover-chili-bowl" },
-      { label: "Weeknight Chili", recipeId: "weeknight-chili" },
+      { label: "Leftover Chili Bowl (Not-HA)", recipeId: "leftover-chili-bowl" },
+      { label: "Leftover Chili Bowl (HA)", recipeId: "leftover-chili-bowl-ha" },
+      { label: "Weeknight Chili (Not-HA)", recipeId: "weeknight-chili" },
+      { label: "Weeknight Chili (HA)", recipeId: "weeknight-chili-ha" },
     ],
   },
   {
@@ -610,8 +696,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Wrap it as a burrito"],
     relatedMealIds: ["taco-night", "quesadilla"],
     recipes: [
-      { label: "Burrito Bowl", recipeId: "burrito-bowl" },
-      { label: "Leftover Taco Bowl", recipeId: "leftover-taco-bowl" },
+      { label: "Burrito Bowl (Not-HA)", recipeId: "burrito-bowl" },
+      { label: "Burrito Bowl (HA)", recipeId: "burrito-bowl-ha" },
+      { label: "Leftover Taco Bowl (Not-HA)", recipeId: "leftover-taco-bowl" },
+      { label: "Leftover Taco Bowl (HA)", recipeId: "leftover-taco-bowl-ha" },
     ],
   },
   {
@@ -633,8 +721,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Lettuce cups instead of bread"],
     relatedMealIds: ["turkey-sandwich"],
     recipes: [
-      { label: "Tuna Salad Sandwich", recipeId: "tuna-salad-sandwich" },
-      { label: "Egg Salad Sandwich", recipeId: "egg-salad-sandwich" },
+      { label: "Tuna Salad Sandwich (Not-HA)", recipeId: "tuna-salad-sandwich" },
+      { label: "Egg Salad Sandwich (HA)", recipeId: "egg-salad-sandwich" },
     ],
   },
   {
@@ -661,8 +749,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Turn it into a rice bowl or wrap"],
     relatedMealIds: ["leftover-rice-bowl-idea", "wrap-lunch"],
     recipes: [
-      { label: "Leftover Roast Plate", recipeId: "leftover-roast-plate" },
-      { label: "Leftover Stir-Fry Bowl", recipeId: "leftover-stir-fry-bowl" },
+      { label: "Leftover Roast Plate (HA)", recipeId: "leftover-roast-plate" },
+      { label: "Leftover Stir-Fry Bowl (HA)", recipeId: "leftover-stir-fry-bowl" },
     ],
   },
   {
@@ -675,7 +763,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["An apple, broccoli, or water"],
     substitutions: ["Dinner leftovers of the same", "A vegetable on the side"],
     relatedMealIds: ["mac-and-cheese-night", "grilled-cheese"],
-    recipes: [{ label: "Stovetop Mac and Cheese" }],
+    recipes: [
+      { label: "Stovetop Mac and Cheese (Not-HA)", recipeId: "stovetop-mac-and-cheese" },
+      { label: "Stovetop Mac and Cheese (HA)", recipeId: "stovetop-mac-and-cheese-ha" },
+    ],
   },
   {
     id: "baked-potato-lunch-idea",
@@ -688,9 +779,12 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A stuffed sweet potato"],
     relatedMealIds: ["chili-bowl", "leftover-dinner-plate"],
     recipes: [
-      { label: "Baked Potato", recipeId: "baked-potato-lunch" },
-      { label: "Stuffed Sweet Potato", recipeId: "stuffed-sweet-potato" },
-      { label: "Chili Baked Potatoes", recipeId: "chili-baked-potatoes" },
+      { label: "Baked Potato (Not-HA)", recipeId: "baked-potato-lunch" },
+      { label: "Baked Potato (HA)", recipeId: "baked-potato-lunch-ha" },
+      { label: "Stuffed Sweet Potato (Not-HA)", recipeId: "stuffed-sweet-potato" },
+      { label: "Stuffed Sweet Potato (HA)", recipeId: "stuffed-sweet-potato-ha" },
+      { label: "Chili Baked Potatoes (Not-HA)", recipeId: "chili-baked-potatoes" },
+      { label: "Chili Baked Potatoes (HA)", recipeId: "chili-baked-potatoes-ha" },
     ],
   },
   {
@@ -704,9 +798,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A sandwich if you are out of tortillas"],
     relatedMealIds: ["turkey-sandwich", "salad-plate"],
     recipes: [
-      { label: "Leftover Chicken Wrap", recipeId: "leftover-chicken-wrap" },
-      { label: "Veggie Wrap", recipeId: "veggie-wrap" },
-      { label: "Turkey Lettuce Wraps", recipeId: "turkey-lettuce-wraps" },
+      { label: "Leftover Chicken Wrap (Not-HA)", recipeId: "leftover-chicken-wrap" },
+      { label: "Veggie Wrap (Not-HA)", recipeId: "veggie-wrap" },
+      { label: "Turkey Lettuce Wraps (HA)", recipeId: "turkey-lettuce-wraps" },
     ],
   },
   {
@@ -720,8 +814,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Tuna salad if that is what you have"],
     relatedMealIds: ["tuna-or-egg-sandwich", "salad-plate"],
     recipes: [
-      { label: "Chicken Salad Lettuce Cups", recipeId: "chicken-salad-lettuce" },
-      { label: "Arugula Chicken Salad", recipeId: "arugula-chicken-salad" },
+      { label: "Chicken Salad Lettuce Cups (HA)", recipeId: "chicken-salad-lettuce" },
+      { label: "Arugula Chicken Salad (Not-HA)", recipeId: "arugula-chicken-salad" },
+      { label: "Arugula Chicken Salad (HA)", recipeId: "arugula-chicken-salad-ha" },
     ],
   },
   {
@@ -734,7 +829,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Salsa or sour cream", "Water or a soda"],
     substitutions: ["Quesadilla if you want less crunch"],
     relatedMealIds: ["chips-and-dip", "quesadilla", "taco-night"],
-    recipes: [{ label: "Nachos", recipeId: "loaded-nachos-lunch" }],
+    recipes: [
+      { label: "Nachos (Not-HA)", recipeId: "loaded-nachos-lunch" },
+      { label: "Nachos (HA)", recipeId: "loaded-nachos-lunch-ha" },
+    ],
   },
   {
     id: "pasta-salad-lunch",
@@ -754,7 +852,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water or iced tea", "Fruit"],
     substitutions: ["A green salad if you do not want pasta cold"],
     relatedMealIds: ["salad-plate", "leftover-dinner-plate"],
-    recipes: [{ label: "Pasta Salad", recipeId: "pasta-salad" }],
+    recipes: [
+      { label: "Pasta Salad (Not-HA)", recipeId: "pasta-salad" },
+      { label: "Pasta Salad (HA)", recipeId: "pasta-salad-ha" },
+    ],
   },
   {
     id: "sushi-bowl-lunch",
@@ -767,7 +868,7 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Leftover rice with canned fish"],
     relatedMealIds: ["leftover-rice-bowl-idea", "salmon-and-sides"],
     recipes: [
-      { label: "Sushi Bowl", recipeId: "sushi-bowl" },
+      { label: "Sushi Bowl (Not-HA)", recipeId: "sushi-bowl" },
       { label: "Salmon Poke Bowl (No Onion, No Avocado)", recipeId: "salmon-poke-simple" },
     ],
   },
@@ -781,7 +882,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water or a soda", "Fruit or chips"],
     substitutions: ["A toaster pastry if it is more breakfast than lunch"],
     relatedMealIds: ["toaster-strudel", "pizza-night"],
-    recipes: [{ label: "Hot Pockets" }],
+    recipes: [
+      { label: "Hot Pockets (Not-HA)", recipeId: "hot-pockets" },
+      { label: "Hot Pockets (HA)", recipeId: "hot-pockets-ha" },
+    ],
   },
   {
     id: "meatloaf-sandwich",
@@ -794,8 +898,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A leftover roast plate if you do not want bread"],
     relatedMealIds: ["leftover-dinner-plate", "turkey-sandwich", "meatloaf-plate"],
     recipes: [
-      { label: "Meatloaf Sandwich" },
-      { label: "Beef Meatloaf", recipeId: "beef-meatloaf" },
+      { label: "Meatloaf Sandwich (Not-HA)", recipeId: "meatloaf-sandwich" },
+      { label: "Meatloaf Sandwich (HA)", recipeId: "meatloaf-sandwich-ha" },
+      { label: "Beef Meatloaf (Not-HA)", recipeId: "beef-meatloaf" },
+      { label: "Beef Meatloaf (HA)", recipeId: "beef-meatloaf-ha" },
     ],
   },
   {
@@ -816,7 +922,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Pita, rice cakes, or crackers", "Water"],
     substitutions: ["A wrap"],
     relatedMealIds: ["salad-plate", "wrap-lunch"],
-    recipes: [{ label: "Hummus and Veggie Plate", recipeId: "hummus-veggie-plate" }],
+    recipes: [
+      { label: "Hummus and Veggie Plate (Not-HA)", recipeId: "hummus-veggie-plate" },
+      { label: "Hummus and Veggie Plate (HA)", recipeId: "hummus-veggie-plate-ha" },
+    ],
   },
   {
     id: "fried-rice-lunch",
@@ -838,8 +947,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A leftover rice bowl without the extra fry"],
     relatedMealIds: ["leftover-rice-bowl-idea", "fried-rice-night"],
     recipes: [
-      { label: "Veggie Fried Rice", recipeId: "veggie-fried-rice" },
-      { label: "Fried Egg Rice", recipeId: "fried-egg-rice" },
+      { label: "Veggie Fried Rice (Not-HA)", recipeId: "veggie-fried-rice" },
+      { label: "Veggie Fried Rice (HA)", recipeId: "veggie-fried-rice-ha" },
+      { label: "Fried Egg Rice (Not-HA)", recipeId: "fried-egg-rice" },
+      { label: "Fried Egg Rice (HA)", recipeId: "fried-egg-rice-ha" },
     ],
   },
   {
@@ -866,10 +977,13 @@ const coreMealIdeas: MealIdea[] = [
     ],
     relatedMealIds: ["chicken-rice-vegetables", "steak-and-potatoes"],
     recipes: [
-      { label: "Baked Pork Chops", recipeId: "baked-pork-chops" },
-      { label: "Pork Chops and Apples", recipeId: "pork-chops-and-apples" },
-      { label: "Mashed Potatoes" },
-      { label: "Pan Gravy" },
+      { label: "Baked Pork Chops (HA)", recipeId: "baked-pork-chops" },
+      { label: "Pork Chops and Apples (Not-HA)", recipeId: "pork-chops-and-apples" },
+      { label: "Mashed Potatoes (Not-HA)", recipeId: "mashed-potatoes" },
+      { label: "Mashed Potatoes (HA)", recipeId: "mashed-potatoes-ha" },
+      { label: "Pan Gravy (Not-HA)", recipeId: "pan-gravy" },
+      { label: "Pan Gravy (HA)", recipeId: "pan-gravy-ha" },
+      { label: "Roasted Green Beans (HA)", recipeId: "roasted-green-beans" },
     ],
   },
   {
@@ -896,9 +1010,12 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Potatoes instead of rice", "Thighs instead of breast"],
     relatedMealIds: ["pork-chops-plate", "stir-fry-night", "baked-chicken-plate"],
     recipes: [
-      { label: "Sheet-Pan Roasted Chicken", recipeId: "sheet-pan-roasted-chicken" },
-      { label: "Baked Chicken Thighs", recipeId: "baked-chicken-thighs" },
-      { label: "Chicken and Veggie Stir-Fry", recipeId: "chicken-veggie-stir-fry" },
+      { label: "Sheet-Pan Roasted Chicken (HA)", recipeId: "sheet-pan-roasted-chicken" },
+      { label: "Baked Chicken Thighs (HA)", recipeId: "baked-chicken-thighs" },
+      { label: "Chicken and Veggie Stir-Fry (Not-HA)", recipeId: "chicken-veggie-stir-fry" },
+      { label: "Chicken and Veggie Stir-Fry (HA)", recipeId: "chicken-veggie-stir-fry-ha" },
+      { label: "Steamed Rice (HA)", recipeId: "steamed-rice" },
+      { label: "Steamed Broccoli (HA)", recipeId: "steamed-broccoli" },
     ],
   },
   {
@@ -921,9 +1038,11 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A grocery rotisserie chicken when you do not want to cook the meat"],
     relatedMealIds: ["chicken-rice-vegetables", "sunday-roast"],
     recipes: [
-      { label: "Baked Chicken Thighs", recipeId: "baked-chicken-thighs" },
-      { label: "BBQ Chicken", recipeId: "bbq-chicken" },
+      { label: "Baked Chicken Thighs (HA)", recipeId: "baked-chicken-thighs" },
+      { label: "BBQ Chicken (HA)", recipeId: "bbq-chicken" },
       { label: "Grocery Rotisserie Chicken Plate", recipeId: "grocery-rotisserie-plate" },
+      { label: "Steamed Rice (HA)", recipeId: "steamed-rice" },
+      { label: "Roasted Green Beans (HA)", recipeId: "roasted-green-beans" },
     ],
   },
   {
@@ -952,8 +1071,9 @@ const coreMealIdeas: MealIdea[] = [
       "fettuccine-alfredo-idea",
     ],
     recipes: [
-      { label: "Gluten-Free Spaghetti Marinara", recipeId: "gf-spaghetti-marinara" },
-      { label: "Pasta Primavera", recipeId: "pasta-primavera" },
+      { label: "Gluten-Free Spaghetti Marinara (Not-HA)", recipeId: "gf-spaghetti-marinara" },
+      { label: "Gluten-Free Spaghetti Marinara (HA)", recipeId: "gf-spaghetti-marinara-ha" },
+      { label: "Pasta Primavera (Not-HA)", recipeId: "pasta-primavera" },
     ],
   },
   {
@@ -967,8 +1087,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Rice if you are out of pasta"],
     relatedMealIds: ["pasta-marinara", "lasagna-night"],
     recipes: [
-      { label: "Meatballs Marinara", recipeId: "meatballs-marinara" },
-      { label: "Swedish Meatballs", recipeId: "swedish-meatballs" },
+      { label: "Meatballs Marinara (Not-HA)", recipeId: "meatballs-marinara" },
+      { label: "Swedish Meatballs (Not-HA)", recipeId: "swedish-meatballs" },
+      { label: "Swedish Meatballs (HA)", recipeId: "swedish-meatballs-ha" },
     ],
   },
   {
@@ -990,8 +1111,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Baked ziti when you do not want to layer"],
     relatedMealIds: ["pasta-marinara", "meatball-pasta", "baked-ziti-idea"],
     recipes: [
-      { label: "Lasagna", recipeId: "lasagna" },
-      { label: "Baked Ziti", recipeId: "baked-ziti" },
+      { label: "Lasagna (Not-HA)", recipeId: "lasagna" },
+      { label: "Baked Ziti (Not-HA)", recipeId: "baked-ziti" },
     ],
   },
   {
@@ -1005,9 +1126,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Tostadas or a taco salad if tortillas are stale"],
     relatedMealIds: ["burrito-bowl", "quesadilla", "fajitas", "enchiladas", "tostadas-idea"],
     recipes: [
-      { label: "Taco Night", recipeId: "taco-night" },
-      { label: "Black Bean Tacos", recipeId: "black-bean-tacos" },
-      { label: "Shrimp Tacos", recipeId: "shrimp-tacos" },
+      { label: "Taco Night (Not-HA)", recipeId: "taco-night" },
+      { label: "Taco Night (HA)", recipeId: "taco-night-ha" },
+      { label: "Black Bean Tacos (Not-HA)", recipeId: "black-bean-tacos" },
+      { label: "Shrimp Tacos (Not-HA)", recipeId: "shrimp-tacos" },
     ],
   },
   {
@@ -1020,7 +1142,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Tortillas, salsa, and a simple salad", "Water"],
     substitutions: ["Serve over rice as a bowl"],
     relatedMealIds: ["taco-night", "stir-fry-night"],
-    recipes: [{ label: "Chicken Fajitas", recipeId: "chicken-fajitas" }],
+    recipes: [
+      { label: "Chicken Fajitas (Not-HA)", recipeId: "chicken-fajitas" },
+      { label: "Chicken Fajitas (HA)", recipeId: "chicken-fajitas-ha" },
+    ],
   },
   {
     id: "chili-night",
@@ -1033,9 +1158,12 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Serve leftover chili for lunch"],
     relatedMealIds: ["chili-bowl", "stew-or-pot-roast"],
     recipes: [
-      { label: "Weeknight Chili", recipeId: "weeknight-chili" },
-      { label: "Chili Baked Potatoes", recipeId: "chili-baked-potatoes" },
-      { label: "Cornbread" },
+      { label: "Weeknight Chili (Not-HA)", recipeId: "weeknight-chili" },
+      { label: "Weeknight Chili (HA)", recipeId: "weeknight-chili-ha" },
+      { label: "Chili Baked Potatoes (Not-HA)", recipeId: "chili-baked-potatoes" },
+      { label: "Chili Baked Potatoes (HA)", recipeId: "chili-baked-potatoes-ha" },
+      { label: "Cornbread (Not-HA)", recipeId: "cornbread" },
+      { label: "Cornbread (HA)", recipeId: "cornbread-ha" },
     ],
   },
   {
@@ -1062,10 +1190,14 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Add leftover roast or chicken to stretch it"],
     relatedMealIds: ["soup-and-sandwich", "chili-night"],
     recipes: [
-      { label: "Chicken Noodle Soup", recipeId: "chicken-noodle-soup" },
-      { label: "Chicken Rice Soup", recipeId: "chicken-rice-soup" },
-      { label: "Minestrone", recipeId: "minestrone" },
-      { label: "Lentil Soup", recipeId: "lentil-soup" },
+      { label: "Chicken Noodle Soup (Not-HA)", recipeId: "chicken-noodle-soup" },
+      { label: "Chicken Noodle Soup (HA)", recipeId: "chicken-noodle-soup-ha" },
+      { label: "Chicken Rice Soup (Not-HA)", recipeId: "chicken-rice-soup" },
+      { label: "Chicken Rice Soup (HA)", recipeId: "chicken-rice-soup-ha" },
+      { label: "Minestrone (Not-HA)", recipeId: "minestrone" },
+      { label: "Minestrone (HA)", recipeId: "minestrone-ha" },
+      { label: "Lentil Soup (Not-HA)", recipeId: "lentil-soup" },
+      { label: "Lentil Soup (HA)", recipeId: "lentil-soup-ha" },
     ],
   },
   {
@@ -1087,9 +1219,12 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Tofu instead of chicken", "A leftover-rice bowl the next day"],
     relatedMealIds: ["chicken-rice-vegetables", "leftover-rice-bowl-idea"],
     recipes: [
-      { label: "Chicken and Veggie Stir-Fry", recipeId: "chicken-veggie-stir-fry" },
-      { label: "Beef and Broccoli", recipeId: "beef-and-broccoli" },
-      { label: "Tofu Stir-Fry", recipeId: "tofu-stir-fry" },
+      { label: "Chicken and Veggie Stir-Fry (Not-HA)", recipeId: "chicken-veggie-stir-fry" },
+      { label: "Chicken and Veggie Stir-Fry (HA)", recipeId: "chicken-veggie-stir-fry-ha" },
+      { label: "Beef and Broccoli (Not-HA)", recipeId: "beef-and-broccoli" },
+      { label: "Beef and Broccoli (HA)", recipeId: "beef-and-broccoli-ha" },
+      { label: "Tofu Stir-Fry (Not-HA)", recipeId: "tofu-stir-fry" },
+      { label: "Tofu Stir-Fry (HA)", recipeId: "tofu-stir-fry-ha" },
     ],
   },
   {
@@ -1113,8 +1248,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Lettuce wrap", "Sloppy joes if you want it saucier"],
     relatedMealIds: ["steak-and-potatoes"],
     recipes: [
-      { label: "Skillet Burgers", recipeId: "skillet-burgers" },
-      { label: "Sloppy Joes", recipeId: "sloppy-joes" },
+      { label: "Skillet Burgers (Not-HA)", recipeId: "skillet-burgers" },
+      { label: "Skillet Burgers (HA)", recipeId: "skillet-burgers-ha" },
+      { label: "Sloppy Joes (Not-HA)", recipeId: "sloppy-joes" },
+      { label: "Sloppy Joes (HA)", recipeId: "sloppy-joes-ha" },
     ],
   },
   {
@@ -1139,7 +1276,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Takeout when you do not want to make dough"],
     relatedMealIds: ["pasta-marinara"],
     recipes: [
-      { label: "Homemade Pizza" },
+      { label: "Homemade Pizza (Not-HA)", recipeId: "homemade-pizza" },
+      { label: "Homemade Pizza (HA)", recipeId: "homemade-pizza-ha" },
       { label: "Pepperoni Pizza (Takeout)", recipeId: "pepperoni-pizza-night" },
     ],
   },
@@ -1164,9 +1302,12 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Another white fish"],
     relatedMealIds: ["chicken-rice-vegetables"],
     recipes: [
-      { label: "Baked Salmon", recipeId: "baked-salmon" },
-      { label: "Teriyaki Salmon Bowls", recipeId: "teriyaki-salmon-bowls" },
-      { label: "Baked White Fish", recipeId: "baked-white-fish" },
+      { label: "Baked Salmon (HA)", recipeId: "baked-salmon" },
+      { label: "Teriyaki Salmon Bowls (Not-HA)", recipeId: "teriyaki-salmon-bowls" },
+      { label: "Teriyaki Salmon Bowls (HA)", recipeId: "teriyaki-salmon-bowls-ha" },
+      { label: "Baked White Fish (Not-HA)", recipeId: "baked-white-fish" },
+      { label: "Steamed Rice (HA)", recipeId: "steamed-rice" },
+      { label: "Steamed Broccoli (HA)", recipeId: "steamed-broccoli" },
     ],
   },
   {
@@ -1189,8 +1330,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Chili when you want it beanier"],
     relatedMealIds: ["chili-night", "sunday-roast"],
     recipes: [
-      { label: "Beef Stew", recipeId: "beef-stew" },
-      { label: "Pot Roast", recipeId: "pot-roast" },
+      { label: "Beef Stew (Not-HA)", recipeId: "beef-stew" },
+      { label: "Beef Stew (HA)", recipeId: "beef-stew-ha" },
+      { label: "Pot Roast (Not-HA)", recipeId: "pot-roast" },
+      { label: "Pot Roast (HA)", recipeId: "pot-roast-ha" },
     ],
   },
   {
@@ -1212,7 +1355,12 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A green vegetable", "Water"],
     substitutions: ["Pork chops if steak is not in the budget"],
     relatedMealIds: ["pork-chops-plate", "burger-night"],
-    recipes: [{ label: "Grilled Steak", recipeId: "grilled-steak" }, { label: "Mashed Potatoes" }],
+    recipes: [
+      { label: "Grilled Steak (HA)", recipeId: "grilled-steak" },
+      { label: "Mashed Potatoes (Not-HA)", recipeId: "mashed-potatoes" },
+      { label: "Mashed Potatoes (HA)", recipeId: "mashed-potatoes-ha" },
+      { label: "Roasted Green Beans (HA)", recipeId: "roasted-green-beans" },
+    ],
   },
   {
     id: "rice-and-beans-plate",
@@ -1224,7 +1372,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Salsa or a fried egg", "A simple salad", "Water"],
     substitutions: ["Add leftover chicken or sausage"],
     relatedMealIds: ["burrito-bowl", "taco-night"],
-    recipes: [{ label: "Rice and Beans", recipeId: "rice-and-beans" }],
+    recipes: [
+      { label: "Rice and Beans (Not-HA)", recipeId: "rice-and-beans" },
+      { label: "Rice and Beans (HA)", recipeId: "rice-and-beans-ha" },
+    ],
   },
   {
     id: "sunday-roast",
@@ -1237,8 +1388,14 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A weeknight sheet-pan chicken"],
     relatedMealIds: ["baked-chicken-plate", "stew-or-pot-roast"],
     recipes: [
-      { label: "Sunday Roast Chicken", recipeId: "sunday-roast-chicken" },
-      { label: "Sheet-Pan Roasted Chicken", recipeId: "sheet-pan-roasted-chicken" },
+      { label: "Sunday Roast Chicken (Not-HA)", recipeId: "sunday-roast-chicken" },
+      { label: "Sunday Roast Chicken (HA)", recipeId: "sunday-roast-chicken-ha" },
+      { label: "Sheet-Pan Roasted Chicken (HA)", recipeId: "sheet-pan-roasted-chicken" },
+      { label: "Mashed Potatoes (Not-HA)", recipeId: "mashed-potatoes" },
+      { label: "Mashed Potatoes (HA)", recipeId: "mashed-potatoes-ha" },
+      { label: "Pan Gravy (Not-HA)", recipeId: "pan-gravy" },
+      { label: "Pan Gravy (HA)", recipeId: "pan-gravy-ha" },
+      { label: "Roasted Green Beans (HA)", recipeId: "roasted-green-beans" },
     ],
   },
   {
@@ -1251,7 +1408,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Rice and beans", "Salsa", "Water"],
     substitutions: ["Tostadas if rolling tortillas feels like too much"],
     relatedMealIds: ["taco-night", "tostadas-idea", "tamale-pie-idea"],
-    recipes: [{ label: "Beef Enchiladas", recipeId: "beef-enchiladas" }],
+    recipes: [
+      { label: "Beef Enchiladas (Not-HA)", recipeId: "beef-enchiladas" },
+      { label: "Beef Enchiladas (HA)", recipeId: "beef-enchiladas-ha" },
+    ],
   },
   {
     id: "chicken-rice-casserole-idea",
@@ -1267,7 +1427,10 @@ const coreMealIdeas: MealIdea[] = [
       "chicken-rice-vegetables",
       "breakfast-casserole-dinner",
     ],
-    recipes: [{ label: "Chicken and Rice Casserole", recipeId: "chicken-rice-casserole" }],
+    recipes: [
+      { label: "Chicken and Rice Casserole (Not-HA)", recipeId: "chicken-rice-casserole" },
+      { label: "Chicken and Rice Casserole (HA)", recipeId: "chicken-rice-casserole-ha" },
+    ],
   },
   {
     id: "tuna-casserole-idea",
@@ -1279,7 +1442,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A green vegetable", "Water"],
     substitutions: ["Chicken and rice casserole if you are out of tuna"],
     relatedMealIds: ["chicken-rice-casserole-idea", "mac-and-cheese-night"],
-    recipes: [{ label: "Tuna Casserole", recipeId: "tuna-casserole" }],
+    recipes: [{ label: "Tuna Casserole (Not-HA)", recipeId: "tuna-casserole" }],
   },
   {
     id: "shepherds-pie-idea",
@@ -1291,7 +1454,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A salad", "Water"],
     substitutions: ["Chili with mashed potatoes on top"],
     relatedMealIds: ["chili-night", "meatloaf-plate", "chicken-pot-pie-idea"],
-    recipes: [{ label: "Shepherd's Pie", recipeId: "shepherds-pie" }],
+    recipes: [{ label: "Shepherd's Pie (Not-HA)", recipeId: "shepherds-pie" }],
   },
   {
     id: "chicken-pot-pie-idea",
@@ -1303,7 +1466,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A salad or cooked vegetable", "Water"],
     substitutions: ["A casserole if you do not want a crust"],
     relatedMealIds: ["shepherds-pie-idea", "chicken-rice-casserole-idea"],
-    recipes: [{ label: "Chicken Pot Pie", recipeId: "chicken-pot-pie" }],
+    recipes: [
+      { label: "Chicken Pot Pie (Not-HA)", recipeId: "chicken-pot-pie" },
+      { label: "Chicken Pot Pie (HA)", recipeId: "chicken-pot-pie-ha" },
+    ],
   },
   {
     id: "tamale-pie-idea",
@@ -1315,7 +1481,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Salad or beans", "Water"],
     substitutions: ["Chili with cornbread on the side"],
     relatedMealIds: ["chili-night", "enchiladas"],
-    recipes: [{ label: "Tamale Pie", recipeId: "tamale-pie" }],
+    recipes: [
+      { label: "Tamale Pie (Not-HA)", recipeId: "tamale-pie" },
+      { label: "Tamale Pie (HA)", recipeId: "tamale-pie-ha" },
+    ],
   },
   {
     id: "breakfast-casserole-dinner",
@@ -1327,7 +1496,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Fruit or a simple salad", "Coffee or water"],
     substitutions: ["Hash and eggs if you do not want to bake"],
     relatedMealIds: ["potato-hash-and-eggs", "chicken-rice-casserole-idea"],
-    recipes: [{ label: "Breakfast Casserole", recipeId: "breakfast-casserole" }],
+    recipes: [
+      { label: "Breakfast Casserole (Not-HA)", recipeId: "breakfast-casserole" },
+      { label: "Breakfast Casserole (HA)", recipeId: "breakfast-casserole-ha" },
+    ],
   },
   {
     id: "mac-and-cheese-night",
@@ -1339,7 +1511,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A green vegetable or chicken", "Water or milk"],
     substitutions: ["The lunch bowl if you want a smaller sitting"],
     relatedMealIds: ["mac-and-cheese-lunch", "tuna-casserole-idea"],
-    recipes: [{ label: "Baked Mac and Cheese" }],
+    recipes: [
+      { label: "Baked Mac and Cheese (Not-HA)", recipeId: "baked-mac-and-cheese" },
+      { label: "Baked Mac and Cheese (HA)", recipeId: "baked-mac-and-cheese-ha" },
+    ],
   },
   {
     id: "fettuccine-alfredo-idea",
@@ -1352,8 +1527,36 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Pesto pasta if you want something less heavy"],
     relatedMealIds: ["pasta-marinara", "pesto-pasta-idea", "shrimp-scampi-idea"],
     recipes: [
-      { label: "Fettuccine Alfredo", recipeId: "fettuccine-alfredo" },
+      { label: "Fettuccine Alfredo (Not-HA)", recipeId: "fettuccine-alfredo" },
       { label: "Fettuccine Alfredo (HA)", recipeId: "fettuccine-alfredo-ha" },
+      { label: "Chicken Parmesan (HA)", recipeId: "chicken-parm-ha" },
+      { label: "Chicken Parmesan (Not-HA)", recipeId: "chicken-parm" },
+      { label: "Eggplant Parmesan (HA)", recipeId: "eggplant-parm-ha" },
+      { label: "Eggplant Parmesan (Not-HA)", recipeId: "eggplant-parm" },
+      { label: "Pesto Pasta (HA)", recipeId: "pesto-pasta-dinner-ha" },
+      { label: "Pesto Pasta (Not-HA)", recipeId: "pesto-pasta-dinner" },
+      { label: "Sausage Pasta (HA)", recipeId: "sausage-pasta-ha" },
+      { label: "Sausage Pasta (Not-HA)", recipeId: "sausage-pasta" },
+      { label: "Lasagna (HA)", recipeId: "lasagna-ha" },
+      { label: "Lasagna (Not-HA)", recipeId: "lasagna" },
+      { label: "Meatballs Marinara (HA)", recipeId: "meatballs-marinara-ha" },
+      { label: "Meatballs Marinara (Not-HA)", recipeId: "meatballs-marinara" },
+      { label: "Baked Ziti (HA)", recipeId: "baked-ziti-ha" },
+      { label: "Baked Ziti (Not-HA)", recipeId: "baked-ziti" },
+      { label: "Shrimp Scampi (HA)", recipeId: "shrimp-scampi-ha" },
+      { label: "Shrimp Scampi (Not-HA)", recipeId: "shrimp-scampi" },
+      { label: "White Beans and Greens (HA)", recipeId: "white-beans-and-greens-ha" },
+      { label: "White Beans and Greens (Not-HA)", recipeId: "white-beans-and-greens" },
+      { label: "Caprese Chicken (HA)", recipeId: "caprese-chicken-ha" },
+      { label: "Caprese Chicken (Not-HA)", recipeId: "caprese-chicken" },
+      { label: "Mushroom Risotto (HA)", recipeId: "mushroom-risotto-ha" },
+      { label: "Mushroom Risotto (Not-HA)", recipeId: "mushroom-risotto" },
+      { label: "Pasta Primavera (HA)", recipeId: "pasta-primavera-ha" },
+      { label: "Pasta Primavera (Not-HA)", recipeId: "pasta-primavera" },
+      { label: "Sausage and White Beans (HA)", recipeId: "sausage-white-beans-ha" },
+      { label: "Sausage and White Beans (Not-HA)", recipeId: "sausage-white-beans" },
+      { label: "Creamy Polenta with Sausage (HA)", recipeId: "creamy-polenta-sausage-ha" },
+      { label: "Creamy Polenta with Sausage (Not-HA)", recipeId: "creamy-polenta-sausage" },
     ],
   },
   {
@@ -1375,8 +1578,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Leftover pesto pasta for lunch"],
     relatedMealIds: ["pasta-marinara", "fettuccine-alfredo-idea"],
     recipes: [
-      { label: "Pesto Pasta", recipeId: "pesto-pasta-dinner" },
-      { label: "Pesto Pasta", recipeId: "pesto-pasta-lunch" },
+      { label: "Pesto Pasta (Not-HA)", recipeId: "pesto-pasta-dinner" },
+      { label: "Pesto Pasta (Not-HA)", recipeId: "pesto-pasta-lunch" },
+      { label: "Pesto Pasta (HA)", recipeId: "pesto-pasta-lunch-ha" },
     ],
   },
   {
@@ -1389,7 +1593,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Pasta or rice", "Salad", "Water"],
     substitutions: ["Chicken if you are out of shrimp"],
     relatedMealIds: ["fettuccine-alfredo-idea", "salmon-and-sides"],
-    recipes: [{ label: "Shrimp Scampi", recipeId: "shrimp-scampi" }],
+    recipes: [{ label: "Shrimp Scampi (Not-HA)", recipeId: "shrimp-scampi" }],
   },
   {
     id: "chicken-parm-idea",
@@ -1402,8 +1606,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Meatballs and pasta if you do not want to bread chicken"],
     relatedMealIds: ["pasta-marinara", "meatball-pasta", "baked-chicken-plate"],
     recipes: [
-      { label: "Chicken Parmesan", recipeId: "chicken-parm" },
-      { label: "Eggplant Parmesan", recipeId: "eggplant-parm" },
+      { label: "Chicken Parmesan (Not-HA)", recipeId: "chicken-parm" },
+      { label: "Eggplant Parmesan (Not-HA)", recipeId: "eggplant-parm" },
     ],
   },
   {
@@ -1417,9 +1621,13 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Leftover meatloaf sandwiches the next day"],
     relatedMealIds: ["pork-chops-plate", "shepherds-pie-idea", "meatloaf-sandwich"],
     recipes: [
-      { label: "Beef Meatloaf", recipeId: "beef-meatloaf" },
-      { label: "Turkey Meatloaf", recipeId: "turkey-meatloaf" },
-      { label: "Mashed Potatoes" },
+      { label: "Beef Meatloaf (Not-HA)", recipeId: "beef-meatloaf" },
+      { label: "Beef Meatloaf (HA)", recipeId: "beef-meatloaf-ha" },
+      { label: "Turkey Meatloaf (Not-HA)", recipeId: "turkey-meatloaf" },
+      { label: "Turkey Meatloaf (HA)", recipeId: "turkey-meatloaf-ha" },
+      { label: "Mashed Potatoes (Not-HA)", recipeId: "mashed-potatoes" },
+      { label: "Mashed Potatoes (HA)", recipeId: "mashed-potatoes-ha" },
+      { label: "Roasted Green Beans (HA)", recipeId: "roasted-green-beans" },
     ],
   },
   {
@@ -1432,7 +1640,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Buns or rice", "Slaw or a simple vegetable", "Water"],
     substitutions: ["Tacos if you have tortillas instead of buns"],
     relatedMealIds: ["taco-night", "burger-night"],
-    recipes: [{ label: "Pulled Pork", recipeId: "pulled-pork" }],
+    recipes: [
+      { label: "Pulled Pork (Not-HA)", recipeId: "pulled-pork" },
+      { label: "Pulled Pork (HA)", recipeId: "pulled-pork-ha" },
+    ],
   },
   {
     id: "sausage-and-peppers-idea",
@@ -1444,7 +1655,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Bread, pasta, or rice", "Water"],
     substitutions: ["A skillet pasta with the same sausage"],
     relatedMealIds: ["pasta-marinara", "stuffed-peppers-idea"],
-    recipes: [{ label: "Sausage and Peppers", recipeId: "sausage-and-peppers" }],
+    recipes: [
+      { label: "Sausage and Peppers (Not-HA)", recipeId: "sausage-and-peppers" },
+      { label: "Sausage and Peppers (HA)", recipeId: "sausage-and-peppers-ha" },
+    ],
   },
   {
     id: "stuffed-peppers-idea",
@@ -1457,8 +1671,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A rice-and-meat skillet if you do not want to stuff"],
     relatedMealIds: ["rice-and-beans-plate", "sausage-and-peppers-idea"],
     recipes: [
-      { label: "Stuffed Bell Peppers", recipeId: "stuffed-bell-peppers" },
-      { label: "Stuffed Peppers", recipeId: "stuffed-peppers-med" },
+      { label: "Stuffed Bell Peppers (Not-HA)", recipeId: "stuffed-bell-peppers" },
+      { label: "Stuffed Bell Peppers (HA)", recipeId: "stuffed-bell-peppers-ha" },
+      { label: "Stuffed Peppers (Not-HA)", recipeId: "stuffed-peppers-med" },
     ],
   },
   {
@@ -1471,7 +1686,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A simple salad", "Water"],
     substitutions: ["Fried rice if you want something faster"],
     relatedMealIds: ["fried-rice-night", "sausage-and-peppers-idea"],
-    recipes: [{ label: "Jambalaya", recipeId: "jambalaya" }],
+    recipes: [
+      { label: "Jambalaya (Not-HA)", recipeId: "jambalaya" },
+      { label: "Jambalaya (HA)", recipeId: "jambalaya-ha" },
+    ],
   },
   {
     id: "fried-rice-night",
@@ -1493,8 +1711,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A leftover rice bowl at lunch"],
     relatedMealIds: ["stir-fry-night", "fried-rice-lunch", "leftover-rice-bowl-idea"],
     recipes: [
-      { label: "Shrimp Fried Rice", recipeId: "shrimp-fried-rice" },
-      { label: "Veggie Fried Rice", recipeId: "veggie-fried-rice" },
+      { label: "Shrimp Fried Rice (HA)", recipeId: "shrimp-fried-rice" },
+      { label: "Veggie Fried Rice (Not-HA)", recipeId: "veggie-fried-rice" },
+      { label: "Veggie Fried Rice (HA)", recipeId: "veggie-fried-rice-ha" },
     ],
   },
   {
@@ -1507,7 +1726,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Broccoli", "Water or tea"],
     substitutions: ["A stir-fry if you do not want the sweet sauce"],
     relatedMealIds: ["stir-fry-night", "chicken-rice-vegetables"],
-    recipes: [{ label: "Orange Chicken", recipeId: "orange-chicken" }],
+    recipes: [
+      { label: "Orange Chicken (Not-HA)", recipeId: "orange-chicken" },
+      { label: "Orange Chicken (HA)", recipeId: "orange-chicken-ha" },
+    ],
   },
   {
     id: "butter-chicken-idea",
@@ -1519,7 +1741,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Naan if you have it", "Water"],
     substitutions: ["Dal and rice if you want it beanier"],
     relatedMealIds: ["dal-and-rice", "chicken-rice-vegetables"],
-    recipes: [{ label: "Butter Chicken", recipeId: "butter-chicken" }],
+    recipes: [
+      { label: "Butter Chicken (Not-HA)", recipeId: "butter-chicken" },
+      { label: "Butter Chicken (HA)", recipeId: "butter-chicken-ha" },
+    ],
   },
   {
     id: "dal-and-rice",
@@ -1532,8 +1757,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Leftover dal for lunch"],
     relatedMealIds: ["butter-chicken-idea", "rice-and-beans-plate", "soup-night"],
     recipes: [
-      { label: "Weeknight Dal", recipeId: "weeknight-dal" },
-      { label: "Leftover Dal Bowl", recipeId: "leftover-dal-bowl" },
+      { label: "Weeknight Dal (Not-HA)", recipeId: "weeknight-dal" },
+      { label: "Weeknight Dal (HA)", recipeId: "weeknight-dal-ha" },
+      { label: "Leftover Dal Bowl (Not-HA)", recipeId: "leftover-dal-bowl" },
+      { label: "Leftover Dal Bowl (HA)", recipeId: "leftover-dal-bowl-ha" },
     ],
   },
   {
@@ -1546,7 +1773,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Beans, chicken, or lettuce", "Salsa", "Water"],
     substitutions: ["Tacos if the shells are soft"],
     relatedMealIds: ["taco-night", "enchiladas"],
-    recipes: [{ label: "Tostadas", recipeId: "tostadas" }],
+    recipes: [{ label: "Tostadas (Not-HA)", recipeId: "tostadas" }],
   },
   {
     id: "carne-asada-plate",
@@ -1558,7 +1785,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Rice, beans, and tortillas", "Water"],
     substitutions: ["Steak and potatoes if you skip the tortillas"],
     relatedMealIds: ["taco-night", "steak-and-potatoes", "fajitas"],
-    recipes: [{ label: "Carne Asada", recipeId: "carne-asada" }],
+    recipes: [{ label: "Carne Asada (Not-HA)", recipeId: "carne-asada" }],
   },
   {
     id: "fish-tacos-idea",
@@ -1570,7 +1797,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Cabbage, lime, and rice", "Water"],
     substitutions: ["Shrimp tacos", "A baked fish plate if you do not want tortillas"],
     relatedMealIds: ["taco-night", "salmon-and-sides"],
-    recipes: [{ label: "Fish Tacos", recipeId: "fish-tacos" }],
+    recipes: [{ label: "Fish Tacos (Not-HA)", recipeId: "fish-tacos" }],
   },
   {
     id: "wings-and-sides",
@@ -1590,7 +1817,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Carrots, celery, or fries", "Water or a soda"],
     substitutions: ["Baked chicken thighs if you want less fuss"],
     relatedMealIds: ["baked-chicken-plate", "burger-night"],
-    recipes: [{ label: "Baked Chicken Wings", recipeId: "baked-chicken-wings" }],
+    recipes: [{ label: "Baked Chicken Wings (HA)", recipeId: "baked-chicken-wings" }],
   },
   {
     id: "baked-ziti-idea",
@@ -1602,7 +1829,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Salad", "Water or milk"],
     substitutions: ["Lasagna if you want layers", "Weeknight pasta if you skip the bake"],
     relatedMealIds: ["lasagna-night", "pasta-marinara", "meatball-pasta"],
-    recipes: [{ label: "Baked Ziti", recipeId: "baked-ziti" }],
+    recipes: [{ label: "Baked Ziti (Not-HA)", recipeId: "baked-ziti" }],
   },
   {
     id: "popcorn-snack",
@@ -1626,8 +1853,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Cinnamon sugar instead of salt"],
     relatedMealIds: ["pretzels"],
     recipes: [
-      { label: "Stovetop Popcorn", recipeId: "stovetop-popcorn" },
-      { label: "Cinnamon Popcorn", recipeId: "cinnamon-popcorn" },
+      { label: "Stovetop Popcorn (HA)", recipeId: "stovetop-popcorn" },
+      { label: "Cinnamon Popcorn (HA)", recipeId: "cinnamon-popcorn" },
     ],
   },
   {
@@ -1641,8 +1868,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A banana", "Almond butter"],
     relatedMealIds: ["yogurt-cup-snack", "fruit-cup-snack"],
     recipes: [
-      { label: "Apple and Peanut Butter", recipeId: "apple-peanut-butter" },
-      { label: "Banana and Peanut Butter", recipeId: "banana-peanut-butter" },
+      { label: "Apple and Peanut Butter (Not-HA)", recipeId: "apple-peanut-butter" },
+      { label: "Banana and Peanut Butter (Not-HA)", recipeId: "banana-peanut-butter" },
     ],
   },
   {
@@ -1664,9 +1891,10 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Veggie sticks with the same dip"],
     relatedMealIds: ["nachos-lunch", "pretzels"],
     recipes: [
-      { label: "Salsa and Chips", recipeId: "salsa-and-chips" },
-      { label: "Guacamole and Chips", recipeId: "guacamole-chips" },
-      { label: "Carrots and Hummus", recipeId: "carrot-hummus" },
+      { label: "Salsa and Chips (Not-HA)", recipeId: "salsa-and-chips" },
+      { label: "Salsa and Chips (HA)", recipeId: "salsa-and-chips-ha" },
+      { label: "Guacamole and Chips (Not-HA)", recipeId: "guacamole-chips" },
+      { label: "Carrots and Hummus (HA)", recipeId: "carrot-hummus" },
     ],
   },
   {
@@ -1689,7 +1917,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Fruit or granola"],
     substitutions: ["Cottage cheese"],
     relatedMealIds: ["yogurt-and-fruit", "fruit-cup-snack", "granola-bar"],
-    recipes: [{ label: "Yogurt Cup", recipeId: "yogurt-cup" }],
+    recipes: [
+      { label: "Yogurt Cup (Not-HA)", recipeId: "yogurt-cup" },
+      { label: "Yogurt Cup (HA)", recipeId: "yogurt-cup-ha" },
+    ],
   },
   {
     id: "cheese-and-crackers",
@@ -1709,9 +1940,12 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Pickles, olives, or apple slices", "Water"],
     substitutions: ["Rice cakes"],
     recipes: [
-      { label: "Cheese and Crackers" },
-      { label: "Pickles and Cheese", recipeId: "pickles-and-cheese" },
-      { label: "Cheese and Rice Cakes", recipeId: "cheese-and-rice-cakes" },
+      { label: "Cheese and Crackers (Not-HA)", recipeId: "cheese-and-crackers" },
+      { label: "Cheese and Crackers (HA)", recipeId: "cheese-and-crackers-ha" },
+      { label: "Pickles and Cheese (Not-HA)", recipeId: "pickles-and-cheese" },
+      { label: "Pickles and Cheese (HA)", recipeId: "pickles-and-cheese-ha" },
+      { label: "Cheese and Rice Cakes (Not-HA)", recipeId: "cheese-and-rice-cakes" },
+      { label: "Cheese and Rice Cakes (HA)", recipeId: "cheese-and-rice-cakes-ha" },
     ],
   },
   {
@@ -1737,8 +1971,8 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water or tea", "Dried fruit if you want a mix"],
     relatedMealIds: ["trail-mix"],
     recipes: [
-      { label: "Roasted Almonds", recipeId: "roasted-almonds" },
-      { label: "Spiced Nuts", recipeId: "spiced-nuts" },
+      { label: "Roasted Almonds (HA)", recipeId: "roasted-almonds" },
+      { label: "Spiced Nuts (HA)", recipeId: "spiced-nuts" },
     ],
   },
   {
@@ -1764,8 +1998,8 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water", "Yogurt or peanut butter if it needs to last"],
     relatedMealIds: ["apple-and-peanut-butter-snack", "yogurt-cup-snack", "granola-bar"],
     recipes: [
-      { label: "Fruit Cup", recipeId: "fruit-cup" },
-      { label: "Frozen Grapes", recipeId: "frozen-grapes" },
+      { label: "Fruit Cup (Not-HA)", recipeId: "fruit-cup" },
+      { label: "Frozen Grapes (Not-HA)", recipeId: "frozen-grapes" },
     ],
   },
   {
@@ -1779,8 +2013,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A handful of granola with milk"],
     relatedMealIds: ["yogurt-cup-snack", "fruit-cup-snack", "granola-and-milk-idea"],
     recipes: [
-      { label: "Granola Bar" },
-      { label: "Granola Clusters", recipeId: "granola-clusters" },
+      { label: "Granola Bar (HA)", recipeId: "granola-bar" },
+      { label: "Granola Clusters (Not-HA)", recipeId: "granola-clusters" },
+      { label: "Granola Clusters (HA)", recipeId: "granola-clusters-ha" },
     ],
   },
   {
@@ -1793,7 +2028,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water", "Fruit if the mix is mostly nuts"],
     substitutions: ["Plain nuts if you do not want dried fruit"],
     relatedMealIds: ["nuts-snack", "granola-bar"],
-    recipes: [{ label: "Pumpkin Seed Trail Mix", recipeId: "pumpkin-seed-trail-mix" }],
+    recipes: [{ label: "Pumpkin Seed Trail Mix (HA)", recipeId: "pumpkin-seed-trail-mix" }],
   },
   {
     id: "pretzels",
@@ -1805,7 +2040,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Mustard, hummus, or cheese", "Water"],
     substitutions: ["Chips if that is what is open"],
     relatedMealIds: ["chips-and-dip", "popcorn-snack"],
-    recipes: [{ label: "Pretzels" }],
+    recipes: [
+      { label: "Pretzels (Not-HA)", recipeId: "pretzels-snack" },
+      { label: "Pretzels (HA)", recipeId: "pretzels-snack-ha" },
+    ],
   },
   {
     id: "hard-boiled-eggs-snack",
@@ -1830,7 +2068,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Salt, fruit, or crackers", "Water"],
     substitutions: ["A yogurt cup if you want something cold and ready"],
     relatedMealIds: ["yogurt-cup-snack", "eggs-and-toast"],
-    recipes: [{ label: "Hard-Boiled Eggs", recipeId: "hard-boiled-eggs" }],
+    recipes: [{ label: "Hard-Boiled Eggs (HA)", recipeId: "hard-boiled-eggs" }],
   },
   {
     id: "jerky",
@@ -1842,7 +2080,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water", "Fruit or nuts if you want more than protein"],
     substitutions: ["Hard-boiled eggs if you are out of jerky"],
     relatedMealIds: ["nuts-snack", "hard-boiled-eggs-snack"],
-    recipes: [{ label: "Jerky" }],
+    recipes: [{ label: "Beef Jerky (HA)", recipeId: "beef-jerky-snack" }],
   },
   {
     id: "rice-cakes-snack",
@@ -1855,8 +2093,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Toast if you want something warmer"],
     relatedMealIds: ["apple-and-peanut-butter-snack", "avocado-toast-idea"],
     recipes: [
-      { label: "Rice Cakes with Almond Butter", recipeId: "rice-cakes-almond-butter" },
-      { label: "Rice Cake with Avocado", recipeId: "rice-cake-avocado" },
+      { label: "Rice Cakes with Almond Butter (Not-HA)", recipeId: "rice-cakes-almond-butter" },
+      { label: "Rice Cakes with Avocado (Not-HA)", recipeId: "rice-cake-avocado" },
     ],
   },
   {
@@ -1869,7 +2107,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Salt", "Water or tea"],
     substitutions: ["Nuts if you do not want to steam"],
     relatedMealIds: ["nuts-snack", "hummus-and-veg"],
-    recipes: [{ label: "Salted Edamame", recipeId: "salted-edamame" }],
+    recipes: [{ label: "Salted Edamame (HA)", recipeId: "salted-edamame" }],
   },
   {
     id: "leftover-pastry-snack",
@@ -1892,7 +2130,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee, tea, or milk"],
     substitutions: ["A granola bar if nothing baked is left"],
     relatedMealIds: ["muffin", "doughnut-and-coffee", "granola-bar"],
-    recipes: [{ label: "Leftover Muffin or Pastry" }],
+    recipes: [
+      { label: "Leftover Muffin or Pastry (Not-HA)", recipeId: "leftover-muffin" },
+      { label: "Leftover Muffin or Pastry (HA)", recipeId: "leftover-muffin-ha" },
+    ],
   },
   {
     id: "cookies-dessert",
@@ -1916,9 +2157,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A brownie"],
     relatedMealIds: ["brownies-dessert", "ice-cream-dessert", "cake-or-cupcake"],
     recipes: [
-      { label: "Gluten-Free Chocolate Chip Cookies", recipeId: "gf-chocolate-chip-cookies" },
-      { label: "Oatmeal Cookies", recipeId: "oatmeal-cookies" },
-      { label: "Peanut Butter Cookies", recipeId: "peanut-butter-cookies" },
+      { label: "Gluten-Free Chocolate Chip Cookies (HA)", recipeId: "gf-chocolate-chip-cookies" },
+      { label: "Oatmeal Cookies (HA)", recipeId: "oatmeal-cookies" },
+      { label: "Peanut Butter Cookies (HA)", recipeId: "peanut-butter-cookies" },
     ],
   },
   {
@@ -1945,9 +2186,11 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Frozen yogurt bites"],
     relatedMealIds: ["cookies-dessert", "pudding-dessert", "chocolate-or-candy"],
     recipes: [
-      { label: "Homemade Ice Cream" },
-      { label: "Frozen Yogurt Bites", recipeId: "frozen-yogurt-bites" },
-      { label: "Frozen Banana Bites", recipeId: "frozen-banana-bites" },
+      { label: "Ice Cream (Not-HA)", recipeId: "homemade-ice-cream" },
+      { label: "Ice Cream (HA)", recipeId: "homemade-ice-cream-ha" },
+      { label: "Frozen Yogurt Bites (Not-HA)", recipeId: "frozen-yogurt-bites" },
+      { label: "Frozen Yogurt Bites (HA)", recipeId: "frozen-yogurt-bites-ha" },
+      { label: "Frozen Banana Bites (Not-HA)", recipeId: "frozen-banana-bites" },
     ],
   },
   {
@@ -1961,8 +2204,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Blondies"],
     relatedMealIds: ["cookies-dessert"],
     recipes: [
-      { label: "Brownies", recipeId: "brownies" },
-      { label: "Blondies", recipeId: "blondies" },
+      { label: "Brownies (HA)", recipeId: "brownies" },
+      { label: "Blondies (HA)", recipeId: "blondies" },
     ],
   },
   {
@@ -1976,9 +2219,11 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Rice pudding"],
     relatedMealIds: ["ice-cream-dessert"],
     recipes: [
-      { label: "Chocolate Pudding", recipeId: "chocolate-pudding" },
-      { label: "Vanilla Pudding", recipeId: "vanilla-pudding" },
-      { label: "Coconut Rice Pudding", recipeId: "coconut-rice-pudding" },
+      { label: "Chocolate Pudding (Not-HA)", recipeId: "chocolate-pudding" },
+      { label: "Chocolate Pudding (HA)", recipeId: "chocolate-pudding-ha" },
+      { label: "Vanilla Pudding (Not-HA)", recipeId: "vanilla-pudding" },
+      { label: "Vanilla Pudding (HA)", recipeId: "vanilla-pudding-ha" },
+      { label: "Coconut Rice Pudding (HA)", recipeId: "coconut-rice-pudding" },
     ],
   },
   {
@@ -1992,9 +2237,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Baked apples when you want less topping"],
     relatedMealIds: ["ice-cream-dessert", "cobbler", "pie"],
     recipes: [
-      { label: "Apple Crisp", recipeId: "apple-crisp" },
-      { label: "Berry Crumble", recipeId: "berry-crumble" },
-      { label: "Cinnamon Baked Apples", recipeId: "cinnamon-baked-apples" },
+      { label: "Apple Crisp (Not-HA)", recipeId: "apple-crisp" },
+      { label: "Berry Crumble (HA)", recipeId: "berry-crumble" },
+      { label: "Cinnamon Baked Apples (Not-HA)", recipeId: "cinnamon-baked-apples" },
     ],
   },
   {
@@ -2007,7 +2252,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Milk or coffee"],
     substitutions: ["A cookie if you do not want to microwave"],
     relatedMealIds: ["brownies-dessert"],
-    recipes: [{ label: "Chocolate Mug Cake", recipeId: "chocolate-mug-cake" }],
+    recipes: [
+      { label: "Chocolate Mug Cake (Not-HA)", recipeId: "chocolate-mug-cake" },
+      { label: "Chocolate Mug Cake (HA)", recipeId: "chocolate-mug-cake-ha" },
+    ],
   },
   {
     id: "cake-or-cupcake",
@@ -2031,9 +2279,12 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["A muffin if you want something less frosting-heavy"],
     relatedMealIds: ["cookies-dessert", "muffin", "brownies-dessert"],
     recipes: [
-      { label: "Carrot Cake Squares", recipeId: "carrot-cake-squares" },
-      { label: "Strawberry Shortcake", recipeId: "strawberry-shortcake" },
-      { label: "Chocolate Mug Cake", recipeId: "chocolate-mug-cake" },
+      { label: "Carrot Cake Squares (Not-HA)", recipeId: "carrot-cake-squares" },
+      { label: "Carrot Cake Squares (HA)", recipeId: "carrot-cake-squares-ha" },
+      { label: "Strawberry Shortcake (Not-HA)", recipeId: "strawberry-shortcake" },
+      { label: "Strawberry Shortcake (HA)", recipeId: "strawberry-shortcake-ha" },
+      { label: "Chocolate Mug Cake (Not-HA)", recipeId: "chocolate-mug-cake" },
+      { label: "Chocolate Mug Cake (HA)", recipeId: "chocolate-mug-cake-ha" },
     ],
   },
   {
@@ -2046,7 +2297,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Ice cream or whipped cream", "Coffee"],
     substitutions: ["A fruit crisp if you do not want a crust"],
     relatedMealIds: ["fruit-crisp", "cobbler"],
-    recipes: [{ label: "Pie" }],
+    recipes: [
+      { label: "Berry Pie (Not-HA)", recipeId: "fruit-pie" },
+      { label: "Berry Pie (HA)", recipeId: "fruit-pie-ha" },
+    ],
   },
   {
     id: "cobbler",
@@ -2058,7 +2312,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Ice cream", "Coffee or water"],
     substitutions: ["A fruit crisp with less batter"],
     relatedMealIds: ["fruit-crisp", "pie"],
-    recipes: [{ label: "Peach Cobbler", recipeId: "peach-cobbler" }],
+    recipes: [{ label: "Peach Cobbler (Not-HA)", recipeId: "peach-cobbler" }],
   },
   {
     id: "doughnut-dessert",
@@ -2079,7 +2333,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee or milk"],
     substitutions: ["A muffin or leftover pastry"],
     relatedMealIds: ["doughnut-and-coffee", "leftover-pastry-snack", "cookies-dessert"],
-    recipes: [{ label: "Doughnuts" }],
+    recipes: [
+      { label: "Doughnuts (Not-HA)", recipeId: "doughnuts" },
+      { label: "Doughnuts (HA)", recipeId: "doughnuts-ha" },
+    ],
   },
   {
     id: "chocolate-or-candy",
@@ -2104,7 +2361,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water or milk"],
     substitutions: ["Ice cream if you want something colder"],
     relatedMealIds: ["ice-cream-dessert", "cookies-dessert"],
-    recipes: [{ label: "Chocolate or Candy" }],
+    recipes: [{ label: "Chocolate (HA)", recipeId: "chocolate-candy" }],
   },
   {
     id: "banana-bread-dessert",
@@ -2116,7 +2373,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Coffee, tea, or milk"],
     substitutions: ["A muffin if you want a smaller piece"],
     relatedMealIds: ["muffin", "cake-or-cupcake"],
-    recipes: [{ label: "Banana Bread", recipeId: "banana-bread" }],
+    recipes: [{ label: "Banana Bread (Not-HA)", recipeId: "banana-bread" }],
   },
   {
     id: "churros",
@@ -2129,8 +2386,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Cinnamon toast if you do not want to fry or bake dough"],
     relatedMealIds: ["doughnut-dessert", "hot-chocolate"],
     recipes: [
-      { label: "Baked Churros", recipeId: "baked-churros" },
-      { label: "Cinnamon-Sugar Tortillas", recipeId: "cinnamon-sugar-tortillas" },
+      { label: "Baked Churros (HA)", recipeId: "baked-churros" },
+      { label: "Cinnamon Sugar Tortillas (HA)", recipeId: "cinnamon-sugar-tortillas" },
     ],
   },
   {
@@ -2144,8 +2401,9 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Pudding if you do not want to bake"],
     relatedMealIds: ["pudding-dessert", "ice-cream-dessert"],
     recipes: [
-      { label: "Coconut Flan", recipeId: "coconut-flan" },
-      { label: "Pumpkin Custard", recipeId: "pumpkin-custard" },
+      { label: "Coconut Flan (HA)", recipeId: "coconut-flan" },
+      { label: "Pumpkin Custard (Not-HA)", recipeId: "pumpkin-custard" },
+      { label: "Pumpkin Custard (HA)", recipeId: "pumpkin-custard-ha" },
     ],
   },
   {
@@ -2170,6 +2428,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Creamer, milk, or sugar", "A little breakfast if this is the whole sitting"],
     substitutions: ["Almond milk", "Tea"],
     relatedMealIds: ["tea-drink", "hot-chocolate"],
+    recipes: [{ label: "Coffee (HA)", recipeId: "drip-coffee" }],
   },
   {
     id: "tea-drink",
@@ -2194,6 +2453,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Honey or lemon", "A cookie or toast"],
     substitutions: ["Coffee"],
     relatedMealIds: ["coffee-drink"],
+    recipes: [{ label: "Tea (HA)", recipeId: "steeped-tea" }],
   },
   {
     id: "water-drink",
@@ -2218,6 +2478,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Lemon if you want a little flavor"],
     substitutions: ["Sparkling water"],
     relatedMealIds: ["soda-drink", "sports-drink"],
+    recipes: [{ label: "Water (HA)", recipeId: "glass-of-water" }],
   },
   {
     id: "smoothie-drink",
@@ -2239,8 +2500,8 @@ const coreMealIdeas: MealIdea[] = [
     substitutions: ["Milk or a yogurt drink"],
     relatedMealIds: ["breakfast-smoothie", "protein-shake"],
     recipes: [
-      { label: "Berry Smoothie", recipeId: "berry-smoothie" },
-      { label: "Banana Smoothie", recipeId: "banana-smoothie" },
+      { label: "Berry Smoothie (Not-HA)", recipeId: "berry-smoothie" },
+      { label: "Banana Smoothie (Not-HA)", recipeId: "banana-smoothie" },
     ],
   },
   {
@@ -2263,6 +2524,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Cookies, or cereal if this turns into breakfast"],
     substitutions: ["Almond milk"],
     relatedMealIds: ["cereal-and-milk"],
+    recipes: [
+      { label: "Milk (Not-HA)", recipeId: "glass-of-milk" },
+      { label: "Milk (HA)", recipeId: "glass-of-milk-ha" },
+    ],
   },
   {
     id: "orange-juice",
@@ -2284,7 +2549,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Breakfast, or nothing if it is just a glass"],
     substitutions: ["Water if juice is too sweet in the morning"],
     relatedMealIds: ["coffee-drink", "breakfast-smoothie"],
-    recipes: [{ label: "Orange Juice" }],
+    recipes: [{ label: "Orange Juice (HA)", recipeId: "orange-juice-glass" }],
   },
   {
     id: "hot-chocolate",
@@ -2306,7 +2571,10 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A cookie, churro, or nothing"],
     substitutions: ["Coffee if you want caffeine more than chocolate"],
     relatedMealIds: ["coffee-drink", "churros", "milk-drink"],
-    recipes: [{ label: "Hot Chocolate" }],
+    recipes: [
+      { label: "Hot Chocolate (Not-HA)", recipeId: "hot-chocolate-mug" },
+      { label: "Hot Chocolate (HA)", recipeId: "hot-chocolate-mug-ha" },
+    ],
   },
   {
     id: "protein-shake",
@@ -2326,7 +2594,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["A banana, or nothing if this is the whole sitting"],
     substitutions: ["A smoothie if you want more fruit than powder"],
     relatedMealIds: ["smoothie-drink", "breakfast-smoothie", "milk-drink"],
-    recipes: [{ label: "Protein Shake" }],
+    recipes: [{ label: "Protein Shake (Not-HA)", recipeId: "protein-shake" }],
   },
   {
     id: "soda-drink",
@@ -2351,7 +2619,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Pizza, burgers, or chips"],
     substitutions: ["Sparkling water if you want the fizz without the sugar"],
     relatedMealIds: ["water-drink", "pizza-night", "burger-night"],
-    recipes: [{ label: "Soda" }],
+    recipes: [{ label: "Soda (HA)", recipeId: "soda-pour" }],
   },
   {
     id: "energy-drink",
@@ -2374,7 +2642,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Nothing required; pair with a small snack if it is a long stretch"],
     substitutions: ["Coffee if you want caffeine from a pot instead of a can"],
     relatedMealIds: ["coffee-drink", "sports-drink"],
-    recipes: [{ label: "Energy Drink" }],
+    recipes: [{ label: "Energy Drink (Not-HA)", recipeId: "energy-drink-can" }],
   },
   {
     id: "sports-drink",
@@ -2397,7 +2665,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["After a workout, or with a salty snack"],
     substitutions: ["Water if you just need fluid", "An energy drink if you want more caffeine"],
     relatedMealIds: ["water-drink", "soda-drink", "energy-drink"],
-    recipes: [{ label: "Sports Drink (Gatorade)" }],
+    recipes: [{ label: "Sports Drink (Not-HA)", recipeId: "sports-drink-pour" }],
   },
 ];
 

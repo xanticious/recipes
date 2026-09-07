@@ -21,8 +21,9 @@ export const extraMealIdeas: MealIdea[] = [
     substitutions: ["Fried eggs if you do not want to scramble"],
     relatedMealIds: ["eggs-and-toast", "fried-eggs-and-toast", "omelette-and-toast"],
     recipes: [
-      { label: "Soft Scrambled Eggs", recipeId: "scrambled-eggs" },
-      { label: "Toast and Jam", recipeId: "toast-and-jam" },
+      { label: "Soft Scrambled Eggs (Not-HA)", recipeId: "scrambled-eggs" },
+      { label: "Soft Scrambled Eggs (HA)", recipeId: "scrambled-eggs-ha" },
+      { label: "Toast and Jam (HA)", recipeId: "toast-and-jam" },
     ],
   },
   {
@@ -44,7 +45,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or tea", "Bacon, beans, or fruit"],
     substitutions: ["Over easy, over medium, or sunny-side up"],
     relatedMealIds: ["eggs-and-toast", "scrambled-eggs-and-toast", "bacon-and-eggs"],
-    recipes: [{ label: "Fried Eggs and Toast", recipeId: "fried-eggs-toast" }],
+    recipes: [{ label: "Fried Eggs and Toast (HA)", recipeId: "fried-eggs-toast" }],
   },
   {
     id: "omelette-and-toast",
@@ -64,7 +65,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee", "A simple salad if it is a bigger sitting"],
     substitutions: ["A frittata if you want to finish it in the oven"],
     relatedMealIds: ["eggs-and-toast", "frittata-plate", "scrambled-eggs-and-toast"],
-    recipes: [{ label: "Cheese Omelette", recipeId: "cheese-omelette" }],
+    recipes: [
+      { label: "Cheese Omelette (Not-HA)", recipeId: "cheese-omelette" },
+      { label: "Cheese Omelette (HA)", recipeId: "cheese-omelette-ha" },
+    ],
   },
   {
     id: "toad-in-the-hole",
@@ -76,7 +80,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or tea", "Fruit"],
     substitutions: ["Fried eggs and toast if you do not want to cut a hole"],
     relatedMealIds: ["fried-eggs-and-toast", "eggs-and-toast"],
-    recipes: [{ label: "Egg in a Hole" }],
+    recipes: [
+      { label: "Egg in a Hole (Not-HA)", recipeId: "egg-in-a-hole" },
+      { label: "Egg in a Hole (HA)", recipeId: "egg-in-a-hole-ha" },
+    ],
   },
   {
     id: "pancakes",
@@ -88,7 +95,12 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee, milk, or tea", "Bacon, eggs, or fruit"],
     substitutions: ["Waffles if you have an iron"],
     relatedMealIds: ["pancakes-or-waffles", "waffles", "french-toast"],
-    recipes: [{ label: "Banana Pancakes", recipeId: "banana-pancakes" }],
+    recipes: [
+      { label: "Banana Pancakes (Not-HA)", recipeId: "banana-pancakes" },
+      { label: "Cornmeal Pancakes (Not-HA)", recipeId: "cornmeal-pancakes" },
+      { label: "Cornmeal Pancakes (HA)", recipeId: "cornmeal-pancakes-ha" },
+      { label: "Coconut Pancakes (HA)", recipeId: "coconut-pancakes" },
+    ],
   },
   {
     id: "waffles",
@@ -100,7 +112,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or milk", "Fruit or bacon"],
     substitutions: ["Pancakes if you do not have an iron"],
     relatedMealIds: ["pancakes-or-waffles", "pancakes", "french-toast"],
-    recipes: [{ label: "Waffles", recipeId: "gf-waffles" }],
+    recipes: [
+      { label: "Waffles (Not-HA)", recipeId: "gf-waffles" },
+      { label: "Waffles (HA)", recipeId: "gf-waffles-ha" },
+    ],
   },
   {
     id: "huevos-rancheros-idea",
@@ -112,7 +127,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or juice", "Beans, salsa, or tortillas"],
     substitutions: ["Chilaquiles if the tortillas are already fried"],
     relatedMealIds: ["huevos-or-chilaquiles", "chilaquiles-plate", "breakfast-burrito"],
-    recipes: [{ label: "Huevos Rancheros", recipeId: "huevos-rancheros" }],
+    recipes: [
+      { label: "Huevos Rancheros (Not-HA)", recipeId: "huevos-rancheros" },
+      { label: "Huevos Rancheros (HA)", recipeId: "huevos-rancheros-ha" },
+    ],
   },
   {
     id: "chilaquiles-plate",
@@ -125,8 +143,9 @@ export const extraMealIdeas: MealIdea[] = [
     substitutions: ["Migas if you want it more like scrambled eggs"],
     relatedMealIds: ["huevos-or-chilaquiles", "huevos-rancheros-idea", "migas-plate"],
     recipes: [
-      { label: "Chilaquiles", recipeId: "chilaquiles" },
-      { label: "Migas", recipeId: "migas" },
+      { label: "Chilaquiles (Not-HA)", recipeId: "chilaquiles" },
+      { label: "Migas (Not-HA)", recipeId: "migas" },
+      { label: "Migas (HA)", recipeId: "migas-ha" },
     ],
   },
   {
@@ -139,7 +158,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee", "Tortillas or beans"],
     substitutions: ["Chilaquiles if you want the sauce to lead"],
     relatedMealIds: ["chilaquiles-plate", "huevos-rancheros-idea"],
-    recipes: [{ label: "Migas", recipeId: "migas" }],
+    recipes: [
+      { label: "Migas (Not-HA)", recipeId: "migas" },
+      { label: "Migas (HA)", recipeId: "migas-ha" },
+    ],
   },
   {
     id: "beans-on-toast",
@@ -151,7 +173,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea or coffee", "A fried egg on top"],
     substitutions: ["Scrambled eggs and toast if you are out of beans"],
     relatedMealIds: ["fried-eggs-and-toast", "full-english-breakfast"],
-    recipes: [{ label: "Beans on Toast" }],
+    recipes: [{ label: "Beans on Toast (Not-HA)", recipeId: "beans-on-toast" }],
   },
   {
     id: "full-english-breakfast",
@@ -163,7 +185,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea or coffee", "Toast and beans"],
     substitutions: ["Bacon and eggs if you want a smaller plate"],
     relatedMealIds: ["bacon-and-eggs", "beans-on-toast", "fried-eggs-and-toast"],
-    recipes: [{ label: "Full English Breakfast" }],
+    recipes: [{ label: "Full English Breakfast (Not-HA)", recipeId: "full-english" }],
   },
   {
     id: "crumpets",
@@ -175,7 +197,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea", "Butter, jam, or honey"],
     substitutions: ["Toast or an English muffin"],
     relatedMealIds: ["scone", "english-muffin-and-butter"],
-    recipes: [{ label: "Crumpets" }],
+    recipes: [
+      { label: "Crumpets (Not-HA)", recipeId: "crumpets-butter" },
+      { label: "Crumpets (HA)", recipeId: "crumpets-butter-ha" },
+    ],
   },
   {
     id: "english-muffin-and-butter",
@@ -187,7 +212,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or tea", "Jam, butter, or an egg"],
     substitutions: ["Toast if you do not have muffins"],
     relatedMealIds: ["breakfast-sandwich", "crumpets", "bagel-and-cream-cheese"],
-    recipes: [{ label: "English Muffins" }],
+    recipes: [
+      { label: "English Muffins (Not-HA)", recipeId: "english-muffins-butter" },
+      { label: "English Muffins (HA)", recipeId: "english-muffins-butter-ha" },
+    ],
   },
   {
     id: "weet-bix",
@@ -199,7 +227,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea or coffee", "Banana or sugar on top"],
     substitutions: ["Another wheat biscuit cereal", "Oatmeal"],
     relatedMealIds: ["cereal-and-milk", "oatmeal-bowl"],
-    recipes: [{ label: "Weet-Bix" }],
+    recipes: [
+      { label: "Weet-Bix (Not-HA)", recipeId: "weet-bix-bowl" },
+      { label: "Weet-Bix (HA)", recipeId: "weet-bix-bowl-ha" },
+    ],
   },
   {
     id: "vegemite-on-toast",
@@ -211,7 +242,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea or coffee", "Butter under the spread"],
     substitutions: ["Marmite in the UK", "Toast and jam"],
     relatedMealIds: ["toast-and-jam-breakfast", "crumpets"],
-    recipes: [{ label: "Vegemite on Toast" }],
+    recipes: [
+      { label: "Vegemite on Toast (Not-HA)", recipeId: "vegemite-on-toast" },
+      { label: "Vegemite on Toast (HA)", recipeId: "vegemite-on-toast-ha" },
+    ],
   },
   {
     id: "toast-and-jam-breakfast",
@@ -233,7 +267,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee, tea, or milk", "Fruit or an egg"],
     substitutions: ["Butter only", "A rice cake if wheat is a problem"],
     relatedMealIds: ["eggs-and-toast", "brioche-toast", "vegemite-on-toast"],
-    recipes: [{ label: "Toast and Jam", recipeId: "toast-and-jam" }],
+    recipes: [{ label: "Toast and Jam (HA)", recipeId: "toast-and-jam" }],
   },
   {
     id: "mince-on-toast",
@@ -245,7 +279,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea or coffee", "A fried egg on top"],
     substitutions: ["Beans on toast if you want it meatless"],
     relatedMealIds: ["beans-on-toast", "leftover-dinner-plate"],
-    recipes: [{ label: "Mince on Toast" }],
+    recipes: [
+      { label: "Mince on Toast (Not-HA)", recipeId: "mince-on-toast" },
+      { label: "Mince on Toast (HA)", recipeId: "mince-on-toast-ha" },
+    ],
   },
   {
     id: "congee-bowl",
@@ -257,7 +294,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Pickles, egg, or youtiao", "Tea or soy milk"],
     substitutions: ["Steamed rice if you do not want porridge"],
     relatedMealIds: ["japanese-rice-breakfast", "youtiao-and-soy-milk"],
-    recipes: [{ label: "Congee" }],
+    recipes: [{ label: "Congee with Egg (HA)", recipeId: "congee-with-egg" }],
   },
   {
     id: "youtiao-and-soy-milk",
@@ -269,7 +306,11 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Soy milk, hot or sweetened", "Congee if you want more"],
     substitutions: ["A steamed bun if you are out of dough sticks"],
     relatedMealIds: ["congee-bowl", "baozi-breakfast"],
-    recipes: [{ label: "Youtiao" }, { label: "Soy Milk" }],
+    recipes: [
+      { label: "Youtiao (Not-HA)", recipeId: "youtiao" },
+      { label: "Youtiao (HA)", recipeId: "youtiao-ha" },
+      { label: "Soy Milk (HA)", recipeId: "soy-milk-warm" },
+    ],
   },
   {
     id: "baozi-breakfast",
@@ -281,7 +322,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Soy milk or tea", "Congee on the side"],
     substitutions: ["Rice and leftovers if you do not want to steam"],
     relatedMealIds: ["congee-bowl", "japanese-rice-breakfast"],
-    recipes: [{ label: "Baozi" }],
+    recipes: [
+      { label: "Baozi (Not-HA)", recipeId: "baozi" },
+      { label: "Baozi (HA)", recipeId: "baozi-ha" },
+    ],
   },
   {
     id: "japanese-rice-breakfast",
@@ -293,7 +337,11 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Pickles, nori, or a rolled egg", "Green tea"],
     substitutions: ["Natto on rice if you skip the fish"],
     relatedMealIds: ["natto-rice", "congee-bowl", "korean-rice-soup-breakfast"],
-    recipes: [{ label: "Miso Soup" }, { label: "Grilled Fish" }],
+    recipes: [
+      { label: "Miso Soup (HA)", recipeId: "miso-soup" },
+      { label: "Grilled Fish (HA)", recipeId: "grilled-fish-breakfast" },
+      { label: "Sesame Rice Breakfast (HA)", recipeId: "sesame-rice-breakfast" },
+    ],
   },
   {
     id: "natto-rice",
@@ -305,7 +353,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Green tea", "Miso soup or an egg"],
     substitutions: ["A fried egg on rice if natto is not in the house"],
     relatedMealIds: ["japanese-rice-breakfast", "fried-egg-rice-breakfast"],
-    recipes: [{ label: "Natto Rice" }],
+    recipes: [{ label: "Natto Rice (Not-HA)", recipeId: "natto-rice" }],
   },
   {
     id: "fried-egg-rice-breakfast",
@@ -317,7 +365,11 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Soy sauce or salsa", "Tea or coffee"],
     substitutions: ["Leftover rice bowl at lunch"],
     relatedMealIds: ["japanese-rice-breakfast", "leftover-rice-bowl-idea"],
-    recipes: [{ label: "Fried Egg Rice", recipeId: "fried-egg-rice" }],
+    recipes: [
+      { label: "Fried Egg Rice (Not-HA)", recipeId: "fried-egg-rice" },
+      { label: "Fried Egg Rice (HA)", recipeId: "fried-egg-rice-ha" },
+      { label: "Leftover Rice Breakfast (HA)", recipeId: "leftover-rice-breakfast" },
+    ],
   },
   {
     id: "korean-rice-soup-breakfast",
@@ -329,7 +381,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Kimchi and a few side dishes", "Barley tea or water"],
     substitutions: ["Leftover stew over rice"],
     relatedMealIds: ["japanese-rice-breakfast", "kimchi-stew", "leftover-rice-bowl-idea"],
-    recipes: [{ label: "Korean Breakfast Rice" }],
+    recipes: [
+      { label: "Korean Breakfast Rice (Not-HA)", recipeId: "korean-breakfast-rice" },
+      { label: "Korean Breakfast Rice (HA)", recipeId: "korean-breakfast-rice-ha" },
+    ],
   },
   {
     id: "pao-de-queijo-breakfast",
@@ -341,7 +396,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee with milk", "Fruit"],
     substitutions: ["French bread with butter if that is what you have"],
     relatedMealIds: ["coffee-drink", "toast-and-jam-breakfast"],
-    recipes: [{ label: "Pão de Queijo" }],
+    recipes: [
+      { label: "Pão de Queijo (Not-HA)", recipeId: "pao-de-queijo" },
+      { label: "Pão de Queijo (HA)", recipeId: "pao-de-queijo-ha" },
+    ],
   },
   {
     id: "acai-bowl",
@@ -353,7 +411,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Granola and banana", "Nothing required if it is a snack"],
     substitutions: ["Yogurt and fruit if you do not have açaí"],
     relatedMealIds: ["yogurt-and-fruit", "breakfast-smoothie"],
-    recipes: [{ label: "Açaí Bowl" }],
+    recipes: [
+      { label: "Açaí Bowl (Not-HA)", recipeId: "acai-bowl" },
+      { label: "Açaí Bowl (HA)", recipeId: "acai-bowl-ha" },
+    ],
   },
   {
     id: "cafe-con-leche-and-bread",
@@ -365,7 +426,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Bolillo, pan dulce, or toast", "Butter or jam"],
     substitutions: ["Coffee and a pastry"],
     relatedMealIds: ["pan-dulce", "coffee-drink", "toast-and-jam-breakfast"],
-    recipes: [{ label: "Café con Leche" }],
+    recipes: [
+      { label: "Café con Leche (Not-HA)", recipeId: "cafe-con-leche" },
+      { label: "Café con Leche (HA)", recipeId: "cafe-con-leche-ha" },
+    ],
   },
   {
     id: "tamales-breakfast",
@@ -377,7 +441,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Atole, coffee, or salsa", "Nothing required"],
     substitutions: ["A breakfast burrito if you want it less steamed"],
     relatedMealIds: ["breakfast-burrito", "tamales-dinner", "atole-drink"],
-    recipes: [{ label: "Tamales" }],
+    recipes: [
+      { label: "Tamales (Not-HA)", recipeId: "tamales" },
+      { label: "Tamales (HA)", recipeId: "tamales-ha" },
+    ],
   },
   {
     id: "frittata-plate",
@@ -389,7 +456,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or water", "Toast or a salad"],
     substitutions: ["An omelette if you want it in a pan only"],
     relatedMealIds: ["omelette-and-toast", "eggs-and-toast"],
-    recipes: [{ label: "Frittata" }],
+    recipes: [
+      { label: "Veggie Frittata (Not-HA)", recipeId: "veggie-frittata" },
+      { label: "Veggie Frittata (HA)", recipeId: "veggie-frittata-ha" },
+    ],
   },
   {
     id: "peameal-bacon-sandwich",
@@ -401,7 +471,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee", "Mustard"],
     substitutions: ["A regular bacon-and-egg sandwich"],
     relatedMealIds: ["breakfast-sandwich", "bacon-and-eggs"],
-    recipes: [{ label: "Peameal Bacon Sandwich" }],
+    recipes: [
+      { label: "Peameal Bacon Sandwich (Not-HA)", recipeId: "peameal-bacon-sandwich" },
+      { label: "Peameal Bacon Sandwich (HA)", recipeId: "peameal-bacon-sandwich-ha" },
+    ],
   },
   {
     id: "fish-and-chips",
@@ -413,7 +486,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Mushy peas or coleslaw", "Water, tea, or a soda"],
     substitutions: ["Baked fish and potatoes if you do not want to fry"],
     relatedMealIds: ["salmon-and-sides", "burger-night"],
-    recipes: [{ label: "Fish and Chips" }],
+    recipes: [{ label: "Fish and Chips (Not-HA)", recipeId: "fish-and-chips" }],
   },
   {
     id: "meat-pie-lunch",
@@ -425,7 +498,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tomato sauce", "Water or a soda"],
     substitutions: ["A sausage roll if you want something smaller"],
     relatedMealIds: ["sausage-roll", "shepherds-pie-idea"],
-    recipes: [{ label: "Meat Pie" }],
+    recipes: [
+      { label: "Meat Pie (Not-HA)", recipeId: "meat-pie" },
+      { label: "Meat Pie (HA)", recipeId: "meat-pie-ha" },
+    ],
   },
   {
     id: "sausage-roll",
@@ -437,7 +513,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or a soda", "Tomato sauce"],
     substitutions: ["A meat pie if you want a full sitting"],
     relatedMealIds: ["meat-pie-lunch", "hot-pocket"],
-    recipes: [{ label: "Sausage Roll" }],
+    recipes: [{ label: "Sausage Roll (Not-HA)", recipeId: "sausage-roll" }],
   },
   {
     id: "poutine",
@@ -449,7 +525,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or a soda"],
     substitutions: ["Fries if you skip the gravy and cheese"],
     relatedMealIds: ["chips-and-dip", "leftover-dinner-plate"],
-    recipes: [{ label: "Poutine" }],
+    recipes: [
+      { label: "Poutine (Not-HA)", recipeId: "poutine" },
+      { label: "Poutine (HA)", recipeId: "poutine-ha" },
+    ],
   },
   {
     id: "ploughmans-lunch",
@@ -461,7 +540,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Bread, cheese, pickle, and an apple", "Tea or water"],
     substitutions: ["Cheese and crackers if you want it smaller"],
     relatedMealIds: ["cheese-and-crackers", "turkey-sandwich"],
-    recipes: [{ label: "Ploughman's Lunch" }],
+    recipes: [
+      { label: "Ploughman's Lunch (Not-HA)", recipeId: "ploughmans" },
+      { label: "Ploughman's Lunch (HA)", recipeId: "ploughmans-ha" },
+    ],
   },
   {
     id: "kimbap-lunch",
@@ -473,7 +555,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or barley tea", "Kimchi on the side"],
     substitutions: ["A sushi bowl if you do not want to roll"],
     relatedMealIds: ["sushi-bowl-lunch", "onigiri-snack", "bento-lunch"],
-    recipes: [{ label: "Kimbap" }],
+    recipes: [{ label: "Kimbap (HA)", recipeId: "kimbap" }],
   },
   {
     id: "bento-lunch",
@@ -485,7 +567,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice, a protein, and pickles", "Tea"],
     substitutions: ["A leftover dinner plate packed the same way"],
     relatedMealIds: ["leftover-dinner-plate", "kimbap-lunch", "onigiri-snack"],
-    recipes: [{ label: "Bento" }],
+    recipes: [{ label: "Leftover Rice Bowl (HA)", recipeId: "leftover-rice-bowl" }],
   },
   {
     id: "ramen-bowl",
@@ -497,7 +579,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or tea", "An egg if the bowl is light"],
     substitutions: ["Udon if you want a thicker noodle"],
     relatedMealIds: ["udon-bowl", "pho-bowl", "soup-night"],
-    recipes: [{ label: "Ramen" }],
+    recipes: [
+      { label: "Ramen (Not-HA)", recipeId: "ramen-bowl" },
+      { label: "Ramen (HA)", recipeId: "ramen-bowl-ha" },
+    ],
   },
   {
     id: "udon-bowl",
@@ -509,7 +594,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Green tea", "A simple side"],
     substitutions: ["Ramen if that is what you have"],
     relatedMealIds: ["ramen-bowl", "soup-night"],
-    recipes: [{ label: "Udon" }],
+    recipes: [
+      { label: "Udon (Not-HA)", recipeId: "udon-bowl" },
+      { label: "Udon (HA)", recipeId: "udon-bowl-ha" },
+    ],
   },
   {
     id: "pho-bowl",
@@ -521,7 +609,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Herbs, lime, and chili", "Water or tea"],
     substitutions: ["A simpler noodle soup if you do not want to simmer broth"],
     relatedMealIds: ["ramen-bowl", "soup-night"],
-    recipes: [{ label: "Phở" }],
+    recipes: [{ label: "Phở (HA)", recipeId: "pho-bowl" }],
   },
   {
     id: "torta-mexicana",
@@ -533,7 +621,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Agua fresca, soda, or water", "Pickled jalapeños"],
     substitutions: ["A taco if you want less bread"],
     relatedMealIds: ["turkey-sandwich", "taco-night", "cemita-or-torta"],
-    recipes: [{ label: "Torta" }],
+    recipes: [{ label: "Torta (Not-HA)", recipeId: "torta" }],
   },
   {
     id: "cemita-or-torta",
@@ -545,7 +633,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Agua fresca or soda"],
     substitutions: ["A torta on a simpler roll"],
     relatedMealIds: ["torta-mexicana", "turkey-sandwich"],
-    recipes: [{ label: "Cemita" }],
+    recipes: [{ label: "Cemita (Not-HA)", recipeId: "cemita" }],
   },
   {
     id: "panini-lunch",
@@ -557,7 +645,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or an espresso", "A small salad"],
     substitutions: ["A grilled cheese if you want it simpler"],
     relatedMealIds: ["grilled-cheese", "turkey-sandwich"],
-    recipes: [{ label: "Panini" }],
+    recipes: [
+      { label: "Panini (Not-HA)", recipeId: "panini" },
+      { label: "Panini (HA)", recipeId: "panini-ha" },
+    ],
   },
   {
     id: "caprese-plate",
@@ -569,7 +660,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Bread", "Water or wine-free, just water"],
     substitutions: ["A salad plate if tomatoes are out of season"],
     relatedMealIds: ["salad-plate", "hummus-and-veg"],
-    recipes: [{ label: "Caprese" }],
+    recipes: [
+      { label: "Caprese Salad (Not-HA)", recipeId: "caprese-salad" },
+      { label: "Caprese Salad (HA)", recipeId: "caprese-salad-ha" },
+    ],
   },
   {
     id: "tapioca-crepe",
@@ -581,7 +675,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or juice", "Cheese, ham, or coconut"],
     substitutions: ["A crepe if you have wheat batter instead"],
     relatedMealIds: ["crepes", "quesadilla"],
-    recipes: [{ label: "Tapioca" }],
+    recipes: [
+      { label: "Tapioca Crêpe (Not-HA)", recipeId: "tapioca-crepe" },
+      { label: "Tapioca Crêpe (HA)", recipeId: "tapioca-crepe-ha" },
+    ],
   },
   {
     id: "gyro-or-doner",
@@ -593,7 +690,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Salad in the wrap", "Water or a soda"],
     substitutions: ["A wrap with leftover meat"],
     relatedMealIds: ["wrap-lunch", "kebab-plate"],
-    recipes: [{ label: "Gyro" }],
+    recipes: [
+      { label: "Gyro (Not-HA)", recipeId: "gyro" },
+      { label: "Gyro (HA)", recipeId: "gyro-ha" },
+    ],
   },
   {
     id: "bangers-and-mash",
@@ -605,7 +705,13 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Peas or gravy", "Water or tea"],
     substitutions: ["Sausage and peppers if you skip the mash"],
     relatedMealIds: ["sausage-and-peppers-idea", "shepherds-pie-idea", "pork-chops-plate"],
-    recipes: [{ label: "Bangers and Mash" }],
+    recipes: [
+      { label: "Bangers (Not-HA)", recipeId: "bangers" },
+      { label: "Mashed Potatoes (Not-HA)", recipeId: "mashed-potatoes" },
+      { label: "Mashed Potatoes (HA)", recipeId: "mashed-potatoes-ha" },
+      { label: "Pan Gravy (Not-HA)", recipeId: "pan-gravy" },
+      { label: "Pan Gravy (HA)", recipeId: "pan-gravy-ha" },
+    ],
   },
   {
     id: "cottage-pie-idea",
@@ -617,7 +723,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Peas or a salad", "Water"],
     substitutions: ["Shepherd's pie if the meat is lamb"],
     relatedMealIds: ["shepherds-pie-idea", "bangers-and-mash"],
-    recipes: [{ label: "Cottage Pie" }],
+    recipes: [{ label: "Shepherd's Pie (Not-HA)", recipeId: "shepherds-pie" }],
   },
   {
     id: "chicken-parma-au",
@@ -629,7 +735,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Chips or salad", "Water or a soda"],
     substitutions: ["Chicken parmesan with pasta if that is the house version"],
     relatedMealIds: ["chicken-parm-idea", "schnitzel-plate"],
-    recipes: [{ label: "Chicken Parma" }],
+    recipes: [
+      { label: "Chicken Parma (Not-HA)", recipeId: "chicken-parma" },
+      { label: "Chicken Parma (HA)", recipeId: "chicken-parma-ha" },
+    ],
   },
   {
     id: "schnitzel-plate",
@@ -641,7 +750,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Lemon, potatoes, or a salad", "Water"],
     substitutions: ["Baked chicken if you do not want to bread it"],
     relatedMealIds: ["chicken-parm-idea", "baked-chicken-plate", "milanesa-plate"],
-    recipes: [{ label: "Schnitzel" }],
+    recipes: [
+      { label: "Schnitzel (Not-HA)", recipeId: "schnitzel" },
+      { label: "Schnitzel (HA)", recipeId: "schnitzel-ha" },
+    ],
   },
   {
     id: "milanesa-plate",
@@ -653,7 +765,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice, salad, or potatoes", "Water"],
     substitutions: ["A schnitzel plate if that is the name you use"],
     relatedMealIds: ["schnitzel-plate", "baked-chicken-plate"],
-    recipes: [{ label: "Milanesa" }],
+    recipes: [
+      { label: "Milanesa (Not-HA)", recipeId: "milanesa" },
+      { label: "Milanesa (HA)", recipeId: "milanesa-ha" },
+    ],
   },
   {
     id: "risotto-idea",
@@ -665,7 +780,11 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A salad", "Water"],
     substitutions: ["Rice and a pan sauce if you do not want to stir"],
     relatedMealIds: ["pasta-marinara", "chicken-rice-vegetables"],
-    recipes: [{ label: "Risotto" }],
+    recipes: [
+      { label: "Parmesan Risotto (Not-HA)", recipeId: "parmesan-risotto" },
+      { label: "Parmesan Risotto (HA)", recipeId: "parmesan-risotto-ha" },
+      { label: "Mushroom Risotto (Not-HA)", recipeId: "mushroom-risotto" },
+    ],
   },
   {
     id: "carbonara-idea",
@@ -677,7 +796,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A salad", "Water"],
     substitutions: ["Pasta marinara if you want a tomato sauce"],
     relatedMealIds: ["pasta-marinara", "fettuccine-alfredo-idea"],
-    recipes: [{ label: "Carbonara" }],
+    recipes: [
+      { label: "Carbonara (Not-HA)", recipeId: "carbonara" },
+      { label: "Carbonara (HA)", recipeId: "carbonara-ha" },
+    ],
   },
   {
     id: "gnocchi-idea",
@@ -689,7 +811,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A simple sauce and salad", "Water"],
     substitutions: ["Pasta if you do not want potato dumplings"],
     relatedMealIds: ["pasta-marinara", "pesto-pasta-idea"],
-    recipes: [{ label: "Gnocchi" }],
+    recipes: [
+      { label: "Gnocchi (Not-HA)", recipeId: "gnocchi" },
+      { label: "Gnocchi (HA)", recipeId: "gnocchi-ha" },
+    ],
   },
   {
     id: "polenta-and-sausage",
@@ -701,7 +826,9 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A salad or greens", "Water"],
     substitutions: ["Mashed potatoes under the same sausage"],
     relatedMealIds: ["sausage-and-peppers-idea", "bangers-and-mash"],
-    recipes: [{ label: "Polenta and Sausage" }],
+    recipes: [
+      { label: "Creamy Polenta with Sausage (Not-HA)", recipeId: "creamy-polenta-sausage" },
+    ],
   },
   {
     id: "feijoada-idea",
@@ -713,7 +840,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice, orange, and greens", "Water"],
     substitutions: ["Rice and beans if you want a lighter pot"],
     relatedMealIds: ["rice-and-beans-plate", "stew-or-pot-roast"],
-    recipes: [{ label: "Feijoada" }],
+    recipes: [
+      { label: "Feijoada (Not-HA)", recipeId: "feijoada" },
+      { label: "Feijoada (HA)", recipeId: "feijoada-ha" },
+    ],
   },
   {
     id: "churrasco-plate",
@@ -725,7 +855,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice, farofa, or salad", "Water"],
     substitutions: ["Steak and potatoes if that is the grill you have"],
     relatedMealIds: ["steak-and-potatoes", "carne-asada-plate"],
-    recipes: [{ label: "Churrasco" }],
+    recipes: [{ label: "Churrasco (HA)", recipeId: "churrasco" }],
   },
   {
     id: "bibimbap-idea",
@@ -737,7 +867,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or barley tea", "Kimchi"],
     substitutions: ["A leftover rice bowl with an egg"],
     relatedMealIds: ["leftover-rice-bowl-idea", "korean-rice-soup-breakfast", "donburi-idea"],
-    recipes: [{ label: "Bibimbap" }],
+    recipes: [
+      { label: "Bibimbap (Not-HA)", recipeId: "bibimbap" },
+      { label: "Bibimbap (HA)", recipeId: "bibimbap-ha" },
+    ],
   },
   {
     id: "kimchi-stew",
@@ -749,7 +882,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice", "Water or barley tea"],
     substitutions: ["Leftover stew over rice the next day"],
     relatedMealIds: ["soup-night", "korean-rice-soup-breakfast", "bibimbap-idea"],
-    recipes: [{ label: "Kimchi Jjigae" }],
+    recipes: [
+      { label: "Kimchi Jjigae (Not-HA)", recipeId: "kimchi-jjigae" },
+      { label: "Kimchi Jjigae (HA)", recipeId: "kimchi-jjigae-ha" },
+    ],
   },
   {
     id: "donburi-idea",
@@ -761,7 +897,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Miso soup or pickles", "Green tea"],
     substitutions: ["A leftover rice bowl"],
     relatedMealIds: ["leftover-rice-bowl-idea", "japanese-curry-idea", "bibimbap-idea"],
-    recipes: [{ label: "Donburi" }],
+    recipes: [
+      { label: "Donburi (Not-HA)", recipeId: "donburi" },
+      { label: "Donburi (HA)", recipeId: "donburi-ha" },
+    ],
   },
   {
     id: "japanese-curry-idea",
@@ -773,7 +912,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Pickles", "Water or tea"],
     substitutions: ["A simpler stew over rice"],
     relatedMealIds: ["donburi-idea", "stew-or-pot-roast", "chicken-rice-vegetables"],
-    recipes: [{ label: "Japanese Curry" }],
+    recipes: [
+      { label: "Japanese Curry (Not-HA)", recipeId: "japanese-curry" },
+      { label: "Japanese Curry (HA)", recipeId: "japanese-curry-ha" },
+    ],
   },
   {
     id: "dumplings-and-rice",
@@ -785,7 +927,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A simple soup or greens", "Tea"],
     substitutions: ["Potstickers on their own as a snack"],
     relatedMealIds: ["potstickers-snack", "fried-rice-night", "baozi-breakfast"],
-    recipes: [{ label: "Dumplings" }],
+    recipes: [
+      { label: "Dumplings (Not-HA)", recipeId: "dumplings" },
+      { label: "Dumplings (HA)", recipeId: "dumplings-ha" },
+    ],
   },
   {
     id: "mapo-tofu-idea",
@@ -797,7 +942,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice", "A green vegetable", "Tea"],
     substitutions: ["A simpler tofu stir-fry"],
     relatedMealIds: ["stir-fry-night", "dal-and-rice"],
-    recipes: [{ label: "Mapo Tofu" }],
+    recipes: [
+      { label: "Mapo Tofu (Not-HA)", recipeId: "mapo-tofu" },
+      { label: "Mapo Tofu (HA)", recipeId: "mapo-tofu-ha" },
+    ],
   },
   {
     id: "hot-pot-idea",
@@ -809,7 +957,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice on the side", "Tea"],
     substitutions: ["A simpler soup night if you do not want a shared pot"],
     relatedMealIds: ["soup-night", "kimchi-stew"],
-    recipes: [{ label: "Hot Pot" }],
+    recipes: [{ label: "Hot Pot (HA)", recipeId: "hot-pot" }],
   },
   {
     id: "pozole-idea",
@@ -821,7 +969,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Cabbage, radish, lime, and tortillas", "Water"],
     substitutions: ["A chicken soup if you do not have hominy"],
     relatedMealIds: ["soup-night", "taco-night"],
-    recipes: [{ label: "Pozole" }],
+    recipes: [{ label: "Pozole (HA)", recipeId: "pozole" }],
   },
   {
     id: "mole-and-rice",
@@ -833,7 +981,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice and tortillas", "Water"],
     substitutions: ["A simpler chicken and rice if mole is too much work"],
     relatedMealIds: ["chicken-rice-vegetables", "enchiladas"],
-    recipes: [{ label: "Chicken Mole" }],
+    recipes: [
+      { label: "Chicken Mole (Not-HA)", recipeId: "chicken-mole" },
+      { label: "Chicken Mole (HA)", recipeId: "chicken-mole-ha" },
+    ],
   },
   {
     id: "tamales-dinner",
@@ -845,7 +996,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Salsa, beans, or rice", "Water"],
     substitutions: ["The breakfast sitting of the same tamales"],
     relatedMealIds: ["tamales-breakfast", "tamale-pie-idea"],
-    recipes: [{ label: "Tamales" }],
+    recipes: [
+      { label: "Tamales (Not-HA)", recipeId: "tamales" },
+      { label: "Tamales (HA)", recipeId: "tamales-ha" },
+    ],
   },
   {
     id: "pad-thai-idea",
@@ -857,7 +1011,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Lime and peanuts", "Water or tea"],
     substitutions: ["A stir-fry with rice noodles you already have"],
     relatedMealIds: ["stir-fry-night", "pho-bowl"],
-    recipes: [{ label: "Pad Thai" }],
+    recipes: [{ label: "Pad Thai (HA)", recipeId: "pad-thai-home" }],
   },
   {
     id: "kebab-plate",
@@ -869,7 +1023,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Rice or bread", "Salad", "Water"],
     substitutions: ["A gyro wrap if you want it handheld"],
     relatedMealIds: ["gyro-or-doner", "carne-asada-plate"],
-    recipes: [{ label: "Kebab" }],
+    recipes: [
+      { label: "Kebab (Not-HA)", recipeId: "kebab" },
+      { label: "Kebab (HA)", recipeId: "kebab-ha" },
+    ],
   },
   {
     id: "moules-frites",
@@ -881,7 +1038,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Fries", "Water"],
     substitutions: ["Fish and chips if mussels are not in the house"],
     relatedMealIds: ["fish-and-chips", "shrimp-scampi-idea"],
-    recipes: [{ label: "Moules Frites" }],
+    recipes: [{ label: "Moules Frites (Not-HA)", recipeId: "moules-frites" }],
   },
   {
     id: "onigiri-snack",
@@ -893,7 +1050,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea", "Pickles"],
     substitutions: ["A leftover rice bowl"],
     relatedMealIds: ["kimbap-lunch", "leftover-rice-bowl-idea"],
-    recipes: [{ label: "Onigiri" }],
+    recipes: [{ label: "Onigiri (Not-HA)", recipeId: "onigiri" }],
   },
   {
     id: "tteokbokki-snack",
@@ -905,7 +1062,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or barley tea"],
     substitutions: ["A simpler rice-cake snack without the sauce"],
     relatedMealIds: ["rice-cakes-snack", "kimchi-stew"],
-    recipes: [{ label: "Tteokbokki" }],
+    recipes: [{ label: "Tteokbokki (Not-HA)", recipeId: "tteokbokki" }],
   },
   {
     id: "potstickers-snack",
@@ -917,7 +1074,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Soy sauce or vinegar", "Tea"],
     substitutions: ["A dumpling dinner if it becomes the meal"],
     relatedMealIds: ["dumplings-and-rice", "edamame"],
-    recipes: [{ label: "Potstickers" }],
+    recipes: [
+      { label: "Potstickers (Not-HA)", recipeId: "potstickers" },
+      { label: "Potstickers (HA)", recipeId: "potstickers-ha" },
+    ],
   },
   {
     id: "fairy-bread",
@@ -929,7 +1089,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Water or juice"],
     substitutions: ["Toast and jam if you skip the sprinkles"],
     relatedMealIds: ["toast-and-jam-breakfast", "cookies-dessert"],
-    recipes: [{ label: "Fairy Bread" }],
+    recipes: [
+      { label: "Fairy Bread (Not-HA)", recipeId: "fairy-bread" },
+      { label: "Fairy Bread (HA)", recipeId: "fairy-bread-ha" },
+    ],
   },
   {
     id: "nanaimo-bar-snack",
@@ -941,7 +1104,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or milk"],
     substitutions: ["A brownie"],
     relatedMealIds: ["brownies-dessert", "cookies-dessert"],
-    recipes: [{ label: "Nanaimo Bars" }],
+    recipes: [{ label: "Nanaimo Bars (HA)", recipeId: "nanaimo-bars" }],
   },
   {
     id: "brigadeiro-snack",
@@ -953,7 +1116,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee"],
     substitutions: ["Chocolate or candy"],
     relatedMealIds: ["chocolate-or-candy", "flan-or-custard"],
-    recipes: [{ label: "Brigadeiro" }],
+    recipes: [
+      { label: "Brigadeiro (Not-HA)", recipeId: "brigadeiro" },
+      { label: "Brigadeiro (HA)", recipeId: "brigadeiro-ha" },
+    ],
   },
   {
     id: "pavlova-dessert",
@@ -965,7 +1131,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Fruit and cream", "Tea or coffee"],
     substitutions: ["A fruit cup with whipped cream"],
     relatedMealIds: ["fruit-crisp", "cake-or-cupcake"],
-    recipes: [{ label: "Pavlova" }],
+    recipes: [
+      { label: "Pavlova (Not-HA)", recipeId: "pavlova" },
+      { label: "Pavlova (HA)", recipeId: "pavlova-ha" },
+    ],
   },
   {
     id: "lamington-dessert",
@@ -977,7 +1146,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea or coffee"],
     substitutions: ["A simple cake square"],
     relatedMealIds: ["cake-or-cupcake", "coconut-dessert"],
-    recipes: [{ label: "Lamingtons" }],
+    recipes: [
+      { label: "Lamingtons (Not-HA)", recipeId: "lamingtons" },
+      { label: "Lamingtons (HA)", recipeId: "lamingtons-ha" },
+    ],
   },
   {
     id: "sticky-toffee-pudding",
@@ -989,7 +1161,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Cream or ice cream", "Tea"],
     substitutions: ["A fruit crisp if you want less syrup"],
     relatedMealIds: ["pudding-dessert", "fruit-crisp"],
-    recipes: [{ label: "Sticky Toffee Pudding" }],
+    recipes: [{ label: "Sticky Toffee Pudding (Not-HA)", recipeId: "sticky-toffee-pudding" }],
   },
   {
     id: "tiramisu-idea",
@@ -1001,7 +1173,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee"],
     substitutions: ["A simpler coffee pudding"],
     relatedMealIds: ["pudding-dessert", "coffee-drink"],
-    recipes: [{ label: "Tiramisu" }],
+    recipes: [
+      { label: "Tiramisu (Not-HA)", recipeId: "tiramisu" },
+      { label: "Tiramisu (HA)", recipeId: "tiramisu-ha" },
+    ],
   },
   {
     id: "gelato-dessert",
@@ -1013,7 +1188,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Nothing required", "A cookie if it is a bigger night"],
     substitutions: ["Ice cream"],
     relatedMealIds: ["ice-cream-dessert"],
-    recipes: [{ label: "Gelato" }],
+    recipes: [
+      { label: "Gelato (Not-HA)", recipeId: "gelato" },
+      { label: "Gelato (HA)", recipeId: "gelato-ha" },
+    ],
   },
   {
     id: "mochi-dessert",
@@ -1025,7 +1203,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea"],
     substitutions: ["Ice cream if you want something colder"],
     relatedMealIds: ["ice-cream-dessert", "red-bean-dessert"],
-    recipes: [{ label: "Mochi" }],
+    recipes: [{ label: "Mochi (Not-HA)", recipeId: "mochi-dessert" }],
   },
   {
     id: "red-bean-dessert",
@@ -1037,7 +1215,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tea"],
     substitutions: ["A simple sweet soup"],
     relatedMealIds: ["mochi-dessert", "pudding-dessert"],
-    recipes: [{ label: "Red Bean Soup" }],
+    recipes: [{ label: "Red Bean Soup (HA)", recipeId: "red-bean-soup" }],
   },
   {
     id: "tres-leches-idea",
@@ -1049,7 +1227,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee"],
     substitutions: ["A simpler milk cake or flan"],
     relatedMealIds: ["flan-or-custard", "cake-or-cupcake"],
-    recipes: [{ label: "Tres Leches" }],
+    recipes: [
+      { label: "Tres Leches Cake (Not-HA)", recipeId: "tres-leches" },
+      { label: "Tres Leches Cake (HA)", recipeId: "tres-leches-ha" },
+    ],
   },
   {
     id: "coconut-dessert",
@@ -1061,7 +1242,11 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or tea"],
     substitutions: ["Flan if you want it more custard"],
     relatedMealIds: ["flan-or-custard", "lamington-dessert"],
-    recipes: [{ label: "Coconut Flan", recipeId: "coconut-flan" }],
+    recipes: [
+      { label: "Coconut Flan (HA)", recipeId: "coconut-flan" },
+      { label: "Coconut Rice Pudding (HA)", recipeId: "coconut-rice-pudding" },
+      { label: "Coconut Macaroons (HA)", recipeId: "coconut-macaroons" },
+    ],
   },
   {
     id: "cannoli-idea",
@@ -1073,7 +1258,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Coffee or espresso"],
     substitutions: ["A simpler cream dessert"],
     relatedMealIds: ["tiramisu-idea", "cookies-dessert"],
-    recipes: [{ label: "Cannoli" }],
+    recipes: [
+      { label: "Cannoli (Not-HA)", recipeId: "cannoli" },
+      { label: "Cannoli (HA)", recipeId: "cannoli-ha" },
+    ],
   },
   {
     id: "espresso-drink",
@@ -1085,7 +1273,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A small pastry if this is breakfast"],
     substitutions: ["Coffee from a pot"],
     relatedMealIds: ["coffee-drink", "cafe-con-leche-drink"],
-    recipes: [{ label: "Espresso" }],
+    recipes: [{ label: "Espresso (HA)", recipeId: "espresso" }],
   },
   {
     id: "cafe-con-leche-drink",
@@ -1097,7 +1285,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Bread or pan dulce"],
     substitutions: ["Coffee with milk"],
     relatedMealIds: ["coffee-drink", "cafe-con-leche-and-bread", "espresso-drink"],
-    recipes: [{ label: "Café con Leche" }],
+    recipes: [
+      { label: "Café con Leche (Not-HA)", recipeId: "cafe-con-leche" },
+      { label: "Café con Leche (HA)", recipeId: "cafe-con-leche-ha" },
+    ],
   },
   {
     id: "atole-drink",
@@ -1109,7 +1300,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tamales"],
     substitutions: ["Hot chocolate if you want it less thick"],
     relatedMealIds: ["hot-chocolate", "tamales-breakfast"],
-    recipes: [{ label: "Atole" }],
+    recipes: [
+      { label: "Atole (Not-HA)", recipeId: "atole" },
+      { label: "Atole (HA)", recipeId: "atole-ha" },
+    ],
   },
   {
     id: "agua-fresca",
@@ -1121,7 +1315,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A taco plate or nothing"],
     substitutions: ["Water with fruit", "Horchata"],
     relatedMealIds: ["horchata-drink", "water-drink", "orange-juice"],
-    recipes: [{ label: "Agua Fresca" }],
+    recipes: [{ label: "Agua Fresca (Not-HA)", recipeId: "agua-fresca" }],
   },
   {
     id: "horchata-drink",
@@ -1133,7 +1327,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Tacos or nothing"],
     substitutions: ["Milk if you want it simpler"],
     relatedMealIds: ["agua-fresca", "milk-drink"],
-    recipes: [{ label: "Horchata" }],
+    recipes: [{ label: "Horchata (HA)", recipeId: "horchata" }],
   },
   {
     id: "bubble-tea",
@@ -1153,7 +1347,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Nothing required"],
     substitutions: ["A smoothie", "Tea"],
     relatedMealIds: ["tea-drink", "smoothie-drink"],
-    recipes: [{ label: "Bubble Tea" }],
+    recipes: [
+      { label: "Bubble Tea (Not-HA)", recipeId: "bubble-tea" },
+      { label: "Bubble Tea (HA)", recipeId: "bubble-tea-ha" },
+    ],
   },
   {
     id: "barley-tea",
@@ -1165,7 +1362,10 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A rice meal"],
     substitutions: ["Water", "Green tea"],
     relatedMealIds: ["tea-drink", "water-drink"],
-    recipes: [{ label: "Barley Tea" }],
+    recipes: [
+      { label: "Barley Tea (Not-HA)", recipeId: "barley-tea" },
+      { label: "Barley Tea (HA)", recipeId: "barley-tea-ha" },
+    ],
   },
   {
     id: "guarana-soda",
@@ -1177,7 +1377,7 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["A rice-and-beans plate or pizza"],
     substitutions: ["Another soda"],
     relatedMealIds: ["soda-drink"],
-    recipes: [{ label: "Guaraná" }],
+    recipes: [{ label: "Guaraná (HA)", recipeId: "guarana-soda" }],
   },
   {
     id: "soy-milk-drink",
@@ -1189,6 +1389,6 @@ export const extraMealIdeas: MealIdea[] = [
     pairings: ["Youtiao or breakfast buns"],
     substitutions: ["Dairy milk"],
     relatedMealIds: ["milk-drink", "youtiao-and-soy-milk"],
-    recipes: [{ label: "Soy Milk" }],
+    recipes: [{ label: "Soy Milk (HA)", recipeId: "soy-milk-warm" }],
   },
 ];

@@ -5423,4 +5423,65 @@ export const ingredientFodmapById: Readonly<Record<string, IngredientFodmap>> = 
     status: "low",
     reasons: [],
   },
+  croissant: {
+    description: "buttery laminated wheat pastry, flaky and crescent-shaped.",
+    status: "high",
+    reasons: ["fructans"],
+  },
+  doughnut: {
+    description: "fried sweet wheat dough, glazed or filled.",
+    status: "high",
+    reasons: ["fructans"],
+  },
+  crumpet: {
+    description: "griddled yeasted wheat cake with holes that hold butter.",
+    status: "high",
+    reasons: ["fructans"],
+  },
+  "pop-tart": {
+    description: "toaster pastry with a sweet filling in a wheat crust.",
+    status: "high",
+    reasons: ["fructans"],
+  },
+  tteok: {
+    description: "chewy Korean rice cakes used in soups and stir-fried snacks.",
+    status: "low",
+    reasons: [],
+  },
+  mussel: {
+    description: "bivalve shellfish steamed in wine or broth.",
+    status: "low",
+    reasons: [],
+  },
+  "beef-jerky": {
+    description: "dried, seasoned beef eaten as a portable snack.",
+    status: "low",
+    reasons: [],
+  },
+  "energy-drink": {
+    description: "canned caffeinated drink with sugar or sweeteners.",
+    status: "low",
+    reasons: [],
+  },
+  "sports-drink": {
+    description: "sweetened electrolyte drink for after exercise.",
+    status: "low",
+    reasons: [],
+  },
+  vegemite: {
+    description: "salty Australian yeast-extract spread for toast.",
+    status: "high",
+    reasons: ["fructans"],
+    note: "typically contains gluten from barley",
+  },
+  natto: {
+    description: "fermented soybeans, sticky and savory, eaten over rice.",
+    status: "high",
+    reasons: ["gos"],
+  },
+  mochi: {
+    description: "chewy pounded sticky-rice cake, often filled or ice-cream coated.",
+    status: "low",
+    reasons: [],
+  },
 };

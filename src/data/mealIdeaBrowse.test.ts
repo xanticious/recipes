@@ -66,8 +66,8 @@ test("related meals resolve and recipe links mark missing book entries", () => {
 
   const links = resolveMealIdeaRecipes(pork as MealIdea, recipes);
   expect(links.find((link) => link.recipeId === "baked-pork-chops")?.missing).toBe(false);
-  expect(links.find((link) => link.label === "Mashed Potatoes")?.missing).toBe(true);
-  expect(links.find((link) => link.label === "Pan Gravy")?.missing).toBe(true);
+  expect(links.find((link) => link.label === "Mashed Potatoes (Not-HA)")?.missing).toBe(false);
+  expect(links.find((link) => link.label === "Pan Gravy (Not-HA)")?.missing).toBe(false);
 });
 
 test("every related meal id and claimed recipe id is valid", () => {

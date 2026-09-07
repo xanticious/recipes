@@ -3,11 +3,11 @@ import type { Recipe } from "../types.ts";
 export const dessert: Recipe[] = [
   {
     id: "gf-chocolate-chip-cookies",
-    title: "Gluten-Free Chocolate Chip Cookies",
+    title: "Gluten-Free Chocolate Chip Cookies (HA)",
     mealType: "dessert",
     cuisine: "american",
     specialOccasion: false,
-    ha: "unknown",
+    ha: "ha-assumed",
     healthRating: "unhealthy",
     eatOut: false,
     prepMinutes: 15,
@@ -71,7 +71,7 @@ export const dessert: Recipe[] = [
   },
   {
     id: "cinnamon-baked-apples",
-    title: "Cinnamon Baked Apples",
+    title: "Cinnamon Baked Apples (Not-HA)",
     mealType: "dessert",
     cuisine: "american",
     specialOccasion: false,
@@ -120,7 +120,7 @@ export const dessert: Recipe[] = [
   },
   {
     id: "coconut-rice-pudding",
-    title: "Coconut Rice Pudding",
+    title: "Coconut Rice Pudding (HA)",
     mealType: "dessert",
     cuisine: "other",
     specialOccasion: false,
@@ -177,11 +177,11 @@ export const dessert: Recipe[] = [
   },
   {
     id: "dark-chocolate-bark",
-    title: "Dark Chocolate Bark",
+    title: "Dark Chocolate Bark (HA)",
     mealType: "dessert",
     cuisine: "american",
     specialOccasion: false,
-    ha: "unknown",
+    ha: "ha-assumed",
     healthRating: "unhealthy",
     eatOut: false,
     prepMinutes: 10,
@@ -220,7 +220,7 @@ export const dessert: Recipe[] = [
   },
   {
     id: "coconut-macaroons",
-    title: "Coconut Macaroons",
+    title: "Coconut Macaroons (HA)",
     mealType: "dessert",
     cuisine: "other",
     specialOccasion: false,
@@ -268,7 +268,7 @@ export const dessert: Recipe[] = [
   },
   {
     id: "maple-grilled-peaches",
-    title: "Maple Grilled Peaches",
+    title: "Maple Grilled Peaches (Not-HA)",
     mealType: "dessert",
     cuisine: "american",
     specialOccasion: false,

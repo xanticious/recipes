@@ -3,7 +3,7 @@ import type { Recipe } from "../types.ts";
 export const dinnerItalian: Recipe[] = [
   {
     id: "chicken-parm",
-    title: "Chicken Parmesan",
+    title: "Chicken Parmesan (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -87,7 +87,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "eggplant-parm",
-    title: "Eggplant Parmesan",
+    title: "Eggplant Parmesan (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -171,7 +171,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "pesto-pasta-dinner",
-    title: "Pesto Pasta",
+    title: "Pesto Pasta (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -232,7 +232,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "sausage-pasta",
-    title: "Sausage Pasta",
+    title: "Sausage Pasta (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -317,7 +317,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "lasagna",
-    title: "Lasagna",
+    title: "Lasagna (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: true,
@@ -409,7 +409,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "meatballs-marinara",
-    title: "Meatballs Marinara",
+    title: "Meatballs Marinara (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -491,7 +491,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "baked-ziti",
-    title: "Baked Ziti",
+    title: "Baked Ziti (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -565,7 +565,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "chicken-piccata",
-    title: "Chicken Piccata",
+    title: "Chicken Piccata (HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -643,7 +643,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "shrimp-scampi",
-    title: "Shrimp Scampi",
+    title: "Shrimp Scampi (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -722,7 +722,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "white-beans-and-greens",
-    title: "White Beans and Greens",
+    title: "White Beans and Greens (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -801,7 +801,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "caprese-chicken",
-    title: "Caprese Chicken",
+    title: "Caprese Chicken (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -872,7 +872,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "mushroom-risotto",
-    title: "Mushroom Risotto",
+    title: "Mushroom Risotto (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: true,
@@ -960,7 +960,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "pasta-primavera",
-    title: "Pasta Primavera",
+    title: "Pasta Primavera (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -1053,7 +1053,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "sausage-white-beans",
-    title: "Sausage and White Beans",
+    title: "Sausage and White Beans (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -1142,7 +1142,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "baked-cod-tomatoes",
-    title: "Baked Cod with Tomatoes",
+    title: "Baked Cod with Tomatoes (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -1213,7 +1213,7 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "creamy-polenta-sausage",
-    title: "Creamy Polenta with Sausage",
+    title: "Creamy Polenta with Sausage (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
@@ -1295,14 +1295,30 @@ export const dinnerItalian: Recipe[] = [
   },
   {
     id: "fettuccine-alfredo",
-    title: "Fettuccine Alfredo",
+    title: "Fettuccine Alfredo (Not-HA)",
     mealType: "dinner",
     cuisine: "italian",
     specialOccasion: false,
     ha: "not-ha-assumed",
     healthRating: "unhealthy",
     eatOut: false,
-    relatedRecipeIds: ["fettuccine-alfredo-ha"],
+    relatedRecipeIds: [
+      "fettuccine-alfredo-ha",
+      "chicken-parm-ha",
+      "eggplant-parm-ha",
+      "pesto-pasta-dinner-ha",
+      "sausage-pasta-ha",
+      "lasagna-ha",
+      "meatballs-marinara-ha",
+      "baked-ziti-ha",
+      "shrimp-scampi-ha",
+      "white-beans-and-greens-ha",
+      "caprese-chicken-ha",
+      "mushroom-risotto-ha",
+      "pasta-primavera-ha",
+      "sausage-white-beans-ha",
+      "creamy-polenta-sausage-ha",
+    ],
     prepMinutes: 10,
     cookMinutes: 20,
     servings: 4,

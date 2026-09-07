@@ -3,7 +3,7 @@ import type { Recipe } from "../types.ts";
 export const snack: Recipe[] = [
   {
     id: "stovetop-popcorn",
-    title: "Stovetop Popcorn",
+    title: "Stovetop Popcorn (HA)",
     mealType: "snack",
     cuisine: "american",
     specialOccasion: false,
@@ -40,7 +40,7 @@ export const snack: Recipe[] = [
   },
   {
     id: "rice-cakes-almond-butter",
-    title: "Rice Cakes with Almond Butter",
+    title: "Rice Cakes with Almond Butter (Not-HA)",
     mealType: "snack",
     cuisine: "american",
     specialOccasion: false,
@@ -83,7 +83,7 @@ export const snack: Recipe[] = [
   },
   {
     id: "guacamole-chips",
-    title: "Guacamole and Chips",
+    title: "Guacamole and Chips (Not-HA)",
     mealType: "snack",
     cuisine: "mexican",
     specialOccasion: false,
@@ -145,7 +145,7 @@ export const snack: Recipe[] = [
   },
   {
     id: "roasted-chickpeas",
-    title: "Roasted Chickpeas",
+    title: "Roasted Chickpeas (HA)",
     mealType: "snack",
     cuisine: "mediterranean",
     specialOccasion: false,
@@ -192,13 +192,14 @@ export const snack: Recipe[] = [
   },
   {
     id: "cucumber-yogurt-dip",
-    title: "Cucumber Yogurt Dip",
+    title: "Cucumber Yogurt Dip (Not-HA)",
     mealType: "snack",
     cuisine: "indian",
     specialOccasion: false,
     ha: "not-ha-assumed",
     healthRating: "moderate",
     eatOut: false,
+    relatedRecipeIds: ["cucumber-yogurt-dip-ha"],
     prepMinutes: 10,
     cookMinutes: 0,
     servings: 4,
@@ -254,11 +255,11 @@ export const snack: Recipe[] = [
   },
   {
     id: "pumpkin-seed-trail-mix",
-    title: "Pumpkin Seed Trail Mix",
+    title: "Pumpkin Seed Trail Mix (HA)",
     mealType: "snack",
     cuisine: "american",
     specialOccasion: false,
-    ha: "unknown",
+    ha: "ha-assumed",
     healthRating: "moderate",
     eatOut: false,
     prepMinutes: 5,

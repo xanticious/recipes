@@ -264,6 +264,7 @@ export const produce: Ingredient[] = [
     kind: "produce",
     flags: ["mannitol"],
     notes: "A problem raw; cooked is treated as acceptable for HA.",
+    ha: "ha-confirmed",
   },
   {
     id: "button-mushroom",
@@ -382,7 +383,14 @@ export const produce: Ingredient[] = [
   { id: "honeycrisp", name: "Honeycrisp apple", kind: "produce", flags: ["fructose", "sorbitol"] },
   { id: "pear", name: "pear", kind: "produce", flags: ["fructose", "sorbitol"] },
   { id: "asian-pear", name: "Asian pear", kind: "produce", flags: ["fructose", "sorbitol"] },
-  { id: "banana", name: "banana", kind: "produce", flags: ["fructan"], notes: "Ripe bananas." },
+  {
+    id: "banana",
+    name: "banana",
+    kind: "produce",
+    flags: ["fructan"],
+    notes: "Ripe bananas are not House Approved.",
+    ha: "not-ha-confirmed",
+  },
   { id: "plantain", name: "plantain", kind: "produce", flags: [] },
   { id: "green-plantain", name: "green plantain", kind: "produce", flags: [] },
   { id: "blueberry", name: "blueberries", kind: "produce", flags: [] },

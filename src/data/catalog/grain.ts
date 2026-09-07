@@ -84,7 +84,13 @@ export const grain: Ingredient[] = [
     kind: "grain",
     flags: ["gluten"],
     notes: "House Approved alternative to wheat or white bread.",
+    ha: "ha-confirmed",
   },
+  { id: "croissant", name: "croissant", kind: "grain", flags: ["gluten", "fructan"] },
+  { id: "doughnut", name: "doughnut", kind: "grain", flags: ["gluten", "fructan"] },
+  { id: "crumpet", name: "crumpets", kind: "grain", flags: ["gluten", "fructan"] },
+  { id: "pop-tart", name: "toaster pastry", kind: "grain", flags: ["gluten", "fructan"] },
+  { id: "tteok", name: "Korean rice cakes", kind: "grain", flags: [] },
 
   // Wheat, barley, rye
   { id: "wheat-flour", name: "all-purpose flour", kind: "grain", flags: ["gluten", "fructan"] },

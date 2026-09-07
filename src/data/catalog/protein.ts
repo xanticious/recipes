@@ -140,6 +140,7 @@ export const protein: Ingredient[] = [
   },
   { id: "cod", name: "cod", kind: "protein", flags: [], ha: "not-ha-confirmed" },
   { id: "tilapia", name: "tilapia", kind: "protein", flags: [], ha: "not-ha-confirmed" },
+  { id: "mussel", name: "mussels", kind: "protein", flags: [] },
   { id: "halibut", name: "halibut", kind: "protein", flags: [], ha: "not-ha-confirmed" },
   { id: "mahi-mahi", name: "mahi-mahi", kind: "protein", flags: [], ha: "not-ha-confirmed" },
   { id: "trout", name: "trout", kind: "protein", flags: [], ha: "not-ha-confirmed" },
@@ -197,6 +198,7 @@ export const protein: Ingredient[] = [
   },
   { id: "falafel", name: "falafel", kind: "protein", flags: ["gos", "fructan"] },
   { id: "hummus", name: "hummus", kind: "protein", flags: ["gos", "fructan"] },
+  { id: "beef-jerky", name: "beef jerky", kind: "protein", flags: [], ha: "ha-confirmed" },
 
   // Legumes
   { id: "black-beans", name: "black beans", kind: "protein", flags: ["gos"] },

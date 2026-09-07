@@ -12,6 +12,9 @@ import { dinnerMediterranean } from "./dinner-mediterranean.ts";
 import { dinnerMexican } from "./dinner-mexican.ts";
 import { dinnerOther } from "./dinner-other.ts";
 import { eatOut } from "./eat-out.ts";
+import { fromMealIdeas } from "./from-meal-ideas.ts";
+import { fromMealIdeasRegional } from "./from-meal-ideas-regional.ts";
+import { haVariants } from "./ha-variants.ts";
 import { lunch } from "./lunch.ts";
 import { lunchMore } from "./lunch-more.ts";
 import { snack } from "./snack.ts";
@@ -34,5 +37,8 @@ export const recipes: Recipe[] = [
   ...snackMore,
   ...dessert,
   ...dessertMore,
+  ...fromMealIdeas,
+  ...fromMealIdeasRegional,
+  ...haVariants,
   ...eatOut,
 ];
