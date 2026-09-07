@@ -37,7 +37,7 @@ The following are out of scope for the first release. Several are desirable late
 
 ## 4. Users and access
 
-The audience is this household. The site is a public static site (GitHub Pages is already wired in this repo). There is no authentication. Household preferences that matter in the browser — theme and font size — are stored locally on that device.
+The audience is this household. The site is a public static site (GitHub Pages is already wired in this repo). There is no authentication. Household preferences that matter in the browser — theme, font size, and Meal Ideas display (list vs pictures) — are stored locally on that device.
 
 Do not put household first names in the product, the copy, or the code. The diet tag is **HA** (House Approved).
 
@@ -211,10 +211,15 @@ A catalog of **full plates**, not single recipes (`#/meal-ideas`). When planning
 
 **Primary grouping:** occasion — Breakfast, Lunch, Dinner, Snack, Dessert, Drinks.
 
-**Filters:** exclusive occasion (including All) and name search.
+**Filters:** exclusive occasion (including All), exclusive **region** (including All), and name search. A plate can have several region tags. The region filter keeps plates tagged for that place. The list shows abbreviated region tags next to each plate name (US, CA, MX, BR, UK, IT, EU, CN, JP, KR, AU, NZ). Full names stay in the expanded Common in section.
 
-Click a plate name to expand details:
+**Display:** exclusive **List View** or **Pictures View**. List View is the name list; click a name to expand details on the page. Pictures View is a Pinterest-style photo board inside each occasion group, with the plate name under the image. Click a picture to open the same details in a panel. The last chosen display is stored locally on that device and used the next time Meal Ideas opens.
 
+Click a plate name (list) or picture (pictures) to expand details:
+
+- **Photo** — Unsplash still of the plate (or a name placeholder). In List View it appears in the expanded details. In Pictures View it is the board thumbnail and also appears in the details panel. Fetched with `scripts/fetch-meal-idea-photos.ts`.
+- **Description** — a short appetizing blurb. It can open with a sensory hook and add a historical note, regional origin, or origin story. The point is to interest someone who is not craving a specific dish yet.
+- **Common in** — world regions where this plate is everyday fare
 - **Frequently paired with** — drinks and sides that usually show up with that plate
 - **Common substitutions** — easy swaps (almond milk, sourdough, rice instead of potatoes)
 - **Related meals** — other plates with real overlap, still distinct enough to list separately. Breakfasts often have none.
@@ -222,7 +227,9 @@ Click a plate name to expand details:
 
 This is still a catalog, not a planner. It does not write the weekly meal plan, scale servings, or build a shopping list.
 
-Starter ideas come from the NHANES 2021–2023 plate lists in `design/nhanes-analysis/`. The live catalog is curated; do not import the analysis files as-is.
+Starter ideas come from the NHANES 2021–2023 plate lists in `design/nhanes-analysis/` and the other national diet analyses under `design/` (`ndns-analysis`, `cchs-analysis`, `nnpas-analysis`, `efsa-analysis`, `nhns-japan-analysis`, `nans-analysis`, `pof-brazil-analysis`, `knhanes-analysis`, `chns-analysis`, `ensanut-analysis`, `scai-analysis`). The live catalog is curated; do not import the analysis files as-is.
+
+**When to split a plate:** different cooking techniques are different meals when a household would actually say the other name out loud (scrambled eggs and toast vs fried eggs and toast vs toad in the hole). Do not split tiny garnish differences. See the Meal Style Guide in the repo README.
 
 ## 7. Recipe information model
 
@@ -315,15 +322,19 @@ Restaurant cuisine buckets: American, Mexican, Italian, Asian, Mediterranean, In
 
 ### 7.7 Meal idea
 
-| Field            | Type           | Notes                                                                  |
-| ---------------- | -------------- | ---------------------------------------------------------------------- |
-| `id`             | string         | Stable slug                                                            |
-| `title`          | string         | Short plate name, e.g. Cereal and Milk                                 |
-| `occasion`       | enum           | `breakfast` \| `lunch` \| `dinner` \| `snack` \| `dessert` \| `drinks` |
-| `pairings`       | list of string | Frequently paired drinks and sides                                     |
-| `substitutions`  | list, optional | Common swaps                                                           |
-| `relatedMealIds` | list, optional | Other meal ideas with real overlap                                     |
-| `recipes`        | list, optional | Linked recipes for the plate or a part                                 |
+| Field            | Type           | Notes                                                                                   |
+| ---------------- | -------------- | --------------------------------------------------------------------------------------- |
+| `id`             | string         | Stable slug                                                                             |
+| `title`          | string         | Short plate name, e.g. Cereal and Milk                                                  |
+| `description`    | string         | Brief appetizing prose; a historical, regional, or origin note is welcome               |
+| `occasion`       | enum           | `breakfast` \| `lunch` \| `dinner` \| `snack` \| `dessert` \| `drinks`                  |
+| `regions`        | list           | World regions where the plate is commonly eaten. At least one. A plate may list several |
+| `pairings`       | list of string | Frequently paired drinks and sides                                                      |
+| `substitutions`  | list, optional | Common swaps                                                                            |
+| `relatedMealIds` | list, optional | Other meal ideas with real overlap                                                      |
+| `recipes`        | list, optional | Linked recipes for the plate or a part                                                  |
+
+Region tags: United States, Canada, Mexico, Brazil, United Kingdom, Italy, Europe (continental, not UK/Italy), China, Japan, South Korea, Australia, New Zealand. Tag the places where the plate is ordinary home food, not everywhere it could theoretically appear.
 
 Each linked recipe: `label` and optional `recipeId`. If `recipeId` is omitted or not in the book, the UI shows **Not in the book yet**. Omit `recipes` when the plate is too simple to need one.
 
@@ -513,6 +524,7 @@ URL shapes:
 - Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search).
 - Nav: Home, Recipes, Eat Out, Restaurants, Ingredients, Guide, Random, font size, theme.
 - Theme and type size apply site-wide and persist locally.
+- Meal Ideas display (List View / Pictures View) persists locally.
 - No household first names in code or copy.
 
 ## 15. Implementation order

@@ -5,7 +5,12 @@ import {
   type FodmapBrowseType,
 } from "../data/fodmapIngredients.ts";
 import type { IngredientSection } from "../data/ingredientBrowse.ts";
-import type { MealIdeaOccasionFilter } from "../data/mealIdeaBrowse.ts";
+import {
+  isMealIdeaDisplay,
+  type MealIdeaDisplay,
+  type MealIdeaOccasionFilter,
+  type MealIdeaRegionFilter,
+} from "../data/mealIdeaBrowse.ts";
 import type { RestaurantCityFilter } from "../data/restaurantBrowse.ts";
 import type { CategorizerColumn } from "../data/ingredientCategorizer.ts";
 import type {
@@ -51,7 +56,9 @@ export type RestaurantsBrowse = {
 
 export type MealIdeasBrowse = {
   occasion: MealIdeaOccasionFilter;
+  region: MealIdeaRegionFilter;
   query: string;
+  display: MealIdeaDisplay;
   expandedId: string | null;
 };
 
@@ -108,9 +115,11 @@ export type AppEvent =
   | { type: "setRestaurantCity"; city: RestaurantCityFilter }
   | { type: "toggleRestaurant"; id: string }
   | { type: "closeRestaurant" }
-  | { type: "openMealIdeas"; occasion?: MealIdeaOccasionFilter }
+  | { type: "openMealIdeas"; occasion?: MealIdeaOccasionFilter; region?: MealIdeaRegionFilter }
   | { type: "setMealIdeasOccasion"; occasion: MealIdeaOccasionFilter }
+  | { type: "setMealIdeasRegion"; region: MealIdeaRegionFilter }
   | { type: "setMealIdeasQuery"; query: string }
+  | { type: "setMealIdeasDisplay"; display: MealIdeaDisplay }
   | { type: "toggleMealIdea"; id: string }
   | { type: "openMealIdea"; id: string }
   | { type: "closeMealIdea" }
@@ -154,9 +163,30 @@ const emptyRestaurants: RestaurantsBrowse = {
   expandedId: null,
 };
 
+export const MEAL_IDEAS_DISPLAY_STORAGE_KEY = "family-recipes-meal-ideas-display";
+
+export function readStoredMealIdeasDisplay(): MealIdeaDisplay {
+  if (typeof localStorage === "undefined") {
+    return "list";
+  }
+  const stored = localStorage.getItem(MEAL_IDEAS_DISPLAY_STORAGE_KEY);
+  if (stored !== null && isMealIdeaDisplay(stored)) {
+    return stored;
+  }
+  return "list";
+}
+
+export function persistMealIdeasDisplay(display: MealIdeaDisplay): void {
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem(MEAL_IDEAS_DISPLAY_STORAGE_KEY, display);
+  }
+}
+
 const emptyMealIdeas: MealIdeasBrowse = {
   occasion: "all",
+  region: "all",
   query: "",
+  display: "list",
   expandedId: null,
 };
 
@@ -193,7 +223,10 @@ export const appMachine = setup({
     random: emptyRandom,
     ingredients: emptyIngredients,
     restaurants: emptyRestaurants,
-    mealIdeas: emptyMealIdeas,
+    mealIdeas: {
+      ...emptyMealIdeas,
+      display: readStoredMealIdeasDisplay(),
+    },
     categorizer: emptyCategorizer,
   }),
   on: {
@@ -421,9 +454,11 @@ export const appMachine = setup({
     openMealIdeas: {
       actions: assign({
         route: { name: "mealIdeas" },
-        mealIdeas: ({ event }) => ({
+        mealIdeas: ({ context, event }) => ({
           ...emptyMealIdeas,
+          display: context.mealIdeas.display,
           occasion: event.occasion ?? "all",
+          region: event.region ?? "all",
         }),
       }),
     },
@@ -436,6 +471,15 @@ export const appMachine = setup({
         }),
       }),
     },
+    setMealIdeasRegion: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          region: event.region,
+          expandedId: null,
+        }),
+      }),
+    },
     setMealIdeasQuery: {
       actions: assign({
         mealIdeas: ({ context, event }) => ({
@@ -443,6 +487,19 @@ export const appMachine = setup({
           query: event.query,
         }),
       }),
+    },
+    setMealIdeasDisplay: {
+      actions: [
+        assign({
+          mealIdeas: ({ context, event }) => ({
+            ...context.mealIdeas,
+            display: event.display,
+          }),
+        }),
+        ({ event }) => {
+          persistMealIdeasDisplay(event.display);
+        },
+      ],
     },
     toggleMealIdea: {
       actions: assign({
@@ -472,6 +529,7 @@ export const appMachine = setup({
       actions: assign({
         mealIdeas: ({ context }) => ({
           ...emptyMealIdeas,
+          display: context.mealIdeas.display,
           expandedId: context.mealIdeas.expandedId,
         }),
       }),

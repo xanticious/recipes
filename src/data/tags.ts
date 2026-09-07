@@ -6,6 +6,7 @@ import type {
   IngredientHaFilter,
   IngredientHaStatus,
   MealIdeaOccasion,
+  MealIdeaRegion,
   MealType,
   TernaryFilter,
 } from "./types.ts";
@@ -46,6 +47,51 @@ export const MEAL_TYPE_LABELS: Record<MealType, string> = {
 export const MEAL_IDEA_OCCASION_LABELS: Record<MealIdeaOccasion, string> = {
   ...MEAL_TYPE_LABELS,
   drinks: "Drinks",
+};
+
+export const MEAL_IDEA_REGIONS: readonly MealIdeaRegion[] = [
+  "united-states",
+  "canada",
+  "mexico",
+  "brazil",
+  "united-kingdom",
+  "italy",
+  "europe",
+  "china",
+  "japan",
+  "south-korea",
+  "australia",
+  "new-zealand",
+];
+
+export const MEAL_IDEA_REGION_LABELS: Record<MealIdeaRegion, string> = {
+  "united-states": "United States",
+  canada: "Canada",
+  mexico: "Mexico",
+  brazil: "Brazil",
+  "united-kingdom": "United Kingdom",
+  italy: "Italy",
+  europe: "Europe",
+  china: "China",
+  japan: "Japan",
+  "south-korea": "South Korea",
+  australia: "Australia",
+  "new-zealand": "New Zealand",
+};
+
+export const MEAL_IDEA_REGION_ABBREVS: Record<MealIdeaRegion, string> = {
+  "united-states": "US",
+  canada: "CA",
+  mexico: "MX",
+  brazil: "BR",
+  "united-kingdom": "UK",
+  italy: "IT",
+  europe: "EU",
+  china: "CN",
+  japan: "JP",
+  "south-korea": "KR",
+  australia: "AU",
+  "new-zealand": "NZ",
 };
 
 export const CUISINE_LABELS: Record<Cuisine, string> = {

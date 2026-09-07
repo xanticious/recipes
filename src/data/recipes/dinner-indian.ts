@@ -485,7 +485,6 @@ export const dinnerIndian: Recipe[] = [
       "Cook 4–5 minutes per side, until cooked through and browned in spots.",
       "Rest a few minutes, then serve.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "keema",
@@ -780,7 +779,6 @@ export const dinnerIndian: Recipe[] = [
       "Nestle in the fish. Cook until it flakes, 6–8 minutes. Season with salt.",
       "Stir in lime juice and cilantro. Serve over rice.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "kidney-bean-curry",
@@ -965,7 +963,7 @@ export const dinnerIndian: Recipe[] = [
       "Simmer 8 minutes. Return the tofu. Season with salt.",
       "Dollop ricotta over the top and warm 1 minute. Serve over rice.",
     ],
-    notes: "No onion or garlic. Tofu stands in for paneer.",
+    notes: "Tofu stands in for paneer.",
   },
   {
     id: "chicken-rice-pilaf",
@@ -1127,7 +1125,7 @@ export const dinnerIndian: Recipe[] = [
       "Shake off extra marinade. Roast the thighs 22–25 minutes, until cooked through and charred in spots.",
       "Rest a few minutes, then serve.",
     ],
-    notes: "No onion or garlic. High heat stands in for a tandoor.",
+    notes: "High heat stands in for a tandoor.",
   },
   {
     id: "lentil-vegetable-stew",
@@ -1222,7 +1220,6 @@ export const dinnerIndian: Recipe[] = [
       "Stir in the spinach until it wilts. Add optional coconut milk.",
       "Season with salt. Serve with lime wedges.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "shrimp-masala",

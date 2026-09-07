@@ -71,7 +71,6 @@ export const lunchMore: Recipe[] = [
       "Season with salt and pepper.",
       "Spread on gluten-free bread with optional lettuce. Close and cut in half.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "tuna-salad-sandwich",
@@ -144,7 +143,7 @@ export const lunchMore: Recipe[] = [
       "Pile onto gluten-free bread with lettuce and tomato.",
       "Close the sandwiches and cut in half.",
     ],
-    notes: "No onion or garlic. Same tuna mix as the cucumber boats, on bread instead.",
+    notes: "Same tuna mix as the cucumber boats, on bread instead.",
   },
   {
     id: "grilled-cheese",
@@ -298,7 +297,7 @@ export const lunchMore: Recipe[] = [
       "Fold turkey, tomato, and cucumber inside.",
       "Roll them up and eat like tacos.",
     ],
-    notes: "No bread, no onion, no garlic.",
+    notes: "No bread.",
   },
   {
     id: "cobb-salad",
@@ -383,7 +382,7 @@ export const lunchMore: Recipe[] = [
       "Scatter cheddar over the salad.",
       "Whisk oil, vinegar, salt, and pepper. Drizzle over everything.",
     ],
-    notes: "No onion or garlic. Cheddar stands in for blue cheese.",
+    notes: "Cheddar stands in for blue cheese.",
   },
   {
     id: "chef-salad",
@@ -466,7 +465,6 @@ export const lunchMore: Recipe[] = [
       "Add the cheddar.",
       "Whisk oil, vinegar, mustard, and salt. Pour over the salad and toss at the table.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "caesar-style-salad",
@@ -538,7 +536,7 @@ export const lunchMore: Recipe[] = [
       "Whisk mayonnaise, lemon juice, remaining oil, and most of the Parmesan.",
       "Toss the romaine with the dressing. Top with chicken, breadcrumbs, and the rest of the Parmesan.",
     ],
-    notes: "No onion or garlic. Parmesan is the household lactose-clear hard cheese.",
+    notes: "Parmesan is the household lactose-clear hard cheese.",
   },
   {
     id: "caprese-salad",
@@ -600,7 +598,6 @@ export const lunchMore: Recipe[] = [
       "Drizzle with olive oil and balsamic.",
       "Season with salt and pepper and serve.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "taco-salad",
@@ -757,7 +754,7 @@ export const lunchMore: Recipe[] = [
       "Whisk oil, lemon, salt, and pepper. Toss with the quinoa.",
       "Scatter feta on top.",
     ],
-    notes: "No onion or garlic. Packs well for the next day.",
+    notes: "Packs well for the next day.",
   },
   {
     id: "pasta-salad",
@@ -835,7 +832,7 @@ export const lunchMore: Recipe[] = [
       "Whisk oil, vinegar, Italian seasoning, salt, and pepper. Pour over the pasta.",
       "Fold in the mozzarella. Chill until lunch.",
     ],
-    notes: "No onion or garlic. Gluten-free pasta is the only pasta in the house.",
+    notes: "Gluten-free pasta is the only pasta in the house.",
   },
   {
     id: "potato-salad",
@@ -908,7 +905,6 @@ export const lunchMore: Recipe[] = [
       "Fold in the warm potatoes and eggs. Season with salt and pepper.",
       "Chill at least 20 minutes, or eat it still a little warm.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "egg-drop-soup",
@@ -1576,7 +1572,7 @@ export const lunchMore: Recipe[] = [
       "Split the potatoes and fluff the insides with a fork. Add butter.",
       "Top with cheddar. Add sour cream. Finish with chives and bacon.",
     ],
-    notes: "No onion or garlic. Chives are the allium that usually sits well.",
+    notes: "Chives are the allium that usually sits well.",
   },
   {
     id: "stuffed-sweet-potato",
@@ -1709,7 +1705,7 @@ export const lunchMore: Recipe[] = [
       "Divide the rice into bowls. Top with tuna, cucumber, avocado, and carrot.",
       "Finish with sesame seeds.",
     ],
-    notes: "No onion or garlic. A pantry lunch on leftover rice.",
+    notes: "A pantry lunch on leftover rice.",
   },
   {
     id: "salmon-salad",
@@ -1783,7 +1779,7 @@ export const lunchMore: Recipe[] = [
       "Whisk oil, lemon, dill, salt, and pepper.",
       "Spoon the salmon on top and drizzle with the dressing.",
     ],
-    notes: "No onion or garlic. Leftover baked salmon works the same way.",
+    notes: "Leftover baked salmon works the same way.",
   },
   {
     id: "chickpea-salad-sandwich",
@@ -1856,7 +1852,7 @@ export const lunchMore: Recipe[] = [
       "Spread on gluten-free bread with lettuce.",
       "Close and cut in half.",
     ],
-    notes: "No onion or garlic. A tuna-salad stand-in when you want beans instead of fish.",
+    notes: "A tuna-salad stand-in when you want beans instead of fish.",
   },
   {
     id: "leftover-stir-fry-bowl",
@@ -1922,7 +1918,7 @@ export const lunchMore: Recipe[] = [
       "Add the rice and gluten-free soy sauce. Toss until the rice is warm.",
       "Finish with sesame oil and sesame seeds.",
     ],
-    notes: "Use last night's stir-fry vegetables if you have them. No extra onion or garlic.",
+    notes: "Use last night's stir-fry vegetables if you have them.",
   },
   {
     id: "cold-noodle-salad",
@@ -1993,7 +1989,7 @@ export const lunchMore: Recipe[] = [
       "Toss the noodles with cucumber, carrot, edamame, and the dressing.",
       "Finish with sesame seeds and lime.",
     ],
-    notes: "No onion or garlic. Packs well for a cold lunch.",
+    notes: "Packs well for a cold lunch.",
   },
   {
     id: "ham-cheese-sandwich",
@@ -2051,7 +2047,6 @@ export const lunchMore: Recipe[] = [
       "Top with lettuce and optional pickles.",
       "Close, cut in half, and serve.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "blt",
@@ -2099,7 +2094,6 @@ export const lunchMore: Recipe[] = [
       "Spread mayonnaise on each slice.",
       "Stack bacon, lettuce, and tomato. Close and cut in half.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "chicken-noodle-soup",
@@ -2263,7 +2257,7 @@ export const lunchMore: Recipe[] = [
       "Pour the dressing over the vegetables and toss with parsley.",
       "Scatter feta on top.",
     ],
-    notes: "No onion or garlic. A lighter plate than Greek salad — no lettuce.",
+    notes: "A lighter plate than Greek salad — no lettuce.",
   },
   {
     id: "white-bean-salad",
@@ -2337,7 +2331,6 @@ export const lunchMore: Recipe[] = [
       "Whisk oil, lemon, oregano, salt, and pepper.",
       "Pour over the beans and toss. Taste and add more lemon if it needs it.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "shrimp-salad",
@@ -2405,7 +2398,6 @@ export const lunchMore: Recipe[] = [
       "Season with salt and pepper.",
       "Spoon over mixed greens.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "leftover-taco-bowl",
@@ -2607,7 +2599,7 @@ export const lunchMore: Recipe[] = [
       "Pile on cucumber, carrot, pepper, and greens.",
       "Roll tightly and cut in half.",
     ],
-    notes: "No onion or garlic. Avocado holds the wrap together if you leave the cream cheese off.",
+    notes: "Avocado holds the wrap together if you leave the cream cheese off.",
   },
   {
     id: "sushi-bowl",
@@ -2684,7 +2676,7 @@ export const lunchMore: Recipe[] = [
       "Top with shrimp, cucumber, avocado, carrot, and nori.",
       "Serve with gluten-free soy sauce and sesame seeds.",
     ],
-    notes: "No onion or garlic. Canned salmon works if you do not have shrimp.",
+    notes: "Canned salmon works if you do not have shrimp.",
   },
   {
     id: "mediterranean-bowl",
@@ -2768,7 +2760,7 @@ export const lunchMore: Recipe[] = [
       "Whisk oil, lemon, and oregano. Drizzle over the bowls.",
       "Scatter feta and parsley on top.",
     ],
-    notes: "No onion or garlic. A grain bowl version of a Greek plate.",
+    notes: "A grain bowl version of a Greek plate.",
   },
   {
     id: "leftover-roast-plate",
@@ -2840,7 +2832,7 @@ export const lunchMore: Recipe[] = [
       "Whisk oil, mustard, vinegar, salt, and pepper.",
       "Add the warm leftovers beside the greens and drizzle with the dressing.",
     ],
-    notes: "No onion or garlic. Sunday roast leftovers, plated instead of sandwiched.",
+    notes: "Sunday roast leftovers, plated instead of sandwiched.",
   },
   {
     id: "soup-and-rice-cakes",
@@ -2900,8 +2892,7 @@ export const lunchMore: Recipe[] = [
       "Stir in most of the basil. Season with salt and pepper.",
       "Ladle into bowls and eat with rice cakes on the side. Finish with the rest of the basil.",
     ],
-    notes:
-      "No onion or garlic. Leftover soup works the same way. Rice cakes stand in for grilled cheese.",
+    notes: "Leftover soup works the same way. Rice cakes stand in for grilled cheese.",
   },
   {
     id: "cottage-cheese-plate",
@@ -2957,7 +2948,7 @@ export const lunchMore: Recipe[] = [
       "Add a grind of pepper on the cottage cheese.",
       "Eat with rice cakes.",
     ],
-    notes: "No onion or garlic. A no-cook plate when you do not want a sandwich.",
+    notes: "A no-cook plate when you do not want a sandwich.",
   },
   {
     id: "pesto-pasta-lunch",
@@ -3100,7 +3091,7 @@ export const lunchMore: Recipe[] = [
       "Heat the oil in a skillet over medium heat. Cook the patties until browned, about 3 minutes per side.",
       "Serve with greens, cucumber, and tomato. Add a spoonful of Greek yogurt. Offer lemon wedges.",
     ],
-    notes: "No onion or garlic. Mash and pan-fry — no falafel mix.",
+    notes: "Mash and pan-fry — no falafel mix.",
   },
   {
     id: "corn-chowder",
@@ -3244,7 +3235,7 @@ export const lunchMore: Recipe[] = [
       "Flake the sardines over the tomato.",
       "Finish with parsley, pepper, and lemon.",
     ],
-    notes: "No onion or garlic. Sourdough is the household gluten exception.",
+    notes: "Sourdough is the household gluten exception.",
   },
   {
     id: "leftover-dal-bowl",
@@ -3394,7 +3385,7 @@ export const lunchMore: Recipe[] = [
       "Add lettuce, noodles, shrimp, cucumber, carrot, mint, and cilantro. Fold the sides in and roll.",
       "Repeat with the remaining wrappers. Serve with the peanut sauce.",
     ],
-    notes: "No onion or garlic. Work with one wrapper at a time so they do not stick.",
+    notes: "Work with one wrapper at a time so they do not stick.",
   },
   {
     id: "arugula-chicken-salad",
@@ -3467,7 +3458,7 @@ export const lunchMore: Recipe[] = [
       "Toss the salad with the dressing.",
       "Shave Parmesan over the top.",
     ],
-    notes: "No onion or garlic. Parmesan is lactose-clear. Leftover roast chicken is the point.",
+    notes: "Parmesan is lactose-clear. Leftover roast chicken is the point.",
   },
   {
     id: "loaded-nachos-lunch",
@@ -3622,6 +3613,5 @@ export const lunchMore: Recipe[] = [
       "Build bowls with quinoa and roasted vegetables. Drizzle with tahini sauce.",
       "Add a spoonful of Greek yogurt.",
     ],
-    notes: "No onion or garlic.",
   },
 ];

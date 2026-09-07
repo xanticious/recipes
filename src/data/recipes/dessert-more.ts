@@ -69,7 +69,6 @@ export const dessertMore: Recipe[] = [
       "Spread the batter in the pan.",
       "Bake 22–25 minutes, until a toothpick comes out with a few moist crumbs. Cool before cutting.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "banana-bread",
@@ -146,7 +145,6 @@ export const dessertMore: Recipe[] = [
       "Fold in optional walnuts. Scrape the batter into the pan.",
       "Bake 50–55 minutes, until a toothpick in the center comes out clean. Cool 15 minutes before slicing.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "apple-crisp",
@@ -218,7 +216,6 @@ export const dessertMore: Recipe[] = [
       "Bake 35–40 minutes, until the topping is golden and the apples are bubbling.",
       "Serve warm with whipped cream.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "peach-cobbler",
@@ -283,7 +280,6 @@ export const dessertMore: Recipe[] = [
       "Pour the batter over the butter. Do not stir. Spoon the peaches on top.",
       "Bake 35–40 minutes, until the cobbler is golden and the fruit is bubbling. Cool 10 minutes.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "pumpkin-bread",
@@ -361,7 +357,6 @@ export const dessertMore: Recipe[] = [
       "Scrape the batter into the pan and smooth the top.",
       "Bake 50–55 minutes, until a toothpick comes out clean. Cool before slicing.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "rice-cereal-treats",
@@ -404,7 +399,7 @@ export const dessertMore: Recipe[] = [
       "Take the pot off the heat. Stir in optional vanilla, then the rice cereal until coated.",
       "Press the mixture into the pan with a greased spatula. Cool, then cut into squares.",
     ],
-    notes: "No onion or garlic. Use a gluten-free crisp rice cereal.",
+    notes: "Use a gluten-free crisp rice cereal.",
   },
   {
     id: "chocolate-pudding",
@@ -463,7 +458,6 @@ export const dessertMore: Recipe[] = [
       "Take it off the heat and stir in the vanilla. Pour into bowls.",
       "Chill at least 1 hour. Top with whipped cream.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "vanilla-pudding",
@@ -521,7 +515,6 @@ export const dessertMore: Recipe[] = [
       "Cook 1 minute more, stirring. Take it off the heat and stir in the butter and vanilla.",
       "Pour into bowls and chill at least 1 hour.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "berry-crumble",
@@ -597,7 +590,6 @@ export const dessertMore: Recipe[] = [
       "Bake 30–35 minutes, until the topping is brown and the fruit is bubbling.",
       "Rest 10 minutes so the juices thicken, then serve warm.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "lemon-bars",
@@ -662,7 +654,6 @@ export const dessertMore: Recipe[] = [
       "Whisk the eggs, white sugar, lemon zest and juice, and the 2 tablespoons flour. Pour over the hot crust.",
       "Bake 18–20 minutes more, until the filling is set. Cool, then dust with the remaining powdered sugar and cut.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "no-bake-cookies",
@@ -725,7 +716,6 @@ export const dessertMore: Recipe[] = [
       "Fold in the oats until every flake is coated.",
       "Drop spoonfuls onto the sheets. Let them set at room temperature, about 30 minutes.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "peanut-butter-cookies",
@@ -772,7 +762,7 @@ export const dessertMore: Recipe[] = [
       "Roll tablespoon-size balls and set them on the sheets. Flatten each with a fork in a crisscross.",
       "Bake 10–12 minutes, until the edges look set. Cool on the sheet 5 minutes.",
     ],
-    notes: "No onion or garlic. These cookies need no flour.",
+    notes: "These cookies need no flour.",
   },
   {
     id: "oatmeal-cookies",
@@ -847,7 +837,6 @@ export const dessertMore: Recipe[] = [
       "Scoop tablespoon-size balls onto the sheets, leaving a little space between them.",
       "Bake 10–12 minutes, until the edges are golden. Cool on the sheet 5 minutes.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "fudge",
@@ -899,7 +888,6 @@ export const dessertMore: Recipe[] = [
       "Take it off the heat. Stir in the powdered sugar, vanilla, and salt until thick and glossy.",
       "Spread the fudge in the pan. Chill until firm, about 2 hours, then cut into squares.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "baked-bananas",
@@ -943,7 +931,6 @@ export const dessertMore: Recipe[] = [
       "Spoon the mixture over the bananas.",
       "Bake 12–15 minutes, until the bananas are soft and the syrup is bubbling. Serve warm.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "chocolate-mug-cake",
@@ -1005,7 +992,7 @@ export const dessertMore: Recipe[] = [
       "Microwave on high 70–90 seconds, until the cake is set on top but still a little moist.",
       "Let it sit 1 minute — the mug will be hot — then eat from the mug.",
     ],
-    notes: "No onion or garlic. Mug sizes vary; stop when the top looks set.",
+    notes: "Mug sizes vary; stop when the top looks set.",
   },
   {
     id: "strawberry-shortcake",
@@ -1075,7 +1062,7 @@ export const dessertMore: Recipe[] = [
       "Bake on a parchment-lined sheet 15–18 minutes, until golden. Cool 10 minutes, then split each biscuit.",
       "Spoon strawberries over the bottoms. Add whipped cream. Cap with the biscuit tops.",
     ],
-    notes: "No onion or garlic. A special-occasion dessert for a crowd.",
+    notes: "A special-occasion dessert for a crowd.",
   },
   {
     id: "whipped-berry-cups",
@@ -1130,7 +1117,6 @@ export const dessertMore: Recipe[] = [
       "Spoon whipped cream over the fruit.",
       "Finish with optional mint and serve right away.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "mango-sticky-rice",
@@ -1185,7 +1171,7 @@ export const dessertMore: Recipe[] = [
       "Spoon the rice onto plates and add the mango.",
       "Drizzle the remaining coconut sauce over the top.",
     ],
-    notes: "No onion or garlic. Jasmine rice stands in for sticky rice here.",
+    notes: "Jasmine rice stands in for sticky rice here.",
   },
   {
     id: "rice-kheer",
@@ -1241,7 +1227,6 @@ export const dessertMore: Recipe[] = [
       "Stir in the sugar and cardamom. Cook 5 minutes more, until the kheer is creamy.",
       "Add optional raisins. Serve warm or chilled, with optional almonds on top.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "baked-churros",
@@ -1315,8 +1300,7 @@ export const dessertMore: Recipe[] = [
       "Pipe or roll the dough into 4-inch logs on the sheet. Brush lightly with oil.",
       "Bake 20–25 minutes, until golden and dry. Toss the warm churros in the remaining sugar mixed with cinnamon.",
     ],
-    notes:
-      "No onion or garlic. A piping bag with a star tip is nice; rolling logs by hand works too.",
+    notes: "A piping bag with a star tip is nice; rolling logs by hand works too.",
   },
   {
     id: "coconut-flan",
@@ -1375,8 +1359,7 @@ export const dessertMore: Recipe[] = [
       "Bake 45–50 minutes, until the center is just set and still has a slight jiggle.",
       "Cool, then chill at least 4 hours. Run a knife around the edge and invert onto a plate.",
     ],
-    notes:
-      "No onion or garlic. A special-occasion dessert; start it the morning you want to serve it.",
+    notes: "A special-occasion dessert; start it the morning you want to serve it.",
   },
   {
     id: "chocolate-strawberries",
@@ -1415,7 +1398,6 @@ export const dessertMore: Recipe[] = [
       "Dip each strawberry, letting extra chocolate drip off. Set on the parchment.",
       "Sprinkle optional coconut on the wet chocolate. Chill until the coating is firm, about 20 minutes.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "peanut-butter-cups",
@@ -1463,7 +1445,6 @@ export const dessertMore: Recipe[] = [
       "Stir the peanut butter, powdered sugar, and salt. Add a small spoonful to each cup.",
       "Cover with the remaining chocolate. Chill until firm, about 30 minutes.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "blondies",
@@ -1528,7 +1509,6 @@ export const dessertMore: Recipe[] = [
       "Spread the batter in the pan.",
       "Bake 22–25 minutes, until the edges are golden and the center is just set. Cool before cutting.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "carrot-cake-squares",
@@ -1610,7 +1590,6 @@ export const dessertMore: Recipe[] = [
       "Bake 28–30 minutes, until a toothpick comes out clean. Cool completely.",
       "Beat the cream cheese with the powdered sugar and spread it on the cooled cake.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cinnamon-sugar-tortillas",
@@ -1653,7 +1632,6 @@ export const dessertMore: Recipe[] = [
       "Cut into wedges and spread on a baking sheet.",
       "Bake 8–10 minutes, until crisp at the edges. Cool a minute so they firm up.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "baked-pears",
@@ -1710,7 +1688,6 @@ export const dessertMore: Recipe[] = [
       "Bake 25–30 minutes, until the pears are tender when pierced.",
       "Serve warm with whipped cream.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "coconut-chocolate-mousse",
@@ -1754,7 +1731,7 @@ export const dessertMore: Recipe[] = [
       "Whip the coconut cream with the maple syrup and vanilla until fluffy.",
       "Fold in the melted chocolate. Spoon into cups and chill at least 1 hour.",
     ],
-    notes: "No onion or garlic. Chill the coconut milk overnight so the cream separates.",
+    notes: "Chill the coconut milk overnight so the cream separates.",
   },
   {
     id: "frozen-banana-bites",
@@ -1799,7 +1776,7 @@ export const dessertMore: Recipe[] = [
       "Melt the chocolate. Dip each sandwich, letting extra drip off, and set on the sheet.",
       "Sprinkle optional coconut on top. Freeze until firm, about 30 minutes more.",
     ],
-    notes: "No onion or garlic. Keep leftovers in a freezer bag.",
+    notes: "Keep leftovers in a freezer bag.",
   },
   {
     id: "sugar-cookies",
@@ -1858,7 +1835,6 @@ export const dessertMore: Recipe[] = [
       "Roll tablespoon-size balls, set them on the sheets, and flatten slightly with a glass.",
       "Bake 10–12 minutes, until the edges are just golden. Cool on the sheet 5 minutes.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "berry-parfait-dessert",
@@ -1906,7 +1882,6 @@ export const dessertMore: Recipe[] = [
       "Repeat the layers. Drizzle honey over the top.",
       "Serve right away so the oats stay a little crisp.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "pumpkin-custard",
@@ -1980,7 +1955,6 @@ export const dessertMore: Recipe[] = [
       "Bake 35–40 minutes, until the centers are just set. Cool, then chill if you like.",
       "Serve with whipped cream.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "almond-cookies",
@@ -2045,6 +2019,5 @@ export const dessertMore: Recipe[] = [
       "Roll tablespoon-size balls, set them on the sheets, and flatten slightly.",
       "Bake 12–14 minutes, until the edges are lightly golden. Cool on the sheet.",
     ],
-    notes: "No onion or garlic.",
   },
 ];

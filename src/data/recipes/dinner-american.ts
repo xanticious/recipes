@@ -252,7 +252,6 @@ export const dinnerAmerican: Recipe[] = [
       "Bake 20–25 minutes, until the chops are cooked through.",
       "Squeeze lemon over everything and serve.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder.",
   },
   {
     id: "pork-chops-and-apples",
@@ -317,7 +316,6 @@ export const dinnerAmerican: Recipe[] = [
       "Nestle the chops back in. Cover and cook on medium-low until the pork is done, 5–8 minutes.",
       "Spoon the apples over the chops.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder.",
   },
   {
     id: "meatballs-and-rice",
@@ -804,7 +802,6 @@ export const dinnerAmerican: Recipe[] = [
       "Take it off the heat and stir in most of the cheddar. Fold in pasta, tuna, and peas. Season with salt and pepper.",
       "Spread in a baking dish. Top with the remaining cheddar. Bake 20–25 minutes, until bubbling.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "baked-chicken-thighs",
@@ -864,7 +861,6 @@ export const dinnerAmerican: Recipe[] = [
       "Roast 30–35 minutes, until the skin is crisp and the meat is cooked through.",
       "Rest 5 minutes. Serve with lemon wedges.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder.",
   },
   {
     id: "grilled-steak",
@@ -922,7 +918,6 @@ export const dinnerAmerican: Recipe[] = [
       "Rest 5 minutes. Melt the butter and spoon it over the sliced steak.",
       "Serve with the mixed greens.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder.",
   },
   {
     id: "bbq-chicken",
@@ -976,7 +971,7 @@ export const dinnerAmerican: Recipe[] = [
       "Bake 10–15 minutes more, until cooked through. Brush with the remaining sauce.",
       "Rest 5 minutes before serving.",
     ],
-    notes: "No fresh onion or garlic. Barbecue sauce usually has both, plus sugar.",
+    notes: "Barbecue sauce usually has onion and garlic, plus sugar.",
   },
   {
     id: "sausage-and-peppers",
@@ -1113,7 +1108,7 @@ export const dinnerAmerican: Recipe[] = [
       "Shred the meat in the pot juices. Stir in the barbecue sauce.",
       "Serve in bowls or piled on optional gluten-free bread.",
     ],
-    notes: "A weekend cook. No fresh onion or garlic; barbecue sauce usually has both.",
+    notes: "A weekend cook. Barbecue sauce usually has onion and garlic.",
   },
   {
     id: "baked-chicken-wings",
@@ -1172,7 +1167,7 @@ export const dinnerAmerican: Recipe[] = [
       "Stir the hot sauce and melted butter.",
       "Toss the hot wings in the sauce, or serve the sauce on the side.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder. Baking powder helps the skin crisp.",
+    notes: "Baking powder helps the skin crisp.",
   },
   {
     id: "cabbage-and-sausage",
@@ -1234,7 +1229,7 @@ export const dinnerAmerican: Recipe[] = [
       "Cover and cook 10 minutes, until the cabbage is tender and the sausages are cooked through.",
       "Season with salt and pepper.",
     ],
-    notes: "No onion or garlic. Italian sausage typically includes garlic.",
+    notes: "Italian sausage typically includes garlic.",
   },
   {
     id: "chili-baked-potatoes",
@@ -1544,7 +1539,6 @@ export const dinnerAmerican: Recipe[] = [
       "Roast 18–22 minutes more, until the pork is just cooked through.",
       "Rest the pork 5 minutes, then slice and serve with the vegetables.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder.",
   },
   {
     id: "skillet-chicken-potatoes",
@@ -1610,6 +1604,5 @@ export const dinnerAmerican: Recipe[] = [
       "Nestle the chicken back in. Cover and cook on medium-low until the chicken is done and the potatoes are tender, 12–15 minutes.",
       "Squeeze lemon over the skillet and serve.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder.",
   },
 ];

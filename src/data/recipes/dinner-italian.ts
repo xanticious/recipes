@@ -83,8 +83,7 @@ export const dinnerItalian: Recipe[] = [
       "Spoon marinara over the chicken. Top with mozzarella and the remaining Parmesan.",
       "Bake 12–15 minutes, until the chicken is cooked through. Finish with basil.",
     ],
-    notes:
-      "No onion or garlic in the breading. Marinara has both. Parmesan is the household lactose-clear hard cheese.",
+    notes: "Marinara has onion and garlic. Parmesan is the household lactose-clear hard cheese.",
   },
   {
     id: "eggplant-parm",
@@ -168,7 +167,7 @@ export const dinnerItalian: Recipe[] = [
       "Add mozzarella and the remaining Parmesan between layers and on top.",
       "Bake 25–30 minutes, until bubbling. Rest 10 minutes and finish with basil.",
     ],
-    notes: "No onion or garlic in the breading. Marinara has both.",
+    notes: "Marinara has onion and garlic.",
   },
   {
     id: "pesto-pasta-dinner",
@@ -229,8 +228,7 @@ export const dinnerItalian: Recipe[] = [
       "Return the pasta. Stir in the pesto and a little pasta water until it coats the noodles.",
       "Season with salt. Serve with Parmesan and basil.",
     ],
-    notes:
-      "No onion or garlic added. Jarred pesto usually has garlic. Parmesan is the household lactose-clear hard cheese.",
+    notes: "Jarred pesto usually has garlic. Parmesan is the household lactose-clear hard cheese.",
   },
   {
     id: "sausage-pasta",
@@ -641,7 +639,7 @@ export const dinnerItalian: Recipe[] = [
       "Stir in the remaining butter. Return the chicken and spoon the sauce over it for 2 minutes.",
       "Finish with parsley and lemon slices.",
     ],
-    notes: "No onion or garlic. The sauce is lemon, capers, and butter.",
+    notes: "The sauce is lemon, capers, and butter.",
   },
   {
     id: "shrimp-scampi",
@@ -871,7 +869,6 @@ export const dinnerItalian: Recipe[] = [
       "Bake 12–15 minutes, until the chicken is cooked through.",
       "Drizzle with balsamic and pile basil on top.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "mushroom-risotto",
@@ -1212,7 +1209,7 @@ export const dinnerItalian: Recipe[] = [
       "Bake 15–18 minutes, until the fish flakes.",
       "Finish with parsley.",
     ],
-    notes: "No onion or garlic. Any firm white fish works — cod is the usual pick.",
+    notes: "Any firm white fish works — cod is the usual pick.",
   },
   {
     id: "creamy-polenta-sausage",

@@ -31,7 +31,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className={styles.shell}>
-      <header className={styles.bar}>
+      <header className={styles.bar} data-app-bar="">
         <a
           className={styles.brand}
           href={routeToHash({ name: "landing" })}

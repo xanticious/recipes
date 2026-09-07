@@ -49,7 +49,6 @@ export const breakfastMore: Recipe[] = [
       "Flip for a firmer yolk, or leave them sunny-side up. Season with salt and pepper.",
       "Serve the eggs on the toast.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cheese-omelette",
@@ -100,7 +99,6 @@ export const breakfastMore: Recipe[] = [
       "Scatter cheddar over one half when the top is still a little wet.",
       "Fold the omelette over and slide it onto a plate. Repeat if you are making two.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "veggie-frittata",
@@ -370,7 +368,6 @@ export const breakfastMore: Recipe[] = [
       "Cover and refrigerate overnight, or at least 4 hours.",
       "In the morning, stir and top with the remaining blueberries.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "baked-oatmeal",
@@ -449,7 +446,7 @@ export const breakfastMore: Recipe[] = [
       "Pour into the dish and bake until the center is set and the top is golden, about 35 minutes.",
       "Cool 10 minutes, then scoop into bowls.",
     ],
-    notes: "No onion or garlic. Leftovers reheat well through the week.",
+    notes: "Leftovers reheat well through the week.",
   },
   {
     id: "cinnamon-oatmeal",
@@ -508,7 +505,6 @@ export const breakfastMore: Recipe[] = [
       "Stir in the brown sugar and optional butter.",
       "Spoon into bowls.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "peanut-butter-toast",
@@ -558,7 +554,7 @@ export const breakfastMore: Recipe[] = [
       "Lay banana slices on top.",
       "Drizzle with honey. Add a pinch of cinnamon if you like.",
     ],
-    notes: "No onion or garlic. Almond butter works the same way if that is what you have.",
+    notes: "Almond butter works the same way if that is what you have.",
   },
   {
     id: "avocado-toast",
@@ -619,7 +615,7 @@ export const breakfastMore: Recipe[] = [
       "Spread the avocado on the toast. Add red pepper flakes if you want heat.",
       "Fry optional eggs in a little oil and set them on top.",
     ],
-    notes: "No onion or garlic. Skip the avocado if you are avoiding sorbitol.",
+    notes: "Skip the avocado if you are avoiding sorbitol.",
   },
   {
     id: "french-toast",
@@ -683,7 +679,7 @@ export const breakfastMore: Recipe[] = [
       "Cook the slices until golden, 2–3 minutes per side, adding butter as needed.",
       "Serve with maple syrup.",
     ],
-    notes: "No onion or garlic. Stale bread soaks better than fresh.",
+    notes: "Stale bread soaks better than fresh.",
   },
   {
     id: "gf-waffles",
@@ -752,7 +748,7 @@ export const breakfastMore: Recipe[] = [
       "Scoop batter onto the iron and cook until steam slows and the waffle is crisp.",
       "Serve with maple syrup.",
     ],
-    notes: "No onion or garlic. Extra waffles freeze and reheat in the toaster.",
+    notes: "Extra waffles freeze and reheat in the toaster.",
   },
   {
     id: "cornmeal-pancakes",
@@ -821,7 +817,7 @@ export const breakfastMore: Recipe[] = [
       "Cook until bubbles form and the edges look set, then flip and cook about 1 minute more.",
       "Serve with maple syrup.",
     ],
-    notes: "No onion or garlic. The rest gives the cornmeal time to soften.",
+    notes: "The rest gives the cornmeal time to soften.",
   },
   {
     id: "breakfast-quesadilla",
@@ -883,7 +879,6 @@ export const breakfastMore: Recipe[] = [
       "Cook until the bottom is spotted brown, about 2 minutes, then flip and cook the other side.",
       "Repeat with the remaining tortillas. Cut into wedges and serve with salsa and optional cilantro.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "huevos-rancheros",
@@ -1177,7 +1172,7 @@ export const breakfastMore: Recipe[] = [
       "Poach or soft-boil the eggs, or stir beaten eggs into the hot porridge until they ribbon.",
       "Ladle into bowls and top with optional green onion.",
     ],
-    notes: "No onion or garlic. Skip the green onion if you are avoiding fructans.",
+    notes: "Skip the green onion if you are avoiding fructans.",
   },
   {
     id: "yogurt-parfait",
@@ -1231,7 +1226,6 @@ export const breakfastMore: Recipe[] = [
       "Add berries, then more yogurt, then the toasted oats and almonds.",
       "Drizzle honey over the top.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cottage-cheese-bowl",
@@ -1282,7 +1276,6 @@ export const breakfastMore: Recipe[] = [
       "Drizzle honey over the top.",
       "Add a pinch of cinnamon if you like.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "smoothie-bowl",
@@ -1341,7 +1334,7 @@ export const breakfastMore: Recipe[] = [
       "Top with blueberries, chia seeds, and coconut flakes.",
       "Eat with a spoon.",
     ],
-    notes: "No onion or garlic. Frozen fruit keeps the bowl scoopable.",
+    notes: "Frozen fruit keeps the bowl scoopable.",
   },
   {
     id: "banana-smoothie",
@@ -1385,7 +1378,7 @@ export const breakfastMore: Recipe[] = [
       "Blend until smooth. Use a frozen banana if you want it colder and thicker.",
       "Pour into two glasses.",
     ],
-    notes: "No onion or garlic. A frozen banana makes it thicker.",
+    notes: "A frozen banana makes it thicker.",
   },
   {
     id: "breakfast-casserole",
@@ -1506,7 +1499,7 @@ export const breakfastMore: Recipe[] = [
       "Season the eggs with salt and pepper.",
       "Serve the sausage and eggs together.",
     ],
-    notes: "No onion or garlic. Use whatever sausage you already buy.",
+    notes: "Use whatever sausage you already buy.",
   },
   {
     id: "bacon-and-eggs",
@@ -1557,7 +1550,6 @@ export const breakfastMore: Recipe[] = [
       "Toast optional bread while the eggs cook.",
       "Serve the eggs with the bacon.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "breakfast-potatoes",
@@ -1672,8 +1664,7 @@ export const breakfastMore: Recipe[] = [
       "Cover and refrigerate at least 4 hours, or overnight.",
       "Stir and top with raspberries and optional coconut flakes.",
     ],
-    notes:
-      "No onion or garlic. It should be spoonable, not soupy — add a spoon of chia if it is thin.",
+    notes: "It should be spoonable, not soupy — add a spoon of chia if it is thin.",
   },
   {
     id: "granola-and-milk",
@@ -1744,7 +1735,7 @@ export const breakfastMore: Recipe[] = [
       "Stir in the raisins.",
       "Serve in bowls with lactose-free milk poured over.",
     ],
-    notes: "No onion or garlic. Store the granola in a jar and pour milk when you eat it.",
+    notes: "Store the granola in a jar and pour milk when you eat it.",
   },
   {
     id: "breakfast-sandwich",
@@ -1803,7 +1794,6 @@ export const breakfastMore: Recipe[] = [
       "Warm the ham in the same pan for 30 seconds.",
       "Stack ham, cheddar, and an egg on two slices of toast. Close the sandwiches.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "salmon-egg-toast",
@@ -1869,7 +1859,7 @@ export const breakfastMore: Recipe[] = [
       "Fry the eggs in the oil to the doneness you like.",
       "Set an egg on each pair of toasts.",
     ],
-    notes: "No onion or garlic. Leftover cooked salmon works in place of canned.",
+    notes: "Leftover cooked salmon works in place of canned.",
   },
   {
     id: "breakfast-tostadas",
@@ -1935,7 +1925,6 @@ export const breakfastMore: Recipe[] = [
       "Spread beans on each tostada. Top with an egg, salsa, cheddar,, and cilantro.",
       "Add a spoon of sour cream.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "egg-bhurji",
@@ -2088,7 +2077,7 @@ export const breakfastMore: Recipe[] = [
       "Cook until bubbles form and the edges look set, then flip and cook about 1 minute more.",
       "Serve with maple syrup.",
     ],
-    notes: "No onion or garlic. Shake the coconut milk can before you measure.",
+    notes: "Shake the coconut milk can before you measure.",
   },
   {
     id: "leftover-rice-breakfast",
@@ -2149,8 +2138,7 @@ export const breakfastMore: Recipe[] = [
       "Push the rice aside and fry the eggs in the empty space, or scramble them through the rice.",
       "Season with gluten-free soy sauce and sesame oil. Top with optional green onion.",
     ],
-    notes:
-      "No onion or garlic. Skip the green onion if you are avoiding fructans. A quieter skillet than fried rice.",
+    notes: "Skip the green onion if you are avoiding fructans. A quieter skillet than fried rice.",
   },
   {
     id: "spinach-egg-scramble",
@@ -2206,7 +2194,6 @@ export const breakfastMore: Recipe[] = [
       "Pour in the eggs. Stir slowly until they are just set, about 3 minutes.",
       "Fold in the feta at the end.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "breakfast-polenta",
@@ -2263,7 +2250,7 @@ export const breakfastMore: Recipe[] = [
       "Stir in the butter and maple syrup.",
       "Spoon into bowls and top with blueberries.",
     ],
-    notes: "No onion or garlic. Use coarse cornmeal if that is what the bag says.",
+    notes: "Use coarse cornmeal if that is what the bag says.",
   },
   {
     id: "ham-egg-skillet",
@@ -2465,7 +2452,6 @@ export const breakfastMore: Recipe[] = [
       "Pile on the strawberries.",
       "Drizzle with honey. Add a pinch of black pepper if you like the sweet-savory contrast.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "breakfast-grits",
@@ -2524,7 +2510,6 @@ export const breakfastMore: Recipe[] = [
       "Stir in the butter and cheddar.",
       "Season with pepper and spoon into bowls.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "mango-lassi-bowl",
@@ -2579,7 +2564,7 @@ export const breakfastMore: Recipe[] = [
       "Top with the remaining mango pieces and almonds.",
       "Eat with a spoon.",
     ],
-    notes: "No onion or garlic. Use ripe mango so you do not need much honey.",
+    notes: "Use ripe mango so you do not need much honey.",
   },
   {
     id: "tofu-scramble",
@@ -2811,7 +2796,7 @@ export const breakfastMore: Recipe[] = [
       "Divide into bowls. Add cucumber, optional nori, and optional green onion.",
       "Fry optional eggs and set them on top. Finish with the remaining sesame seeds.",
     ],
-    notes: "No onion or garlic. Skip the green onion if you are avoiding fructans.",
+    notes: "Skip the green onion if you are avoiding fructans.",
   },
   {
     id: "olive-oil-fried-eggs",
@@ -2873,6 +2858,6 @@ export const breakfastMore: Recipe[] = [
       "Cook until the whites are set and the edges are crisp. Season with salt and pepper.",
       "Serve with optional toast for the oil and tomatoes.",
     ],
-    notes: "No onion or garlic. The oil is the seasoning — use one you like the taste of.",
+    notes: "The oil is the seasoning — use one you like the taste of.",
   },
 ];

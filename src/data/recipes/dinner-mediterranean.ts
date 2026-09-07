@@ -142,7 +142,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Stir the feta into the tomatoes until creamy. Fold in the basil.",
       "Serve over the rice.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "lamb-chops-dinner",
@@ -202,7 +201,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Meanwhile, boil or steam the green beans until tender, about 6 minutes. Toss with the remaining oil.",
       "Serve the lamb with the beans and extra lemon wedges.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "chickpea-bowls",
@@ -287,7 +285,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Spoon the chickpeas over the greens. Drizzle with the dressing.",
       "Scatter feta on top.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "shrimp-and-rice",
@@ -511,7 +508,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Add the shrimp and cook until pink, 2–3 minutes per side.",
       "Return the zucchini. Add the lemon juice and parsley. Toss and serve.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "chickpea-stew",
@@ -660,7 +656,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Roast 10–12 minutes more, until the eggplant is soft.",
       "Scatter feta and basil over the top.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "fish-with-olives",
@@ -733,7 +728,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Bake 12–15 minutes, until the fish flakes.",
       "Finish with parsley.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "chicken-and-olives",
@@ -804,7 +798,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Roast 25–30 minutes, until the chicken is cooked through.",
       "Squeeze the remaining lemon juice over the pan and serve.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "quinoa-tabbouleh-bowl",
@@ -884,7 +877,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Pour the dressing over the bowl and toss.",
       "Taste and add more lemon if it needs brightness.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "spinach-rice",
@@ -950,7 +942,6 @@ export const dinnerMediterranean: Recipe[] = [
       "Take it off the heat. Fold in lemon juice, dill, and pepper.",
       "Rest 5 minutes, then fluff and serve.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "grilled-lamb-salad",
@@ -1034,6 +1025,5 @@ export const dinnerMediterranean: Recipe[] = [
       "Whisk the remaining oil with lemon and optional sumac. Drizzle over the salad.",
       "Top with the lamb. Add feta.",
     ],
-    notes: "No onion or garlic.",
   },
 ];

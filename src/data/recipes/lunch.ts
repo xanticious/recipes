@@ -126,7 +126,7 @@ export const lunch: Recipe[] = [
       "Spoon the salad into romaine leaves.",
       "Eat them like cups, or wrap the leaves around the filling.",
     ],
-    notes: "A good use for leftover roast or sheet-pan chicken. No onion or garlic.",
+    notes: "A good use for leftover roast or sheet-pan chicken.",
   },
   {
     id: "leftover-rice-bowl",
@@ -273,7 +273,6 @@ export const lunch: Recipe[] = [
       "Pour the dressing over the vegetables and toss.",
       "Scatter feta on top just before serving.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cheese-quesadilla",
@@ -611,6 +610,5 @@ export const lunch: Recipe[] = [
       "Season with salt and pepper.",
       "Fill the cucumber halves with the tuna and serve right away.",
     ],
-    notes: "No onion or garlic.",
   },
 ];

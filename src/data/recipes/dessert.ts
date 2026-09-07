@@ -68,7 +68,6 @@ export const dessert: Recipe[] = [
       "Scoop tablespoon-size balls onto the sheets, leaving a little space between them.",
       "Bake 10–12 minutes, until the edges are golden. Cool on the sheet for 5 minutes.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cinnamon-baked-apples",
@@ -175,7 +174,6 @@ export const dessert: Recipe[] = [
       "When the rice is soft and the pudding is creamy, stir in vanilla and cinnamon.",
       "Serve warm, or chill and eat cold.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "dark-chocolate-bark",
@@ -219,7 +217,6 @@ export const dessert: Recipe[] = [
       "Scatter almonds, pumpkin seeds, and coconut over the top and press them in lightly.",
       "Chill until firm, about 30 minutes, then break into pieces.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "coconut-macaroons",
@@ -268,7 +265,6 @@ export const dessert: Recipe[] = [
       "Scoop small mounds onto the sheet.",
       "Bake 16–18 minutes, until the tips are golden. Cool on the sheet.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "maple-grilled-peaches",

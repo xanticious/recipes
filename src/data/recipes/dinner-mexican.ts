@@ -324,7 +324,6 @@ export const dinnerMexican: Recipe[] = [
       "Warm the tortillas. Pile cabbage and avocado on each one, then the shrimp.",
       "Finish with cilantro and lime wedges. Spoon yogurt over the tacos.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "fish-tacos",
@@ -399,7 +398,6 @@ export const dinnerMexican: Recipe[] = [
       "Break the fish into chunks. Toss the cabbage with a squeeze of lime and the cilantro.",
       "Warm the tortillas. Fill with cabbage and fish. Add a spoon of sour cream. Serve with lime wedges.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "tostadas",
@@ -470,7 +468,7 @@ export const dinnerMexican: Recipe[] = [
       "Spread beans on each tostada. Add lettuce, salsa, and avocado.",
       "Scatter cheddar over the top. Add a spoon of sour cream. Finish with cilantro.",
     ],
-    notes: "No onion or garlic in the assembly. Salsa has onion and garlic.",
+    notes: "Salsa has onion and garlic.",
   },
   {
     id: "chile-verde",
@@ -813,7 +811,7 @@ export const dinnerMexican: Recipe[] = [
       "Divide the chilaquiles among plates. Top with eggs, avocado, and cilantro.",
       "Scatter cheddar over each plate. Add a spoon of sour cream.",
     ],
-    notes: "No onion or garlic in the pan. Salsa has both.",
+    notes: "Salsa has onion and garlic.",
   },
   {
     id: "burrito-skillet",
@@ -1067,7 +1065,7 @@ export const dinnerMexican: Recipe[] = [
       "Rest 5 minutes, then slice thin across the grain.",
       "Warm the tortillas. Serve the steak with avocado, cilantro, and lime wedges.",
     ],
-    notes: "No onion or garlic. A hot pan and a short rest matter more than a long marinade.",
+    notes: "A hot pan and a short rest matter more than a long marinade.",
   },
   {
     id: "chicken-tortilla-soup",
@@ -1269,7 +1267,7 @@ export const dinnerMexican: Recipe[] = [
       "Toss the corn with lime juice, the remaining chili powder and salt, and most of the cilantro. Fold in the sour cream.",
       "Divide rice into bowls. Top with chicken and the corn. Scatter cheddar over the top. Finish with cilantro and lime wedges.",
     ],
-    notes: "No onion or garlic. Street-corn flavors in a bowl.",
+    notes: "Street-corn flavors in a bowl.",
   },
   {
     id: "poblano-cheese-skillet",

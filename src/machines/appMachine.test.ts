@@ -1,11 +1,36 @@
 import { createActor } from "xstate";
-import { expect, test } from "vitest";
-import { appMachine } from "./appMachine.ts";
+import { afterEach, expect, test, vi } from "vitest";
+import {
+  appMachine,
+  MEAL_IDEAS_DISPLAY_STORAGE_KEY,
+  readStoredMealIdeasDisplay,
+} from "./appMachine.ts";
 
 function startApp() {
   const actor = createActor(appMachine, { input: { route: { name: "landing" } } });
   actor.start();
   return actor;
+}
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+function stubLocalStorage(initial?: Record<string, string>) {
+  const data = new Map(Object.entries(initial ?? {}));
+  vi.stubGlobal("localStorage", {
+    getItem: (key: string) => data.get(key) ?? null,
+    setItem: (key: string, value: string) => {
+      data.set(key, value);
+    },
+    removeItem: (key: string) => {
+      data.delete(key);
+    },
+    clear: () => {
+      data.clear();
+    },
+  });
+  return data;
 }
 
 test("openExplore can preselect a meal type", () => {
@@ -222,7 +247,9 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
   const actor = startApp();
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "all",
+    region: "all",
     query: "",
+    display: "list",
     expandedId: null,
   });
   actor.send({ type: "openMealIdeas", occasion: "dinner" });
@@ -233,16 +260,68 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
   actor.send({ type: "setMealIdeasOccasion", occasion: "breakfast" });
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "breakfast",
+    region: "all",
     query: "",
+    display: "list",
     expandedId: null,
   });
   actor.send({ type: "toggleMealIdea", id: "cereal-and-milk" });
   actor.send({ type: "toggleMealIdea", id: "cereal-and-milk" });
   expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
   actor.send({ type: "openMealIdea", id: "oatmeal-bowl" });
+  actor.send({ type: "setMealIdeasRegion", region: "japan" });
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "breakfast",
+    region: "japan",
+    query: "",
+    display: "list",
+    expandedId: null,
+  });
+  actor.send({ type: "openMealIdea", id: "oatmeal-bowl" });
   actor.send({ type: "closeMealIdea" });
   expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
   actor.stop();
+});
+
+test("meal ideas display toggle is independent of filters", () => {
+  const actor = startApp();
+  actor.send({ type: "setMealIdeasDisplay", display: "pictures" });
+  actor.send({ type: "setMealIdeasOccasion", occasion: "dinner" });
+  actor.send({ type: "setMealIdeasQuery", query: "pork" });
+  actor.send({ type: "openMealIdea", id: "pork-chops-plate" });
+  expect(actor.getSnapshot().context.mealIdeas.display).toBe("pictures");
+  actor.send({ type: "clearMealIdeasFilters" });
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "all",
+    region: "all",
+    query: "",
+    display: "pictures",
+    expandedId: "pork-chops-plate",
+  });
+  actor.send({ type: "openMealIdeas", occasion: "breakfast" });
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "breakfast",
+    region: "all",
+    query: "",
+    display: "pictures",
+    expandedId: null,
+  });
+  actor.send({ type: "setMealIdeasDisplay", display: "list" });
+  expect(actor.getSnapshot().context.mealIdeas.display).toBe("list");
+  actor.stop();
+});
+
+test("meal ideas display reads the last choice from local storage", () => {
+  expect(readStoredMealIdeasDisplay()).toBe("list");
+  stubLocalStorage({ [MEAL_IDEAS_DISPLAY_STORAGE_KEY]: "pictures" });
+  expect(readStoredMealIdeasDisplay()).toBe("pictures");
+  const actor = startApp();
+  expect(actor.getSnapshot().context.mealIdeas.display).toBe("pictures");
+  actor.send({ type: "setMealIdeasDisplay", display: "list" });
+  expect(readStoredMealIdeasDisplay()).toBe("list");
+  actor.stop();
+  stubLocalStorage({ [MEAL_IDEAS_DISPLAY_STORAGE_KEY]: "gallery" });
+  expect(readStoredMealIdeasDisplay()).toBe("list");
 });
 
 test("randomMiss keeps filters and flags the empty result", () => {

@@ -37,7 +37,6 @@ export const snack: Recipe[] = [
       "Shake the pot now and then until the popping slows to a few seconds between pops.",
       "Take it off the heat, uncover, and salt to taste.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "rice-cakes-almond-butter",
@@ -81,7 +80,6 @@ export const snack: Recipe[] = [
       "Drizzle a little honey if you want it sweeter.",
       "Eat right away so the rice cakes stay crisp.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "guacamole-chips",
@@ -191,7 +189,6 @@ export const snack: Recipe[] = [
       "Roast 25–30 minutes, shaking the pan once, until crisp.",
       "Let them cool a few minutes — they crunch more as they sit.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cucumber-yogurt-dip",
@@ -296,6 +293,5 @@ export const snack: Recipe[] = [
       "Scoop into a jar or small bags.",
       "Keep at room temperature for snacks through the week.",
     ],
-    notes: "No onion or garlic.",
   },
 ];

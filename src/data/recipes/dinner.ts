@@ -77,7 +77,6 @@ export const dinner: Recipe[] = [
       "Roast 25 minutes. Add the broccoli and lemon wedges and roast 10 minutes more.",
       "The chicken should be cooked through and the potatoes tender.",
     ],
-    notes: "No onion, garlic, garlic powder, or onion powder.",
   },
   {
     id: "sunday-roast-chicken",
@@ -320,8 +319,7 @@ export const dinner: Recipe[] = [
       "Flip and cook 3–4 minutes more. Add cheddar for the last minute.",
       "Serve on toasted gluten-free bread with lettuce and tomato, ketchup, and mustard.",
     ],
-    notes:
-      "No onion or garlic in the patties. Use the chips on cheese, bread, or ketchup to match a diet tag.",
+    notes: "Use the chips on cheese, bread, or ketchup to match a diet tag.",
   },
   {
     id: "baked-salmon",
@@ -382,7 +380,6 @@ export const dinner: Recipe[] = [
       "Drizzle the salmon with the remaining oil. Season and lay lemon slices on top.",
       "Bake 12–15 minutes, until the salmon flakes. Scatter dill over everything.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "turkey-meatloaf",
@@ -1303,7 +1300,6 @@ export const dinner: Recipe[] = [
       "Lay the fish on top. Drizzle with the remaining oil and lemon juice. Add lemon slices.",
       "Bake 12–15 minutes, until the fish flakes. Finish with parsley.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "shawarma-spiced-chicken",

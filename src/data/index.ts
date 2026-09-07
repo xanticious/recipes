@@ -115,21 +115,38 @@ export { ingredientLookup, ingredients } from "./ingredients.ts";
 export {
   filterMealIdeas,
   groupMealIdeas,
+  isMealIdeaDisplay,
   isMealIdeaOccasion,
+  isMealIdeaRegion,
   mealIdeaMatchesFilters,
   mealIdeaLookup,
   relatedMealIdeas,
   resolveMealIdeaRecipes,
   MEAL_IDEA_OCCASION_FILTERS,
   MEAL_IDEA_OCCASION_FILTER_LABELS,
+  MEAL_IDEA_REGION_FILTERS,
+  MEAL_IDEA_REGION_FILTER_LABELS,
+  MEAL_IDEA_DISPLAYS,
+  MEAL_IDEA_DISPLAY_LABELS,
+  mealIdeaPinSize,
 } from "./mealIdeaBrowse.ts";
 export type {
   GroupedMealIdeas,
+  MealIdeaDisplay,
   MealIdeaFilters,
   MealIdeaOccasionFilter,
+  MealIdeaRegionFilter,
   ResolvedMealIdeaRecipe,
 } from "./mealIdeaBrowse.ts";
 export { mealIdeas } from "./mealIdeas.ts";
+export {
+  mealIdeaPhoto,
+  mealIdeaPhotoCredit,
+  mealIdeaPhotoUrl,
+  mealIdeaPlaceholderHue,
+  MEAL_IDEA_PHOTOS,
+} from "./mealIdeaPhotos.ts";
+export type { MealIdeaPhoto } from "./mealIdeaPhotos.ts";
 export { pickRandomId } from "./pickRandom.ts";
 export { isEatOutRecipe, isHomeRecipe, recipeTotalMinutes, relatedRecipes } from "./recipe.ts";
 export { recipes } from "./recipes/index.ts";
@@ -152,6 +169,9 @@ export {
   INGREDIENT_HA_TAG_TITLES,
   MEAL_IDEA_OCCASIONS,
   MEAL_IDEA_OCCASION_LABELS,
+  MEAL_IDEA_REGIONS,
+  MEAL_IDEA_REGION_ABBREVS,
+  MEAL_IDEA_REGION_LABELS,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
   RECIPE_HA_TAG_LABELS,
@@ -192,6 +212,7 @@ export type {
   HomeRecipe,
   MealIdea,
   MealIdeaOccasion,
+  MealIdeaRegion,
   MealIdeaRecipeRef,
   Ingredient,
   IngredientHaFilter,

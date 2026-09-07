@@ -1,10 +1,20 @@
-import { MEAL_IDEA_OCCASION_LABELS, MEAL_IDEA_OCCASIONS } from "./tags.ts";
-import type { MealIdea, MealIdeaOccasion, Recipe } from "./types.ts";
+import { placeholderHue } from "./catalogImage.ts";
+import {
+  MEAL_IDEA_OCCASION_LABELS,
+  MEAL_IDEA_OCCASIONS,
+  MEAL_IDEA_REGION_ABBREVS,
+  MEAL_IDEA_REGION_LABELS,
+  MEAL_IDEA_REGIONS,
+} from "./tags.ts";
+import type { MealIdea, MealIdeaOccasion, MealIdeaRegion, Recipe } from "./types.ts";
 
 export type MealIdeaOccasionFilter = "all" | MealIdeaOccasion;
 
+export type MealIdeaRegionFilter = "all" | MealIdeaRegion;
+
 export type MealIdeaFilters = {
   occasion: MealIdeaOccasionFilter;
+  region: MealIdeaRegionFilter;
   query: string;
 };
 
@@ -29,8 +39,46 @@ export const MEAL_IDEA_OCCASION_FILTER_LABELS: Record<MealIdeaOccasionFilter, st
   ...MEAL_IDEA_OCCASION_LABELS,
 };
 
+export const MEAL_IDEA_REGION_FILTERS: readonly MealIdeaRegionFilter[] = [
+  "all",
+  ...MEAL_IDEA_REGIONS,
+];
+
+export const MEAL_IDEA_REGION_FILTER_LABELS: Record<MealIdeaRegionFilter, string> = {
+  all: "All",
+  ...MEAL_IDEA_REGION_LABELS,
+};
+
+export const MEAL_IDEA_DISPLAYS = ["list", "pictures"] as const;
+
+export type MealIdeaDisplay = (typeof MEAL_IDEA_DISPLAYS)[number];
+
+export const MEAL_IDEA_DISPLAY_LABELS: Record<MealIdeaDisplay, string> = {
+  list: "List View",
+  pictures: "Pictures View",
+};
+
+const MEAL_IDEA_PIN_SIZES = [
+  { width: 320, height: 240 },
+  { width: 320, height: 300 },
+  { width: 320, height: 360 },
+  { width: 320, height: 420 },
+] as const;
+
+export function mealIdeaPinSize(id: string): { width: number; height: number } {
+  return MEAL_IDEA_PIN_SIZES[placeholderHue(id) % MEAL_IDEA_PIN_SIZES.length];
+}
+
+export function isMealIdeaDisplay(value: string): value is MealIdeaDisplay {
+  return (MEAL_IDEA_DISPLAYS as readonly string[]).includes(value);
+}
+
 export function isMealIdeaOccasion(value: string): value is MealIdeaOccasion {
   return (MEAL_IDEA_OCCASIONS as readonly string[]).includes(value);
+}
+
+export function isMealIdeaRegion(value: string): value is MealIdeaRegion {
+  return (MEAL_IDEA_REGIONS as readonly string[]).includes(value);
 }
 
 export function mealIdeaLookup(ideas: readonly MealIdea[]): ReadonlyMap<string, MealIdea> {
@@ -41,15 +89,21 @@ export function mealIdeaMatchesFilters(idea: MealIdea, filters: MealIdeaFilters)
   if (filters.occasion !== "all" && idea.occasion !== filters.occasion) {
     return false;
   }
+  if (filters.region !== "all" && !idea.regions.includes(filters.region)) {
+    return false;
+  }
   const query = filters.query.trim().toLowerCase();
   if (!query) {
     return true;
   }
   const haystack = [
     idea.title,
+    idea.description,
     ...idea.pairings,
     ...(idea.substitutions ?? []),
     ...(idea.recipes ?? []).map((ref) => ref.label),
+    ...idea.regions.map((region) => MEAL_IDEA_REGION_LABELS[region]),
+    ...idea.regions.map((region) => MEAL_IDEA_REGION_ABBREVS[region]),
   ]
     .join(" ")
     .toLowerCase();

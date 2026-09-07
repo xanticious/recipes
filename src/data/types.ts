@@ -2,6 +2,21 @@ export type MealType = "breakfast" | "lunch" | "dinner" | "snack" | "dessert";
 
 export type MealIdeaOccasion = MealType | "drinks";
 
+/** World region where a plate is commonly eaten. A meal may list several. */
+export type MealIdeaRegion =
+  | "united-states"
+  | "canada"
+  | "mexico"
+  | "brazil"
+  | "united-kingdom"
+  | "italy"
+  | "europe"
+  | "china"
+  | "japan"
+  | "south-korea"
+  | "australia"
+  | "new-zealand";
+
 export type MealIdeaRecipeRef = {
   label: string;
   recipeId?: string;
@@ -11,6 +26,10 @@ export type MealIdea = {
   id: string;
   title: string;
   occasion: MealIdeaOccasion;
+  /** Short appetizing prose; a historical or regional note is welcome. */
+  description: string;
+  /** Regions where this plate is everyday fare, not a one-off specialty. */
+  regions: readonly MealIdeaRegion[];
   pairings: readonly string[];
   substitutions?: readonly string[];
   relatedMealIds?: readonly string[];

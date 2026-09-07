@@ -169,7 +169,6 @@ export const dinnerOther: Recipe[] = [
       "Rest 5 minutes.",
       "Serve with lime wedges and yogurt on the side.",
     ],
-    notes: "No onion or garlic — spice rub only.",
   },
   {
     id: "peanut-stew",
@@ -332,8 +331,7 @@ export const dinnerOther: Recipe[] = [
       "Uncover for the last few minutes if you want a little color on the sausages.",
       "Grind pepper over the pot and serve.",
     ],
-    notes:
-      "No onion or garlic. Italian sausage typically includes garlic. Sauerkraut is fermented cabbage.",
+    notes: "Italian sausage typically includes garlic. Sauerkraut is fermented cabbage.",
   },
   {
     id: "swedish-meatballs",
@@ -577,8 +575,7 @@ export const dinnerOther: Recipe[] = [
       "Bake 12–15 minutes, turning once, until the coconut is toasted and the shrimp are pink.",
       "Serve with lime wedges and honey for dipping.",
     ],
-    notes:
-      "No onion or garlic. Baked, not deep-fried. Use the honey chip for a maple dip or skip it.",
+    notes: "Baked, not deep-fried. Use the honey chip for a maple dip or skip it.",
   },
   {
     id: "coconut-rice-chicken",
@@ -649,7 +646,6 @@ export const dinnerOther: Recipe[] = [
       "Rest off the heat 5 minutes.",
       "Fluff the rice. Finish with lime zest, lime juice, and cilantro.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "stuffed-cabbage",

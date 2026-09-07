@@ -317,8 +317,7 @@ export const dinnerAsian: Recipe[] = [
       "Add the cold rice and the gluten-free soy sauce. Stir-fry until the rice is hot, about 3 minutes.",
       "Return the shrimp. Finish with sesame oil and optional green onion.",
     ],
-    notes:
-      "No onion or garlic. Skip the green onion if you are avoiding fructans. Day-old rice fries best.",
+    notes: "Skip the green onion if you are avoiding fructans. Day-old rice fries best.",
   },
   {
     id: "rice-noodle-stir-fry",
@@ -574,7 +573,6 @@ export const dinnerAsian: Recipe[] = [
       "Spoon the filling into iceberg leaves.",
       "Top with cilantro and a squeeze of lime.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "egg-foo-young",
@@ -657,7 +655,7 @@ export const dinnerAsian: Recipe[] = [
       "Whisk the broth, gluten-free soy sauce, and cornstarch in the empty skillet. Simmer until the gravy thickens.",
       "Spoon the gravy over the omelets.",
     ],
-    notes: "No onion or garlic. Skip the green onion if you are avoiding fructans.",
+    notes: "Skip the green onion if you are avoiding fructans.",
   },
   {
     id: "miso-tofu-soup",
@@ -729,7 +727,7 @@ export const dinnerAsian: Recipe[] = [
       "Ladle into bowls. Top with optional nori and green onion.",
     ],
     notes:
-      "No onion or garlic. Do not boil the miso or it turns harsh. Skip the green onion if you are avoiding fructans.",
+      "Do not boil the miso or it turns harsh. Skip the green onion if you are avoiding fructans.",
   },
   {
     id: "soy-ginger-beef-bowls",
@@ -811,7 +809,6 @@ export const dinnerAsian: Recipe[] = [
       "Pour in the sauce and toss 1 minute, until glossy.",
       "Serve over rice with cucumber, carrot, and sesame seeds.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "orange-chicken",
@@ -1049,7 +1046,6 @@ export const dinnerAsian: Recipe[] = [
       "Stir the gluten-free soy sauce, sesame oil, and rice vinegar. Spoon over the salmon and rice.",
       "Top with cucumber and sesame seeds.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "bok-choy-noodles",
@@ -1115,7 +1111,6 @@ export const dinnerAsian: Recipe[] = [
       "Push the greens aside and scramble the eggs in the empty space.",
       "Add the noodles, gluten-free soy sauce, and sesame oil. Toss until hot. Sprinkle with sesame seeds.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "tempeh-stir-fry",
@@ -1289,6 +1284,5 @@ export const dinnerAsian: Recipe[] = [
       "Beat the eggs and drizzle them in while stirring slowly so they form ribbons.",
       "Finish with sesame oil. Taste and add a splash more vinegar if you want it sharper.",
     ],
-    notes: "No onion or garlic.",
   },
 ];

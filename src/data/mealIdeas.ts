@@ -1,10 +1,23 @@
 import type { MealIdea } from "./types.ts";
+import { extraMealIdeas } from "./mealIdeasExtra.ts";
 
-export const mealIdeas: MealIdea[] = [
+const coreMealIdeas: MealIdea[] = [
   {
     id: "cereal-and-milk",
     title: "Cereal and Milk",
+    description:
+      "A cold bowl of crunch meeting a splash of milk is the breakfast you can pour with your eyes half-open. It started as Victorian health food in Battle Creek, Michigan, then quietly took over weekday mornings from Auckland to São Paulo.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "brazil",
+    ],
     pairings: [
       "Water, milk, or coffee (with or without creamer)",
       "Banana, blueberries, or raspberries",
@@ -15,10 +28,29 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "eggs-and-toast",
     title: "Eggs and Toast",
+    description:
+      "Hot eggs on toast is the plate that still feels like someone looked after you. People have been sliding eggs onto bread for as long as there were hens in the yard and a loaf on the table — the method is the only argument.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+    ],
     pairings: ["Coffee or water", "Fruit, or breakfast potatoes"],
     substitutions: ["Sourdough or a rice cake if wheat toast is a problem"],
-    relatedMealIds: ["breakfast-sandwich", "bacon-and-eggs"],
+    relatedMealIds: [
+      "scrambled-eggs-and-toast",
+      "fried-eggs-and-toast",
+      "omelette-and-toast",
+      "toad-in-the-hole",
+      "breakfast-sandwich",
+      "bacon-and-eggs",
+    ],
     recipes: [
       { label: "Soft Scrambled Eggs", recipeId: "scrambled-eggs" },
       { label: "Fried Eggs and Toast", recipeId: "fried-eggs-toast" },
@@ -28,7 +60,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "breakfast-sandwich",
     title: "Breakfast Sandwich",
+    description:
+      "Egg, something salty, and bread you can hold: the commute breakfast that does not need a plate. Fast-food chains made it famous, but diners and bakers were stacking it long before the drive-through.",
     occasion: "breakfast",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Coffee or water", "Fruit"],
     substitutions: ["Sourdough, a biscuit, or a wrap"],
     relatedMealIds: ["eggs-and-toast", "breakfast-burrito"],
@@ -37,7 +72,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "oatmeal-bowl",
     title: "Oatmeal",
+    description:
+      "A warm bowl of oats is comfort you can eat with a spoon, whether you like it plain, brown-sugared, or loaded with fruit. Scots and Irish households simmered porridge for centuries; the rest of us just added toppings.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "china",
+    ],
     pairings: ["Coffee, tea, or water", "Banana, blueberries, or a spoon of peanut butter"],
     substitutions: ["Almond milk", "Overnight oats if mornings are rushed"],
     relatedMealIds: ["yogurt-and-fruit", "cereal-and-milk"],
@@ -50,7 +96,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "yogurt-and-fruit",
     title: "Yogurt and Fruit",
+    description:
+      "Cool, tangy yogurt with a pile of fruit is breakfast that feels light without being fussy. Yogurt itself is an old fermented dairy from the Balkans and Central Asia; the fruit-cup version is the modern café spin.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Coffee or water", "Granola, or a banana"],
     substitutions: ["Cottage cheese", "A dairy-free yogurt"],
     relatedMealIds: ["oatmeal-bowl", "granola-and-milk-idea"],
@@ -62,7 +121,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "bagel-and-cream-cheese",
     title: "Bagel and Cream Cheese",
+    description:
+      "A chewy, boiled-then-baked ring with a schmear of cream cheese is New York’s gift to hurried mornings. Jewish bakers brought the bagel from Eastern Europe; the cream-cheese pairing became a deli classic in the twentieth century.",
     occasion: "breakfast",
+    regions: ["united-states", "canada", "united-kingdom", "australia"],
     pairings: ["Coffee or orange juice", "Fruit"],
     substitutions: ["Butter or peanut butter", "Sourdough toast if bagels are too much"],
     relatedMealIds: ["croissant", "brioche-toast"],
@@ -71,10 +133,13 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pancakes-or-waffles",
     title: "Pancakes or Waffles",
+    description:
+      "A stack of golden batter — flat on a griddle or crisp in an iron — is the breakfast that makes a weekend feel like a weekend. Pancakes are ancient; waffles wandered out of medieval Europe and into the diner.",
     occasion: "breakfast",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Coffee, milk, or water", "Eggs, bacon, or fruit"],
     substitutions: ["French toast"],
-    relatedMealIds: ["eggs-and-toast", "french-toast"],
+    relatedMealIds: ["eggs-and-toast", "french-toast", "pancakes", "waffles"],
     recipes: [
       { label: "Banana Pancakes", recipeId: "banana-pancakes" },
       { label: "Waffles", recipeId: "gf-waffles" },
@@ -84,7 +149,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "breakfast-burrito",
     title: "Breakfast Burrito or Tacos",
+    description:
+      "A warm tortilla wrapped around eggs, potatoes, and salsa is breakfast you can eat one-handed. Santa Fe cafés popularized it in the 1970s, and it has been a Southwestern morning staple ever since.",
     occasion: "breakfast",
+    regions: ["united-states", "mexico", "canada"],
     pairings: ["Coffee, water, or orange juice", "Salsa or hot sauce"],
     substitutions: ["A quesadilla if you are out of tortillas for wrapping"],
     relatedMealIds: ["breakfast-sandwich", "quesadilla", "huevos-or-chilaquiles"],
@@ -96,7 +164,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "bacon-and-eggs",
     title: "Bacon and Eggs",
+    description:
+      "Crisp bacon next to fried or scrambled eggs is the Anglo breakfast that needs almost no introduction. It is the heart of the diner plate and the British fry-up alike — salt, fat, and a hot pan.",
     occasion: "breakfast",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Toast or breakfast potatoes", "Coffee or water"],
     substitutions: ["Sausage instead of bacon"],
     relatedMealIds: ["eggs-and-toast", "breakfast-sandwich"],
@@ -109,7 +180,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "breakfast-smoothie",
     title: "Smoothie",
+    description:
+      "A cold blender drink of fruit, milk, or yogurt is breakfast when chewing feels like too much work. Health-food shops in California helped make it ordinary; now it is a weekday shortcut everywhere.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "brazil",
+      "mexico",
+    ],
     pairings: ["Toast, or a handful of nuts if you want something to chew"],
     substitutions: ["A smoothie bowl with granola on top"],
     relatedMealIds: ["yogurt-and-fruit", "protein-shake"],
@@ -122,7 +205,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "toaster-pastry",
     title: "Toaster Pastry",
+    description:
+      "A foil-wrapped rectangle that pops out of the toaster is childhood in pastry form. Kellogg’s Pop-Tarts landed in 1964 and never really left the American breakfast shelf.",
     occasion: "breakfast",
+    regions: ["united-states", "canada", "united-kingdom", "australia"],
     pairings: ["Coffee or milk", "Fruit if you want it to feel like a meal"],
     substitutions: ["A toaster strudel, or leftover pastry"],
     relatedMealIds: ["toaster-strudel", "doughnut-and-coffee", "muffin"],
@@ -131,7 +217,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "toaster-strudel",
     title: "Toaster Strudel or Turnover",
+    description:
+      "Flaky pastry, warm filling, and that little icing packet you zigzag on top — a toaster strudel is a weekday pastry with weekend energy. It borrows the idea of a European strudel and shrinks it for a school morning.",
     occasion: "breakfast",
+    regions: ["united-states", "canada", "europe"],
     pairings: ["Coffee or milk"],
     substitutions: ["A toaster pastry if you want something faster"],
     relatedMealIds: ["toaster-pastry", "croissant", "hot-pocket"],
@@ -140,7 +229,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "doughnut-and-coffee",
     title: "Doughnut and Coffee",
+    description:
+      "A fried ring of dough and a hot cup of coffee is the classic American pit stop. Dutch olykoeks became doughnuts in the U.S.; pairing them with coffee is the office-and-bakery ritual that stuck.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "japan",
+    ],
     pairings: ["Coffee, milk, or orange juice"],
     substitutions: ["A muffin or cinnamon roll"],
     relatedMealIds: ["muffin", "cinnamon-roll", "doughnut-dessert"],
@@ -149,7 +250,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "muffin",
     title: "Muffin",
+    description:
+      "A bakery muffin is cake that got permission to be breakfast: tender crumb, a big top, maybe blueberries. Nineteenth-century American bakers turned English muffins’ cousin into this grab-and-go cup.",
     occasion: "breakfast",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Coffee or tea", "Fruit or yogurt"],
     substitutions: ["Banana bread", "A leftover pastry in the afternoon"],
     relatedMealIds: ["doughnut-and-coffee", "leftover-pastry-snack", "banana-bread-dessert"],
@@ -158,7 +262,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "croissant",
     title: "Croissant",
+    description:
+      "Buttery, shattering layers that flake onto the plate — a croissant is breakfast and a small celebration. The Viennese kipferl likely inspired it; Parisian bakers made the laminated version world-famous.",
     occasion: "breakfast",
+    regions: [
+      "europe",
+      "italy",
+      "united-states",
+      "canada",
+      "united-kingdom",
+      "australia",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Coffee or orange juice", "Fruit, or ham and cheese inside"],
     substitutions: ["Brioche toast if you want it simpler"],
     relatedMealIds: ["bagel-and-cream-cheese", "brioche-toast"],
@@ -167,7 +283,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "brioche-toast",
     title: "Brioche Toast",
+    description:
+      "Egg-rich, golden brioche toasted until the edges crunch is toast that already tastes like dessert. French bakers prized brioche for feast days; now it is the fancy slice hiding in a weekday toaster.",
     occasion: "breakfast",
+    regions: ["europe", "united-states", "united-kingdom", "canada"],
     pairings: ["Coffee", "Jam, butter, or eggs"],
     substitutions: ["Sourdough or a bagel"],
     relatedMealIds: ["eggs-and-toast", "croissant", "french-toast"],
@@ -176,7 +295,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "crepes",
     title: "Crepes",
+    description:
+      "Paper-thin pancakes folded around jam, sugar, or something savory — crêpes are France’s answer to “what is in the fridge?” Street stands in Brittany still sell them the way home cooks do: hot, fast, and customizable.",
     occasion: "breakfast",
+    regions: ["europe", "united-states", "canada", "brazil"],
     pairings: ["Coffee or fruit", "A savory filling if you skip the sweet toppings"],
     substitutions: ["Pancakes or French toast"],
     relatedMealIds: ["pancakes-or-waffles", "french-toast"],
@@ -185,7 +307,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pan-dulce",
     title: "Pan Dulce",
+    description:
+      "A Mexican sweet roll, often with a sugar-crusted top, is breakfast that looks like a bakery window. French baking techniques met Mexican tastes in the 1800s, and the result is still the companion to café con leche.",
     occasion: "breakfast",
+    regions: ["mexico", "united-states"],
     pairings: ["Coffee or hot chocolate"],
     substitutions: ["A muffin or cinnamon roll"],
     relatedMealIds: ["doughnut-and-coffee", "cinnamon-roll", "hot-chocolate"],
@@ -194,7 +319,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "cinnamon-roll",
     title: "Cinnamon Roll",
+    description:
+      "A swirl of dough, cinnamon, and icing is the smell that makes a kitchen feel generous. Swedes have kanelbullar; Americans supersized the swirl and added a glaze you can see from across the room.",
     occasion: "breakfast",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Coffee or milk"],
     substitutions: ["A doughnut, or brioche toast with cinnamon sugar"],
     relatedMealIds: ["doughnut-and-coffee", "muffin"],
@@ -203,7 +331,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "scone",
     title: "Scone",
+    description:
+      "A barely sweet, crumbly round meant to be split and buttered — the scone is Britain’s teatime bake that also works at breakfast. Scotland usually gets the credit; jam and cream started the only fight that matters.",
     occasion: "breakfast",
+    regions: ["united-kingdom", "australia", "new-zealand", "canada", "united-states"],
     pairings: ["Tea or coffee", "Jam or butter"],
     substitutions: ["A muffin"],
     relatedMealIds: ["muffin", "croissant"],
@@ -212,7 +343,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "biscuits-and-gravy",
     title: "Biscuits and Gravy",
+    description:
+      "Flaky Southern biscuits drowned in sausage gravy is the breakfast that does not pretend to be light. It rose as inexpensive, filling mill-town food in the American South and still tastes like a hug.",
     occasion: "breakfast",
+    regions: ["united-states"],
     pairings: ["Coffee", "Eggs if you want more protein"],
     substitutions: ["Toast and sausage if you do not want to make biscuits"],
     relatedMealIds: ["bacon-and-eggs", "breakfast-sandwich"],
@@ -221,7 +355,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "french-toast",
     title: "French Toast",
+    description:
+      "Stale bread soaked in egg, fried until custardy, and finished with syrup or fruit — pain perdu, “lost bread,” is the thrifty French trick that became brunch royalty. Nothing is actually lost except yesterday’s loaf.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+    ],
     pairings: ["Coffee, milk, or fruit", "Bacon or sausage if you want a bigger plate"],
     substitutions: ["Pancakes or brioche toast"],
     relatedMealIds: ["pancakes-or-waffles", "brioche-toast"],
@@ -230,7 +376,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "grits",
     title: "Grits",
+    description:
+      "A steaming bowl of ground corn, buttered and maybe cheesy, is the American South in a spoon. Indigenous peoples were cooking maize porridge long before it became a diner side or a breakfast main.",
     occasion: "breakfast",
+    regions: ["united-states"],
     pairings: ["Coffee", "Butter, cheese, or eggs"],
     substitutions: ["Oatmeal if you are out of grits"],
     relatedMealIds: ["oatmeal-bowl", "potato-hash-and-eggs"],
@@ -239,7 +388,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "potato-hash-and-eggs",
     title: "Hash and Eggs",
+    description:
+      "Crisp potatoes, onions, and a couple of eggs on top is diner hash: browned bits, no fancy plating. Corned-beef hash made it famous; leftover potatoes keep it on the weeknight table.",
     occasion: "breakfast",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "mexico"],
     pairings: ["Coffee or water", "Toast if the hash is light"],
     substitutions: ["Sweet potato hash"],
     relatedMealIds: ["bacon-and-eggs", "eggs-and-toast"],
@@ -251,7 +403,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "shakshuka-plate",
     title: "Shakshuka",
+    description:
+      "Eggs poached in a bubbling tomato-and-pepper sauce is a skillet you bring to the table. North African and Levantine kitchens made it everyday food; the rest of the world caught on and started tearing bread for dipping.",
     occasion: "breakfast",
+    regions: ["europe", "united-kingdom", "united-states", "australia"],
     pairings: ["Bread for dipping", "Coffee or tea"],
     substitutions: ["Huevos rancheros if you want tortillas instead"],
     relatedMealIds: ["huevos-or-chilaquiles", "eggs-and-toast"],
@@ -260,10 +415,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "huevos-or-chilaquiles",
     title: "Huevos Rancheros or Chilaquiles",
+    description:
+      "Eggs on a salsa-soaked tortilla plate — rancheros or chilaquiles — is a Mexican breakfast that uses last night’s tortillas and this morning’s appetite. Either way, you want a fork and something to drink.",
     occasion: "breakfast",
+    regions: ["united-states", "mexico"],
     pairings: ["Coffee", "Salsa, beans, or fruit"],
     substitutions: ["Breakfast tacos if you want it handheld"],
-    relatedMealIds: ["breakfast-burrito", "shakshuka-plate"],
+    relatedMealIds: [
+      "breakfast-burrito",
+      "shakshuka-plate",
+      "huevos-rancheros-idea",
+      "chilaquiles-plate",
+    ],
     recipes: [
       { label: "Huevos Rancheros", recipeId: "huevos-rancheros" },
       { label: "Chilaquiles", recipeId: "chilaquiles" },
@@ -273,7 +436,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "avocado-toast-idea",
     title: "Avocado Toast",
+    description:
+      "Mashed avocado on toasted bread, maybe with chili flakes or egg, is the café plate that launched a thousand jokes. Australian coffee shops helped popularize it; ripe avocados did the rest.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+    ],
     pairings: ["Coffee or juice", "An egg on top"],
     substitutions: ["Sourdough", "A rice cake if wheat is a problem"],
     relatedMealIds: ["eggs-and-toast", "brioche-toast"],
@@ -285,7 +459,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "granola-and-milk-idea",
     title: "Granola and Milk",
+    description:
+      "Toasted oats, nuts, and a pour of milk is cereal with a hiking-boot reputation. Nineteenth-century sanitariums baked early granolas; the modern bowl is sweeter, crunchier, and still easy.",
     occasion: "breakfast",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+    ],
     pairings: ["Fruit on top", "Coffee or water"],
     substitutions: ["Boxed cereal", "Yogurt instead of milk"],
     relatedMealIds: ["cereal-and-milk", "yogurt-and-fruit"],
@@ -294,7 +479,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "turkey-sandwich",
     title: "Turkey or Ham Sandwich",
+    description:
+      "Sliced turkey or ham between bread is the lunch that survives a workbag. It is the deli counter’s everyday hero — mustard, mayo, and whatever cheese you can get away with.",
     occasion: "lunch",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Water, iced tea, or a soda", "Chips, an apple, or carrot sticks"],
     substitutions: ["Sourdough", "Lettuce wraps"],
     relatedMealIds: ["soup-and-sandwich", "grilled-cheese"],
@@ -307,7 +495,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "soup-and-sandwich",
     title: "Soup and Sandwich",
+    description:
+      "A mug of soup beside a sandwich is the lunch that warms you twice. American lunch counters paired them as a cheap complete meal; it still feels like a snow-day plate even in July.",
     occasion: "lunch",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Water or tea", "Crackers if the sandwich is small"],
     substitutions: ["Rice cakes on the side instead of a second bread"],
     relatedMealIds: ["turkey-sandwich", "grilled-cheese", "soup-night"],
@@ -320,7 +511,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "grilled-cheese",
     title: "Grilled Cheese",
+    description:
+      "Bread, butter, and melted cheese — the sandwich that forgives a bad day. It took off with sliced bread and cheap American cheese in the twentieth century, and nobody has improved the core idea much.",
     occasion: "lunch",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Tomato soup, or water", "Pickles or fruit"],
     substitutions: ["Dairy-free slices if you need them"],
     relatedMealIds: ["soup-and-sandwich", "quesadilla"],
@@ -329,7 +523,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pb-and-j",
     title: "Peanut Butter and Jelly",
+    description:
+      "Peanut butter and jelly on soft bread is the school-lunch sandwich that never really graduates. It became a U.S. staple in the early 1900s when commercial peanut butter met sliced bread.",
     occasion: "lunch",
+    regions: ["united-states", "canada", "australia"],
     pairings: ["Milk or water", "An apple, banana, or chips"],
     substitutions: ["Almond butter", "Sourdough or rice cakes"],
     recipes: [{ label: "Peanut Butter and Jelly Sandwich" }],
@@ -337,7 +534,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "quesadilla",
     title: "Quesadilla",
+    description:
+      "A tortilla folded around melted cheese, maybe with a little extra filling, is Mexico’s fastest hot lunch. Street stalls and home kitchens both treat it as the thing you make when you are hungry now.",
     occasion: "lunch",
+    regions: ["united-states", "mexico", "canada"],
     pairings: ["Salsa or sour cream", "Water or a soda"],
     substitutions: ["Add leftover chicken or beans"],
     relatedMealIds: ["taco-night", "burrito-bowl", "breakfast-burrito"],
@@ -346,7 +546,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "leftover-rice-bowl-idea",
     title: "Leftover Rice Bowl",
+    description:
+      "Yesterday’s rice, something from the fridge, and a hot pan — the leftover bowl is lunch without a grocery run. Rice cultures have been doing this forever; the rest of us just started calling it a bowl.",
     occasion: "lunch",
+    regions: ["china", "japan", "south-korea", "united-states", "mexico", "brazil", "australia"],
     pairings: ["Water or tea", "A fried egg on top"],
     substitutions: ["Quinoa if that is what is left"],
     relatedMealIds: ["stir-fry-night", "burrito-bowl", "leftover-dinner-plate", "fried-rice-lunch"],
@@ -358,7 +561,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "salad-plate",
     title: "Salad Plate",
+    description:
+      "A pile of vegetables, something protein-ish, and a dressing you actually like: lunch that can still feel like a meal. Ancient Romans ate dressed greens; the composed lunch plate is the modern desk version.",
     occasion: "lunch",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "brazil",
+      "mexico",
+    ],
     pairings: ["Water or iced tea", "Bread or leftover protein"],
     substitutions: ["A wrap if you want it handheld"],
     relatedMealIds: ["turkey-sandwich", "wrap-lunch", "hummus-and-veg"],
@@ -371,7 +587,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chili-bowl",
     title: "Chili Bowl",
+    description:
+      "A steaming bowl of chili — beans or not, depending on who you ask — is lunch that tastes like a cookout even at a table. Texas and the Midwest still argue the recipe; a spoon settles it.",
     occasion: "lunch",
+    regions: ["united-states", "mexico", "canada"],
     pairings: ["Crackers, cornbread, or a baked potato", "Water or milk"],
     substitutions: ["Leftover chili over rice"],
     relatedMealIds: ["chili-night", "soup-and-sandwich", "baked-potato-lunch-idea"],
@@ -383,7 +602,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "burrito-bowl",
     title: "Burrito Bowl",
+    description:
+      "Rice, beans, salsa, and a protein in a bowl instead of a tortilla: the burrito that forgot its wrapper. Fast-casual chains made it famous; it is still just a deconstructed burrito, and that is the point.",
     occasion: "lunch",
+    regions: ["united-states", "mexico", "canada"],
     pairings: ["Water or a soda", "Salsa, or tortilla chips"],
     substitutions: ["Wrap it as a burrito"],
     relatedMealIds: ["taco-night", "quesadilla"],
@@ -395,7 +617,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "tuna-or-egg-sandwich",
     title: "Tuna or Egg Salad Sandwich",
+    description:
+      "Mashed tuna or egg salad on bread is the lunchbox classic that smells like a picnic. Both versions were thrifty protein salads that delis and home kitchens never stopped packing.",
     occasion: "lunch",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+    ],
     pairings: ["Water or iced tea", "Chips, pickles, or fruit"],
     substitutions: ["Lettuce cups instead of bread"],
     relatedMealIds: ["turkey-sandwich"],
@@ -407,7 +640,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "leftover-dinner-plate",
     title: "Leftover Dinner Plate",
+    description:
+      "Last night’s dinner, reheated, is the most honest lunch there is. Almost every cuisine does this; we just pretend it is a new idea when we call it meal prep.",
     occasion: "lunch",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Water or tea", "A piece of fruit if the plate is small"],
     substitutions: ["Turn it into a rice bowl or wrap"],
     relatedMealIds: ["leftover-rice-bowl-idea", "wrap-lunch"],
@@ -419,7 +668,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "mac-and-cheese-lunch",
     title: "Mac and Cheese",
+    description:
+      "Elbow pasta in a cheese sauce is lunch that feels like you are getting away with something. It has roots in European pasta-and-cheese bakes; boxed American versions made it a weekday reflex.",
     occasion: "lunch",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["An apple, broccoli, or water"],
     substitutions: ["Dinner leftovers of the same", "A vegetable on the side"],
     relatedMealIds: ["mac-and-cheese-night", "grilled-cheese"],
@@ -428,7 +680,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "baked-potato-lunch-idea",
     title: "Baked Potato",
+    description:
+      "A fluffy baked potato split open and loaded is a full lunch hiding in a skin. Idaho and British jacket-potato shops both claim the move: starch, toppings, done.",
     occasion: "lunch",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Chili, cheese, or broccoli", "Water or milk"],
     substitutions: ["A stuffed sweet potato"],
     relatedMealIds: ["chili-bowl", "leftover-dinner-plate"],
@@ -441,7 +696,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "wrap-lunch",
     title: "Wrap",
+    description:
+      "Fillings rolled in a tortilla or flatbread is the sandwich that does not leak quite as much. Middle Eastern and Mexican wraps were already there; office lunch just put a sticker on them.",
     occasion: "lunch",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Water or iced tea", "Fruit or chips"],
     substitutions: ["A sandwich if you are out of tortillas"],
     relatedMealIds: ["turkey-sandwich", "salad-plate"],
@@ -454,7 +712,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chicken-salad-lunch",
     title: "Chicken Salad",
+    description:
+      "Chopped chicken, something creamy, maybe grapes or celery — chicken salad is the potluck lunch that also works in a pita. It is leftover roast in a nicer outfit.",
     occasion: "lunch",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Crackers, bread, or lettuce cups", "Water or iced tea"],
     substitutions: ["Tuna salad if that is what you have"],
     relatedMealIds: ["tuna-or-egg-sandwich", "salad-plate"],
@@ -466,7 +727,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "nachos-lunch",
     title: "Nachos",
+    description:
+      "Tortilla chips under melted cheese, salsa, and whatever else is around: nachos were invented in 1943 in Piedras Negras for hungry Army wives, and lunch has not been the same.",
     occasion: "lunch",
+    regions: ["united-states", "mexico", "canada", "australia"],
     pairings: ["Salsa or sour cream", "Water or a soda"],
     substitutions: ["Quesadilla if you want less crunch"],
     relatedMealIds: ["chips-and-dip", "quesadilla", "taco-night"],
@@ -475,7 +739,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pasta-salad-lunch",
     title: "Pasta Salad",
+    description:
+      "Cold pasta, vegetables, and a tangy dressing is the picnic salad that travels. Italian-American cooks and deli cases turned leftover noodles into a make-ahead lunch.",
     occasion: "lunch",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+    ],
     pairings: ["Water or iced tea", "Fruit"],
     substitutions: ["A green salad if you do not want pasta cold"],
     relatedMealIds: ["salad-plate", "leftover-dinner-plate"],
@@ -484,7 +759,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "sushi-bowl-lunch",
     title: "Sushi Bowl",
+    description:
+      "Seasoned rice, raw or cooked toppings, no rolling required: a sushi bowl is the weekday version of a sushi-ya lunch. Chirashi in Japan had the idea first; poke bowls made it a mall-food-court star.",
     occasion: "lunch",
+    regions: ["japan", "united-states", "australia", "canada", "united-kingdom", "south-korea"],
     pairings: ["Water or tea", "Cucumber or edamame"],
     substitutions: ["Leftover rice with canned fish"],
     relatedMealIds: ["leftover-rice-bowl-idea", "salmon-and-sides"],
@@ -496,7 +774,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "hot-pocket",
     title: "Hot Pocket or Savory Turnover",
+    description:
+      "A sealed pastry with a molten filling is lunch from the freezer aisle. Turnover cousins exist everywhere; the American Hot Pocket just made the microwave part of the ritual.",
     occasion: "lunch",
+    regions: ["united-states", "canada", "united-kingdom", "australia"],
     pairings: ["Water or a soda", "Fruit or chips"],
     substitutions: ["A toaster pastry if it is more breakfast than lunch"],
     relatedMealIds: ["toaster-strudel", "pizza-night"],
@@ -505,7 +786,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "meatloaf-sandwich",
     title: "Meatloaf Sandwich",
+    description:
+      "A thick slice of meatloaf on bread, maybe with ketchup or gravy, is diner lunch at its most leftover-proud. If last night was meatloaf night, today is sandwich day.",
     occasion: "lunch",
+    regions: ["united-states", "canada", "australia"],
     pairings: ["Chips or a pickle", "Water"],
     substitutions: ["A leftover roast plate if you do not want bread"],
     relatedMealIds: ["leftover-dinner-plate", "turkey-sandwich", "meatloaf-plate"],
@@ -517,7 +801,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "hummus-and-veg",
     title: "Hummus and Veggie Plate",
+    description:
+      "Creamy chickpea dip with crunchy vegetables is a lunch that does not need a stove. Hummus is Levantine everyday food; the snack-plate version is how a lot of us actually eat it.",
     occasion: "lunch",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+    ],
     pairings: ["Pita, rice cakes, or crackers", "Water"],
     substitutions: ["A wrap"],
     relatedMealIds: ["salad-plate", "wrap-lunch"],
@@ -526,7 +821,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "fried-rice-lunch",
     title: "Fried Rice",
+    description:
+      "Day-old rice, a hot wok, egg, and odds and ends: fried rice is China’s gift to leftover lunch. Street stalls and home kitchens both treat it as the fastest way to make rice interesting again.",
     occasion: "lunch",
+    regions: [
+      "china",
+      "japan",
+      "south-korea",
+      "united-states",
+      "australia",
+      "united-kingdom",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Water or tea", "A fried egg on top"],
     substitutions: ["A leftover rice bowl without the extra fry"],
     relatedMealIds: ["leftover-rice-bowl-idea", "fried-rice-night"],
@@ -538,7 +845,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pork-chops-plate",
     title: "Pork Chops, Potatoes, and Green Beans",
+    description:
+      "A browned pork chop, mashed potatoes, gravy, and a green vegetable is the American supper that still looks like Sunday even on a Tuesday. It is meat-and-three cooking, no chef vocabulary required.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Water or milk", "Gravy", "Applesauce if you want something sweet on the plate"],
     substitutions: [
       "Rice or a baked potato instead of mashed potatoes",
@@ -555,7 +875,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chicken-rice-vegetables",
     title: "Chicken, Rice, and Vegetables",
+    description:
+      "Roast or pan chicken, a pile of rice, and some vegetables is the plate half the world already agreed on. It is not a recipe so much as a template: protein, starch, something green.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Water or iced tea", "A simple salad if the vegetable is just one thing"],
     substitutions: ["Potatoes instead of rice", "Thighs instead of breast"],
     relatedMealIds: ["pork-chops-plate", "stir-fry-night", "baked-chicken-plate"],
@@ -568,7 +904,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "baked-chicken-plate",
     title: "Baked Chicken and Sides",
+    description:
+      "Oven chicken with sides is weeknight cooking that still feels like you tried. Baking a bird — or just the pieces — is older than the casserole dish you serve it in.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Rice, potatoes, or bread", "Green beans, broccoli, or a salad", "Water"],
     substitutions: ["A grocery rotisserie chicken when you do not want to cook the meat"],
     relatedMealIds: ["chicken-rice-vegetables", "sunday-roast"],
@@ -581,7 +929,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pasta-marinara",
     title: "Pasta and Red Sauce",
+    description:
+      "Noodles in a tomato sauce is the dinner you can start while the water boils. Neapolitan marinara was sailors’ sauce; Italian-American kitchens made it the default red-sauce night.",
     occasion: "dinner",
+    regions: [
+      "italy",
+      "europe",
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Garlic bread or a salad", "Water or a soda"],
     substitutions: ["Gluten-free spaghetti", "Meatballs if you want it heavier"],
     relatedMealIds: [
@@ -598,7 +959,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "meatball-pasta",
     title: "Meatballs and Pasta",
+    description:
+      "Spaghetti and meatballs is Italy-by-way-of-New-York: a big plate of comfort. Immigrants stretched meat into balls and put them on pasta; it became the red-checkered-tablecloth classic.",
     occasion: "dinner",
+    regions: ["italy", "united-states", "europe", "canada", "australia"],
     pairings: ["Salad or garlic bread", "Water"],
     substitutions: ["Rice if you are out of pasta"],
     relatedMealIds: ["pasta-marinara", "lasagna-night"],
@@ -610,7 +974,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "lasagna-night",
     title: "Lasagna",
+    description:
+      "Layered pasta, sauce, and cheese baked until bubbly is the pan you bring when people are coming over. Lasagne has Roman-era ancestors; the ricotta-and-ragu version is the family-table one.",
     occasion: "dinner",
+    regions: [
+      "italy",
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+    ],
     pairings: ["Salad", "Water or milk"],
     substitutions: ["Baked ziti when you do not want to layer"],
     relatedMealIds: ["pasta-marinara", "meatball-pasta", "baked-ziti-idea"],
@@ -622,7 +997,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "taco-night",
     title: "Taco Night",
+    description:
+      "Tortillas, a filling, and a table of toppings is dinner as a build-your-own project. Mexican tacos are street food with a thousand fillings; taco night is how households turn that into a weeknight.",
     occasion: "dinner",
+    regions: ["united-states", "mexico", "canada", "australia"],
     pairings: ["Salsa, sour cream, or lettuce and tomato", "Water, agua fresca, or a soda"],
     substitutions: ["Tostadas or a taco salad if tortillas are stale"],
     relatedMealIds: ["burrito-bowl", "quesadilla", "fajitas", "enchiladas", "tostadas-idea"],
@@ -635,7 +1013,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "fajitas",
     title: "Fajitas",
+    description:
+      "Sizzling strips of meat and peppers you wrap yourself — fajitas started as skirt-steak cookouts in Tex-Mex border country. The cast-iron platter is half the show.",
     occasion: "dinner",
+    regions: ["united-states", "mexico", "canada"],
     pairings: ["Tortillas, salsa, and a simple salad", "Water"],
     substitutions: ["Serve over rice as a bowl"],
     relatedMealIds: ["taco-night", "stir-fry-night"],
@@ -644,7 +1025,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chili-night",
     title: "Chili",
+    description:
+      "A pot of chili simmering on the stove is dinner that makes the house smell like you have a plan. Cowboys, chili queens in San Antonio, and every cook-off since have argued the beans question.",
     occasion: "dinner",
+    regions: ["united-states", "mexico", "canada"],
     pairings: ["Cornbread, crackers, or baked potatoes", "Water or milk"],
     substitutions: ["Serve leftover chili for lunch"],
     relatedMealIds: ["chili-bowl", "stew-or-pot-roast"],
@@ -657,7 +1041,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "soup-night",
     title: "Soup Night",
+    description:
+      "A pot of soup and some bread is the dinner that asks almost nothing of you. Every region has a house soup; the point is the steam, the spoon, and not dirtying every pan.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Bread, crackers, or rice cakes", "A sandwich if the soup is light", "Water or tea"],
     substitutions: ["Add leftover roast or chicken to stretch it"],
     relatedMealIds: ["soup-and-sandwich", "chili-night"],
@@ -671,7 +1071,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "stir-fry-night",
     title: "Stir-Fry",
+    description:
+      "A screaming-hot pan, bite-size pieces, and dinner in minutes: stir-fry is Chinese wok cooking scaled to a weeknight burner. The sauce is whatever you have; the vegetables are whatever needs using.",
     occasion: "dinner",
+    regions: [
+      "china",
+      "japan",
+      "south-korea",
+      "united-states",
+      "australia",
+      "united-kingdom",
+      "canada",
+    ],
     pairings: ["White rice or rice noodles", "Water or tea"],
     substitutions: ["Tofu instead of chicken", "A leftover-rice bowl the next day"],
     relatedMealIds: ["chicken-rice-vegetables", "leftover-rice-bowl-idea"],
@@ -684,7 +1095,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "burger-night",
     title: "Burgers",
+    description:
+      "A cooked patty on a bun, with fries if you are committed, is the American dinner that still feels like a treat. German immigrants brought Hamburg steak; the bun made it portable and famous.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "brazil",
+      "japan",
+    ],
     pairings: ["Fries, chips, or a salad", "Water or a soda"],
     substitutions: ["Lettuce wrap", "Sloppy joes if you want it saucier"],
     relatedMealIds: ["steak-and-potatoes"],
@@ -696,7 +1120,21 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pizza-night",
     title: "Pizza Night",
+    description:
+      "A baked round of dough, sauce, and cheese is the dinner that ends arguments about what to cook. Naples gave us pizza as we know it; Friday night gave us the rest of the ritual.",
     occasion: "dinner",
+    regions: [
+      "italy",
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "brazil",
+      "japan",
+    ],
     pairings: ["Salad", "Water or a soda"],
     substitutions: ["Takeout when you do not want to make dough"],
     relatedMealIds: ["pasta-marinara"],
@@ -708,7 +1146,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "salmon-and-sides",
     title: "Salmon and Sides",
+    description:
+      "A piece of salmon with something green and something starchy is the dinner that looks responsible. Pacific and Atlantic kitchens have been roasting, grilling, and pan-searing it for a very long time.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "japan",
+      "south-korea",
+    ],
     pairings: ["Rice or potatoes", "A green vegetable", "Water"],
     substitutions: ["Another white fish"],
     relatedMealIds: ["chicken-rice-vegetables"],
@@ -721,7 +1172,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "stew-or-pot-roast",
     title: "Stew or Pot Roast",
+    description:
+      "Meat and vegetables that simmered until they gave up is dinner for a cold evening. Every farmhouse cuisine has a version; the Dutch oven is the real heirloom.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Bread or rice", "Water"],
     substitutions: ["Chili when you want it beanier"],
     relatedMealIds: ["chili-night", "sunday-roast"],
@@ -733,7 +1196,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "steak-and-potatoes",
     title: "Steak and Potatoes",
+    description:
+      "A steak and potatoes is the plate people order when they want to feel like the evening mattered. It is steakhouse shorthand that home cooks copy with a skillet and a tray of wedges.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "brazil",
+      "mexico",
+    ],
     pairings: ["A green vegetable", "Water"],
     substitutions: ["Pork chops if steak is not in the budget"],
     relatedMealIds: ["pork-chops-plate", "burger-night"],
@@ -742,7 +1217,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "rice-and-beans-plate",
     title: "Rice and Beans",
+    description:
+      "Rice and beans, cooked with care, is the dinner that feeds a lot of people for not much money. From Brazil to the Caribbean to the American South, it is everyday food with a long memory.",
     occasion: "dinner",
+    regions: ["brazil", "mexico", "united-states", "canada"],
     pairings: ["Salsa or a fried egg", "A simple salad", "Water"],
     substitutions: ["Add leftover chicken or sausage"],
     relatedMealIds: ["burrito-bowl", "taco-night"],
@@ -751,7 +1229,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "sunday-roast",
     title: "Roast Chicken",
+    description:
+      "A roast chicken, or another roast, with sides that take over the table: Sunday lunch energy, even if it is Wednesday. British roast dinners set the template; a bird in the oven still feels like an occasion.",
     occasion: "dinner",
+    regions: ["united-kingdom", "australia", "new-zealand", "canada"],
     pairings: ["Potatoes or rice", "A cooked vegetable", "Water"],
     substitutions: ["A weeknight sheet-pan chicken"],
     relatedMealIds: ["baked-chicken-plate", "stew-or-pot-roast"],
@@ -763,7 +1244,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "enchiladas",
     title: "Enchiladas",
+    description:
+      "Tortillas rolled around a filling, sauced, and baked until the cheese melts: enchiladas are a Mexican casserole in the best sense. They were sauced tortillas long before they became a Friday-night pan.",
     occasion: "dinner",
+    regions: ["united-states", "mexico"],
     pairings: ["Rice and beans", "Salsa", "Water"],
     substitutions: ["Tostadas if rolling tortillas feels like too much"],
     relatedMealIds: ["taco-night", "tostadas-idea", "tamale-pie-idea"],
@@ -772,7 +1256,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chicken-rice-casserole-idea",
     title: "Chicken and Rice Casserole",
+    description:
+      "Chicken, rice, and a creamy sauce baked in one dish is the church-cookbook dinner. Mid-century American casseroles made it a weeknight reflex — dump, bake, serve.",
     occasion: "dinner",
+    regions: ["united-states", "canada", "australia", "united-kingdom"],
     pairings: ["A green vegetable or salad", "Water"],
     substitutions: ["A sheet-pan chicken if you do not want a bake"],
     relatedMealIds: [
@@ -785,7 +1272,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "tuna-casserole-idea",
     title: "Tuna Noodle Casserole",
+    description:
+      "Tuna, noodles, and a crunchy topping from the pantry is the casserole that survived every decade. It is Depression-era thrift dressed up with a can of soup and a bag of chips.",
     occasion: "dinner",
+    regions: ["united-states", "canada", "australia"],
     pairings: ["A green vegetable", "Water"],
     substitutions: ["Chicken and rice casserole if you are out of tuna"],
     relatedMealIds: ["chicken-rice-casserole-idea", "mac-and-cheese-night"],
@@ -794,7 +1284,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "shepherds-pie-idea",
     title: "Shepherd's Pie",
+    description:
+      "Minced meat under a mashed-potato lid, browned in the oven, is British and Irish cottage cooking. Shepherd’s pie was traditionally lamb; the potato blanket is non-negotiable.",
     occasion: "dinner",
+    regions: ["united-kingdom", "australia", "new-zealand", "canada", "united-states"],
     pairings: ["A salad", "Water"],
     substitutions: ["Chili with mashed potatoes on top"],
     relatedMealIds: ["chili-night", "meatloaf-plate", "chicken-pot-pie-idea"],
@@ -803,7 +1296,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chicken-pot-pie-idea",
     title: "Chicken Pot Pie",
+    description:
+      "Chicken and vegetables in gravy under a pastry crust is pot pie: a potluck legend with medieval pie ancestors. The frozen supermarket version just made it a weeknight option.",
     occasion: "dinner",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["A salad or cooked vegetable", "Water"],
     substitutions: ["A casserole if you do not want a crust"],
     relatedMealIds: ["shepherds-pie-idea", "chicken-rice-casserole-idea"],
@@ -812,7 +1308,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "tamale-pie-idea",
     title: "Tamale Pie",
+    description:
+      "Chili-ish filling under a cornmeal or masa topping is tamale pie, a U.S. casserole that borrowed the idea of tamales and skipped the husk-wrapping. It is comfort food with a Southwestern accent.",
     occasion: "dinner",
+    regions: ["united-states", "mexico"],
     pairings: ["Salad or beans", "Water"],
     substitutions: ["Chili with cornbread on the side"],
     relatedMealIds: ["chili-night", "enchiladas"],
@@ -821,7 +1320,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "breakfast-casserole-dinner",
     title: "Breakfast Casserole",
+    description:
+      "Eggs, bread or potatoes, and something savory baked in a pan: breakfast casserole for dinner is brunch that forgot the clock. It is potluck cooking that reheats without complaint.",
     occasion: "dinner",
+    regions: ["united-states", "canada", "united-kingdom", "australia"],
     pairings: ["Fruit or a simple salad", "Coffee or water"],
     substitutions: ["Hash and eggs if you do not want to bake"],
     relatedMealIds: ["potato-hash-and-eggs", "chicken-rice-casserole-idea"],
@@ -830,7 +1332,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "mac-and-cheese-night",
     title: "Mac and Cheese Night",
+    description:
+      "A whole pan of mac and cheese as dinner is the night nobody asks what else is coming. From English macaroni pudding to Kraft boxes, it has always been about the cheese pull.",
     occasion: "dinner",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["A green vegetable or chicken", "Water or milk"],
     substitutions: ["The lunch bowl if you want a smaller sitting"],
     relatedMealIds: ["mac-and-cheese-lunch", "tuna-casserole-idea"],
@@ -839,7 +1344,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "fettuccine-alfredo-idea",
     title: "Fettuccine Alfredo",
+    description:
+      "Ribbon pasta in a buttery, cheesy sauce is Alfredo as Americans know it. A Roman restaurateur made a version for his wife; U.S. kitchens added cream and never looked back.",
     occasion: "dinner",
+    regions: ["italy", "united-states", "canada", "europe"],
     pairings: ["Broccoli or chicken", "Salad", "Water"],
     substitutions: ["Pesto pasta if you want something less heavy"],
     relatedMealIds: ["pasta-marinara", "pesto-pasta-idea", "shrimp-scampi-idea"],
@@ -851,7 +1359,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pesto-pasta-idea",
     title: "Pesto Pasta",
+    description:
+      "Pasta tossed with basil, garlic, nuts, and cheese is Liguria in a bowl. Genoese pesto was mortar-and-pestle food; the blender just made Tuesday possible.",
     occasion: "dinner",
+    regions: [
+      "italy",
+      "europe",
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Salad", "Water"],
     substitutions: ["Leftover pesto pasta for lunch"],
     relatedMealIds: ["pasta-marinara", "fettuccine-alfredo-idea"],
@@ -863,7 +1382,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "shrimp-scampi-idea",
     title: "Shrimp Scampi",
+    description:
+      "Shrimp in garlic, butter, and wine over pasta or bread is Italian-American scampi. The name wandered; the garlic stayed.",
     occasion: "dinner",
+    regions: ["italy", "united-states", "europe"],
     pairings: ["Pasta or rice", "Salad", "Water"],
     substitutions: ["Chicken if you are out of shrimp"],
     relatedMealIds: ["fettuccine-alfredo-idea", "salmon-and-sides"],
@@ -872,7 +1394,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chicken-parm-idea",
     title: "Chicken Parmesan",
+    description:
+      "Breaded chicken, tomato sauce, and melted cheese over pasta is chicken parmesan, the red-sauce-restaurant classic. Southern Italian cutlets met mozzarella in American kitchens.",
     occasion: "dinner",
+    regions: ["italy", "united-states", "australia", "canada"],
     pairings: ["Pasta and salad", "Water"],
     substitutions: ["Meatballs and pasta if you do not want to bread chicken"],
     relatedMealIds: ["pasta-marinara", "meatball-pasta", "baked-chicken-plate"],
@@ -884,7 +1409,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "meatloaf-plate",
     title: "Meatloaf, Potatoes, and a Vegetable",
+    description:
+      "A glazed meatloaf with potatoes and a vegetable is the supper that looks like a 1950s postcard and still works. It is loaf-pan cooking: stretch the meat, feed the table.",
     occasion: "dinner",
+    regions: ["united-states", "canada", "australia", "united-kingdom"],
     pairings: ["Gravy or ketchup", "Water or milk"],
     substitutions: ["Leftover meatloaf sandwiches the next day"],
     relatedMealIds: ["pork-chops-plate", "shepherds-pie-idea", "meatloaf-sandwich"],
@@ -897,7 +1425,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pulled-pork-idea",
     title: "Pulled Pork",
+    description:
+      "Slow-cooked pork you shred with two forks is barbecue that became a weeknight sandwich or plate. Whole-hog traditions in the Carolinas and beyond taught the rest of us the shred.",
     occasion: "dinner",
+    regions: ["united-states", "canada", "australia", "mexico"],
     pairings: ["Buns or rice", "Slaw or a simple vegetable", "Water"],
     substitutions: ["Tacos if you have tortillas instead of buns"],
     relatedMealIds: ["taco-night", "burger-night"],
@@ -906,7 +1437,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "sausage-and-peppers-idea",
     title: "Sausage and Peppers",
+    description:
+      "Browned sausage with sweet peppers and onions is an Italian-American street-fair plate that also works at home. Heroes optional; crusty bread is not.",
     occasion: "dinner",
+    regions: ["italy", "united-states", "europe"],
     pairings: ["Bread, pasta, or rice", "Water"],
     substitutions: ["A skillet pasta with the same sausage"],
     relatedMealIds: ["pasta-marinara", "stuffed-peppers-idea"],
@@ -915,7 +1449,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "stuffed-peppers-idea",
     title: "Stuffed Peppers",
+    description:
+      "Bell peppers filled with rice, meat, or both and baked until soft is the dinner that looks tidy in the pan. Versions exist from the Balkans to the Midwest; the pepper is the bowl.",
     occasion: "dinner",
+    regions: ["united-states", "europe", "mexico", "italy"],
     pairings: ["Salad or rice", "Water"],
     substitutions: ["A rice-and-meat skillet if you do not want to stuff"],
     relatedMealIds: ["rice-and-beans-plate", "sausage-and-peppers-idea"],
@@ -927,7 +1464,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "jambalaya-idea",
     title: "Jambalaya",
+    description:
+      "Rice cooked with sausage, chicken, or seafood in one pot is Louisiana jambalaya. Spanish paella and West African rice dishes met in Creole and Cajun kitchens and stayed.",
     occasion: "dinner",
+    regions: ["united-states"],
     pairings: ["A simple salad", "Water"],
     substitutions: ["Fried rice if you want something faster"],
     relatedMealIds: ["fried-rice-night", "sausage-and-peppers-idea"],
@@ -936,7 +1476,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "fried-rice-night",
     title: "Fried Rice Night",
+    description:
+      "Fried rice as dinner is the same leftover magic as lunch, just with a bigger pan. Night markets from China to Thailand have been serving it after dark for a long time.",
     occasion: "dinner",
+    regions: [
+      "china",
+      "japan",
+      "south-korea",
+      "united-states",
+      "australia",
+      "united-kingdom",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["A vegetable or egg", "Water or tea"],
     substitutions: ["A leftover rice bowl at lunch"],
     relatedMealIds: ["stir-fry-night", "fried-rice-lunch", "leftover-rice-bowl-idea"],
@@ -948,7 +1500,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "orange-chicken-idea",
     title: "Orange Chicken and Rice",
+    description:
+      "Crisp chicken in a sweet-tart orange sauce over rice is American Chinese takeout at home. Panda Express helped make it famous; the sticky glaze is why people reorder it.",
     occasion: "dinner",
+    regions: ["united-states", "canada", "australia", "china"],
     pairings: ["Broccoli", "Water or tea"],
     substitutions: ["A stir-fry if you do not want the sweet sauce"],
     relatedMealIds: ["stir-fry-night", "chicken-rice-vegetables"],
@@ -957,7 +1512,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "butter-chicken-idea",
     title: "Butter Chicken and Rice",
+    description:
+      "Chicken in a silky tomato-butter sauce over rice is butter chicken, a Delhi restaurant invention from the 1950s. It is the curry that converted a lot of hesitant diners.",
     occasion: "dinner",
+    regions: ["united-kingdom", "canada", "australia", "new-zealand", "united-states"],
     pairings: ["Naan if you have it", "Water"],
     substitutions: ["Dal and rice if you want it beanier"],
     relatedMealIds: ["dal-and-rice", "chicken-rice-vegetables"],
@@ -966,7 +1524,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "dal-and-rice",
     title: "Dal and Rice",
+    description:
+      "Lentils simmered until creamy, eaten with rice, is the everyday Indian plate. Dal is not “a recipe” so much as dinner most nights: spices, a tadka, and something to scoop with.",
     occasion: "dinner",
+    regions: ["united-kingdom", "australia", "new-zealand", "canada", "united-states"],
     pairings: ["Yogurt on the side", "Water"],
     substitutions: ["Leftover dal for lunch"],
     relatedMealIds: ["butter-chicken-idea", "rice-and-beans-plate", "soup-night"],
@@ -978,7 +1539,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "tostadas-idea",
     title: "Tostadas",
+    description:
+      "A crunchy fried tortilla piled with beans, meat, and toppings is a tostada: taco architecture that does not fold. Mexican home cooks use them to use up tortillas and still feel festive.",
     occasion: "dinner",
+    regions: ["united-states", "mexico"],
     pairings: ["Beans, chicken, or lettuce", "Salsa", "Water"],
     substitutions: ["Tacos if the shells are soft"],
     relatedMealIds: ["taco-night", "enchiladas"],
@@ -987,7 +1551,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "carne-asada-plate",
     title: "Carne Asada Plate",
+    description:
+      "Grilled, marinated beef with rice, beans, and tortillas is a carne asada plate — cookout food that became a restaurant combo. Northern Mexico and the U.S. Southwest share the smoke.",
     occasion: "dinner",
+    regions: ["united-states", "mexico"],
     pairings: ["Rice, beans, and tortillas", "Water"],
     substitutions: ["Steak and potatoes if you skip the tortillas"],
     relatedMealIds: ["taco-night", "steak-and-potatoes", "fajitas"],
@@ -996,7 +1563,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "fish-tacos-idea",
     title: "Fish Tacos",
+    description:
+      "Fried or grilled fish in a tortilla with cabbage and a crema drizzle: Baja California made this beach food famous. Ensenada stands still do it the simple way.",
     occasion: "dinner",
+    regions: ["united-states", "mexico", "australia"],
     pairings: ["Cabbage, lime, and rice", "Water"],
     substitutions: ["Shrimp tacos", "A baked fish plate if you do not want tortillas"],
     relatedMealIds: ["taco-night", "salmon-and-sides"],
@@ -1005,7 +1575,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "wings-and-sides",
     title: "Wings and Sides",
+    description:
+      "Chicken wings, sauce, and a cooling side is the plate that belongs to game night. Buffalo, New York, claims the 1964 origin story; the rest of us just argue mild vs. hot.",
     occasion: "dinner",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "south-korea",
+      "japan",
+    ],
     pairings: ["Carrots, celery, or fries", "Water or a soda"],
     substitutions: ["Baked chicken thighs if you want less fuss"],
     relatedMealIds: ["baked-chicken-plate", "burger-night"],
@@ -1014,7 +1595,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "baked-ziti-idea",
     title: "Baked Ziti",
+    description:
+      "Ziti or penne baked with sauce and cheese is the Italian-American pan that feeds a crowd. It is lasagna’s less fussy cousin, and potlucks know it.",
     occasion: "dinner",
+    regions: ["italy", "united-states", "canada"],
     pairings: ["Salad", "Water or milk"],
     substitutions: ["Lasagna if you want layers", "Weeknight pasta if you skip the bake"],
     relatedMealIds: ["lasagna-night", "pasta-marinara", "meatball-pasta"],
@@ -1023,7 +1607,21 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "popcorn-snack",
     title: "Popcorn",
+    description:
+      "Hot popcorn is the snack that sounds like a movie even in a quiet house. Indigenous peoples in the Americas were popping maize long before the multiplex got involved.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "brazil",
+      "japan",
+      "south-korea",
+    ],
     pairings: ["Water or a soda", "A movie"],
     substitutions: ["Cinnamon sugar instead of salt"],
     relatedMealIds: ["pretzels"],
@@ -1035,7 +1633,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "apple-and-peanut-butter-snack",
     title: "Apple and Peanut Butter",
+    description:
+      "Apple slices and peanut butter is the after-school snack that still works at 9 p.m. Sweet, salty, crunchy: nobody invented it so much as everyone discovered it.",
     occasion: "snack",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Water"],
     substitutions: ["A banana", "Almond butter"],
     relatedMealIds: ["yogurt-cup-snack", "fruit-cup-snack"],
@@ -1047,7 +1648,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chips-and-dip",
     title: "Chips and Dip",
+    description:
+      "A bag of chips and a bowl of dip is the snack that appears whenever people gather. Potato chips have a Saratoga Springs legend; the dip is whatever is in the fridge.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "mexico",
+      "europe",
+    ],
     pairings: ["Water or a soda"],
     substitutions: ["Veggie sticks with the same dip"],
     relatedMealIds: ["nachos-lunch", "pretzels"],
@@ -1060,7 +1672,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "yogurt-cup-snack",
     title: "Yogurt Cup",
+    description:
+      "A cup of yogurt is the snack that pretends to be virtuous and often is. It is breakfast’s little sibling, eaten standing up.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Fruit or granola"],
     substitutions: ["Cottage cheese"],
     relatedMealIds: ["yogurt-and-fruit", "fruit-cup-snack", "granola-bar"],
@@ -1069,7 +1694,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "cheese-and-crackers",
     title: "Cheese and Crackers",
+    description:
+      "Cheese and crackers is the snack tray that needs no recipe card. British ploughman’s lunches and American cocktail hours both landed on the same idea.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+    ],
     pairings: ["Pickles, olives, or apple slices", "Water"],
     substitutions: ["Rice cakes"],
     recipes: [
@@ -1081,7 +1717,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "nuts-snack",
     title: "Nuts",
+    description:
+      "A handful of nuts is the snack that lives in a desk drawer and a hiking pack. People have been eating them between meals since there were trees.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Water or tea", "Dried fruit if you want a mix"],
     relatedMealIds: ["trail-mix"],
     recipes: [
@@ -1092,7 +1744,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "fruit-cup-snack",
     title: "Fruit",
+    description:
+      "Cut fruit in a bowl or cup is the snack that does not need branding. It is what you eat when you want something cold and sweet without baking.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Water", "Yogurt or peanut butter if it needs to last"],
     relatedMealIds: ["apple-and-peanut-butter-snack", "yogurt-cup-snack", "granola-bar"],
     recipes: [
@@ -1103,7 +1771,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "granola-bar",
     title: "Granola or Cereal Bar",
+    description:
+      "A chewy or crunchy bar of oats is hiking food that became a glove-box staple. It is granola that learned to travel.",
     occasion: "snack",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Water or coffee", "Fruit if you want more than a bar"],
     substitutions: ["A handful of granola with milk"],
     relatedMealIds: ["yogurt-cup-snack", "fruit-cup-snack", "granola-and-milk-idea"],
@@ -1115,7 +1786,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "trail-mix",
     title: "Trail Mix",
+    description:
+      "Nuts, dried fruit, and something chocolate is trail mix: Gorp if you are old-school. Appalachian trail culture named it; office drawers adopted it.",
     occasion: "snack",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Water", "Fruit if the mix is mostly nuts"],
     substitutions: ["Plain nuts if you do not want dried fruit"],
     relatedMealIds: ["nuts-snack", "granola-bar"],
@@ -1124,7 +1798,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pretzels",
     title: "Pretzels",
+    description:
+      "Salty, twisted pretzels are the snack with a monk legend attached — dough folded like praying arms, if you like that story. German bakers made them famous; stadiums made them huge.",
     occasion: "snack",
+    regions: ["united-states", "europe", "canada", "australia"],
     pairings: ["Mustard, hummus, or cheese", "Water"],
     substitutions: ["Chips if that is what is open"],
     relatedMealIds: ["chips-and-dip", "popcorn-snack"],
@@ -1133,7 +1810,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "hard-boiled-eggs-snack",
     title: "Hard-Boiled Eggs",
+    description:
+      "A couple of hard-boiled eggs is the snack that is also leftover breakfast. Portable protein is not a new idea; the peel is the only hassle.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Salt, fruit, or crackers", "Water"],
     substitutions: ["A yogurt cup if you want something cold and ready"],
     relatedMealIds: ["yogurt-cup-snack", "eggs-and-toast"],
@@ -1142,7 +1835,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "jerky",
     title: "Jerky",
+    description:
+      "Dried, seasoned meat you can keep in a bag is jerky, from the Andean and Indigenous American practice of drying meat. Cowboys and gas stations kept the habit alive.",
     occasion: "snack",
+    regions: ["united-states", "canada", "australia", "new-zealand", "mexico", "brazil"],
     pairings: ["Water", "Fruit or nuts if you want more than protein"],
     substitutions: ["Hard-boiled eggs if you are out of jerky"],
     relatedMealIds: ["nuts-snack", "hard-boiled-eggs-snack"],
@@ -1151,7 +1847,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "rice-cakes-snack",
     title: "Rice Cakes",
+    description:
+      "Puffed rice cakes are the crunchy snack that tastes like whatever you spread on them. Korean nurungji and American diet-aisle cakes are distant cousins in texture.",
     occasion: "snack",
+    regions: ["china", "japan", "south-korea", "united-states", "australia", "united-kingdom"],
     pairings: ["Almond butter, avocado, or jam", "Water"],
     substitutions: ["Toast if you want something warmer"],
     relatedMealIds: ["apple-and-peanut-butter-snack", "avocado-toast-idea"],
@@ -1163,7 +1862,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "edamame",
     title: "Edamame",
+    description:
+      "Salted soybeans in the pod, squeezed into your mouth, is the Japanese izakaya snack that feels like playing with your food. It is also just a really good salty bite.",
     occasion: "snack",
+    regions: ["japan", "south-korea", "china", "united-states", "australia"],
     pairings: ["Salt", "Water or tea"],
     substitutions: ["Nuts if you do not want to steam"],
     relatedMealIds: ["nuts-snack", "hummus-and-veg"],
@@ -1172,7 +1874,21 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "leftover-pastry-snack",
     title: "Afternoon Muffin or Leftover Pastry",
+    description:
+      "Yesterday’s muffin or pastry with tea or coffee is the afternoon snack bakeries invented by accident. Stale is a suggestion, not a diagnosis.",
     occasion: "snack",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+      "japan",
+    ],
     pairings: ["Coffee, tea, or milk"],
     substitutions: ["A granola bar if nothing baked is left"],
     relatedMealIds: ["muffin", "doughnut-and-coffee", "granola-bar"],
@@ -1181,7 +1897,21 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "cookies-dessert",
     title: "Cookies",
+    description:
+      "A cookie, or a small stack of them, is dessert that does not need a fork. Dutch koekje became American cookie, and the cookie jar became a household character.",
     occasion: "dessert",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+      "japan",
+    ],
     pairings: ["Milk or water", "Ice cream if it is a bigger night"],
     substitutions: ["A brownie"],
     relatedMealIds: ["brownies-dessert", "ice-cream-dessert", "cake-or-cupcake"],
@@ -1194,7 +1924,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "ice-cream-dessert",
     title: "Ice Cream",
+    description:
+      "Cold, creamy ice cream is the dessert people name when they cannot decide. Ancient iced-dessert histories are messy; the cone and the freezer made it ordinary.",
     occasion: "dessert",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["A cookie, or fruit", "Water"],
     substitutions: ["Frozen yogurt bites"],
     relatedMealIds: ["cookies-dessert", "pudding-dessert", "chocolate-or-candy"],
@@ -1207,7 +1953,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "brownies-dessert",
     title: "Brownies",
+    description:
+      "A square of dense chocolate brownie is the bake sale that never ended. Chicago’s 1893 world’s fair often gets a creation myth; fudgy vs. cakey is the real debate.",
     occasion: "dessert",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Milk", "Ice cream"],
     substitutions: ["Blondies"],
     relatedMealIds: ["cookies-dessert"],
@@ -1219,7 +1968,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pudding-dessert",
     title: "Pudding",
+    description:
+      "A cup of pudding — chocolate, vanilla, or something from a box — is dessert with a spoon and no ceremony. British puddings are a whole other universe; this is the American cup.",
     occasion: "dessert",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Berries, or a cookie"],
     substitutions: ["Rice pudding"],
     relatedMealIds: ["ice-cream-dessert"],
@@ -1232,7 +1984,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "fruit-crisp",
     title: "Fruit Crisp",
+    description:
+      "Baked fruit under a buttery oat topping is a crisp: pie for people who do not want to roll dough. New England kitchens popularized the topping; the fruit is whatever is going soft.",
     occasion: "dessert",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Ice cream or whipped cream", "Water"],
     substitutions: ["Baked apples when you want less topping"],
     relatedMealIds: ["ice-cream-dessert", "cobbler", "pie"],
@@ -1245,7 +2000,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "mug-cake",
     title: "Mug Cake",
+    description:
+      "Cake mixed and cooked in a mug is dessert for one, invented for the microwave age. It is not elegant. It is ready in minutes, which is the elegance.",
     occasion: "dessert",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Milk or coffee"],
     substitutions: ["A cookie if you do not want to microwave"],
     relatedMealIds: ["brownies-dessert"],
@@ -1254,7 +2012,21 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "cake-or-cupcake",
     title: "Cake or Cupcake",
+    description:
+      "A slice of cake or a cupcake is the birthday dessert that also shows up on ordinary Tuesdays. Cupcakes were just portion control before they became a lifestyle.",
     occasion: "dessert",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+      "japan",
+    ],
     pairings: ["Milk or coffee", "Ice cream if it is a celebration"],
     substitutions: ["A muffin if you want something less frosting-heavy"],
     relatedMealIds: ["cookies-dessert", "muffin", "brownies-dessert"],
@@ -1267,7 +2039,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "pie",
     title: "Pie",
+    description:
+      "A pie — fruit, cream, or otherwise — is dessert with a crust and a reputation. Medieval meat pies came first; American diners made the sweet slice a nightcap.",
     occasion: "dessert",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Ice cream or whipped cream", "Coffee"],
     substitutions: ["A fruit crisp if you do not want a crust"],
     relatedMealIds: ["fruit-crisp", "cobbler"],
@@ -1276,7 +2051,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "cobbler",
     title: "Cobbler",
+    description:
+      "Fruit baked under a biscuit or batter topping is cobbler, the Southern and Midwestern cousin of crisp. The name may come from the cobbled look of the topping. Nobody minds.",
     occasion: "dessert",
+    regions: ["united-states", "united-kingdom", "australia"],
     pairings: ["Ice cream", "Coffee or water"],
     substitutions: ["A fruit crisp with less batter"],
     relatedMealIds: ["fruit-crisp", "pie"],
@@ -1285,7 +2063,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "doughnut-dessert",
     title: "Doughnut",
+    description:
+      "A doughnut after dinner is the same fried dough, just without pretending it is breakfast. Glaze optional; nap almost certain.",
     occasion: "dessert",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "mexico",
+      "japan",
+    ],
     pairings: ["Coffee or milk"],
     substitutions: ["A muffin or leftover pastry"],
     relatedMealIds: ["doughnut-and-coffee", "leftover-pastry-snack", "cookies-dessert"],
@@ -1294,7 +2084,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "chocolate-or-candy",
     title: "Chocolate or Candy",
+    description:
+      "A piece of chocolate or a handful of candy is dessert at its most portable. Mesoamerican cacao became a global sweet; the wrapper is modern. The craving is not.",
     occasion: "dessert",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Water or milk"],
     substitutions: ["Ice cream if you want something colder"],
     relatedMealIds: ["ice-cream-dessert", "cookies-dessert"],
@@ -1303,7 +2109,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "banana-bread-dessert",
     title: "Banana Bread",
+    description:
+      "A slice of banana bread is the bake that exists because bananas went brown. Depression-era and wartime bakers popularized it; overripe fruit is still the secret ingredient.",
     occasion: "dessert",
+    regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Coffee, tea, or milk"],
     substitutions: ["A muffin if you want a smaller piece"],
     relatedMealIds: ["muffin", "cake-or-cupcake"],
@@ -1312,7 +2121,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "churros",
     title: "Churros or Cinnamon-Sugar Tortillas",
+    description:
+      "Fried dough rolled in cinnamon sugar — churros, or cinnamon-sugar tortillas in a pinch — is the fairground dessert you can make in a skillet. Spanish and Mexican streets had them first.",
     occasion: "dessert",
+    regions: ["mexico", "europe", "united-states", "brazil"],
     pairings: ["Hot chocolate or coffee"],
     substitutions: ["Cinnamon toast if you do not want to fry or bake dough"],
     relatedMealIds: ["doughnut-dessert", "hot-chocolate"],
@@ -1324,7 +2136,10 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "flan-or-custard",
     title: "Flan or Custard",
+    description:
+      "A wobbly caramel custard is flan: the dessert that looks fancy and is mostly eggs, milk, and patience. Romans had baked custards; Spain and Latin America made the caramel top iconic.",
     occasion: "dessert",
+    regions: ["mexico", "europe", "italy", "brazil", "united-states"],
     pairings: ["Coffee", "Fruit if you want something lighter next to it"],
     substitutions: ["Pudding if you do not want to bake"],
     relatedMealIds: ["pudding-dessert", "ice-cream-dessert"],
@@ -1336,7 +2151,22 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "coffee-drink",
     title: "Coffee",
+    description:
+      "A hot (or iced) cup of coffee is the drink that starts shifts and ends dinners. Ethiopian and Yemeni origins, European cafés, and office pots all share the same bean habit.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Creamer, milk, or sugar", "A little breakfast if this is the whole sitting"],
     substitutions: ["Almond milk", "Tea"],
     relatedMealIds: ["tea-drink", "hot-chocolate"],
@@ -1344,7 +2174,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "tea-drink",
     title: "Tea",
+    description:
+      "A mug of tea is the drink that can be breakfast, a pause, or the whole point. China cultivated it; Britain ritualized it; kettles everywhere keep it going.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Honey or lemon", "A cookie or toast"],
     substitutions: ["Coffee"],
     relatedMealIds: ["coffee-drink"],
@@ -1352,7 +2198,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "water-drink",
     title: "Water",
+    description:
+      "Water is the drink that does not need a pitch. Every plate is better with it, and every culture treated it as the default unless they had a well-told reason not to.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "china",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+    ],
     pairings: ["Lemon if you want a little flavor"],
     substitutions: ["Sparkling water"],
     relatedMealIds: ["soda-drink", "sports-drink"],
@@ -1360,7 +2222,19 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "smoothie-drink",
     title: "Smoothie",
+    description:
+      "A blended fruit drink is the smoothie that wandered off the breakfast table. Same blender, fewer excuses about it being a meal.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "brazil",
+      "mexico",
+    ],
     pairings: ["Nothing required; add toast if it is a meal"],
     substitutions: ["Milk or a yogurt drink"],
     relatedMealIds: ["breakfast-smoothie", "protein-shake"],
@@ -1372,7 +2246,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "milk-drink",
     title: "Milk",
+    description:
+      "A glass of milk is the drink kids are told to finish and adults rediscover with cookies. Dairying is ancient; the cold glass is the refrigerator’s contribution.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Cookies, or cereal if this turns into breakfast"],
     substitutions: ["Almond milk"],
     relatedMealIds: ["cereal-and-milk"],
@@ -1380,7 +2267,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "orange-juice",
     title: "Orange Juice",
+    description:
+      "Orange juice is breakfast’s brightest glass, squeezing or pouring its way onto the table. Florida and California groves, plus the juicer, made it a morning default.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Breakfast, or nothing if it is just a glass"],
     substitutions: ["Water if juice is too sweet in the morning"],
     relatedMealIds: ["coffee-drink", "breakfast-smoothie"],
@@ -1389,7 +2289,20 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "hot-chocolate",
     title: "Hot Chocolate",
+    description:
+      "A mug of hot chocolate is the drink that tastes like a blanket. Mesoamerican chocolate drinks were unsweetened and spiced; Europe added sugar and milk and never looked back.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "italy",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["A cookie, churro, or nothing"],
     substitutions: ["Coffee if you want caffeine more than chocolate"],
     relatedMealIds: ["coffee-drink", "churros", "milk-drink"],
@@ -1398,7 +2311,18 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "protein-shake",
     title: "Protein Shake",
+    description:
+      "A blended protein shake is the gym drink that also stands in for breakfast. Powder and a shaker bottle are new; wanting something filling and fast is not.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "brazil",
+    ],
     pairings: ["A banana, or nothing if this is the whole sitting"],
     substitutions: ["A smoothie if you want more fruit than powder"],
     relatedMealIds: ["smoothie-drink", "breakfast-smoothie", "milk-drink"],
@@ -1407,7 +2331,23 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "soda-drink",
     title: "Soda",
+    description:
+      "A cold soda is the drink that fizzes like a celebration even on a Wednesday. Pharmacists mixed early versions; bottling plants did the rest.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "canada",
+      "mexico",
+      "brazil",
+      "united-kingdom",
+      "italy",
+      "europe",
+      "japan",
+      "south-korea",
+      "australia",
+      "new-zealand",
+      "china",
+    ],
     pairings: ["Pizza, burgers, or chips"],
     substitutions: ["Sparkling water if you want the fizz without the sugar"],
     relatedMealIds: ["water-drink", "pizza-night", "burger-night"],
@@ -1416,7 +2356,21 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "energy-drink",
     title: "Energy Drink",
+    description:
+      "A canned energy drink is caffeine with marketing and a warning label. It is a late-twentieth-century invention for people who decided coffee was not theatrical enough.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "japan",
+      "south-korea",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["Nothing required; pair with a small snack if it is a long stretch"],
     substitutions: ["Coffee if you want caffeine from a pot instead of a can"],
     relatedMealIds: ["coffee-drink", "sports-drink"],
@@ -1425,10 +2379,26 @@ export const mealIdeas: MealIdea[] = [
   {
     id: "sports-drink",
     title: "Sports Drink",
+    description:
+      "A colored sports drink is salt, sugar, and water in a bottle with a team on it. University of Florida researchers mixed an early version for athletes; now it lives in every cooler.",
     occasion: "drinks",
+    regions: [
+      "united-states",
+      "united-kingdom",
+      "canada",
+      "australia",
+      "new-zealand",
+      "europe",
+      "japan",
+      "south-korea",
+      "mexico",
+      "brazil",
+    ],
     pairings: ["After a workout, or with a salty snack"],
     substitutions: ["Water if you just need fluid", "An energy drink if you want more caffeine"],
     relatedMealIds: ["water-drink", "soda-drink", "energy-drink"],
     recipes: [{ label: "Sports Drink (Gatorade)" }],
   },
 ];
+
+export const mealIdeas: MealIdea[] = [...coreMealIdeas, ...extraMealIdeas];

@@ -38,7 +38,6 @@ export const snackMore: Recipe[] = [
       "Move the eggs to a bowl of ice water and let them cool.",
       "Peel, sprinkle with salt, and eat.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cheese-and-rice-cakes",
@@ -69,7 +68,6 @@ export const snackMore: Recipe[] = [
       "Lay cheddar on each rice cake.",
       "Eat right away so the rice cakes stay crisp.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "apple-peanut-butter",
@@ -101,7 +99,6 @@ export const snackMore: Recipe[] = [
       "Spoon the peanut butter into a small bowl, or spread it on the slices.",
       "Dip and eat.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "carrot-hummus",
@@ -161,7 +158,6 @@ export const snackMore: Recipe[] = [
       "Taste and add more lemon or salt if it needs it.",
       "Serve with carrot sticks.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "salsa-and-chips",
@@ -235,7 +231,6 @@ export const snackMore: Recipe[] = [
       "Drizzle honey over the top.",
       "Add blueberries if you have them.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "granola-clusters",
@@ -290,7 +285,6 @@ export const snackMore: Recipe[] = [
       "Press the mix into an even layer. Bake 18–20 minutes, until golden.",
       "Cool on the pan without stirring so it breaks into clusters.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "energy-bites",
@@ -338,7 +332,6 @@ export const snackMore: Recipe[] = [
       "Chill 10 minutes if the mix feels sticky, then roll into small balls.",
       "Keep them in the fridge.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "roasted-almonds",
@@ -375,7 +368,6 @@ export const snackMore: Recipe[] = [
       "Roast 10–12 minutes, shaking once, until they smell toasty.",
       "Cool before you eat — they crisp as they sit.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "salted-edamame",
@@ -407,7 +399,6 @@ export const snackMore: Recipe[] = [
       "Drain well.",
       "Toss with salt and serve in the pods.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cucumber-slices",
@@ -453,7 +444,6 @@ export const snackMore: Recipe[] = [
       "Spread them on a plate and sprinkle with salt and pepper.",
       "Add a squeeze of lemon if you want.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cheese-crisps",
@@ -481,7 +471,6 @@ export const snackMore: Recipe[] = [
       "Bake 6–8 minutes, until the edges are lacy and golden.",
       "Cool on the pan — they crisp as they sit.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "banana-peanut-butter",
@@ -513,7 +502,6 @@ export const snackMore: Recipe[] = [
       "Spread peanut butter on the slices, or dip as you go.",
       "Eat right away.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cinnamon-popcorn",
@@ -559,7 +547,6 @@ export const snackMore: Recipe[] = [
       "When the popping slows, take the pot off the heat.",
       "Toss the hot popcorn with cinnamon, sugar, and a pinch of salt.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "snack-nachos",
@@ -647,7 +634,6 @@ export const snackMore: Recipe[] = [
       "Cut the strawberries and grapes. Segment the orange.",
       "Toss everything in a bowl and serve.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "cottage-cheese-snack",
@@ -686,7 +672,6 @@ export const snackMore: Recipe[] = [
       "Top with peach slices.",
       "Add a grind of black pepper if you like it savory.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "roasted-pumpkin-seeds",
@@ -723,7 +708,6 @@ export const snackMore: Recipe[] = [
       "Roast 12–15 minutes, stirring once, until they smell toasty.",
       "Cool before you snack — they crisp as they sit.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "chocolate-almonds",
@@ -762,7 +746,6 @@ export const snackMore: Recipe[] = [
       "Spread them on parchment. Sprinkle a pinch of salt if you want.",
       "Let them set at room temperature or in the fridge.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "veggie-sticks",
@@ -807,7 +790,6 @@ export const snackMore: Recipe[] = [
       "Cut the celery, cucumber, and bell pepper into sticks too.",
       "Pile them on a plate and eat.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "rice-cake-avocado",
@@ -858,7 +840,6 @@ export const snackMore: Recipe[] = [
       "Add a pinch of red pepper flakes if you want heat.",
       "Eat right away so the rice cakes stay crisp.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "frozen-grapes",
@@ -885,7 +866,6 @@ export const snackMore: Recipe[] = [
       "Freeze until firm, about 2 hours.",
       "Eat them straight from the freezer.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "spiced-nuts",
@@ -942,7 +922,6 @@ export const snackMore: Recipe[] = [
       "Spread on a sheet pan and roast 10–12 minutes, stirring once.",
       "Cool before you eat.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "mango-chili",
@@ -985,7 +964,6 @@ export const snackMore: Recipe[] = [
       "Squeeze lime over the fruit.",
       "Dust with chili powder and a pinch of salt.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "olive-plate",
@@ -1024,7 +1002,6 @@ export const snackMore: Recipe[] = [
       "Add feta next to the olives.",
       "Tuck cucumber slices on the side if you have them.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "pickles-and-cheese",
@@ -1056,7 +1033,6 @@ export const snackMore: Recipe[] = [
       "Arrange pickles and cheddar on a plate.",
       "Eat them together.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "berry-smoothie",
@@ -1103,7 +1079,6 @@ export const snackMore: Recipe[] = [
       "Add honey if you want it sweeter.",
       "Blend until smooth. Pour and drink.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "toast-and-jam",
@@ -1134,7 +1109,7 @@ export const snackMore: Recipe[] = [
       "Spread jam on each slice.",
       "Eat while the toast is still warm.",
     ],
-    notes: "No onion or garlic. Sourdough is the household gluten exception.",
+    notes: "Sourdough is the household gluten exception.",
   },
   {
     id: "kale-chips",
@@ -1172,7 +1147,6 @@ export const snackMore: Recipe[] = [
       "Spread in a single layer on a sheet pan.",
       "Bake 18–20 minutes, until crisp but not brown. Cool a minute before eating.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "roasted-carrot-sticks",
@@ -1216,7 +1190,6 @@ export const snackMore: Recipe[] = [
       "Roast 20–25 minutes, turning once, until browned at the edges.",
       "Let them cool a few minutes so you can pick them up.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "frozen-yogurt-bites",
@@ -1254,7 +1227,6 @@ export const snackMore: Recipe[] = [
       "Drop small spoonfuls on the parchment and press a blueberry into each one.",
       "Freeze until firm, about 2 hours. Keep frozen.",
     ],
-    notes: "No onion or garlic.",
   },
   {
     id: "sunflower-seed-mix",
@@ -1295,6 +1267,5 @@ export const snackMore: Recipe[] = [
       "Toss to mix.",
       "Scoop into a jar or small bags for the week.",
     ],
-    notes: "No onion or garlic.",
   },
 ];
