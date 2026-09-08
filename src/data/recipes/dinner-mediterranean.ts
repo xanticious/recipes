@@ -378,8 +378,9 @@ export const dinnerMediterranean: Recipe[] = [
     ha: "not-ha-assumed",
     healthRating: "moderate",
     eatOut: false,
+    relatedRecipeIds: ["stuffed-peppers-med-ha"],
     prepMinutes: 20,
-    cookMinutes: 40,
+    cookMinutes: 60,
     servings: 4,
     ingredients: [
       {
@@ -417,6 +418,11 @@ export const dinnerMediterranean: Recipe[] = [
         unit: "oz",
       },
       {
+        ingredientId: "chicken-broth",
+        amount: 1,
+        unit: "cup",
+      },
+      {
         ingredientId: "oregano",
         amount: 1,
         unit: "tsp",
@@ -448,7 +454,7 @@ export const dinnerMediterranean: Recipe[] = [
       "Heat the oven to 375°F. Rub the pepper halves with 1 tablespoon oil and set them in a baking dish.",
       "Warm the remaining oil in a skillet. Cook the onion until soft, then the garlic for 30 seconds.",
       "Add the lamb and cook until browned. Stir in the rice, tomatoes, oregano, salt, and pepper.",
-      "Spoon the filling into the peppers. Cover the dish and bake 35 minutes.",
+      "Spoon the filling into the peppers. Pour the broth around them. Cover the dish and bake 50–55 minutes, until the rice is tender.",
       "Uncover. Sprinkle feta on top and bake 5 minutes more.",
     ],
   },

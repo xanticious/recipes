@@ -1,0 +1,2477 @@
+\n#### sheet-pan-roasted-chicken — Sheet-Pan Roasted Chicken (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - potato | potato | 1.5 lb cut into chunks [ha-assumed]
+  - carrot | carrot | 4  cut into chunks [ha-confirmed]
+  - broccoli | broccoli | 1 head florets [ha-confirmed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - lemon | lemon | 1  wedged [ha-assumed]
+  - rosemary | dried rosemary | 1 tsp  [ha-assumed]
+  - paprika | paprika | 1 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Toss the potatoes and carrots with 2 tablespoons oil, salt, and paprika.
+  2. Spread them on a sheet pan. Nestle the chicken thighs among the vegetables.
+  3. Drizzle the chicken with the remaining oil. Season with rosemary, salt, and pepper.
+  4. Roast 25 minutes. Add the broccoli and lemon wedges and roast 10 minutes more.
+  5. The chicken should be cooked through and the potatoes tender.
+\n#### sunday-roast-chicken — Sunday Roast Chicken (Not-HA) [not-ha-assumed]
+related: sunday-roast-chicken-ha | suffixHa: sunday-roast-chicken-ha
+  - whole-chicken | whole chicken | 4.5 lb  [ha-confirmed]
+  - butter | butter | 3 tbsp softened [ha-confirmed]
+  - lemon | lemon | 1  halved [ha-assumed]
+  - onion | onion | 1  quartered [not-ha-assumed]
+  - garlic | garlic | 1 head halved crosswise [not-ha-assumed]
+  - carrot | carrot | 4  cut into chunks [ha-confirmed]
+  - potato | potato | 1.5 lb halved [ha-assumed]
+  - rosemary | dried rosemary | 2 tsp  [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Pat the chicken dry. Rub the butter under and over the skin.
+  2. Season the bird inside and out with salt, pepper, rosemary, and thyme.
+  3. Stuff the cavity with the lemon and a few onion pieces. Tie the legs if you like.
+  4. Toss the remaining onion, garlic, carrots, and potatoes with oil on a roasting pan.
+  5. Set the chicken on top. Roast 70–80 minutes, until the juices run clear.
+  6. Rest 15 minutes before carving. Serve with the pan vegetables.
+NOTES: A weekend bird — leftover meat is good in the chicken salad lettuce cups.
+\n#### weeknight-chili — Weeknight Chili (Not-HA) [not-ha-assumed]
+related: weeknight-chili-ha | suffixHa: weeknight-chili-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 28 oz  [ha-confirmed]
+  - black-beans | black beans | 15 oz drained and rinsed [ha-assumed]
+  - pinto-beans | pinto beans | 15 oz drained and rinsed [ha-assumed]
+  - chili-powder | chili powder | 2 tbsp  [not-ha-assumed]
+  - cumin | cumin | 2 tsp  [ha-assumed]
+  - smoked-paprika | smoked paprika | 1 tsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cheddar | cheddar | 0.5 cup shredded [not-ha-confirmed]
+STEPS:
+  1. Brown the beef in a pot over medium-high heat, breaking it up, about 6 minutes.
+  2. Add the onion and cook until soft. Stir in the garlic, chili powder, cumin, and paprika.
+  3. Pour in the tomatoes and both beans. Simmer 25 minutes, stirring now and then.
+  4. Season with salt. Ladle into bowls. Top with cheddar.
+\n#### skillet-burgers — Skillet Burgers (Not-HA) [not-ha-assumed]
+related: skillet-burgers-ha | suffixHa: skillet-burgers-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+  - gf-bread | gluten-free bread | 4 slice  [ha-assumed]
+  - cheddar | cheddar | 4 slice  [not-ha-confirmed]
+  - romaine | romaine lettuce | 4 leaf  [ha-assumed]
+  - tomato | tomato | 1  sliced [ha-assumed]
+  - ketchup | ketchup |   for serving [ha-assumed]
+  - mustard | mustard |   for serving [ha-assumed]
+STEPS:
+  1. Form the ground beef into four patties. Season both sides with salt and pepper.
+  2. Heat a skillet over medium-high heat. Cook the patties 4–5 minutes on the first side.
+  3. Flip and cook 3–4 minutes more. Add cheddar for the last minute.
+  4. Serve on toasted gluten-free bread with lettuce and tomato, ketchup, and mustard.
+NOTES: Use the chips on cheese, bread, or ketchup to match a diet tag.
+\n#### baked-salmon — Baked Salmon (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - salmon | salmon | 1.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - lemon | lemon | 1  sliced [ha-assumed]
+  - dill | dill | 1 tbsp chopped [ha-assumed]
+  - green-beans | green beans | 1 lb  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Place the salmon on one side of a sheet pan.
+  2. Toss the green beans with 1 tablespoon oil, salt, and pepper. Spread them beside the fish.
+  3. Drizzle the salmon with the remaining oil. Season and lay lemon slices on top.
+  4. Bake 12–15 minutes, until the salmon flakes. Scatter dill over everything.
+\n#### turkey-meatloaf — Turkey Meatloaf (Not-HA) [not-ha-assumed]
+related: turkey-meatloaf-ha | suffixHa: turkey-meatloaf-ha
+  - ground-turkey | ground turkey | 2 lb  [ha-confirmed]
+  - onion | onion | 1  finely chopped [not-ha-assumed]
+  - egg | eggs | 2   [ha-confirmed]
+  - gf-oats | certified gluten-free oats | 0.75 cup  [ha-assumed]
+  - ketchup | ketchup | 0.5 cup  [ha-assumed]
+  - mustard | mustard | 1 tbsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Line a loaf pan or small sheet pan with parchment.
+  2. Mix the turkey, onion, eggs, oats, mustard, salt, pepper, and half the ketchup.
+  3. Shape into a loaf. Spread the remaining ketchup over the top.
+  4. Bake 45–50 minutes, until cooked through.
+  5. Rest 10 minutes before slicing.
+\n#### taco-night — Taco Night (Not-HA) [not-ha-assumed]
+related: taco-night-ha | suffixHa: taco-night-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - chili-powder | chili powder | 1 tbsp  [not-ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - smoked-paprika | smoked paprika | 0.5 tsp  [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - salsa | salsa | 1 cup  [not-ha-assumed]
+  - romaine | romaine lettuce | 2 cup shredded [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+STEPS:
+  1. Brown the beef in a skillet, breaking it up. Drain extra fat if you want to.
+  2. Stir in chili powder, cumin, paprika, and salt. Cook 1 minute.
+  3. Warm the tortillas in a dry skillet or wrapped in a towel in a low oven.
+  4. Set out salsa, lettuce, lime, cilantro, and cheddar.
+  5. Let everyone build their own tacos.
+NOTES: Salsa has onion and garlic.
+\n#### salsa-chicken — Salsa Chicken (Not-HA) [not-ha-assumed]
+related: salsa-chicken-ha | suffixHa: salsa-chicken-ha
+  - chicken-breast | chicken breast | 1.5 lb  [ha-confirmed]
+  - salsa | salsa | 2 cup  [not-ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+  - cheddar | cheddar | 0.5 cup shredded [not-ha-confirmed]
+STEPS:
+  1. Cook the rice in the water according to the package, about 18 minutes.
+  2. Season the chicken with cumin. Nestle it in a skillet and pour the salsa over it.
+  3. Cover and simmer over medium-low heat until the chicken is cooked, 18–22 minutes.
+  4. Shred the chicken in the salsa with two forks.
+  5. Serve over rice with cilantro and lime, and cheddar.
+NOTES: Salsa has onion and garlic.
+\n#### rice-and-beans — Rice and Beans (Not-HA) [not-ha-assumed]
+related: rice-and-beans-ha | suffixHa: rice-and-beans-ha
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - pinto-beans | pinto beans | 30 oz drained and rinsed [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - chili-powder | chili powder | 0.5 tsp  [not-ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lime | lime | 1  juiced [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a skillet. Cook the onion until soft, then add the garlic for 30 seconds.
+  3. Stir in the beans, cumin, chili powder, and a splash of water. Simmer 8 minutes.
+  4. Season with salt. Fold in lime juice and cilantro.
+  5. Serve the beans over the rice.
+\n#### gf-spaghetti-marinara — Gluten-Free Spaghetti Marinara (Not-HA) [not-ha-assumed]
+related: gf-spaghetti-marinara-ha | suffixHa: gf-spaghetti-marinara-ha
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 0.5  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 28 oz  [ha-confirmed]
+  - tomato-paste | tomato paste | 1 tbsp  [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - basil | basil | 0.25 cup chopped [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+STEPS:
+  1. Boil the pasta in salted water according to the package. Drain, saving a splash of water.
+  2. Warm the oil in a skillet. Cook the onion until soft, then add the garlic for 30 seconds.
+  3. Stir in tomato paste, then the canned tomatoes and oregano. Simmer 15 minutes.
+  4. Season with salt. Toss the pasta with the sauce and a little pasta water.
+  5. Finish with basil and Parmesan.
+NOTES: Parmesan is the household lactose-clear hard cheese.
+\n#### chicken-cacciatore — Chicken Cacciatore (Not-HA) [not-ha-assumed]
+related: chicken-cacciatore-ha | suffixHa: chicken-cacciatore-ha
+  - chicken-thigh | chicken thighs | 3 lb  [ha-confirmed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - onion | onion | 1  sliced [not-ha-assumed]
+  - bell-pepper | bell pepper | 2  sliced [ha-confirmed]
+  - garlic | garlic | 4 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 28 oz  [ha-confirmed]
+  - tomato-paste | tomato paste | 2 tbsp  [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - bay-leaf | bay leaf | 1   [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Season the chicken. Brown it in the oil in a wide pot, 4 minutes per side. Set aside.
+  2. Cook the onion and peppers in the same pot until soft, about 8 minutes.
+  3. Stir in garlic and tomato paste for 1 minute.
+  4. Add tomatoes, oregano, thyme, and the bay leaf. Return the chicken.
+  5. Simmer uncovered 35–40 minutes, until the chicken is tender and the sauce is thick.
+  6. Discard the bay leaf. Finish with parsley, salt, and pepper.
+\n#### parmesan-risotto — Parmesan Risotto (Not-HA) [not-ha-assumed]
+related: parmesan-risotto-ha | suffixHa: parmesan-risotto-ha
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - chicken-broth | chicken broth | 5 cup warmed [ha-assumed]
+  - onion | onion | 1  finely diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - butter | butter | 3 tbsp  [ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - parmesan | Parmesan | 1 cup grated [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Warm the oil and 1 tablespoon butter in a pot. Cook the onion until translucent.
+  2. Add the garlic for 30 seconds, then the rice. Stir until the grains look glossy.
+  3. Add a ladle of warm broth and stir until it is mostly absorbed. Repeat.
+  4. Keep adding broth and stirring for about 25 minutes, until the rice is creamy and tender.
+  5. Take it off the heat. Stir in the remaining butter and the Parmesan.
+  6. Season with salt and pepper. Serve right away.
+NOTES: Parmesan is lactose-clear. This wants your attention at the stove — a guest-night dish.
+\n#### chicken-veggie-stir-fry — Chicken and Veggie Stir-Fry (Not-HA) [not-ha-assumed]
+related: chicken-veggie-stir-fry-ha | suffixHa: chicken-veggie-stir-fry-ha
+  - chicken-breast | chicken breast | 1.5 lb sliced thin [ha-confirmed]
+  - broccoli | broccoli | 1 head florets [ha-confirmed]
+  - bell-pepper | bell pepper | 1  sliced [ha-confirmed]
+  - carrot | carrot | 2  sliced [ha-confirmed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 0.25 cup  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Heat the vegetable oil in a wide skillet over high heat. Stir-fry the chicken until just cooked.
+  3. Add broccoli, pepper, and carrot. Cook until the vegetables are crisp-tender, about 4 minutes.
+  4. Stir in garlic and ginger for 30 seconds, then the soy sauce and sesame oil.
+  5. Serve over the rice.
+\n#### ginger-rice-noodle-soup — Ginger Rice Noodle Soup (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - rice-noodle | rice noodles | 8 oz  [ha-assumed]
+  - garlic-free-broth | onion- and garlic-free broth | 6 cup  [ha-assumed]
+  - chicken-breast | chicken breast | 1 lb  [ha-confirmed]
+  - ginger | fresh ginger | 2 tbsp sliced [ha-assumed]
+  - carrot | carrot | 2  sliced [ha-confirmed]
+  - soy-sauce-gf | gluten-free soy sauce | 2 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - spinach | spinach | 2 cup  [ha-assumed]
+  - green-onion | green onion | 2  sliced OPT [ha-assumed]
+STEPS:
+  1. Bring the broth and ginger to a simmer. Add the chicken and poach until cooked, about 12 minutes.
+  2. Lift out the chicken, shred it, and return it to the pot with the carrots.
+  3. Add the rice noodles and cook until tender, 4–6 minutes depending on the brand.
+  4. Stir in soy sauce, sesame oil, and spinach until the leaves wilt.
+  5. Ladle into bowls and top with optional green onion.
+NOTES: Uses garlic-free broth. Skip the green onion if you are avoiding fructans.
+\n#### teriyaki-salmon-bowls — Teriyaki Salmon Bowls (Not-HA) [not-ha-assumed]
+related: teriyaki-salmon-bowls-ha | suffixHa: teriyaki-salmon-bowls-ha
+  - salmon | salmon | 1.5 lb  [ha-confirmed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 0.25 cup  [ha-assumed]
+  - honey | honey | 2 tbsp  [not-ha-assumed]
+  - ginger | fresh ginger | 1 tsp minced [ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - broccoli | broccoli | 1 head florets [ha-confirmed]
+  - sesame-seeds | sesame seeds | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender. Steam or boil the broccoli until bright green.
+  2. Stir the soy sauce, honey, ginger, and garlic in a small bowl.
+  3. Heat the oil in a skillet over medium heat. Cook the salmon 4 minutes on the first side.
+  4. Flip, pour in the sauce, and cook until the fish flakes and the sauce thickens, about 4 minutes.
+  5. Serve the salmon over rice with broccoli. Spoon extra sauce on top and sprinkle sesame seeds.
+\n#### lemon-herb-greek-chicken — Lemon Herb Greek Chicken (Not-HA) [not-ha-assumed]
+related: lemon-herb-greek-chicken-ha | suffixHa: lemon-herb-greek-chicken-ha
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - lemon | lemon | 2  juiced and zested [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - oregano | dried oregano | 2 tsp  [ha-assumed]
+  - cucumber | cucumber | 1  sliced [ha-assumed]
+  - tomato | tomato | 2  wedged [ha-assumed]
+  - feta | feta | 0.5 cup crumbled [not-ha-confirmed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Toss the chicken with oil, lemon juice and zest, garlic, oregano, and salt.
+  2. Spread the thighs on a sheet pan and roast 25–30 minutes, until cooked through.
+  3. Pile cucumber and tomato on a platter.
+  4. Set the chicken on top. Add feta and a grind of pepper.
+\n#### baked-white-fish — Baked White Fish (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - white-fish | white fish fillet | 1.5 lb  [not-ha-confirmed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - lemon | lemon | 1  juiced and sliced [ha-assumed]
+  - cherry-tomato | cherry tomatoes | 1 pint  [ha-assumed]
+  - zucchini | zucchini | 2  sliced [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Spread zucchini and cherry tomatoes on a sheet pan.
+  2. Drizzle the vegetables with 2 tablespoons oil, oregano, salt, and pepper.
+  3. Lay the fish on top. Drizzle with the remaining oil and lemon juice. Add lemon slices.
+  4. Bake 12–15 minutes, until the fish flakes. Finish with parsley.
+\n#### shawarma-spiced-chicken — Shawarma-Spiced Chicken (Not-HA) [not-ha-assumed]
+related: shawarma-spiced-chicken-ha | suffixHa: shawarma-spiced-chicken-ha
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - lemon | lemon | 2 tbsp juiced [ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - cumin | cumin | 1.5 tsp  [ha-assumed]
+  - paprika | paprika | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - coriander | ground coriander | 0.5 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - mixed-greens | mixed greens | 4 cup  [ha-assumed]
+  - yogurt | yogurt | 0.5 cup  [not-ha-confirmed]
+STEPS:
+  1. Toss the chicken with oil, lemon, garlic, cumin, paprika, turmeric, coriander, and salt.
+  2. Heat a skillet over medium-high heat. Cook the thighs 6–7 minutes per side.
+  3. Rest 5 minutes, then slice.
+  4. Serve over mixed greens with yogurt on the side.
+\n#### weeknight-dal — Weeknight Dal (Not-HA) [not-ha-assumed]
+related: weeknight-dal-ha | suffixHa: weeknight-dal-ha
+  - red-lentils | red lentils | 1.5 cup rinsed [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - turmeric | turmeric | 1 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - water | water | 4 cup  [ha-assumed]
+  - coconut-milk | canned coconut milk | 0.5 cup  OPT [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Rinse the lentils until the water runs clearer.
+  2. Warm the oil in a pot. Cook the onion until soft, then add garlic and ginger.
+  3. Stir in turmeric and cumin, then the lentils, tomatoes, and water.
+  4. Simmer 20–25 minutes, stirring now and then, until the lentils are soft.
+  5. Season with salt. Stir in optional coconut milk and finish with cilantro.
+\n#### yogurt-marinated-chicken — Yogurt-Marinated Chicken (Not-HA) [not-ha-assumed]
+related: yogurt-marinated-chicken-ha | suffixHa: yogurt-marinated-chicken-ha
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - yogurt | yogurt | 1 cup  [not-ha-confirmed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - lemon | lemon | 1 tbsp juiced [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+STEPS:
+  1. Stir the yogurt with garlic, ginger, garam masala, cumin, turmeric, lemon, and salt.
+  2. Coat the chicken and rest 15 minutes on the counter, or longer in the fridge if you have time.
+  3. Heat the oil in a skillet over medium heat. Shake off extra marinade and add the chicken.
+  4. Cook 6–8 minutes per side, until cooked through and browned in spots.
+  5. Rest a few minutes, then serve.
+\n#### chickpea-curry — Chickpea Curry (Not-HA) [not-ha-assumed]
+related: chickpea-curry-ha | suffixHa: chickpea-curry-ha
+  - chickpeas | chickpeas | 30 oz drained and rinsed [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - coconut-milk | canned coconut milk | 13.5 oz  [ha-assumed]
+  - curry-powder | curry powder | 2 tbsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a pot. Cook the onion until soft, then add garlic and ginger.
+  3. Stir in curry powder and turmeric for 30 seconds.
+  4. Add tomatoes, coconut milk, and chickpeas. Simmer 15 minutes.
+  5. Season with salt. Serve over rice with cilantro.
+\n#### beef-stew — Beef Stew (Not-HA) [not-ha-assumed]
+related: beef-stew-ha | suffixHa: beef-stew-ha
+  - stew-beef | stew beef | 2 lb in chunks [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - carrot | carrot | 4  cut into chunks [ha-confirmed]
+  - celery | celery | 2 stalk sliced [ha-assumed]
+  - potato | potato | 1.5 lb cut into chunks [ha-assumed]
+  - tomato-paste | tomato paste | 2 tbsp  [ha-assumed]
+  - beef-broth | beef broth | 4 cup  [ha-assumed]
+  - bay-leaf | bay leaf | 1   [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Pat the beef dry and season with salt and pepper. Brown it in the oil in a heavy pot, working in batches. Set aside.
+  2. Cook the onion in the same pot until soft. Stir in the garlic and tomato paste for 1 minute.
+  3. Return the beef. Add carrots, celery, potatoes, broth, thyme, and the bay leaf.
+  4. Bring to a simmer, cover, and cook on low until the beef is tender, about 90 minutes.
+  5. Discard the bay leaf. Taste and add salt and pepper.
+\n#### pot-roast — Pot Roast (Not-HA) [not-ha-assumed]
+related: pot-roast-ha | suffixHa: pot-roast-ha
+  - stew-beef | stew beef | 3 lb large chunks [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  quartered [not-ha-assumed]
+  - garlic | garlic | 4 clove smashed [not-ha-assumed]
+  - carrot | carrot | 6  cut into chunks [ha-confirmed]
+  - potato | potato | 2 lb halved [ha-assumed]
+  - tomato-paste | tomato paste | 2 tbsp  [ha-assumed]
+  - beef-broth | beef broth | 3 cup  [ha-assumed]
+  - rosemary | dried rosemary | 1 tsp  [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - bay-leaf | bay leaf | 2   [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 325°F. Season the beef with salt and pepper. Brown it in the oil in a Dutch oven.
+  2. Tuck the onion around the meat. Stir in the garlic and tomato paste.
+  3. Pour in the broth. Add rosemary, thyme, and the bay leaves.
+  4. Cover and roast 2 hours. Add the carrots and potatoes and roast 1 hour more, until the beef shreds easily.
+  5. Discard the bay leaves. Rest 10 minutes, then serve the beef with the vegetables and pan juices.
+NOTES: A Sunday pot — leftover meat is good in sandwiches on gluten-free bread.
+\n#### baked-pork-chops — Baked Pork Chops (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - pork-chop | pork chops | 4   [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - paprika | paprika | 1 tsp  [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - lemon | lemon | 1  wedged [ha-assumed]
+  - green-beans | green beans | 1 lb  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Pat the chops dry and rub with 1 tablespoon oil, paprika, thyme, salt, and pepper.
+  2. Toss the green beans with the remaining oil and a pinch of salt. Spread them on a sheet pan.
+  3. Set the chops on the pan beside the beans.
+  4. Bake 20–25 minutes, until the chops are cooked through.
+  5. Squeeze lemon over everything and serve.
+\n#### pork-chops-and-apples — Pork Chops and Apples (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - pork-chop | pork chops | 4   [ha-confirmed]
+  - apple | apple | 2  sliced [not-ha-assumed]
+  - butter | butter | 2 tbsp  [ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - cinnamon | cinnamon | 0.25 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Season the chops with salt, pepper, and thyme.
+  2. Heat the oil in a wide skillet over medium-high heat. Brown the chops 3–4 minutes per side. Set aside.
+  3. Melt the butter in the same skillet. Add the apples and cinnamon. Cook until they soften, about 4 minutes.
+  4. Nestle the chops back in. Cover and cook on medium-low until the pork is done, 5–8 minutes.
+  5. Spoon the apples over the chops.
+\n#### meatballs-and-rice — Meatballs and Rice (Not-HA) [not-ha-assumed]
+related: meatballs-and-rice-ha | suffixHa: meatballs-and-rice-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - gf-oats | certified gluten-free oats | 0.5 cup  [ha-assumed]
+  - egg | eggs | 1   [ha-confirmed]
+  - onion | onion | 0.5  grated [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - marinara | marinara sauce | 3 cup  [not-ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - parmesan | Parmesan | 0.25 cup grated [not-ha-confirmed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Mix the beef, oats, egg, onion,, garlic, salt, and pepper. Roll into 16 meatballs.
+  3. Warm the marinara in a wide skillet. Nestle in the meatballs.
+  4. Cover and simmer until cooked through, 18–20 minutes, turning once.
+  5. Serve the meatballs and sauce over rice. Finish with Parmesan.
+NOTES: Parmesan is the household lactose-clear hard cheese. Marinara has onion and garlic.
+\n#### sloppy-joes — Sloppy Joes (Not-HA) [not-ha-assumed]
+related: sloppy-joes-ha | suffixHa: sloppy-joes-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - tomato-sauce | tomato sauce | 15 oz  [ha-assumed]
+  - ketchup | ketchup | 0.25 cup  [ha-assumed]
+  - mustard | mustard | 1 tbsp  [ha-assumed]
+  - honey | honey | 1 tbsp  [not-ha-assumed]
+  - gf-bread | gluten-free bread | 8 slice  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Brown the beef in a skillet, breaking it up, about 6 minutes.
+  2. Add the onion and cook until soft. Stir in the garlic for 30 seconds.
+  3. Add tomato sauce, ketchup, and mustard, and honey. Simmer 10 minutes, until thick.
+  4. Season with salt.
+  5. Toast the gluten-free bread and spoon the meat onto four slices. Close with the remaining slices.
+NOTES: Served on gluten-free bread. Use the honey chip if you need a maple swap or want it less sweet.
+\n#### shepherds-pie — Shepherd's Pie (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - ground-lamb | ground lamb | 1.5 lb  [not-ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - carrot | carrot | 2  diced [ha-confirmed]
+  - green-peas | green peas | 1 cup  [ha-assumed]
+  - tomato-paste | tomato paste | 2 tbsp  [ha-assumed]
+  - beef-broth | beef broth | 1 cup  [ha-assumed]
+  - potato | potato | 2 lb peeled and chunked [ha-assumed]
+  - butter | butter | 3 tbsp  [ha-confirmed]
+  - milk | milk | 0.5 cup  [not-ha-confirmed]
+  - cheddar | cheddar | 0.5 cup shredded [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Boil the potatoes in salted water until tender, about 15 minutes. Drain.
+  2. Mash the potatoes with butter and milk. Season with salt and pepper.
+  3. Brown the lamb in a skillet. Add the onion and carrot and cook until soft. Stir in the garlic and tomato paste.
+  4. Pour in the broth and peas. Simmer 5 minutes, until the juices thicken a little.
+  5. Spread the meat in a baking dish. Cover with the mash. Scatter cheddar on top.
+  6. Bake 20–25 minutes, until the top is golden and the edges bubble.
+\n#### stuffed-bell-peppers — Stuffed Bell Peppers (Not-HA) [not-ha-assumed]
+related: stuffed-bell-peppers-ha | suffixHa: stuffed-bell-peppers-ha
+  - bell-pepper | bell pepper | 4  halved and seeded [ha-confirmed]
+  - ground-beef | ground beef | 1 lb  [ha-confirmed]
+  - white-rice | white rice | 0.75 cup cooked [ha-assumed]
+  - onion | onion | 0.5  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Rub the pepper halves with oil and set them cut-side up in a baking dish.
+  2. Brown the beef in a skillet. Add the onion and cook until soft. Stir in the garlic and oregano.
+  3. Fold in the cooked rice and tomatoes. Season with salt and pepper.
+  4. Spoon the filling into the peppers. Top with cheddar.
+  5. Cover with foil and bake 25 minutes. Uncover and bake 10 minutes more.
+NOTES: Cook the rice ahead, or use leftover rice.
+\n#### chicken-rice-casserole — Chicken and Rice Casserole (Not-HA) [not-ha-assumed]
+related: chicken-rice-casserole-ha | suffixHa: chicken-rice-casserole-ha
+  - chicken-breast | chicken breast | 1.5 lb cut into bite-size pieces [ha-confirmed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - chicken-broth | chicken broth | 2.5 cup  [ha-assumed]
+  - broccoli | broccoli | 1 head florets [ha-confirmed]
+  - onion | onion | 0.5  diced [not-ha-assumed]
+  - milk | milk | 0.5 cup  [not-ha-confirmed]
+  - cheddar | cheddar | 1.5 cup shredded [not-ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Grease a 9x13-inch dish.
+  2. Warm the oil in a skillet. Cook the onion until soft, then season the chicken and cook until it is no longer pink on the outside.
+  3. Stir the rice, broth, milk, broccoli, the skillet chicken and onion, salt, and pepper in the dish. Fold in half the cheddar.
+  4. Cover with foil and bake 35 minutes.
+  5. Uncover, scatter the remaining cheddar on top, and bake 10 minutes more.
+\n#### tuna-casserole — Tuna Casserole (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - canned-tuna | canned tuna | 20 oz drained [not-ha-confirmed]
+  - green-peas | green peas | 1 cup  [ha-assumed]
+  - mushroom | mushrooms | 8 oz sliced [ha-confirmed]
+  - butter | butter | 3 tbsp  [ha-confirmed]
+  - gf-flour | gluten-free flour blend | 3 tbsp  [ha-assumed]
+  - milk | milk | 2 cup  [not-ha-confirmed]
+  - cheddar | cheddar | 1.5 cup shredded [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Boil the pasta in salted water until just shy of tender. Drain.
+  2. Melt the butter in a pot. Cook the mushrooms until they give off their liquid, about 5 minutes.
+  3. Stir in the flour for 1 minute, then whisk in the milk until the sauce thickens.
+  4. Take it off the heat and stir in most of the cheddar. Fold in pasta, tuna, and peas. Season with salt and pepper.
+  5. Spread in a baking dish. Top with the remaining cheddar. Bake 20–25 minutes, until bubbling.
+\n#### baked-chicken-thighs — Baked Chicken Thighs (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-thigh | chicken thighs | 2.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - smoked-paprika | smoked paprika | 1.5 tsp  [ha-assumed]
+  - rosemary | dried rosemary | 1 tsp  [ha-assumed]
+  - lemon | lemon | 1  wedged [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Pat the thighs dry.
+  2. Rub with oil, smoked paprika, rosemary, salt, and pepper.
+  3. Arrange skin-side up on a sheet pan.
+  4. Roast 30–35 minutes, until the skin is crisp and the meat is cooked through.
+  5. Rest 5 minutes. Serve with lemon wedges.
+\n#### grilled-steak — Grilled Steak (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - beef-steak | beef steak | 2 lb  [ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - black-pepper | black pepper | 1 tsp  [ha-assumed]
+  - rosemary | dried rosemary | 1 tsp  [ha-assumed]
+  - butter | butter | 2 tbsp  [ha-confirmed]
+  - mixed-greens | mixed greens | 4 cup  [ha-assumed]
+STEPS:
+  1. Pat the steaks dry. Rub with oil, salt, pepper, and rosemary. Rest 10 minutes on the counter.
+  2. Heat a grill or heavy skillet until very hot.
+  3. Cook 4–5 minutes per side for medium-rare, or longer if you like it more done.
+  4. Rest 5 minutes. Melt the butter and spoon it over the sliced steak.
+  5. Serve with the mixed greens.
+\n#### bbq-chicken — BBQ Chicken (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-thigh | chicken thighs | 2.5 lb  [ha-confirmed]
+  - bbq-sauce | barbecue sauce | 1 cup  [ha-assumed]
+  - smoked-paprika | smoked paprika | 1 tsp  [ha-assumed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Pat the thighs dry and toss with oil, paprika, salt, and pepper.
+  2. Set them skin-side up on a foil-lined pan.
+  3. Bake 20 minutes. Brush with half the barbecue sauce.
+  4. Bake 10–15 minutes more, until cooked through. Brush with the remaining sauce.
+  5. Rest 5 minutes before serving.
+NOTES: Barbecue sauce usually has onion and garlic, plus sugar.
+\n#### sausage-and-peppers — Sausage and Peppers (Not-HA) [not-ha-assumed]
+related: sausage-and-peppers-ha | suffixHa: sausage-and-peppers-ha
+  - italian-sausage | Italian sausage | 1.5 lb  [ha-confirmed]
+  - bell-pepper | bell pepper | 3  sliced [ha-confirmed]
+  - onion | onion | 1  sliced [not-ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Brown the sausages in 1 tablespoon oil in a wide skillet, about 8 minutes. Set aside.
+  2. Add the remaining oil. Cook the peppers and onion until soft, about 8 minutes.
+  3. Stir in the tomatoes and oregano. Slice the sausages and return them to the pan.
+  4. Simmer 10 minutes, until the sausages are cooked through.
+  5. Season with salt and pepper.
+NOTES: Italian sausage typically includes garlic. Use the onion chip if you are avoiding fructans.
+\n#### pulled-pork — Pulled Pork (Not-HA) [not-ha-assumed]
+related: pulled-pork-ha | suffixHa: pulled-pork-ha
+  - pork-shoulder | pork shoulder | 4 lb  [ha-confirmed]
+  - smoked-paprika | smoked paprika | 2 tbsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tbsp  [not-ha-assumed]
+  - salt | salt | 2 tsp  [ha-assumed]
+  - black-pepper | black pepper | 1 tsp  [ha-assumed]
+  - honey | honey | 2 tbsp  [not-ha-assumed]
+  - apple-cider-vinegar | apple cider vinegar | 2 tbsp  [ha-assumed]
+  - bbq-sauce | barbecue sauce | 1.5 cup  [ha-assumed]
+  - gf-bread | gluten-free bread | 8 slice  OPT [ha-assumed]
+STEPS:
+  1. Heat the oven to 300°F. Mix paprika, chili powder, salt, and pepper. Rub it all over the pork.
+  2. Set the pork in a Dutch oven. Stir honey, vinegar, and 1/2 cup water and pour it around the meat.
+  3. Cover and roast 4 hours, until the pork shreds with a fork.
+  4. Shred the meat in the pot juices. Stir in the barbecue sauce.
+  5. Serve in bowls or piled on optional gluten-free bread.
+NOTES: A weekend cook. Barbecue sauce usually has onion and garlic.
+\n#### baked-chicken-wings — Baked Chicken Wings (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-wing | chicken wings | 3 lb  [ha-confirmed]
+  - baking-powder | baking powder | 1 tbsp  [ha-assumed]
+  - smoked-paprika | smoked paprika | 1 tsp  [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+  - hot-sauce | hot sauce | 0.25 cup  [ha-assumed]
+  - butter | butter | 2 tbsp melted [ha-confirmed]
+STEPS:
+  1. Heat the oven to 425°F. Line a sheet pan with foil and set a rack on it if you have one.
+  2. Pat the wings very dry. Toss with baking powder, paprika, salt, and pepper.
+  3. Spread in a single layer. Bake 40–45 minutes, turning once, until crisp.
+  4. Stir the hot sauce and melted butter.
+  5. Toss the hot wings in the sauce, or serve the sauce on the side.
+NOTES: Baking powder helps the skin crisp.
+\n#### cabbage-and-sausage — Cabbage and Sausage (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - italian-sausage | Italian sausage | 1.5 lb  [ha-confirmed]
+  - cabbage | cabbage | 1 head cored and sliced [ha-confirmed]
+  - apple | apple | 1  sliced [not-ha-assumed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - apple-cider-vinegar | apple cider vinegar | 1 tbsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Brown the sausages in the oil in a wide pot, about 8 minutes. Set aside.
+  2. Add the cabbage and apple to the pot. Cook, stirring, until the cabbage wilts, about 8 minutes.
+  3. Slice the sausages and return them. Add the vinegar and a splash of water.
+  4. Cover and cook 10 minutes, until the cabbage is tender and the sausages are cooked through.
+  5. Season with salt and pepper.
+NOTES: Italian sausage typically includes garlic.
+\n#### chili-baked-potatoes — Chili Baked Potatoes (Not-HA) [not-ha-assumed]
+related: chili-baked-potatoes-ha | suffixHa: chili-baked-potatoes-ha
+  - potato | potato | 4  scrubbed [ha-assumed]
+  - ground-beef | ground beef | 1 lb  [ha-confirmed]
+  - onion | onion | 0.5  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - chili-powder | chili powder | 1 tbsp  [not-ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+  - sour-cream | sour cream | 0.5 cup  [not-ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Rub the potatoes with oil and salt. Bake directly on the rack 45–55 minutes, until tender.
+  2. Brown the beef in a skillet. Add the onion and cook until soft.
+  3. Stir in the garlic, chili powder, and cumin, then the tomatoes. Simmer 15 minutes. Season with salt.
+  4. Split the potatoes and fluff the insides with a fork.
+  5. Spoon the chili over them. Top with cheddar. Add a spoon of sour cream.
+\n#### chicken-pot-pie — Chicken Pot Pie (Not-HA) [not-ha-assumed]
+related: chicken-pot-pie-ha | suffixHa: chicken-pot-pie-ha
+  - chicken-breast | chicken breast | 1.5 lb cooked and chopped [ha-confirmed]
+  - carrot | carrot | 3  diced [ha-confirmed]
+  - celery | celery | 2 stalk diced [ha-assumed]
+  - green-peas | green peas | 1 cup  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - chicken-broth | chicken broth | 2 cup  [ha-assumed]
+  - butter | butter | 6 tbsp  [ha-confirmed]
+  - cornstarch | cornstarch | 3 tbsp  [ha-assumed]
+  - gf-flour | gluten-free flour blend | 1.5 cup  [ha-assumed]
+  - baking-powder | baking powder | 2 tsp  [ha-assumed]
+  - milk | milk | 1.25 cup  [not-ha-confirmed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Melt 3 tablespoons butter in a pot. Cook the onion, carrot, and celery until soft.
+  2. Stir the cornstarch into the broth, then pour it in with the thyme, chicken, and peas. Simmer until thick, about 5 minutes. Season and spread in a baking dish.
+  3. Stir the gluten-free flour, baking powder, and 1/2 teaspoon salt. Cut in the remaining butter, then add 3/4 cup of the milk to make a soft biscuit dough.
+  4. Drop spoonfuls of dough over the filling. Brush the tops with the remaining milk.
+  5. Bake 25–30 minutes, until the biscuits are browned and the filling bubbles.
+NOTES: Biscuit-style gluten-free topping — no wheat pastry. Use leftover roast chicken if you have it.
+\n#### beef-meatloaf — Beef Meatloaf (Not-HA) [not-ha-assumed]
+related: beef-meatloaf-ha | suffixHa: beef-meatloaf-ha
+  - ground-beef | ground beef | 2 lb  [ha-confirmed]
+  - onion | onion | 1  finely chopped [not-ha-assumed]
+  - egg | eggs | 2   [ha-confirmed]
+  - gf-oats | certified gluten-free oats | 0.75 cup  [ha-assumed]
+  - ketchup | ketchup | 0.5 cup  [ha-assumed]
+  - mustard | mustard | 1 tbsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Line a loaf pan or small sheet pan with parchment.
+  2. Mix the beef, onion,, eggs, oats, mustard, salt, pepper, and half the ketchup.
+  3. Shape into a loaf. Spread the remaining ketchup over the top.
+  4. Bake 50–55 minutes, until cooked through.
+  5. Rest 10 minutes before slicing.
+\n#### pork-tenderloin-dinner — Pork Tenderloin (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - pork-tenderloin | pork tenderloin | 2 lb  [ha-confirmed]
+  - potato | potato | 1.5 lb cut into chunks [ha-assumed]
+  - carrot | carrot | 4  cut into chunks [ha-confirmed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - rosemary | dried rosemary | 1.5 tsp  [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Toss the potatoes and carrots with 2 tablespoons oil, half the rosemary, salt, and pepper. Spread on a sheet pan.
+  2. Rub the tenderloins with the remaining oil, rosemary, thyme, salt, and pepper.
+  3. Roast the vegetables 10 minutes, then add the pork to the pan.
+  4. Roast 18–22 minutes more, until the pork is just cooked through.
+  5. Rest the pork 5 minutes, then slice and serve with the vegetables.
+\n#### skillet-chicken-potatoes — Skillet Chicken and Potatoes (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - potato | potato | 1.5 lb cut into chunks [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - paprika | paprika | 1 tsp  [ha-assumed]
+  - rosemary | dried rosemary | 1 tsp  [ha-assumed]
+  - lemon | lemon | 1  juiced [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Season the chicken with paprika, rosemary, salt, and pepper.
+  2. Heat 2 tablespoons oil in a wide skillet over medium-high heat. Brown the thighs 4 minutes per side. Set aside.
+  3. Add the remaining oil and the potatoes. Cook, stirring, until they pick up color, about 8 minutes.
+  4. Nestle the chicken back in. Cover and cook on medium-low until the chicken is done and the potatoes are tender, 12–15 minutes.
+  5. Squeeze lemon over the skillet and serve.
+\n#### chicken-fajitas — Chicken Fajitas (Not-HA) [not-ha-assumed]
+related: chicken-fajitas-ha | suffixHa: chicken-fajitas-ha
+  - chicken-breast | chicken breast | 1.5 lb sliced into strips [ha-confirmed]
+  - bell-pepper | bell pepper | 3  sliced [ha-confirmed]
+  - onion | onion | 1  sliced [not-ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - lime | lime | 2  juiced, plus wedges [ha-assumed]
+  - cumin | cumin | 1.5 tsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tsp  [not-ha-assumed]
+  - smoked-paprika | smoked paprika | 0.5 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Toss the chicken with 1 tablespoon oil, lime juice, cumin, chili powder, paprika, and salt.
+  2. Heat a wide skillet over high heat. Cook the chicken until browned and cooked through, about 6 minutes. Set aside.
+  3. Add the remaining oil and the peppers and onion. Cook until the vegetables are soft and a little charred, about 6 minutes.
+  4. Return the chicken and toss everything together.
+  5. Warm the tortillas. Serve with cilantro and lime wedges.
+NOTES: Use the onion chip if you are avoiding fructans.
+\n#### beef-enchiladas — Beef Enchiladas (Not-HA) [not-ha-assumed]
+related: beef-enchiladas-ha | suffixHa: beef-enchiladas-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tsp  [not-ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - enchilada-sauce | enchilada sauce | 2 cup  [not-ha-assumed]
+  - corn-tortilla | corn tortillas | 10   [ha-assumed]
+  - cheddar | cheddar | 1.5 cup shredded [not-ha-confirmed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Brown the beef in a skillet, breaking it up, about 6 minutes.
+  2. Add the onion and cook until soft. Stir in cumin, chili powder, and salt.
+  3. Warm the tortillas so they bend. Spoon beef down the center of each, roll, and nestle in a baking dish.
+  4. Pour the enchilada sauce over the rolls. Scatter cheddar on top.
+  5. Bake 20–25 minutes, until hot and bubbling. Finish with cilantro.
+NOTES: Enchilada sauce usually has onion and garlic.
+\n#### chicken-tinga — Chicken Tinga (Not-HA) [not-ha-assumed]
+related: chicken-tinga-ha | suffixHa: chicken-tinga-ha
+  - chicken-breast | chicken breast | 1.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  sliced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - chipotle-in-adobo | chipotle in adobo | 2  chopped, plus a spoon of sauce [not-ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - cumin | cumin | 0.5 tsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+STEPS:
+  1. Warm the oil in a pot over medium heat. Cook the onion until soft, about 6 minutes. Stir in the garlic for 30 seconds.
+  2. Add the tomatoes, chipotle, oregano, and cumin. Nestle in the chicken.
+  3. Cover and simmer until the chicken is cooked, 18–22 minutes.
+  4. Shred the chicken in the sauce with two forks. Season with salt and simmer 5 minutes more.
+  5. Serve in warm tortillas with cilantro and lime.
+NOTES: Chipotle in adobo can include onion and garlic.
+\n#### shrimp-tacos — Shrimp Tacos (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - shrimp | shrimp | 1.5 lb peeled and deveined [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tsp  [not-ha-assumed]
+  - cumin | cumin | 0.5 tsp  [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - lime | lime | 2  juiced, plus wedges [ha-assumed]
+  - cabbage | cabbage | 2 cup shredded [ha-confirmed]
+  - avocado | avocado | 1  sliced [not-ha-confirmed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - yogurt | yogurt | 0.5 cup  [not-ha-confirmed]
+STEPS:
+  1. Toss the shrimp with 1 tablespoon oil, chili powder, cumin, salt, and half the lime juice.
+  2. Heat the remaining oil in a skillet over medium-high heat. Cook the shrimp until pink, about 2 minutes per side.
+  3. Warm the tortillas. Pile cabbage and avocado on each one, then the shrimp.
+  4. Finish with cilantro and lime wedges. Spoon yogurt over the tacos.
+\n#### fish-tacos — Fish Tacos (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - white-fish | white fish fillet | 1.5 lb  [not-ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tsp  [not-ha-assumed]
+  - cumin | cumin | 0.5 tsp  [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - lime | lime | 2  juiced, plus wedges [ha-assumed]
+  - cabbage | cabbage | 2 cup shredded [ha-confirmed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - sour-cream | sour cream | 0.5 cup  [not-ha-confirmed]
+STEPS:
+  1. Pat the fish dry. Rub with 1 tablespoon oil, chili powder, cumin, and salt.
+  2. Heat the remaining oil in a skillet over medium-high heat. Cook the fish until it flakes, 3–4 minutes per side.
+  3. Break the fish into chunks. Toss the cabbage with a squeeze of lime and the cilantro.
+  4. Warm the tortillas. Fill with cabbage and fish. Add a spoon of sour cream. Serve with lime wedges.
+\n#### tostadas — Tostadas (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - corn-tortilla | corn tortillas | 8   [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - refried-beans | refried beans | 16 oz  [ha-assumed]
+  - romaine | romaine lettuce | 2 cup shredded [ha-assumed]
+  - salsa | salsa | 1 cup  [not-ha-assumed]
+  - avocado | avocado | 1  sliced [not-ha-confirmed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+  - sour-cream | sour cream | 0.5 cup  [not-ha-confirmed]
+STEPS:
+  1. Heat the oven to 400°F. Brush the tortillas with oil and bake on a sheet pan until crisp, 8–10 minutes, flipping once.
+  2. Warm the refried beans in a small pot.
+  3. Spread beans on each tostada. Add lettuce, salsa, and avocado.
+  4. Scatter cheddar over the top. Add a spoon of sour cream. Finish with cilantro.
+NOTES: Salsa has onion and garlic.
+\n#### chile-verde — Chile Verde (Not-HA) [not-ha-assumed]
+related: chile-verde-ha | suffixHa: chile-verde-ha
+  - pork-shoulder | pork shoulder | 3 lb cut into 1-inch cubes [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - salsa-verde | salsa verde | 3 cup  [not-ha-assumed]
+  - jalapeno | jalapeño | 2  seeded and diced [ha-assumed]
+  - cumin | cumin | 1.5 tsp  [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - chicken-broth | chicken broth | 1 cup  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - cilantro | cilantro | 0.5 cup chopped [ha-assumed]
+  - lime | lime | 2  wedged [ha-assumed]
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+STEPS:
+  1. Pat the pork dry and season with salt. Brown it in the oil in a heavy pot, working in batches, about 8 minutes.
+  2. Add the onion to the pot and cook until soft. Stir in cumin and oregano.
+  3. Pour in the salsa verde, jalapeño, and broth. Return the pork and bring to a simmer.
+  4. Cover and cook on low until the pork is tender, 80–90 minutes, stirring now and then.
+  5. Cook the rice in the water until tender, about 18 minutes.
+  6. Skim extra fat if you want to. Serve the chile verde over rice with cilantro and lime.
+NOTES: A weekend pot — salsa verde stands in for tomatillos, with jalapeño for heat. The sauce has onion and garlic. Use the onion chip if you need to skip fresh onion.
+\n#### picadillo — Picadillo (Not-HA) [not-ha-assumed]
+related: picadillo-ha | suffixHa: picadillo-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - potato | potato | 2  diced small [ha-assumed]
+  - carrot | carrot | 2  diced [ha-confirmed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - cumin | cumin | 1.5 tsp  [ha-assumed]
+  - chili-powder | chili powder | 0.5 tsp  [not-ha-assumed]
+  - olive | olives | 0.33 cup sliced [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a skillet. Brown the beef, breaking it up, about 6 minutes.
+  3. Add the onion and potato and cook until the onion is soft. Stir in the garlic for 30 seconds.
+  4. Add carrot, tomatoes, cumin, and chili powder. Simmer 15 minutes, until the potatoes are tender.
+  5. Stir in the olives. Season with salt. Serve over the rice.
+\n#### black-bean-tacos — Black Bean Tacos (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - black-beans | black beans | 30 oz drained and rinsed [ha-assumed]
+  - cumin | cumin | 1.5 tsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tsp  [not-ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - lime | lime | 1  juiced [ha-assumed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - avocado | avocado | 1  sliced [not-ha-confirmed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - salsa | salsa | 0.75 cup  [not-ha-assumed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+STEPS:
+  1. Warm the oil in a skillet. Cook the onion until soft.
+  2. Add the beans, cumin, chili powder, and a splash of water. Mash some of the beans and simmer 8 minutes.
+  3. Season with salt and lime juice. Warm the tortillas.
+  4. Fill the tortillas with beans, avocado, salsa, and cilantro. Add cheddar.
+NOTES: Salsa has onion and garlic.
+\n#### chilaquiles — Chilaquiles (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - tortilla-chips | tortilla chips | 8 oz  [ha-assumed]
+  - salsa | salsa | 2 cup  [not-ha-assumed]
+  - egg | eggs | 4   [ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - avocado | avocado | 1  sliced [not-ha-confirmed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+  - sour-cream | sour cream | 0.5 cup  [not-ha-confirmed]
+STEPS:
+  1. Warm the salsa in a wide skillet until it simmers.
+  2. Add the chips and toss until they soften but still have some crunch, 2–3 minutes.
+  3. Fry the eggs in the oil in a second pan, or scramble them if you prefer.
+  4. Divide the chilaquiles among plates. Top with eggs, avocado, and cilantro.
+  5. Scatter cheddar over each plate. Add a spoon of sour cream.
+NOTES: Salsa has onion and garlic.
+\n#### burrito-skillet — Burrito Skillet (Not-HA) [not-ha-assumed]
+related: burrito-skillet-ha | suffixHa: burrito-skillet-ha
+  - ground-beef | ground beef | 1 lb  [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - black-beans | black beans | 15 oz drained and rinsed [ha-assumed]
+  - corn | corn | 1 cup  [ha-assumed]
+  - salsa | salsa | 1 cup  [not-ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tsp  [not-ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+STEPS:
+  1. Brown the beef in a wide skillet, breaking it up, about 6 minutes.
+  2. Add the onion and cook until soft. Stir in the garlic for 30 seconds. Add cumin, chili powder, and salt.
+  3. Stir in the rice, water, beans, corn, and salsa. Bring to a simmer.
+  4. Cover and cook until the rice is tender, about 18 minutes.
+  5. Scatter cheddar over the skillet and cover 2 minutes to melt. Finish with cilantro.
+NOTES: Salsa has onion and garlic.
+\n#### tamale-pie — Tamale Pie (Not-HA) [not-ha-assumed]
+related: tamale-pie-ha | suffixHa: tamale-pie-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - corn | corn | 1 cup  [ha-assumed]
+  - chili-powder | chili powder | 1 tbsp  [not-ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - masa-harina | masa harina | 1.5 cup  [ha-assumed]
+  - water | water | 1.5 cup warm [ha-assumed]
+  - baking-powder | baking powder | 1 tsp  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - cheddar | cheddar | 1 cup shredded [not-ha-confirmed]
+STEPS:
+  1. Heat the oven to 375°F. Brown the beef in a skillet. Add the onion and cook until soft.
+  2. Stir in tomatoes, corn, chili powder, cumin, and 1/2 teaspoon salt. Simmer 5 minutes, then spread in a baking dish.
+  3. Stir the masa, warm water, baking powder, oil, and remaining salt into a thick batter.
+  4. Spread the masa over the filling. Sprinkle cheddar on top.
+  5. Bake 30–35 minutes, until the topping is set and the edges bubble.
+NOTES: The masa topping keeps this gluten-free.
+\n#### carne-asada — Carne Asada (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - beef-steak | beef steak | 1.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - lime | lime | 3  juiced, plus wedges [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - chili-powder | chili powder | 0.5 tsp  [not-ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+  - cilantro | cilantro | 0.5 cup chopped [ha-assumed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - avocado | avocado | 1  sliced [not-ha-confirmed]
+STEPS:
+  1. Stir the oil, lime juice, cumin, chili powder, salt, and pepper. Coat the steak and rest 10 minutes.
+  2. Heat a skillet or grill pan over high heat. Cook the steak 4–5 minutes per side for medium-rare.
+  3. Rest 5 minutes, then slice thin across the grain.
+  4. Warm the tortillas. Serve the steak with avocado, cilantro, and lime wedges.
+NOTES: A hot pan and a short rest matter more than a long marinade.
+\n#### chicken-tortilla-soup — Chicken Tortilla Soup (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - chicken-breast | chicken breast | 1 lb  [ha-confirmed]
+  - chicken-broth | chicken broth | 6 cup  [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - black-beans | black beans | 15 oz drained and rinsed [ha-assumed]
+  - corn | corn | 1 cup  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - chili-powder | chili powder | 1 tsp  [not-ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - lime | lime | 2  juiced, plus wedges [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - avocado | avocado | 1  diced [not-ha-confirmed]
+  - corn-tortilla | corn tortillas | 4  cut into strips [ha-assumed]
+  - cheddar | cheddar | 0.5 cup shredded [not-ha-confirmed]
+  - sour-cream | sour cream | 0.5 cup  [not-ha-confirmed]
+STEPS:
+  1. Warm the oil in a pot. Cook the onion until soft. Stir in the garlic for 30 seconds. Add cumin and chili powder.
+  2. Pour in the broth and tomatoes. Add the chicken and simmer until cooked, about 15 minutes.
+  3. Lift out the chicken, shred it, and return it with the beans and corn. Simmer 8 minutes.
+  4. Season with salt and lime juice. Crisp the tortilla strips in a dry skillet or a 400°F oven.
+  5. Ladle into bowls. Top with avocado, cilantro, and tortilla strips. Add cheddar. Add a spoon of sour cream.
+\n#### elote-chicken-bowls — Corn and Chicken Bowls (Not-HA) [not-ha-assumed]
+related: elote-chicken-bowls-ha | suffixHa: elote-chicken-bowls-ha
+  - chicken-breast | chicken breast | 1.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - chili-powder | chili powder | 1.5 tsp  [not-ha-assumed]
+  - cumin | cumin | 0.5 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - corn | corn | 3 cup  [ha-assumed]
+  - lime | lime | 2  juiced, plus wedges [ha-assumed]
+  - cilantro | cilantro | 0.33 cup chopped [ha-assumed]
+  - cheddar | cheddar | 0.5 cup shredded [not-ha-confirmed]
+  - sour-cream | sour cream | 0.33 cup  [not-ha-confirmed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Rub the chicken with 1 tablespoon oil, 1 teaspoon chili powder, cumin, and 1/2 teaspoon salt. Cook in a skillet 6 minutes per side. Rest, then slice.
+  3. In the same skillet, cook the corn in the remaining oil until spotted brown, about 5 minutes.
+  4. Toss the corn with lime juice, the remaining chili powder and salt, and most of the cilantro. Fold in the sour cream.
+  5. Divide rice into bowls. Top with chicken and the corn. Scatter cheddar over the top. Finish with cilantro and lime wedges.
+NOTES: Street-corn flavors in a bowl.
+\n#### poblano-cheese-skillet — Poblano and Cheese Skillet (Not-HA) [not-ha-assumed]
+related: poblano-cheese-skillet-ha | suffixHa: poblano-cheese-skillet-ha
+  - poblano | poblano pepper | 4  seeded and sliced [ha-assumed]
+  - onion | onion | 1  sliced [not-ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - corn | corn | 1 cup  [ha-assumed]
+  - cumin | cumin | 0.5 tsp  [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - monterey-jack | Monterey Jack | 2 cup shredded [not-ha-confirmed]
+  - corn-tortilla | corn tortillas | 12   [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+STEPS:
+  1. Warm the oil in a wide skillet over medium heat. Add the poblanos and onion.
+  2. Cook until the peppers are soft and a little blistered, about 10 minutes. Stir in the corn, cumin, and salt.
+  3. Scatter Monterey Jack over the vegetables, cover, and melt 2–3 minutes.
+  4. Warm the tortillas. Spoon the skillet into them and finish with cilantro and lime.
+NOTES: Use the onion chip if you are avoiding fructans.
+\n#### chicken-parm — Chicken Parmesan (Not-HA) [not-ha-assumed]
+related: - | suffixHa: chicken-parm-ha
+  - chicken-breast | chicken breast | 1.5 lb pounded to even thickness [ha-confirmed]
+  - gf-flour | gluten-free flour blend | 0.5 cup  [ha-assumed]
+  - egg | eggs | 2  beaten [ha-confirmed]
+  - gf-breadcrumbs | gluten-free breadcrumbs | 1 cup  [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - marinara | marinara sauce | 2 cup  [not-ha-assumed]
+  - mozzarella | mozzarella | 1 cup shredded [not-ha-confirmed]
+  - basil | basil | 0.25 cup torn [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Mix the breadcrumbs with half the Parmesan, salt, and pepper.
+  2. Dredge the chicken in flour, then egg, then the breadcrumb mix.
+  3. Brown the cutlets in the oil, 3 minutes per side. Set them in a baking dish.
+  4. Spoon marinara over the chicken. Top with mozzarella and the remaining Parmesan.
+  5. Bake 12–15 minutes, until the chicken is cooked through. Finish with basil.
+NOTES: Marinara has onion and garlic. Parmesan is the household lactose-clear hard cheese.
+\n#### eggplant-parm — Eggplant Parmesan (Not-HA) [not-ha-assumed]
+related: - | suffixHa: eggplant-parm-ha
+  - eggplant | eggplant | 2  sliced 1/2-inch thick [ha-assumed]
+  - gf-flour | gluten-free flour blend | 0.5 cup  [ha-assumed]
+  - egg | eggs | 2  beaten [ha-confirmed]
+  - gf-breadcrumbs | gluten-free breadcrumbs | 1 cup  [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - olive-oil | olive oil | 0.25 cup  [ha-assumed]
+  - marinara | marinara sauce | 3 cup  [not-ha-assumed]
+  - mozzarella | mozzarella | 1.5 cup shredded [not-ha-confirmed]
+  - basil | basil | 0.25 cup torn [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Salt the eggplant slices and let them sit 10 minutes, then pat dry.
+  2. Mix the breadcrumbs with half the Parmesan. Dredge eggplant in flour, egg, then crumbs.
+  3. Brown the slices in oil, 2–3 minutes per side. Layer marinara and eggplant in a baking dish.
+  4. Add mozzarella and the remaining Parmesan between layers and on top.
+  5. Bake 25–30 minutes, until bubbling. Rest 10 minutes and finish with basil.
+NOTES: Marinara has onion and garlic.
+\n#### pesto-pasta-dinner — Pesto Pasta (Not-HA) [not-ha-assumed]
+related: - | suffixHa: pesto-pasta-dinner-ha
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - pesto | pesto | 0.75 cup  [not-ha-assumed]
+  - cherry-tomato | cherry tomatoes | 1 pint halved [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - basil | basil | 0.25 cup torn [ha-assumed]
+STEPS:
+  1. Boil the pasta in salted water according to the package. Drain, saving a splash of water.
+  2. Warm the oil in the empty pot. Add the tomatoes and cook until they just soften, about 3 minutes.
+  3. Return the pasta. Stir in the pesto and a little pasta water until it coats the noodles.
+  4. Season with salt. Serve with Parmesan and basil.
+NOTES: Jarred pesto usually has garlic. Parmesan is the household lactose-clear hard cheese.
+\n#### sausage-pasta — Sausage Pasta (Not-HA) [not-ha-assumed]
+related: - | suffixHa: sausage-pasta-ha
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - italian-sausage | Italian sausage | 1 lb casings removed [ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - bell-pepper | bell pepper | 1  sliced [ha-confirmed]
+  - marinara | marinara sauce | 3 cup  [not-ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - basil | basil | 0.25 cup torn [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Boil the pasta in salted water according to the package. Drain, saving a splash of water.
+  2. Brown the sausage in the oil, breaking it up, about 6 minutes.
+  3. Add the pepper and onion and cook until soft. Stir in the garlic for 30 seconds.
+  4. Pour in the marinara and oregano. Simmer 10 minutes. Season with salt.
+  5. Toss the pasta with the sauce and a little pasta water. Finish with Parmesan and basil.
+NOTES: Marinara has onion and garlic.
+\n#### lasagna — Lasagna (Not-HA) [not-ha-assumed]
+related: - | suffixHa: lasagna-ha
+  - gf-pasta | gluten-free pasta | 12 oz lasagna noodles [ha-assumed]
+  - italian-sausage | Italian sausage | 1 lb casings removed [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - marinara | marinara sauce | 4 cup  [not-ha-assumed]
+  - ricotta | ricotta | 15 oz  [not-ha-confirmed]
+  - egg | eggs | 1   [ha-confirmed]
+  - parmesan | Parmesan | 0.75 cup grated [not-ha-confirmed]
+  - mozzarella | mozzarella | 2 cup shredded [not-ha-confirmed]
+  - basil | basil | 0.25 cup torn [ha-assumed]
+  - salt | salt | 0.5 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Boil the noodles if the package says to. Drain and lay them out so they do not stick.
+  2. Brown the sausage. Add the onion and cook until soft. Stir in the garlic for 30 seconds. Stir in the marinara and simmer 5 minutes.
+  3. Stir the ricotta with the egg, 1/4 cup Parmesan, salt, and pepper.
+  4. Layer sauce, noodles, the ricotta mixture, and mozzarella in a 9×13-inch pan. Repeat, ending with sauce and mozzarella.
+  5. Cover and bake 30 minutes. Uncover, add the remaining Parmesan, and bake 15–20 minutes more.
+  6. Rest 15 minutes. Finish with basil.
+NOTES: A guest-night bake. Use gluten-free lasagna noodles. Marinara has onion and garlic.
+\n#### meatballs-marinara — Meatballs Marinara (Not-HA) [not-ha-assumed]
+related: - | suffixHa: meatballs-marinara-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - gf-breadcrumbs | gluten-free breadcrumbs | 0.5 cup  [ha-assumed]
+  - egg | eggs | 1   [ha-confirmed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - marinara | marinara sauce | 3 cup  [not-ha-assumed]
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+STEPS:
+  1. Mix the beef, breadcrumbs, egg, Parmesan, parsley, garlic,, salt, and pepper. Roll into 16 meatballs.
+  2. Brown the meatballs in the oil, turning, about 8 minutes.
+  3. Pour in the marinara. Simmer until the meatballs are cooked through, about 15 minutes.
+  4. Boil the pasta according to the package. Drain.
+  5. Serve the meatballs and sauce over the pasta with extra Parmesan if you like.
+NOTES: Marinara has onion and garlic. Use the garlic chip to leave fresh garlic out of the meatballs.
+\n#### baked-ziti — Baked Ziti (Not-HA) [not-ha-assumed]
+related: - | suffixHa: baked-ziti-ha
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - italian-sausage | Italian sausage | 1 lb casings removed [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - marinara | marinara sauce | 3 cup  [not-ha-assumed]
+  - ricotta | ricotta | 1 cup  [not-ha-confirmed]
+  - mozzarella | mozzarella | 2 cup shredded [not-ha-confirmed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - basil | basil | 0.25 cup torn [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Boil the pasta 2 minutes less than the package says. Drain.
+  2. Brown the sausage. Add the onion and cook until soft. Stir in the marinara and simmer 5 minutes.
+  3. Toss the pasta with the sauce. Fold in the ricotta. Season with salt.
+  4. Spread in a baking dish. Top with mozzarella and the Parmesan.
+  5. Bake 20–25 minutes, until bubbling. Finish with basil.
+NOTES: Use gluten-free pasta. Marinara has onion and garlic.
+\n#### chicken-piccata — Chicken Piccata (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-breast | chicken breast | 1.5 lb pounded thin [ha-confirmed]
+  - gf-flour | gluten-free flour blend | 0.5 cup  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - butter | butter | 3 tbsp  [ha-confirmed]
+  - lemon | lemon | 2  juiced, plus slices [ha-assumed]
+  - capers | capers | 2 tbsp drained [ha-assumed]
+  - chicken-broth | chicken broth | 0.75 cup  [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Season the chicken with salt and pepper. Dredge in the flour and shake off the extra.
+  2. Heat the oil and 1 tablespoon butter in a skillet. Cook the chicken 3–4 minutes per side. Set aside.
+  3. Add the broth, lemon juice, and capers to the pan. Simmer 3 minutes, scraping up the browned bits.
+  4. Stir in the remaining butter. Return the chicken and spoon the sauce over it for 2 minutes.
+  5. Finish with parsley and lemon slices.
+NOTES: The sauce is lemon, capers, and butter.
+\n#### shrimp-scampi — Shrimp Scampi (Not-HA) [not-ha-assumed]
+related: - | suffixHa: shrimp-scampi-ha
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - shrimp | shrimp | 1.5 lb peeled and deveined [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - butter | butter | 3 tbsp  [ha-confirmed]
+  - garlic | garlic | 4 clove minced [not-ha-assumed]
+  - lemon | lemon | 2  juiced and zested [ha-assumed]
+  - red-pepper-flakes | red pepper flakes | 0.25 tsp  [ha-assumed]
+  - parsley | parsley | 0.33 cup chopped [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Boil the pasta in salted water according to the package. Drain, saving a splash of water.
+  2. Pat the shrimp dry and season with salt and pepper. Heat the oil and 1 tablespoon butter in a skillet.
+  3. Cook the shrimp 2 minutes per side, until pink. Add the garlic and pepper flakes for 30 seconds.
+  4. Add lemon juice, zest, the remaining butter, and a splash of pasta water. Toss the pasta in the pan.
+  5. Finish with parsley.
+NOTES: Use the garlic chip if you are avoiding fructans. The lemon and butter still carry the dish.
+\n#### white-beans-and-greens — White Beans and Greens (Not-HA) [not-ha-assumed]
+related: - | suffixHa: white-beans-and-greens-ha
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - garlic | garlic | 4 clove sliced [not-ha-assumed]
+  - cannellini-beans | cannellini beans | 30 oz drained and rinsed [ha-assumed]
+  - kale | kale | 1 bunch stems removed, chopped [ha-assumed]
+  - chicken-broth | chicken broth | 1 cup  [ha-assumed]
+  - lemon | lemon | 1  juiced [ha-assumed]
+  - red-pepper-flakes | red pepper flakes | 0.25 tsp  [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Warm the oil in a pot over medium heat. Cook the garlic until fragrant, about 1 minute. Add the pepper flakes.
+  2. Add the kale and a pinch of salt. Cook until it wilts, about 4 minutes.
+  3. Stir in the beans and broth. Simmer 10 minutes, until the greens are tender.
+  4. Add lemon juice, salt, and pepper. Serve with Parmesan.
+NOTES: Use the garlic chip if you are avoiding fructans. Parmesan is lactose-clear.
+\n#### caprese-chicken — Caprese Chicken (Not-HA) [not-ha-assumed]
+related: - | suffixHa: caprese-chicken-ha
+  - chicken-breast | chicken breast | 1.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - tomato | tomato | 2  sliced [ha-assumed]
+  - basil | basil | 0.5 cup leaves [ha-assumed]
+  - balsamic-vinegar | balsamic vinegar | 2 tbsp  [ha-assumed]
+  - italian-seasoning | Italian seasoning | 1 tsp  [not-ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+  - mozzarella | mozzarella | 8 oz sliced [not-ha-confirmed]
+STEPS:
+  1. Heat the oven to 400°F. Rub the chicken with oil, Italian seasoning, salt, and pepper.
+  2. Sear the chicken in an oven-safe skillet, 3 minutes per side.
+  3. Top each piece with tomato. Add mozzarella.
+  4. Bake 12–15 minutes, until the chicken is cooked through.
+  5. Drizzle with balsamic and pile basil on top.
+\n#### mushroom-risotto — Mushroom Risotto (Not-HA) [not-ha-assumed]
+related: - | suffixHa: mushroom-risotto-ha
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - mushroom | mushrooms | 1 lb sliced [ha-confirmed]
+  - chicken-broth | chicken broth | 5 cup warmed [ha-assumed]
+  - onion | onion | 1  finely diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - butter | butter | 3 tbsp  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - parmesan | Parmesan | 1 cup grated [not-ha-confirmed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Warm 1 tablespoon oil and 1 tablespoon butter in a pot. Cook the mushrooms until they give off their liquid and brown, about 8 minutes. Set aside.
+  2. Add the remaining oil. Cook the onion until translucent. Add the garlic for 30 seconds. Stir in the rice until the grains look glossy.
+  3. Add a ladle of warm broth and stir until it is mostly absorbed. Repeat.
+  4. Keep adding broth and stirring for about 25 minutes, until the rice is creamy and tender.
+  5. Take it off the heat. Stir in the mushrooms, remaining butter, and Parmesan.
+  6. Season with salt and pepper. Finish with parsley and serve right away.
+NOTES: A guest-night dish that wants your attention at the stove. Parmesan is lactose-clear. Mushrooms are a household mannitol watch.
+\n#### pasta-primavera — Pasta Primavera (Not-HA) [not-ha-assumed]
+related: - | suffixHa: pasta-primavera-ha
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - zucchini | zucchini | 2  sliced [ha-assumed]
+  - bell-pepper | bell pepper | 1  sliced [ha-confirmed]
+  - cherry-tomato | cherry tomatoes | 1 pint halved [ha-assumed]
+  - broccoli | broccoli | 2 cup small florets [ha-confirmed]
+  - basil | basil | 0.33 cup torn [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - lemon | lemon | 1  zested and juiced [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Boil the pasta in salted water according to the package. Drain, saving a splash of water.
+  2. Warm the oil in a wide skillet. Cook the garlic 30 seconds. Add zucchini, pepper, and broccoli.
+  3. Cook until the vegetables are crisp-tender, about 6 minutes. Add the tomatoes for the last 2 minutes.
+  4. Toss the pasta with the vegetables, lemon zest and juice, and a little pasta water.
+  5. Season with salt and pepper. Finish with basil and Parmesan.
+NOTES: Use the garlic chip if you are avoiding fructans.
+\n#### sausage-white-beans — Sausage and White Beans (Not-HA) [not-ha-assumed]
+related: - | suffixHa: sausage-white-beans-ha
+  - italian-sausage | Italian sausage | 1 lb  [ha-confirmed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - cannellini-beans | cannellini beans | 30 oz drained and rinsed [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - kale | kale | 1 bunch stems removed, chopped [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - chicken-broth | chicken broth | 0.5 cup  [ha-assumed]
+  - parmesan | Parmesan | 0.25 cup grated [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Brown the sausages in the oil, about 8 minutes. Set aside and slice when cool enough to handle.
+  2. Cook the onion in the same pot until soft. Stir in the garlic for 30 seconds.
+  3. Add tomatoes, beans, broth, oregano, and kale. Return the sausage.
+  4. Simmer 12 minutes, until the kale is tender and the sauce thickens.
+  5. Season with salt and pepper. Serve with Parmesan.
+\n#### baked-cod-tomatoes — Baked Cod with Tomatoes (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - white-fish | white fish fillet | 1.5 lb  [not-ha-confirmed]
+  - cherry-tomato | cherry tomatoes | 1 pint  [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - lemon | lemon | 1  juiced and sliced [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - capers | capers | 1 tbsp drained [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Spread the tomatoes in a baking dish and toss with 2 tablespoons oil, oregano, salt, and pepper.
+  2. Nestle the fish among the tomatoes. Drizzle with the remaining oil and lemon juice. Add lemon slices and capers.
+  3. Bake 15–18 minutes, until the fish flakes.
+  4. Finish with parsley.
+NOTES: Any firm white fish works — cod is the usual pick.
+\n#### creamy-polenta-sausage — Creamy Polenta with Sausage (Not-HA) [not-ha-assumed]
+related: - | suffixHa: creamy-polenta-sausage-ha
+  - polenta | polenta | 1 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - milk | milk | 1 cup  [not-ha-confirmed]
+  - butter | butter | 2 tbsp  [ha-confirmed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - italian-sausage | Italian sausage | 1 lb  [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - marinara | marinara sauce | 2 cup  [not-ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Bring the water, milk, and 1/2 teaspoon salt to a simmer. Whisk in the polenta.
+  2. Cook, stirring often, until thick and creamy, 20–25 minutes. Stir in the butter and Parmesan.
+  3. Meanwhile, brown the sausages in a skillet, about 8 minutes. Add the onion and cook until soft.
+  4. Pour in the marinara and simmer 10 minutes. Season with salt and pepper.
+  5. Spoon the polenta into bowls. Top with sausage and sauce. Finish with parsley.
+NOTES: Marinara has onion and garlic.
+\n#### fettuccine-alfredo — Fettuccine Alfredo (Not-HA) [not-ha-assumed]
+related: fettuccine-alfredo-ha, chicken-parm-ha, eggplant-parm-ha, pesto-pasta-dinner-ha, sausage-pasta-ha, lasagna-ha, meatballs-marinara-ha, baked-ziti-ha, shrimp-scampi-ha, white-beans-and-greens-ha, caprese-chicken-ha, mushroom-risotto-ha, pasta-primavera-ha, sausage-white-beans-ha, creamy-polenta-sausage-ha | suffixHa: fettuccine-alfredo-ha
+  - spaghetti | spaghetti | 12 oz  [not-ha-assumed]
+  - butter | butter | 4 tbsp  [ha-confirmed]
+  - heavy-cream | heavy cream | 1 cup  [not-ha-confirmed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - parmesan | Parmesan | 1 cup grated [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Cook the pasta in salted water until just tender. Save 1/2 cup of the cooking water and drain.
+  2. Melt the butter in a skillet over medium-low heat. Add the garlic and cook 30 seconds.
+  3. Pour in the cream and simmer until it thickens slightly, about 3 minutes.
+  4. Toss in the pasta, Parmesan, and a splash of cooking water until the sauce coats the noodles.
+  5. Season with salt and pepper. Serve right away.
+NOTES: Wheat pasta, cream, and garlic. See the HA version for the household conversion.
+\n#### fettuccine-alfredo-ha — Fettuccine Alfredo (HA) [not-ha-assumed]
+related: fettuccine-alfredo | suffixHa: null
+  - gf-pasta | gluten-free pasta | 12 oz  [ha-assumed]
+  - garlic-infused-oil | garlic-infused oil | 1 tbsp  [ha-assumed]
+  - lactose-free-milk | lactose-free milk | 1.5 cup  [not-ha-confirmed]
+  - cornstarch | cornstarch | 1 tbsp  [ha-assumed]
+  - parmesan | Parmesan | 0.5 cup grated [not-ha-confirmed]
+  - nutritional-yeast | nutritional yeast | 1 tbsp  OPT [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Cook the gluten-free pasta in salted water until just tender. Save 1/2 cup of the cooking water and drain.
+  2. Whisk the cornstarch into the cold lactose-free milk.
+  3. Warm the garlic-infused oil in a skillet over medium heat. Pour in the milk mixture and stir until it thickens, 2–3 minutes.
+  4. Toss in the pasta, Parmesan, and a splash of cooking water. Add nutritional yeast if you want more savory depth.
+  5. Season with salt and pepper. Serve right away — gluten-free pasta waits poorly.
+NOTES: No wheat, no cream, no garlic solids. Parmesan is the household lactose-clear hard cheese. Keep the sauce modest; this is still a pasta night, not a cream bomb.
+\n#### beef-and-broccoli — Beef and Broccoli (Not-HA) [not-ha-assumed]
+related: beef-and-broccoli-ha | suffixHa: beef-and-broccoli-ha
+  - beef-steak | beef steak | 1.5 lb sliced thin [ha-confirmed]
+  - broccoli | broccoli | 1 head florets [ha-confirmed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 0.25 cup  [ha-assumed]
+  - cornstarch | cornstarch | 1 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Toss the sliced steak with the cornstarch.
+  3. Heat the vegetable oil in a wide skillet over high heat. Sear the beef until browned, about 3 minutes. Set aside.
+  4. Stir-fry the broccoli 3 minutes. Add garlic and ginger for 30 seconds.
+  5. Return the beef. Stir in the gluten-free soy sauce and sesame oil until the sauce coats everything, about 1 minute.
+  6. Serve over the rice.
+\n#### sesame-chicken — Sesame Chicken (Not-HA) [not-ha-assumed]
+related: sesame-chicken-ha | suffixHa: sesame-chicken-ha
+  - chicken-breast | chicken breast | 1.5 lb cut into bite-size pieces [ha-confirmed]
+  - cornstarch | cornstarch | 3 tbsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 3 tbsp  [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - honey | honey | 2 tbsp  [not-ha-assumed]
+  - rice-vinegar | rice vinegar | 1 tbsp  [ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tsp minced [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - sesame-seeds | sesame seeds | 1 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Toss the chicken with the cornstarch. Heat the vegetable oil in a skillet over medium-high heat.
+  3. Cook the chicken until browned and cooked through, about 6 minutes. Push it aside.
+  4. Add garlic and ginger for 20 seconds. Stir in the gluten-free soy sauce, honey, rice vinegar, and sesame oil.
+  5. Toss until the sauce thickens and coats the chicken, about 1 minute.
+  6. Serve over rice and sprinkle with sesame seeds.
+\n#### tofu-stir-fry — Tofu Stir-Fry (Not-HA) [not-ha-assumed]
+related: tofu-stir-fry-ha | suffixHa: tofu-stir-fry-ha
+  - tofu | firm tofu | 14 oz pressed and cubed [ha-assumed]
+  - bell-pepper | bell pepper | 2  sliced [ha-confirmed]
+  - sugar-snap-peas | sugar snap peas | 2 cup  [ha-assumed]
+  - carrot | carrot | 2  sliced [ha-confirmed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Heat the vegetable oil in a wide skillet over high heat. Brown the tofu on a few sides, about 5 minutes. Set aside.
+  3. Stir-fry the pepper, snap peas, and carrot until crisp-tender, about 4 minutes.
+  4. Add garlic and ginger for 30 seconds. Return the tofu.
+  5. Stir in the gluten-free soy sauce and sesame oil. Serve over the rice.
+\n#### shrimp-fried-rice — Shrimp Fried Rice (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - shrimp | shrimp | 1 lb peeled [ha-confirmed]
+  - jasmine-rice | jasmine rice | 3 cup cooked and cooled [ha-assumed]
+  - egg | eggs | 2   [ha-confirmed]
+  - green-peas | green peas | 1 cup  [ha-assumed]
+  - carrot | carrot | 2  diced [ha-confirmed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - green-onion | green onion | 2  sliced OPT [ha-assumed]
+STEPS:
+  1. Heat 1 tablespoon oil in a wide skillet over high heat. Cook the shrimp until pink, about 3 minutes. Set aside.
+  2. Add the remaining oil. Cook the carrot 2 minutes, then the peas.
+  3. Push the vegetables aside and scramble the eggs in the empty space.
+  4. Add the cold rice and the gluten-free soy sauce. Stir-fry until the rice is hot, about 3 minutes.
+  5. Return the shrimp. Finish with sesame oil and optional green onion.
+NOTES: Skip the green onion if you are avoiding fructans. Day-old rice fries best.
+\n#### rice-noodle-stir-fry — Rice Noodle Stir-Fry (Not-HA) [not-ha-assumed]
+related: rice-noodle-stir-fry-ha | suffixHa: rice-noodle-stir-fry-ha
+  - rice-noodle | rice noodles | 8 oz  [ha-assumed]
+  - tofu | firm tofu | 14 oz pressed and cubed [ha-assumed]
+  - bell-pepper | bell pepper | 1  sliced [ha-confirmed]
+  - napa-cabbage | napa cabbage | 3 cup shredded [ha-assumed]
+  - carrot | carrot | 1  julienned [ha-confirmed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 0.25 cup  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+STEPS:
+  1. Soak or boil the rice noodles according to the package, then drain.
+  2. Heat the vegetable oil in a wide skillet over high heat. Brown the tofu, about 5 minutes. Set aside.
+  3. Stir-fry the pepper, cabbage, and carrot until the cabbage wilts, about 3 minutes.
+  4. Add garlic and ginger for 30 seconds. Return the tofu and noodles.
+  5. Pour in the gluten-free soy sauce and sesame oil. Toss until the noodles are coated and hot.
+\n#### coconut-curry-chicken — Coconut Curry Chicken (Not-HA) [not-ha-assumed]
+related: coconut-curry-chicken-ha | suffixHa: coconut-curry-chicken-ha
+  - chicken-thigh | chicken thighs | 1.5 lb cut into chunks [ha-confirmed]
+  - coconut-milk | canned coconut milk | 13.5 oz  [ha-assumed]
+  - bell-pepper | bell pepper | 2  sliced [ha-confirmed]
+  - onion | onion | 1  sliced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - curry-powder | curry powder | 2 tbsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a pot. Brown the chicken 4 minutes. Add the onion and cook until soft.
+  3. Stir in garlic, ginger, curry powder, and turmeric for 30 seconds.
+  4. Add the peppers and coconut milk. Simmer 12–15 minutes, until the chicken is cooked.
+  5. Season with salt. Serve over rice with lime wedges.
+\n#### chicken-lettuce-wraps — Chicken Lettuce Wraps (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - ground-chicken | ground chicken | 1.5 lb  [ha-confirmed]
+  - carrot | carrot | 2  diced small [ha-confirmed]
+  - zucchini | zucchini | 1  diced small [ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - rice-vinegar | rice vinegar | 1 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+  - iceberg | iceberg lettuce | 1 head leaves separated [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+STEPS:
+  1. Heat the vegetable oil in a skillet over medium-high heat. Brown the chicken, breaking it up, about 6 minutes.
+  2. Add the carrot and zucchini. Cook until the vegetables soften, about 4 minutes.
+  3. Stir in ginger, the gluten-free soy sauce, rice vinegar, and sesame oil. Cook 1 minute more.
+  4. Spoon the filling into iceberg leaves.
+  5. Top with cilantro and a squeeze of lime.
+\n#### egg-foo-young — Egg Foo Young (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - egg | eggs | 8   [ha-confirmed]
+  - cabbage | cabbage | 2 cup shredded [ha-confirmed]
+  - carrot | carrot | 1  shredded [ha-confirmed]
+  - green-peas | green peas | 0.5 cup  [ha-assumed]
+  - vegetable-oil | vegetable oil | 3 tbsp  [ha-assumed]
+  - garlic-free-broth | onion- and garlic-free broth | 1 cup  [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - cornstarch | cornstarch | 1 tbsp  [ha-assumed]
+  - green-onion | green onion | 2  sliced OPT [ha-assumed]
+  - salt | salt | 0.5 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Beat the eggs with salt and pepper. Fold in the cabbage, carrot, peas, and optional green onion.
+  2. Heat 1 tablespoon oil in a skillet over medium heat. Pour in a quarter of the egg mixture.
+  3. Cook until set, about 3 minutes per side. Repeat with the remaining oil and eggs.
+  4. Whisk the broth, gluten-free soy sauce, and cornstarch in the empty skillet. Simmer until the gravy thickens.
+  5. Spoon the gravy over the omelets.
+NOTES: Skip the green onion if you are avoiding fructans.
+\n#### miso-tofu-soup — Miso Soup with Tofu (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - garlic-free-broth | onion- and garlic-free broth | 6 cup  [ha-assumed]
+  - miso | miso | 0.25 cup  [ha-assumed]
+  - tofu | firm tofu | 14 oz cubed [ha-assumed]
+  - bok-choy | bok choy | 2 head chopped [ha-assumed]
+  - ginger | fresh ginger | 1 tbsp sliced [ha-assumed]
+  - nori | nori | 2 sheet torn OPT [ha-assumed]
+  - green-onion | green onion | 2  sliced OPT [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 1 tbsp  OPT [ha-assumed]
+STEPS:
+  1. Bring the broth and ginger to a simmer. Add the bok choy and cook until tender, about 4 minutes.
+  2. Add the tofu and warm through, 2 minutes. Take the pot off the heat.
+  3. Ladle a little hot broth into a bowl and whisk in the miso until smooth. Stir it back into the pot.
+  4. Season with gluten-free soy sauce if you want it saltier.
+  5. Ladle into bowls. Top with optional nori and green onion.
+NOTES: Do not boil the miso or it turns harsh. Skip the green onion if you are avoiding fructans.
+\n#### soy-ginger-beef-bowls — Soy Ginger Beef Bowls (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - beef-steak | beef steak | 1.5 lb sliced thin [ha-confirmed]
+  - ginger | fresh ginger | 2 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 0.25 cup  [ha-assumed]
+  - rice-vinegar | rice vinegar | 1 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - cucumber | cucumber | 1  sliced [ha-assumed]
+  - carrot | carrot | 2  shredded [ha-confirmed]
+  - sesame-seeds | sesame seeds | 1 tsp  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Stir the gluten-free soy sauce, ginger, rice vinegar, and sesame oil in a bowl.
+  3. Heat the vegetable oil in a skillet over high heat. Sear the beef until browned, about 3 minutes.
+  4. Pour in the sauce and toss 1 minute, until glossy.
+  5. Serve over rice with cucumber, carrot, and sesame seeds.
+\n#### orange-chicken — Orange Chicken (Not-HA) [not-ha-assumed]
+related: orange-chicken-ha | suffixHa: orange-chicken-ha
+  - chicken-breast | chicken breast | 1.5 lb cut into bite-size pieces [ha-confirmed]
+  - cornstarch | cornstarch | 3 tbsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 3 tbsp  [ha-assumed]
+  - orange | orange | 2  juiced and zested [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - honey | honey | 2 tbsp  [not-ha-assumed]
+  - ginger | fresh ginger | 1 tsp minced [ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - rice-vinegar | rice vinegar | 1 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Toss the chicken with the cornstarch. Heat the oil in a skillet over medium-high heat.
+  3. Cook the chicken until browned and cooked through, about 6 minutes. Set aside.
+  4. In the same skillet, stir the orange juice and zest, gluten-free soy sauce, honey, ginger, garlic, and rice vinegar.
+  5. Simmer until slightly thick, about 2 minutes. Return the chicken and toss to coat.
+  6. Serve over the rice.
+\n#### tofu-pork-skillet — Tofu and Pork Skillet (Not-HA) [not-ha-assumed]
+related: tofu-pork-skillet-ha | suffixHa: tofu-pork-skillet-ha
+  - tofu | firm tofu | 14 oz cubed [ha-assumed]
+  - ground-pork | ground pork | 1 lb  [ha-confirmed]
+  - bok-choy | bok choy | 2 head chopped [ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - rice-vinegar | rice vinegar | 1 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - red-pepper-flakes | red pepper flakes | 0.25 tsp  OPT [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Heat the vegetable oil in a skillet. Brown the pork, breaking it up, about 5 minutes.
+  3. Add garlic and ginger for 30 seconds, then the tofu and bok choy.
+  4. Cook until the bok choy wilts, about 3 minutes.
+  5. Stir in the gluten-free soy sauce, rice vinegar, sesame oil, and optional pepper flakes. Serve over rice.
+\n#### salmon-rice-dinner — Salmon Rice (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - salmon | salmon | 1.5 lb  [ha-confirmed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - rice-vinegar | rice vinegar | 1 tsp  [ha-assumed]
+  - cucumber | cucumber | 1  sliced [ha-assumed]
+  - sesame-seeds | sesame seeds | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Heat the vegetable oil in a skillet over medium heat. Cook the salmon 4 minutes on the first side.
+  3. Flip and cook until it flakes, about 4 minutes more. Break it into large pieces.
+  4. Stir the gluten-free soy sauce, sesame oil, and rice vinegar. Spoon over the salmon and rice.
+  5. Top with cucumber and sesame seeds.
+\n#### bok-choy-noodles — Bok Choy Noodles (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - rice-noodle | rice noodles | 8 oz  [ha-assumed]
+  - bok-choy | bok choy | 4 head halved [ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - egg | eggs | 2   OPT [ha-confirmed]
+  - sesame-seeds | sesame seeds | 1 tsp  [ha-assumed]
+STEPS:
+  1. Soak or boil the rice noodles according to the package, then drain.
+  2. Heat the vegetable oil in a wide skillet over medium-high heat. Sear the bok choy cut-side down until browned, about 3 minutes.
+  3. Flip, add the ginger, and cook until the stems are tender, about 3 minutes more.
+  4. Push the greens aside and scramble the eggs in the empty space.
+  5. Add the noodles, gluten-free soy sauce, and sesame oil. Toss until hot. Sprinkle with sesame seeds.
+\n#### tempeh-stir-fry — Tempeh Stir-Fry (Not-HA) [not-ha-assumed]
+related: tempeh-stir-fry-ha | suffixHa: tempeh-stir-fry-ha
+  - tempeh | tempeh | 16 oz cubed [ha-assumed]
+  - broccoli | broccoli | 1 head florets [ha-confirmed]
+  - bell-pepper | bell pepper | 1  sliced [ha-confirmed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - honey | honey | 1 tbsp  [not-ha-assumed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Heat the vegetable oil in a wide skillet over medium-high heat. Brown the tempeh, about 5 minutes. Set aside.
+  3. Stir-fry the broccoli and pepper until crisp-tender, about 4 minutes.
+  4. Add garlic and ginger for 30 seconds. Return the tempeh.
+  5. Stir in the gluten-free soy sauce, honey, and sesame oil. Serve over the rice.
+\n#### hot-and-sour-soup — Hot and Sour Soup (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - garlic-free-broth | onion- and garlic-free broth | 6 cup  [ha-assumed]
+  - tofu | firm tofu | 14 oz cut into strips [ha-assumed]
+  - napa-cabbage | napa cabbage | 3 cup shredded [ha-assumed]
+  - carrot | carrot | 1  julienned [ha-confirmed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 3 tbsp  [ha-assumed]
+  - rice-vinegar | rice vinegar | 3 tbsp  [ha-assumed]
+  - cornstarch | cornstarch | 2 tbsp  [ha-assumed]
+  - water | water | 3 tbsp  [ha-assumed]
+  - egg | eggs | 2   [ha-confirmed]
+  - sesame-oil | sesame oil | 1 tsp  [ha-assumed]
+  - red-pepper-flakes | red pepper flakes | 0.5 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+STEPS:
+  1. Bring the broth, ginger, cabbage, and carrot to a simmer. Cook 8 minutes.
+  2. Add the tofu, gluten-free soy sauce, rice vinegar, pepper flakes, and black pepper.
+  3. Stir the cornstarch with the 3 tablespoons water. Pour it in and simmer until the soup thickens slightly.
+  4. Beat the eggs and drizzle them in while stirring slowly so they form ribbons.
+  5. Finish with sesame oil. Taste and add a splash more vinegar if you want it sharper.
+\n#### chicken-souvlaki — Chicken Souvlaki (Not-HA) [not-ha-assumed]
+related: chicken-souvlaki-ha | suffixHa: chicken-souvlaki-ha
+  - chicken-breast | chicken breast | 1.5 lb cut into chunks [ha-confirmed]
+  - yogurt | yogurt | 0.5 cup  [not-ha-confirmed]
+  - lemon | lemon | 1  juiced [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - oregano | dried oregano | 2 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - cucumber | cucumber | 1  sliced [ha-assumed]
+  - tomato | tomato | 2  wedged [ha-assumed]
+STEPS:
+  1. Stir the yogurt with lemon juice, 2 tablespoons oil, garlic, oregano, and salt.
+  2. Coat the chicken and rest 15 minutes on the counter.
+  3. Heat the remaining oil in a skillet over medium-high heat. Cook the chicken until browned and cooked through, 8–10 minutes.
+  4. Serve with cucumber and tomato.
+\n#### baked-feta-tomatoes — Baked Feta and Tomatoes (Not-HA) [not-ha-assumed]
+related: baked-feta-tomatoes-ha | suffixHa: baked-feta-tomatoes-ha
+  - feta | feta | 8 oz  [not-ha-confirmed]
+  - cherry-tomato | cherry tomatoes | 2 pint  [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - red-pepper-flakes | red pepper flakes | 0.25 tsp  OPT [ha-assumed]
+  - basil | basil | 0.25 cup torn [ha-assumed]
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Cook the rice in the water until tender, about 18 minutes.
+  2. Put the tomatoes in a baking dish. Nestle the feta in the center.
+  3. Drizzle with oil. Sprinkle oregano, optional pepper flakes, and black pepper.
+  4. Bake 25 minutes, until the tomatoes burst.
+  5. Stir the feta into the tomatoes until creamy. Fold in the basil.
+  6. Serve over the rice.
+\n#### lamb-chops-dinner — Lamb Chops (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - lamb-chop | lamb chops | 2 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - lemon | lemon | 1  juiced and wedged [ha-assumed]
+  - rosemary | dried rosemary | 2 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+  - green-beans | green beans | 1 lb  [ha-assumed]
+STEPS:
+  1. Pat the chops dry. Rub with 1 tablespoon oil, rosemary, salt, and pepper.
+  2. Heat a skillet over medium-high heat. Cook the chops 3–4 minutes per side for medium.
+  3. Rest the lamb 5 minutes. Squeeze lemon over the chops.
+  4. Meanwhile, boil or steam the green beans until tender, about 6 minutes. Toss with the remaining oil.
+  5. Serve the lamb with the beans and extra lemon wedges.
+\n#### chickpea-bowls — Chickpea Bowls (Not-HA) [not-ha-assumed]
+related: chickpea-bowls-ha | suffixHa: chickpea-bowls-ha
+  - chickpeas | chickpeas | 30 oz drained and rinsed [ha-assumed]
+  - mixed-greens | mixed greens | 6 cup  [ha-assumed]
+  - cucumber | cucumber | 1  diced [ha-assumed]
+  - cherry-tomato | cherry tomatoes | 1 pint halved [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - lemon | lemon | 2 tbsp juiced [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - oregano | dried oregano | 0.5 tsp  [ha-assumed]
+  - feta | feta | 0.5 cup crumbled [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Warm the chickpeas in a skillet with 1 tablespoon oil, cumin, and a pinch of salt, about 5 minutes.
+  2. Divide the greens, cucumber, and tomatoes among bowls.
+  3. Whisk the remaining oil with lemon, oregano, salt, and pepper.
+  4. Spoon the chickpeas over the greens. Drizzle with the dressing.
+  5. Scatter feta on top.
+\n#### shrimp-and-rice — Shrimp and Rice (Not-HA) [not-ha-assumed]
+related: shrimp-and-rice-ha | suffixHa: shrimp-and-rice-ha
+  - shrimp | shrimp | 1.5 lb peeled [ha-confirmed]
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - garlic | garlic | 4 clove minced [not-ha-assumed]
+  - cherry-tomato | cherry tomatoes | 1 pint halved [ha-assumed]
+  - lemon | lemon | 1  juiced [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a skillet over medium heat. Cook the garlic 30 seconds.
+  3. Add the tomatoes and cook until they soften, about 4 minutes.
+  4. Add the shrimp. Cook until pink, 3–4 minutes. Season with salt and pepper.
+  5. Stir in lemon juice and parsley. Serve over the rice.
+\n#### stuffed-peppers-med — Stuffed Peppers (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - bell-pepper | bell pepper | 4  halved and seeded [ha-confirmed]
+  - ground-lamb | ground lamb | 1 lb  [not-ha-confirmed]
+  - white-rice | white rice | 0.75 cup uncooked [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - feta | feta | 0.5 cup crumbled [not-ha-confirmed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Rub the pepper halves with 1 tablespoon oil and set them in a baking dish.
+  2. Warm the remaining oil in a skillet. Cook the onion until soft, then the garlic for 30 seconds.
+  3. Add the lamb and cook until browned. Stir in the rice, tomatoes, oregano, salt, and pepper.
+  4. Spoon the filling into the peppers. Cover the dish and bake 35 minutes.
+  5. Uncover. Sprinkle feta on top and bake 5 minutes more.
+\n#### lemon-shrimp — Lemon Shrimp (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - shrimp | shrimp | 1.5 lb peeled [ha-confirmed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - lemon | lemon | 2  juiced and zested [ha-assumed]
+  - zucchini | zucchini | 2  sliced [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Toss the shrimp with 1 tablespoon oil, lemon zest, salt, and pepper.
+  2. Heat the remaining oil in a wide skillet over medium-high heat. Cook the zucchini until browned in spots, about 4 minutes. Set aside.
+  3. Add the shrimp and cook until pink, 2–3 minutes per side.
+  4. Return the zucchini. Add the lemon juice and parsley. Toss and serve.
+\n#### chickpea-stew — Chickpea Stew (Not-HA) [not-ha-assumed]
+related: chickpea-stew-ha | suffixHa: chickpea-stew-ha
+  - chickpeas | chickpeas | 30 oz drained and rinsed [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 28 oz  [ha-confirmed]
+  - spinach | spinach | 4 cup  [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - paprika | paprika | 1 tsp  [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - lemon | lemon | 1  wedged [ha-assumed]
+STEPS:
+  1. Warm the oil in a pot. Cook the onion until soft, about 6 minutes.
+  2. Add garlic, cumin, paprika, and oregano for 30 seconds.
+  3. Pour in the tomatoes and chickpeas. Simmer 15 minutes.
+  4. Stir in the spinach until it wilts. Season with salt.
+  5. Serve with lemon wedges.
+\n#### baked-eggplant — Baked Eggplant (Not-HA) [not-ha-assumed]
+related: baked-eggplant-ha | suffixHa: baked-eggplant-ha
+  - eggplant | eggplant | 2  sliced into rounds [ha-assumed]
+  - olive-oil | olive oil | 0.25 cup  [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - basil | basil | 0.25 cup chopped [ha-assumed]
+  - feta | feta | 0.5 cup crumbled [not-ha-confirmed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Brush both sides of the eggplant with most of the oil. Season with salt and pepper.
+  2. Spread the slices on a sheet pan and roast 20 minutes, flipping once.
+  3. Stir the tomatoes with oregano and the remaining oil. Spoon over the eggplant.
+  4. Roast 10–12 minutes more, until the eggplant is soft.
+  5. Scatter feta and basil over the top.
+\n#### fish-with-olives — Fish with Olives (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - white-fish | white fish fillet | 1.5 lb  [not-ha-confirmed]
+  - olive | olives | 0.75 cup pitted [ha-assumed]
+  - cherry-tomato | cherry tomatoes | 1 pint  [ha-assumed]
+  - capers | capers | 2 tbsp  [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - lemon | lemon | 1  juiced and sliced [ha-assumed]
+  - parsley | parsley | 0.25 cup chopped [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 400°F. Spread the tomatoes, olives, and capers in a baking dish.
+  2. Drizzle with 2 tablespoons oil. Nestle the fish on top.
+  3. Drizzle with the remaining oil and lemon juice. Add lemon slices. Season with salt and pepper.
+  4. Bake 12–15 minutes, until the fish flakes.
+  5. Finish with parsley.
+\n#### chicken-and-olives — Chicken and Olives (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - olive | olives | 1 cup pitted [ha-assumed]
+  - roasted-red-pepper | roasted red peppers | 0.5 cup sliced [ha-assumed]
+  - lemon | lemon | 1  juiced and sliced [ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - thyme | dried thyme | 0.5 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Toss the chicken with oil, oregano, thyme, salt, and pepper.
+  2. Spread the thighs in a baking dish. Scatter olives, peppers, and lemon slices around them.
+  3. Roast 25–30 minutes, until the chicken is cooked through.
+  4. Squeeze the remaining lemon juice over the pan and serve.
+\n#### quinoa-tabbouleh-bowl — Quinoa Tabbouleh Bowl (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - quinoa | quinoa | 1 cup rinsed [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - parsley | parsley | 1.5 cup chopped [ha-assumed]
+  - mint | mint | 0.25 cup chopped [ha-assumed]
+  - tomato | tomato | 2  diced [ha-assumed]
+  - cucumber | cucumber | 1  diced [ha-assumed]
+  - olive-oil | olive oil | 0.25 cup  [ha-assumed]
+  - lemon | lemon | 2  juiced [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Cook the quinoa in the water until the grains are tender and the water is absorbed, about 15 minutes. Fluff and cool 10 minutes.
+  2. Stir the parsley, mint, tomato, and cucumber into the quinoa.
+  3. Whisk the oil, lemon juice, salt, and pepper.
+  4. Pour the dressing over the bowl and toss.
+  5. Taste and add more lemon if it needs brightness.
+\n#### spinach-rice — Spinach Rice (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - spinach | spinach | 8 cup  [ha-assumed]
+  - olive-oil | olive oil | 3 tbsp  [ha-assumed]
+  - lemon | lemon | 1  juiced [ha-assumed]
+  - dill | dill | 2 tbsp chopped [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Warm the oil in a pot. Add the spinach and cook until wilted, about 3 minutes.
+  2. Stir in the rice until the grains look glossy.
+  3. Add the water and salt. Bring to a simmer, cover, and cook until the rice is tender, about 18 minutes.
+  4. Take it off the heat. Fold in lemon juice, dill, and pepper.
+  5. Rest 5 minutes, then fluff and serve.
+\n#### grilled-lamb-salad — Grilled Lamb Salad (Not-HA) [not-ha-assumed]
+related: grilled-lamb-salad-ha | suffixHa: grilled-lamb-salad-ha
+  - lamb-chop | lamb chops | 1.5 lb  [ha-confirmed]
+  - mixed-greens | mixed greens | 6 cup  [ha-assumed]
+  - cucumber | cucumber | 1  sliced [ha-assumed]
+  - tomato | tomato | 2  wedged [ha-assumed]
+  - olive-oil | olive oil | 4 tbsp  [ha-assumed]
+  - lemon | lemon | 2 tbsp juiced [ha-assumed]
+  - oregano | dried oregano | 1 tsp  [ha-assumed]
+  - sumac | sumac | 0.5 tsp  OPT [ha-assumed]
+  - feta | feta | 0.5 cup crumbled [not-ha-confirmed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Rub the chops with 1 tablespoon oil, oregano, salt, and pepper.
+  2. Heat a skillet or grill pan over medium-high heat. Cook the chops 3–4 minutes per side. Rest 5 minutes, then slice the meat off the bone.
+  3. Pile greens, cucumber, and tomato on a platter.
+  4. Whisk the remaining oil with lemon and optional sumac. Drizzle over the salad.
+  5. Top with the lamb. Add feta.
+\n#### butter-chicken — Butter Chicken (Not-HA) [not-ha-assumed]
+related: butter-chicken-ha | suffixHa: butter-chicken-ha
+  - chicken-thigh | chicken thighs | 2 lb cut into chunks [ha-confirmed]
+  - yogurt | yogurt | 0.5 cup  [not-ha-confirmed]
+  - canned-tomato | canned tomatoes | 28 oz  [ha-confirmed]
+  - tomato-paste | tomato paste | 2 tbsp  [ha-assumed]
+  - butter | butter | 4 tbsp  [ha-confirmed]
+  - heavy-cream | heavy cream | 0.5 cup  [not-ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 4 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - paprika | paprika | 1 tsp  [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Toss the chicken with the yogurt, half the garam masala, and 0.5 teaspoon salt. Rest 15 minutes.
+  3. Melt 2 tablespoons butter in a pot. Brown the chicken in batches, about 4 minutes. Set aside.
+  4. Cook the onion in the remaining butter until soft. Add garlic, ginger, tomato paste, cumin, turmeric, and paprika.
+  5. Pour in the tomatoes and simmer 10 minutes. Return the chicken and cook until done, about 10 minutes.
+  6. Stir in the cream and remaining garam masala. Season with salt. Serve over rice with cilantro.
+NOTES: A guest-night pot — tomato, yogurt, cream, and garam masala. Butter is the household lactose-clear fat.
+\n#### chana-masala — Chana Masala (Not-HA) [not-ha-assumed]
+related: chana-masala-ha | suffixHa: chana-masala-ha
+  - chickpeas | chickpeas | 30 oz drained and rinsed [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - coriander | ground coriander | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lemon | lemon | 1  wedged [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a pot. Cook the onion until soft, then add garlic and ginger.
+  3. Stir in garam masala, cumin, coriander, and turmeric for 30 seconds.
+  4. Add the tomatoes and chickpeas. Simmer 15 minutes, until the sauce is thick.
+  5. Season with salt. Serve over rice with cilantro and lemon.
+\n#### spinach-chicken — Spinach Chicken (Not-HA) [not-ha-assumed]
+related: spinach-chicken-ha | suffixHa: spinach-chicken-ha
+  - chicken-thigh | chicken thighs | 1.5 lb cut into chunks [ha-confirmed]
+  - spinach | spinach | 16 oz thawed and squeezed [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - ghee | ghee | 2 tbsp  [not-ha-confirmed]
+  - salt | salt |   to taste [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Melt the ghee in a pot. Brown the chicken 5 minutes. Set aside.
+  3. Cook the onion until soft. Add garlic, ginger, garam masala, cumin, and turmeric.
+  4. Stir in the tomatoes and spinach. Return the chicken.
+  5. Simmer 12–15 minutes, until the chicken is cooked. Season with salt and serve over rice.
+\n#### egg-curry — Egg Curry (Not-HA) [not-ha-assumed]
+related: egg-curry-ha | suffixHa: egg-curry-ha
+  - egg | eggs | 8   [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - garam-masala | garam masala | 1.5 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - cayenne | cayenne | 0.25 tsp  OPT [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender. Hard-boil the eggs 10 minutes, then peel and halve them.
+  2. Warm the oil in a pot. Cook the onion until soft, then add garlic and ginger.
+  3. Stir in garam masala, cumin, turmeric, and optional cayenne.
+  4. Add the tomatoes and simmer 10 minutes. Season with salt.
+  5. Nestle the eggs in the sauce. Finish with cilantro and serve over rice.
+\n#### chicken-tikka — Chicken Tikka (Not-HA) [not-ha-assumed]
+related: chicken-tikka-ha | suffixHa: chicken-tikka-ha
+  - chicken-breast | chicken breast | 1.5 lb cut into chunks [ha-confirmed]
+  - yogurt | yogurt | 0.75 cup  [not-ha-confirmed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - paprika | paprika | 1 tsp  [ha-assumed]
+  - lemon | lemon | 1 tbsp juiced [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+STEPS:
+  1. Stir the yogurt with ginger, garam masala, cumin, turmeric, paprika, lemon, and salt.
+  2. Coat the chicken and rest 15 minutes on the counter.
+  3. Heat the oil in a skillet over medium-high heat. Shake off extra marinade and add the chicken.
+  4. Cook 4–5 minutes per side, until cooked through and browned in spots.
+  5. Rest a few minutes, then serve.
+\n#### keema — Keema (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - ground-lamb | ground lamb | 1.5 lb  [not-ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - green-peas | green peas | 1 cup  [ha-assumed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - coriander | ground coriander | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a skillet. Cook the onion until soft, then add garlic and ginger.
+  3. Add the lamb and cook until browned, breaking it up, about 6 minutes.
+  4. Stir in garam masala, cumin, coriander, and turmeric, then the tomatoes.
+  5. Simmer 10 minutes. Stir in the peas for 3 minutes. Season with salt and finish with cilantro over rice.
+NOTES: Ground beef works in place of the lamb.
+\n#### potato-pea-curry — Potato and Pea Curry (Not-HA) [not-ha-assumed]
+related: potato-pea-curry-ha | suffixHa: potato-pea-curry-ha
+  - potato | potato | 1.5 lb cut into chunks [ha-assumed]
+  - green-peas | green peas | 1.5 cup  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - garam-masala | garam masala | 1.5 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in 2 cups of the water until tender, about 18 minutes.
+  2. Warm the oil in a pot. Cook the onion until soft, then add garlic and ginger.
+  3. Stir in garam masala, cumin, and turmeric. Add the potatoes, tomatoes, and the remaining water.
+  4. Simmer 15–18 minutes, until the potatoes are tender.
+  5. Stir in the peas for 3 minutes. Season with salt and finish with cilantro over rice.
+\n#### coconut-fish-curry — Coconut Fish Curry (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - white-fish | white fish fillet | 1.5 lb cut into chunks [not-ha-confirmed]
+  - coconut-milk | canned coconut milk | 13.5 oz  [ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - tomato | tomato | 2  chopped [ha-assumed]
+  - turmeric | turmeric | 1 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - garam-masala | garam masala | 1 tsp  [ha-assumed]
+  - lime | lime | 1  juiced [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a skillet. Cook the ginger 30 seconds, then turmeric, cumin, and garam masala.
+  3. Add the tomatoes and coconut milk. Simmer 5 minutes.
+  4. Nestle in the fish. Cook until it flakes, 6–8 minutes. Season with salt.
+  5. Stir in lime juice and cilantro. Serve over rice.
+\n#### kidney-bean-curry — Kidney Bean Curry (Not-HA) [not-ha-assumed]
+related: kidney-bean-curry-ha | suffixHa: kidney-bean-curry-ha
+  - kidney-beans | kidney beans | 30 oz drained and rinsed [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - coriander | ground coriander | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a pot. Cook the onion until soft, then add garlic and ginger.
+  3. Stir in garam masala, cumin, coriander, and turmeric for 30 seconds.
+  4. Add the tomatoes and beans. Simmer 15 minutes, mashing a few beans to thicken.
+  5. Season with salt. Serve over rice with cilantro.
+\n#### spinach-and-cheese — Spinach and Cheese (Not-HA) [not-ha-assumed]
+related: spinach-and-cheese-ha | suffixHa: spinach-and-cheese-ha
+  - spinach | spinach | 16 oz thawed and squeezed [ha-assumed]
+  - tofu | firm tofu | 14 oz pressed and cubed [ha-assumed]
+  - ricotta | ricotta | 0.5 cup  [not-ha-confirmed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - garam-masala | garam masala | 1.5 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - ghee | ghee | 2 tbsp  [not-ha-confirmed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Melt the ghee in a skillet. Brown the tofu cubes on a few sides, about 5 minutes. Set aside.
+  3. Cook the ginger, garam masala, cumin, and turmeric 30 seconds. Add the tomatoes and spinach.
+  4. Simmer 8 minutes. Return the tofu. Season with salt.
+  5. Dollop ricotta over the top and warm 1 minute. Serve over rice.
+NOTES: Tofu stands in for paneer.
+\n#### chicken-rice-pilaf — Chicken Rice Pilaf (Not-HA) [not-ha-assumed]
+related: chicken-rice-pilaf-ha | suffixHa: chicken-rice-pilaf-ha
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - jasmine-rice | jasmine rice | 2 cup rinsed [ha-assumed]
+  - onion | onion | 1  sliced [not-ha-assumed]
+  - ghee | ghee | 3 tbsp  [not-ha-confirmed]
+  - garlic-free-broth | onion- and garlic-free broth | 3.5 cup  [ha-assumed]
+  - cinnamon | cinnamon | 0.5 tsp  [ha-assumed]
+  - cardamom | cardamom | 0.5 tsp  [ha-assumed]
+  - bay-leaf | bay leaf | 2   [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - green-peas | green peas | 1 cup  [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Melt the ghee in a wide pot. Brown the chicken 4 minutes per side. Set aside.
+  2. Cook the onion in the same pot until golden, about 8 minutes.
+  3. Stir in the rice, cinnamon, cardamom, bay leaves, cumin, and salt until the grains look glossy.
+  4. Pour in the broth. Nestle the chicken on top. Cover and simmer 20 minutes.
+  5. Scatter the peas over the rice, cover, and rest 10 minutes off the heat.
+  6. Discard the bay leaves. Fluff the rice and finish with cilantro.
+NOTES: A weekend pot — leftover chicken is good the next day. No garlic.
+\n#### tandoori-style-chicken — Tandoori-Style Chicken (Not-HA) [not-ha-assumed]
+related: tandoori-style-chicken-ha | suffixHa: tandoori-style-chicken-ha
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - yogurt | yogurt | 1 cup  [not-ha-confirmed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - garam-masala | garam masala | 2 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - paprika | paprika | 2 tsp  [ha-assumed]
+  - cayenne | cayenne | 0.25 tsp  [ha-assumed]
+  - lemon | lemon | 2 tbsp juiced [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+STEPS:
+  1. Stir the yogurt with ginger, garam masala, cumin, paprika, cayenne, lemon, and salt.
+  2. Coat the chicken and rest 15 minutes on the counter, or longer in the fridge if you have time.
+  3. Heat the oven to 450°F. Set a rack over a sheet pan and oil it.
+  4. Shake off extra marinade. Roast the thighs 22–25 minutes, until cooked through and charred in spots.
+  5. Rest a few minutes, then serve.
+NOTES: High heat stands in for a tandoor.
+\n#### lentil-vegetable-stew — Lentil Vegetable Stew (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - red-lentils | red lentils | 1.5 cup rinsed [ha-assumed]
+  - carrot | carrot | 3  diced [ha-confirmed]
+  - zucchini | zucchini | 1  diced [ha-assumed]
+  - spinach | spinach | 3 cup  [ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - turmeric | turmeric | 1 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - coriander | ground coriander | 0.5 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - water | water | 5 cup  [ha-assumed]
+  - coconut-milk | canned coconut milk | 0.5 cup  OPT [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+STEPS:
+  1. Warm the oil in a pot. Cook the ginger, turmeric, cumin, and coriander 30 seconds.
+  2. Add the lentils, carrots, zucchini, and water.
+  3. Simmer 20–25 minutes, stirring now and then, until the lentils are soft.
+  4. Stir in the spinach until it wilts. Add optional coconut milk.
+  5. Season with salt. Serve with lime wedges.
+\n#### shrimp-masala — Shrimp Masala (Not-HA) [not-ha-assumed]
+related: shrimp-masala-ha | suffixHa: shrimp-masala-ha
+  - shrimp | shrimp | 1.5 lb peeled [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - garam-masala | garam masala | 1.5 tsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - turmeric | turmeric | 0.5 tsp  [ha-assumed]
+  - cayenne | cayenne | 0.25 tsp  OPT [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - water | water | 3 cup  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Warm the oil in a skillet. Cook the onion until soft, then add garlic and ginger.
+  3. Stir in garam masala, cumin, turmeric, and optional cayenne. Add the tomatoes and simmer 8 minutes.
+  4. Add the shrimp and cook until pink, 3–4 minutes. Season with salt.
+  5. Finish with cilantro and serve over rice.
+\n#### jambalaya — Jambalaya (Not-HA) [not-ha-assumed]
+related: jambalaya-ha | suffixHa: jambalaya-ha
+  - chicken-thigh | chicken thighs | 1 lb cut into pieces [ha-confirmed]
+  - italian-sausage | Italian sausage | 12 oz sliced [ha-confirmed]
+  - shrimp | shrimp | 12 oz peeled [ha-confirmed]
+  - white-rice | white rice | 1.5 cup  [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - bell-pepper | bell pepper | 1  diced [ha-confirmed]
+  - celery | celery | 2 stalk diced [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - chicken-broth | chicken broth | 3 cup  [ha-assumed]
+  - cajun-seasoning | Cajun seasoning | 2 tbsp  [not-ha-assumed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Brown the sausage and chicken in the oil in a wide pot, about 8 minutes. Set aside.
+  2. Cook the onion, pepper, and celery until soft. Stir in the garlic and Cajun seasoning.
+  3. Add the rice, tomatoes, and broth. Return the chicken and sausage. Bring to a simmer.
+  4. Cover and cook on low until the rice is tender, about 20 minutes.
+  5. Stir in the shrimp and cook until they turn pink, 4–5 minutes. Season with salt.
+NOTES: Italian sausage stands in for andouille. It typically includes garlic.
+\n#### jerk-chicken — Jerk Chicken (Not-HA) [not-ha-assumed]
+related: jerk-chicken-ha | suffixHa: jerk-chicken-ha
+  - chicken-thigh | chicken thighs | 2.5 lb  [ha-confirmed]
+  - olive-oil | olive oil | 2 tbsp  [ha-assumed]
+  - allspice | allspice | 1.5 tsp  [ha-assumed]
+  - thyme | dried thyme | 1 tsp  [ha-assumed]
+  - cinnamon | cinnamon | 0.5 tsp  [ha-assumed]
+  - cayenne | cayenne | 0.5 tsp  [ha-assumed]
+  - lime | lime | 2  juiced; extra wedges for serving [ha-assumed]
+  - honey | honey | 1 tbsp  [not-ha-assumed]
+  - yogurt | yogurt | 0.5 cup  [not-ha-confirmed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Stir oil, allspice, thyme, cinnamon, cayenne, lime juice, salt, and honey.
+  2. Coat the thighs and rest 10 minutes on the counter.
+  3. Spread on a sheet pan and roast 30–35 minutes, until cooked through and browned in spots.
+  4. Rest 5 minutes.
+  5. Serve with lime wedges and yogurt on the side.
+\n#### peanut-stew — Peanut Stew (Not-HA) [not-ha-assumed]
+related: peanut-stew-ha | suffixHa: peanut-stew-ha
+  - chicken-thigh | chicken thighs | 1.5 lb cut into pieces [ha-confirmed]
+  - sweet-potato | sweet potato | 2  peeled and cubed [ha-assumed]
+  - peanut-butter | peanut butter | 0.5 cup  [ha-assumed]
+  - canned-tomato | canned tomatoes | 14 oz  [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 3 clove minced [not-ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - spinach | spinach | 4 cup  [ha-assumed]
+  - chicken-broth | chicken broth | 2 cup  [ha-assumed]
+  - soy-sauce-gf | gluten-free soy sauce | 1 tbsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 2 tbsp  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Brown the chicken in the oil in a pot, about 6 minutes. Set aside.
+  2. Cook the onion until soft. Stir in the garlic and ginger for 30 seconds.
+  3. Add tomatoes, broth, sweet potato, and gluten-free soy sauce. Return the chicken. Simmer until the sweet potato is tender, about 18 minutes.
+  4. Stir in the peanut butter until the stew is creamy. Fold in the spinach until it wilts.
+  5. Season with salt. Serve with cilantro and lime.
+NOTES: Use the soy chip to swap in coconut aminos.
+\n#### sausage-sauerkraut — Sausage and Sauerkraut (Not-HA) [not-ha-assumed]
+related: - | suffixHa: null
+  - italian-sausage | Italian sausage | 1.5 lb  [ha-confirmed]
+  - sauerkraut | sauerkraut | 16 oz drained [ha-assumed]
+  - apple | apple | 1  sliced [not-ha-assumed]
+  - potato | potato | 1.5 lb cut into chunks [ha-assumed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - apple-cider-vinegar | apple cider vinegar | 1 tbsp  [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Brown the sausages in the oil in a wide pot, about 8 minutes. Set aside.
+  2. Add the potatoes, sauerkraut, and apple. Stir in the vinegar and a splash of water.
+  3. Nestle the sausages on top. Cover and cook on medium-low until the potatoes are tender, about 20 minutes.
+  4. Uncover for the last few minutes if you want a little color on the sausages.
+  5. Grind pepper over the pot and serve.
+NOTES: Italian sausage typically includes garlic. Sauerkraut is fermented cabbage.
+\n#### swedish-meatballs — Swedish Meatballs (Not-HA) [not-ha-assumed]
+related: swedish-meatballs-ha | suffixHa: swedish-meatballs-ha
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - gf-oats | certified gluten-free oats | 0.5 cup  [ha-assumed]
+  - egg | eggs | 1   [ha-confirmed]
+  - onion | onion | 0.5  grated [not-ha-assumed]
+  - nutmeg | nutmeg | 0.25 tsp  [ha-assumed]
+  - allspice | allspice | 0.25 tsp  [ha-assumed]
+  - butter | butter | 2 tbsp  [ha-confirmed]
+  - cornstarch | cornstarch | 1 tbsp  [ha-assumed]
+  - beef-broth | beef broth | 2 cup  [ha-assumed]
+  - sour-cream | sour cream | 0.5 cup  [not-ha-confirmed]
+  - white-rice | white rice | 1 cup  [ha-assumed]
+  - water | water | 2 cup  [ha-assumed]
+  - parsley | parsley | 2 tbsp chopped [ha-assumed]
+  - salt | salt | 1 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+STEPS:
+  1. Cook the rice in the water until tender, about 18 minutes.
+  2. Mix the beef, oats, egg, onion,, nutmeg, allspice, salt, and pepper. Roll into small meatballs.
+  3. Brown the meatballs in the butter in a wide skillet, turning, about 8 minutes. Set aside.
+  4. Whisk the cornstarch into the broth, pour it into the skillet, and simmer until it thickens. Return the meatballs and cook 8 minutes more.
+  5. Take it off the heat and stir in the sour cream. Serve over rice with parsley.
+\n#### plantain-and-beans — Plantain and Beans (Not-HA) [not-ha-assumed]
+related: plantain-and-beans-ha | suffixHa: plantain-and-beans-ha
+  - plantain | plantain | 3  ripe, sliced on the bias [ha-assumed]
+  - black-beans | black beans | 30 oz drained and rinsed [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - coconut-oil | coconut oil | 3 tbsp  [ha-assumed]
+  - cumin | cumin | 1 tsp  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - lime | lime | 1  juiced [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+STEPS:
+  1. Heat 2 tablespoons coconut oil in a skillet over medium heat. Fry the plantain slices until golden, 2–3 minutes per side. Set aside.
+  2. Add the remaining oil. Cook the onion until soft. Stir in the garlic and cumin.
+  3. Add the beans and a splash of water. Simmer 8 minutes, until the beans are hot and a little saucy.
+  4. Season with salt. Fold in lime juice and cilantro.
+  5. Serve the beans with the plantains on the side.
+\n#### coconut-shrimp — Coconut Shrimp (Not-HA) [not-ha-assumed]
+related: coconut-shrimp-ha | suffixHa: coconut-shrimp-ha
+  - shrimp | shrimp | 1.5 lb peeled, tails on [ha-confirmed]
+  - gf-flour | gluten-free flour blend | 0.5 cup  [ha-assumed]
+  - egg | eggs | 2  beaten [ha-confirmed]
+  - coconut-flakes | unsweetened coconut flakes | 1 cup  [ha-assumed]
+  - salt | salt | 0.75 tsp  [ha-assumed]
+  - paprika | paprika | 0.5 tsp  [ha-assumed]
+  - vegetable-oil | vegetable oil | 3 tbsp  [ha-assumed]
+  - lime | lime | 1  wedged [ha-assumed]
+  - honey | honey | 2 tbsp  [not-ha-assumed]
+STEPS:
+  1. Heat the oven to 425°F. Line a sheet pan and brush it with 1 tablespoon oil.
+  2. Season the flour with salt and paprika. Dip each shrimp in flour, then egg, then coconut flakes.
+  3. Set on the pan. Drizzle with the remaining oil.
+  4. Bake 12–15 minutes, turning once, until the coconut is toasted and the shrimp are pink.
+  5. Serve with lime wedges and honey for dipping.
+NOTES: Baked, not deep-fried. Use the honey chip for a maple dip or skip it.
+\n#### coconut-rice-chicken — Coconut Rice and Chicken (HA) [ha-assumed HA]
+related: - | suffixHa: null
+  - chicken-thigh | chicken thighs | 2 lb  [ha-confirmed]
+  - jasmine-rice | jasmine rice | 1.5 cup  [ha-assumed]
+  - coconut-milk | canned coconut milk | 13.5 oz  [ha-assumed]
+  - water | water | 1.5 cup  [ha-assumed]
+  - ginger | fresh ginger | 1 tbsp minced [ha-assumed]
+  - lime | lime | 1  juiced and zested [ha-assumed]
+  - vegetable-oil | vegetable oil | 1 tbsp  [ha-assumed]
+  - cilantro | cilantro | 0.25 cup chopped [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+STEPS:
+  1. Season the chicken with 1 teaspoon salt. Brown it in the oil in a wide pot, 4 minutes per side. Set aside.
+  2. Stir the rice, ginger, coconut milk, water, and remaining salt in the same pot.
+  3. Nestle the chicken on top. Bring to a simmer, cover, and cook on low until the rice is tender and the chicken is done, about 20 minutes.
+  4. Rest off the heat 5 minutes.
+  5. Fluff the rice. Finish with lime zest, lime juice, and cilantro.
+\n#### stuffed-cabbage — Stuffed Cabbage (Not-HA) [not-ha-assumed]
+related: stuffed-cabbage-ha | suffixHa: stuffed-cabbage-ha
+  - cabbage | cabbage | 1 head  [ha-confirmed]
+  - ground-beef | ground beef | 1.5 lb  [ha-confirmed]
+  - white-rice | white rice | 0.75 cup uncooked [ha-assumed]
+  - egg | eggs | 1   [ha-confirmed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - garlic | garlic | 2 clove minced [not-ha-assumed]
+  - canned-tomato | canned tomatoes | 28 oz  [ha-confirmed]
+  - tomato-paste | tomato paste | 2 tbsp  [ha-assumed]
+  - salt | salt | 1.5 tsp  [ha-assumed]
+  - black-pepper | black pepper | 0.5 tsp  [ha-assumed]
+STEPS:
+  1. Heat the oven to 350°F. Boil the whole cabbage 8 minutes. Pull off 12 large leaves and trim the thick ribs.
+  2. Mix the beef, rice, egg, onion,, garlic, 1 teaspoon salt, and pepper.
+  3. Spoon filling onto each leaf, fold in the sides, and roll. Set seam-side down in a baking dish.
+  4. Stir the tomatoes, tomato paste, and remaining salt. Pour over the rolls.
+  5. Cover and bake 50 minutes, until the rice is tender and the filling is cooked through.
+\n#### baked-beans-sausage — Baked Beans and Sausage (Not-HA) [not-ha-assumed]
+related: baked-beans-sausage-ha | suffixHa: baked-beans-sausage-ha
+  - italian-sausage | Italian sausage | 1 lb  [ha-confirmed]
+  - pinto-beans | pinto beans | 30 oz drained and rinsed [ha-assumed]
+  - onion | onion | 1  diced [not-ha-assumed]
+  - ketchup | ketchup | 0.33 cup  [ha-assumed]
+  - mustard | mustard | 1 tbsp  [ha-assumed]
+  - molasses | molasses | 2 tbsp  [not-ha-assumed]
+  - brown-sugar | brown sugar | 1 tbsp  [ha-assumed]
+  - apple-cider-vinegar | apple cider vinegar | 1 tbsp  [ha-assumed]
+  - olive-oil | olive oil | 1 tbsp  [ha-assumed]
+  - salt | salt |   to taste [ha-assumed]
+  - black-pepper | black pepper |   to taste [ha-assumed]
+STEPS:
+  1. Heat the oven to 375°F. Brown the sausages in the oil in an oven-safe skillet, about 6 minutes. Set aside.
+  2. Cook the onion in the same skillet until soft.
+  3. Stir in the beans, ketchup, mustard, molasses, brown sugar, and vinegar.
+  4. Slice the sausages, nestle them into the beans, and season with salt and pepper.
+  5. Bake 25 minutes, until the sauce is thick and bubbling.
+NOTES: Beans from the can, not a sweet canned baked-bean sauce. Italian sausage typically includes garlic.

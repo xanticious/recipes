@@ -500,6 +500,7 @@ export const dinnerIndian: Recipe[] = [
     ha: "not-ha-assumed",
     healthRating: "moderate",
     eatOut: false,
+    relatedRecipeIds: ["keema-ha"],
     prepMinutes: 10,
     cookMinutes: 25,
     servings: 4,

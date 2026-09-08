@@ -14,6 +14,7 @@ import { dinnerOther } from "./dinner-other.ts";
 import { eatOut } from "./eat-out.ts";
 import { fromMealIdeas } from "./from-meal-ideas.ts";
 import { fromMealIdeasRegional } from "./from-meal-ideas-regional.ts";
+import { haSiblings } from "./ha-siblings.ts";
 import { haVariants } from "./ha-variants.ts";
 import { lunch } from "./lunch.ts";
 import { lunchMore } from "./lunch-more.ts";
@@ -40,5 +41,6 @@ export const recipes: Recipe[] = [
   ...fromMealIdeas,
   ...fromMealIdeasRegional,
   ...haVariants,
+  ...haSiblings,
   ...eatOut,
 ];

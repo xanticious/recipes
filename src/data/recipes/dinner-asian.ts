@@ -1115,7 +1115,7 @@ export const dinnerAsian: Recipe[] = [
       "Soak or boil the rice noodles according to the package, then drain.",
       "Heat the vegetable oil in a wide skillet over medium-high heat. Sear the bok choy cut-side down until browned, about 3 minutes.",
       "Flip, add the ginger, and cook until the stems are tender, about 3 minutes more.",
-      "Push the greens aside and scramble the eggs in the empty space.",
+      "If using eggs, push the greens aside and scramble them in the empty space.",
       "Add the noodles, gluten-free soy sauce, and sesame oil. Toss until hot. Sprinkle with sesame seeds.",
     ],
   },

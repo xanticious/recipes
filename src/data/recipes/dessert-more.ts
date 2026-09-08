@@ -1134,20 +1134,20 @@ export const dessertMore: Recipe[] = [
     ha: "not-ha-assumed",
     healthRating: "unhealthy",
     eatOut: false,
-    prepMinutes: 10,
-    cookMinutes: 25,
+    prepMinutes: 15,
+    cookMinutes: 35,
     servings: 4,
     ingredients: [
       {
-        ingredientId: "jasmine-rice",
+        ingredientId: "sticky-rice",
         amount: 1,
         unit: "cup",
-        preparation: "rinsed",
       },
       {
         ingredientId: "water",
-        amount: 1.25,
+        amount: 4,
         unit: "cup",
+        preparation: "for soaking",
       },
       {
         ingredientId: "coconut-milk",
@@ -1172,13 +1172,14 @@ export const dessertMore: Recipe[] = [
       },
     ],
     steps: [
-      "Cook the rice with the water until tender, about 15 minutes. Keep it covered off the heat 5 minutes.",
+      "Soak the sticky rice in the water at least 4 hours or overnight. Drain well.",
+      "Steam the rice in a steamer basket until tender and sticky, 25–30 minutes.",
       "Warm the coconut milk, sugar, and salt in a small pot until the sugar dissolves. Do not boil hard.",
       "Pour about two-thirds of the coconut sauce over the hot rice. Stir and let it sit 10 minutes.",
       "Spoon the rice onto plates and add the mango.",
       "Drizzle the remaining coconut sauce over the top.",
     ],
-    notes: "Jasmine rice stands in for sticky rice here.",
+    notes: "Soak-and-steam sticky rice, not boiled jasmine.",
   },
   {
     id: "rice-kheer",
@@ -1688,6 +1689,12 @@ export const dessertMore: Recipe[] = [
         amount: 0.5,
         unit: "cup",
         optional: true,
+      },
+      {
+        ingredientId: "water",
+        amount: 2,
+        unit: "tbsp",
+        preparation: "splash for the baking dish",
       },
     ],
     steps: [

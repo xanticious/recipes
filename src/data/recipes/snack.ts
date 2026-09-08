@@ -47,6 +47,7 @@ export const snack: Recipe[] = [
     ha: "not-ha-assumed",
     healthRating: "unhealthy",
     eatOut: false,
+    relatedRecipeIds: ["rice-cakes-almond-butter-ha"],
     prepMinutes: 5,
     cookMinutes: 0,
     servings: 2,

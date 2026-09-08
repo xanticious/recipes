@@ -2273,6 +2273,11 @@ export const ingredientFodmapById: Readonly<Record<string, IngredientFodmap>> = 
     status: "low",
     reasons: [],
   },
+  "tapioca-pearls": {
+    description: "small cassava-starch balls cooked until chewy for bubble tea.",
+    status: "low",
+    reasons: [],
+  },
   "potato-starch": {
     description: "refined potato starch used to thicken and lighten gluten-free baking.",
     status: "low",
@@ -2393,6 +2398,11 @@ export const ingredientFodmapById: Readonly<Record<string, IngredientFodmap>> = 
   },
   spaghetti: {
     description: "long thin wheat-pasta strands.",
+    status: "high",
+    reasons: ["fructans"],
+  },
+  fettuccine: {
+    description: "flat wheat-pasta ribbons used in cream sauces.",
     status: "high",
     reasons: ["fructans"],
   },
@@ -4334,6 +4344,11 @@ export const ingredientFodmapById: Readonly<Record<string, IngredientFodmap>> = 
     reasons: [],
   },
   water: { description: "plain drinking and cooking liquid.", status: "low", reasons: [] },
+  "corn-husk": {
+    description: "dried corn leaves soaked and used to wrap tamales for steaming.",
+    status: "low",
+    reasons: [],
+  },
   "sparkling-water": {
     description: "carbonated water without juice or sweeteners.",
     status: "low",

@@ -109,6 +109,12 @@ export const dessert: Recipe[] = [
         preparation: "chopped",
         optional: true,
       },
+      {
+        ingredientId: "water",
+        amount: 2,
+        unit: "tbsp",
+        preparation: "splash for the baking dish",
+      },
     ],
     steps: [
       "Heat the oven to 375°F. Core the apples, leaving the bottoms intact so they hold filling.",

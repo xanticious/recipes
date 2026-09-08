@@ -283,6 +283,7 @@ export const dinnerOther: Recipe[] = [
     ha: "not-ha-assumed",
     healthRating: "moderate",
     eatOut: false,
+    relatedRecipeIds: ["sausage-sauerkraut-ha"],
     prepMinutes: 10,
     cookMinutes: 30,
     servings: 4,

@@ -26,7 +26,7 @@ export const fromMealIdeas: Recipe[] = [
     steps: [
       "Bring the water to a boil, then let it sit 30 seconds off the boil.",
       "Brew the coffee in a drip maker, pour-over, or French press.",
-      "Drink black, or add a splash of milk at the table.",
+      "Drink it black.",
     ],
   }),
   home({
@@ -37,7 +37,11 @@ export const fromMealIdeas: Recipe[] = [
     prepMinutes: 1,
     cookMinutes: 4,
     servings: 1,
-    ingredients: [line("black-tea", 1, "bag"), line("water", 1, "cup")],
+    ingredients: [
+      line("black-tea", 1, "bag"),
+      line("water", 1, "cup"),
+      line("lemon", 1, null, { optional: true, preparation: "wedge" }),
+    ],
     steps: [
       "Bring the water to a boil.",
       "Pour over the tea bag and steep 3–4 minutes.",
@@ -250,7 +254,6 @@ export const fromMealIdeas: Recipe[] = [
     ingredients: [line("doughnut", 8, null)],
     steps: [
       "Warm store-bought doughnuts in a 300°F oven for 5 minutes, or eat at room temperature.",
-      "Serve with coffee.",
     ],
     notes: "This is the grocery-box method, not a yeast-doughnut project.",
   }),
@@ -332,6 +335,8 @@ export const fromMealIdeas: Recipe[] = [
       line("butter", 3, "tbsp", { preparation: "melted, plus more for the pan" }),
       line("salt", 0.25, "tsp"),
       line("white-sugar", 1, "tbsp"),
+      line("jam", 0.25, "cup", { optional: true }),
+      line("ham", 4, "oz", { optional: true, preparation: "sliced" }),
     ],
     steps: [
       "Blend flour, milk, eggs, melted butter, salt, and sugar until smooth. Rest 10 minutes.",
@@ -417,6 +422,7 @@ export const fromMealIdeas: Recipe[] = [
     prepMinutes: 10,
     cookMinutes: 20,
     servings: 4,
+    relatedRecipeIds: ["biscuits-and-gravy-ha"],
     ingredients: [
       line("biscuit-dough", 1, "tube"),
       line("breakfast-sausage", 12, "oz"),
@@ -564,8 +570,8 @@ export const fromMealIdeas: Recipe[] = [
       line("salt", null, null, { preparation: "to taste" }),
     ],
     steps: [
-      "Heat the oven to 375°F. Cook the macaroni until just shy of tender. Drain.",
-      "Melt butter, whisk in flour, then milk. Simmer until thick. Stir in most of the cheddar.",
+      "Heat the oven to 375°F. Cook the macaroni in salted water until just shy of tender. Drain.",
+      "Melt butter, whisk in flour, then milk. Simmer until thick. Season with salt. Stir in most of the cheddar.",
       "Mix sauce with pasta. Top with remaining cheddar and breadcrumbs. Bake 20 minutes.",
     ],
   }),
@@ -610,7 +616,7 @@ export const fromMealIdeas: Recipe[] = [
     cookMinutes: 0,
     servings: 1,
     relatedRecipeIds: ["pretzels-snack-ha"],
-    ingredients: [line("pretzels", 2, "oz")],
+    ingredients: [line("pretzels", 2, "oz"), line("mustard", 2, "tbsp", { optional: true })],
     steps: ["Pour pretzels into a bowl. Eat with mustard if you want a dip."],
   }),
   home({
@@ -638,7 +644,6 @@ export const fromMealIdeas: Recipe[] = [
     ],
     steps: [
       "Warm the leftover muffin or pastry in a toaster oven for 3 minutes, or eat at room temperature.",
-      "Have it with tea or coffee.",
     ],
     notes: "There is no extra cooking. This is how you finish yesterday's bake.",
   }),
@@ -784,7 +789,7 @@ export const fromMealIdeas: Recipe[] = [
     steps: [
       "Cut a hole in the center of each bread slice with a cup.",
       "Melt butter in a skillet over medium heat. Toast the bread 1 minute.",
-      "Crack an egg into each hole. Cook until the white sets, then flip if you want a firmer yolk.",
+      "Crack an egg into each hole. Cook until the white sets, then flip if you want a firmer yolk. Season with salt.",
     ],
   }),
   home({
@@ -848,6 +853,7 @@ export const fromMealIdeas: Recipe[] = [
     prepMinutes: 5,
     cookMinutes: 8,
     servings: 2,
+    relatedRecipeIds: ["beans-on-toast-ha"],
     ingredients: [
       line("baked-beans", 15, "oz"),
       line("white-bread", 4, "slice"),
@@ -931,7 +937,7 @@ export const fromMealIdeas: Recipe[] = [
       line("water", 2, "oz"),
     ],
     steps: [
-      "Pull a shot on an espresso machine, or brew a very strong small coffee in a moka pot.",
+      "Brew 2 oz water through the coffee grounds on an espresso machine, or in a moka pot.",
       "Drink as-is, or pour over ice.",
     ],
   }),
@@ -956,6 +962,7 @@ export const fromMealIdeas: Recipe[] = [
     prepMinutes: 15,
     cookMinutes: 20,
     servings: 2,
+    relatedRecipeIds: ["full-english-ha"],
     ingredients: [
       line("bacon", 4, "slice"),
       line("breakfast-sausage", 4, null),

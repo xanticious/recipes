@@ -323,4 +323,5 @@ export const other: Ingredient[] = [
   { id: "vodka", name: "vodka", kind: "other", flags: [] },
   { id: "rum", name: "rum", kind: "other", flags: [] },
   { id: "bourbon", name: "bourbon", kind: "other", flags: [] },
+  { id: "corn-husk", name: "corn husks", kind: "other", flags: [] },
 ];
