@@ -37,7 +37,7 @@ function clickEvent(
     shiftKey: false,
     altKey: false,
     button: 0,
-    preventDefault: vi.fn(),
+    preventDefault: vi.fn<() => void>(),
     ...overrides,
   } as MouseEvent<HTMLAnchorElement>;
 }
@@ -94,12 +94,10 @@ test("openRandomFromFilters opens a matching recipe or flags a miss", () => {
   const actor = startApp();
   openRandomFromFilters(actor);
   const hit = actor.getSnapshot();
-  expect(hit.context.route.name).toBe("recipe");
-  if (hit.context.route.name === "recipe") {
-    expect(hit.context.route.fromRandom).toBe(true);
-    expect(hit.context.random.lastRecipeId).toBe(hit.context.route.id);
-    expect(location.hash).toBe(`#/recipes/${hit.context.route.id}?from=random`);
-  }
+  const recipeId = hit.context.route.name === "recipe" ? hit.context.route.id : "missing";
+  expect(hit.context.route).toEqual({ name: "recipe", id: recipeId, fromRandom: true });
+  expect(hit.context.random.lastRecipeId).toBe(recipeId);
+  expect(location.hash).toBe(`#/recipes/${recipeId}?from=random`);
   expect(hit.context.random.noMatch).toBe(false);
 
   actor.send({ type: "setRandomMealType", mealType: "dessert" });

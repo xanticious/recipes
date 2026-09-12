@@ -24,7 +24,7 @@ test("companion tests sit next to the source file as .test.ts or .test.tsx", () 
   expect(companionTestPaths("src/App.tsx")).toEqual(["src/App.test.ts", "src/App.test.tsx"]);
 });
 
-test("test files are not treated as source files", () => {
+test("companion *.test.ts files are excluded from the source scan", () => {
   expect(isTestFile("src/data/guide.test.ts")).toBe(true);
   expect(isTestFile("src/App.test.tsx")).toBe(true);
   expect(isSourceFile("src/data/guide.test.ts")).toBe(false);
@@ -38,7 +38,10 @@ test("ignore paths drop a leading ./ and use forward slashes", () => {
 });
 
 test("loadIgnoreList requires a JSON array of strings", () => {
-  expect(loadIgnoreList(["src/main.tsx", "./src/App.tsx"])).toEqual(["src/main.tsx", "src/App.tsx"]);
+  expect(loadIgnoreList(["src/main.tsx", "./src/App.tsx"])).toEqual([
+    "src/main.tsx",
+    "src/App.tsx",
+  ]);
   expect(() => loadIgnoreList({ files: [] })).toThrow(/array of strings/);
   expect(() => loadIgnoreList(["src/main.tsx", 1])).toThrow(/array of strings/);
 });

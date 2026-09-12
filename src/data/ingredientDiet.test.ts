@@ -68,9 +68,7 @@ test("lactose and gluten levels honor explicit fields, names, notes, and flags",
   ).toBe("high");
 
   expect(
-    ingredientGlutenLevel(
-      item({ id: "wheat-flour", name: "flour", kind: "grain", gluten: "low" }),
-    ),
+    ingredientGlutenLevel(item({ id: "wheat-flour", name: "flour", kind: "grain", gluten: "low" })),
   ).toBe("low");
   expect(
     ingredientGlutenLevel(item({ id: "gf-oats", name: "oats", kind: "grain", flags: ["gluten"] })),
@@ -96,9 +94,9 @@ test("formatFodmapTypeLine and formatHighestFodmap cover low, watch, high, and u
 
   expect(formatHighestFodmap(unknownDiet)).toBe("FODMAP unknown");
   expect(formatHighestFodmap({ ...unknownDiet, overall: "low" })).toBe("Low Fodmap");
-  expect(
-    formatHighestFodmap({ ...unknownDiet, overall: "high", highestTypes: ["fructans"] }),
-  ).toBe("High Fodmap (fructans)");
+  expect(formatHighestFodmap({ ...unknownDiet, overall: "high", highestTypes: ["fructans"] })).toBe(
+    "High Fodmap (fructans)",
+  );
   expect(formatHighestFodmap({ ...unknownDiet, overall: "high" })).toBe("High Fodmap");
   expect(
     formatHighestFodmap({
@@ -127,7 +125,9 @@ test("formatFodmapTypeLine and formatHighestFodmap cover low, watch, high, and u
 });
 
 test("describeIngredientDiet and assumedIngredientHa compose the per-field ratings", () => {
-  const rice = describeIngredientDiet(item({ id: "white-rice", name: "white rice", kind: "grain" }));
+  const rice = describeIngredientDiet(
+    item({ id: "white-rice", name: "white rice", kind: "grain" }),
+  );
   expect(rice.lactose).toBe("free");
   expect(rice.gluten).toBe("free");
   expect(rice.cheese).toBe(false);

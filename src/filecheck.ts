@@ -19,7 +19,7 @@ export function repoRoot(fromDir: string = import.meta.dirname): string {
 }
 
 export function toPosixPath(filePath: string): string {
-  return filePath.split(path.sep).join("/");
+  return filePath.replaceAll("\\", "/");
 }
 
 export function normalizeIgnorePath(value: string): string {
@@ -53,8 +53,7 @@ export function hasCompanionTest(root: string, relativePath: string): boolean {
 export function listSourceFiles(root: string): string[] {
   const out: string[] = [];
   walk(root, root, out);
-  out.sort();
-  return out;
+  return out.toSorted();
 }
 
 function walk(dir: string, root: string, out: string[]): void {
@@ -97,8 +96,10 @@ export function checkSourceFiles(
   const ignoreSet = new Set(normalizedIgnores);
   const sourceSet = new Set(sources);
   const uncovered = sources.filter((file) => !ignoreSet.has(file) && !hasTest(file));
-  const missingIgnores = [...ignoreSet].filter((file) => !sourceSet.has(file)).sort();
-  const redundantIgnores = [...ignoreSet].filter((file) => sourceSet.has(file) && hasTest(file)).sort();
+  const missingIgnores = [...ignoreSet].filter((file) => !sourceSet.has(file)).toSorted();
+  const redundantIgnores = [...ignoreSet]
+    .filter((file) => sourceSet.has(file) && hasTest(file))
+    .toSorted();
   const seen = new Set<string>();
   const duplicateIgnores: string[] = [];
   for (const file of normalizedIgnores) {
@@ -111,5 +112,7 @@ export function checkSourceFiles(
 }
 
 export function checkRepo(root: string, ignoreList: readonly string[]): FileCheckResult {
-  return checkSourceFiles(listSourceFiles(root), ignoreList, (file) => hasCompanionTest(root, file));
+  return checkSourceFiles(listSourceFiles(root), ignoreList, (file) =>
+    hasCompanionTest(root, file),
+  );
 }
