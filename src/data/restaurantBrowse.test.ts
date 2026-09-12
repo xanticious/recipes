@@ -26,6 +26,21 @@ test("restaurantIdsByName collects every franchise location", () => {
     "noodles-and-company-layton",
   ]);
   expect(restaurantIdsByName("Blaze Pizza")).toEqual(["blaze-pizza-farmington"]);
+  expect(restaurantIdsByName("Chick-fil-A").length).toBeGreaterThan(2);
+  expect(restaurantIdsByName("Chick-fil-A")).toEqual(
+    expect.arrayContaining([
+      "chick-fil-a-centerville",
+      "chick-fil-a-farmington",
+      "chick-fil-a-layton",
+      "chick-fil-a-hill-field-layton",
+      "chick-fil-a-antelope-layton",
+    ]),
+  );
+  expect(restaurantIdsByName("FiiZ Drinks").length).toBeGreaterThan(2);
+  expect(restaurantIdsByName("FiiZ Drinks").every((id) => id.startsWith("fiiz-"))).toBe(true);
+  expect(restaurantIdsByName("In-N-Out Burger").length).toBeGreaterThan(0);
+  expect(restaurantIdsByName("Panda Express").length).toBeGreaterThan(0);
+  expect(restaurantIdsByName("Domino's").length).toBeGreaterThan(0);
   expect(restaurantIdsByName("No Such Place")).toEqual([]);
 });
 

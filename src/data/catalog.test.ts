@@ -57,6 +57,11 @@ test("eat-out recipes have a description, restaurants, and no cook list", () => 
   expect(eatOut.map((recipe) => recipe.id)).toEqual([
     "noodles-and-company-pad-thai",
     "blaze-pizza-ham-mushroom",
+    "panda-express-plate",
+    "in-n-out-protein-style",
+    "chick-fil-a-grilled-nuggets",
+    "fiiz-pirate-jack",
+    "dominos-gf-ham",
   ]);
 });
 

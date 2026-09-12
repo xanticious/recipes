@@ -2,7 +2,7 @@ import { useAppActor } from "../actors.tsx";
 import {
   CUISINES,
   CUISINE_LABELS,
-  eatOutRestaurantNames,
+  eatOutRestaurantBrands,
   filterRecipes,
   groupRecipes,
   HA_FILTER_LABELS,
@@ -189,7 +189,7 @@ export function RecipeIndex({
                           <RecipeMarks recipe={recipe} compact />
                           {isEatOutRecipe(recipe) ? (
                             <span className={styles.place}>
-                              {eatOutRestaurantNames(recipe).join(", ")}
+                              {eatOutRestaurantBrands(recipe).join(", ")}
                             </span>
                           ) : null}
                         </a>

@@ -208,7 +208,11 @@ export type {
   RestaurantCityFilter,
   RestaurantFilters,
 } from "./restaurantBrowse.ts";
-export { eatOutRestaurantNames, eatOutRestaurants } from "./eatOutRestaurants.ts";
+export {
+  eatOutRestaurantBrands,
+  eatOutRestaurantNames,
+  eatOutRestaurants,
+} from "./eatOutRestaurants.ts";
 export {
   getRestaurant,
   restaurantIdsByName,
