@@ -4,6 +4,7 @@ import { classifyRecipeHa, ingredientHaStatus, isConfirmedHa } from "./ha.ts";
 import { ingredientLookup, ingredients } from "./ingredients.ts";
 import { isEatOutRecipe, isHomeRecipe, relatedRecipes } from "./recipe.ts";
 import { recipes } from "./recipes/index.ts";
+import { missingReverseLinks } from "./related.ts";
 import { HA_STATUSES } from "./tags.ts";
 
 test("ingredient ids are unique", () => {
@@ -64,6 +65,10 @@ test("related recipe ids exist and do not point at themselves", () => {
     expect(relatedRecipes(recipe, recipes).length).toBe(recipe.relatedRecipeIds?.length ?? 0);
   }
   expect(broken).toEqual([]);
+});
+
+test("related recipe ids are stored in both directions", () => {
+  expect(missingReverseLinks(recipes, (recipe) => recipe.relatedRecipeIds)).toEqual([]);
 });
 
 test("HA and health ratings are present on every recipe", () => {

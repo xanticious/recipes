@@ -12,6 +12,7 @@ import {
 } from "./mealIdeaBrowse.ts";
 import { mealIdeas } from "./mealIdeas.ts";
 import { recipes } from "./recipes/index.ts";
+import { missingReverseLinks } from "./related.ts";
 import { MEAL_IDEA_REGION_ABBREVS, MEAL_IDEA_REGIONS } from "./tags.ts";
 import type { MealIdea } from "./types.ts";
 
@@ -64,7 +65,10 @@ test("related meals resolve and recipe links mark missing book entries", () => {
   const pork = lookup.get("pork-chops-plate");
   expect(pork).toBeDefined();
   const related = relatedMealIdeas(pork as MealIdea, lookup);
-  expect(related.map((idea) => idea.id)).toEqual(["chicken-rice-vegetables", "steak-and-potatoes"]);
+  expect(related.map((idea) => idea.id)).toEqual([...(pork as MealIdea).relatedMealIds ?? []]);
+  expect(related.map((idea) => idea.id)).toEqual(
+    expect.arrayContaining(["chicken-rice-vegetables", "steak-and-potatoes"]),
+  );
 
   const links = resolveMealIdeaRecipes(pork as MealIdea, recipes);
   expect(links.find((link) => link.recipeId === "baked-pork-chops")?.missing).toBe(false);
@@ -106,6 +110,10 @@ test("every related meal id and claimed recipe id is valid", () => {
     .filter((idea) => idea.description.trim().length < 40)
     .map((idea) => idea.id);
   expect(missingDescriptions).toEqual([]);
+});
+
+test("related meal ids are stored in both directions", () => {
+  expect(missingReverseLinks(mealIdeas, (idea) => idea.relatedMealIds)).toEqual([]);
 });
 
 test("name search matches descriptions", () => {

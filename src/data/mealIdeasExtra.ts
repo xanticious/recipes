@@ -44,7 +44,14 @@ export const extraMealIdeas: MealIdea[] = [
     ],
     pairings: ["Coffee or tea", "Bacon, beans, or fruit"],
     substitutions: ["Over easy, over medium, or sunny-side up"],
-    relatedMealIds: ["eggs-and-toast", "scrambled-eggs-and-toast", "bacon-and-eggs"],
+    relatedMealIds: [
+      "eggs-and-toast",
+      "scrambled-eggs-and-toast",
+      "bacon-and-eggs",
+      "toad-in-the-hole",
+      "beans-on-toast",
+      "full-english-breakfast",
+    ],
     recipes: [{ label: "Fried Eggs and Toast (HA)", recipeId: "fried-eggs-toast" }],
   },
   {
@@ -126,7 +133,12 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["mexico", "united-states"],
     pairings: ["Coffee or juice", "Beans, salsa, or tortillas"],
     substitutions: ["Chilaquiles if the tortillas are already fried"],
-    relatedMealIds: ["huevos-or-chilaquiles", "chilaquiles-plate", "breakfast-burrito"],
+    relatedMealIds: [
+      "huevos-or-chilaquiles",
+      "chilaquiles-plate",
+      "breakfast-burrito",
+      "migas-plate",
+    ],
     recipes: [
       { label: "Huevos Rancheros (Not-HA)", recipeId: "huevos-rancheros" },
       { label: "Huevos Rancheros (HA)", recipeId: "huevos-rancheros-ha" },
@@ -172,7 +184,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["united-kingdom", "australia", "new-zealand"],
     pairings: ["Tea or coffee", "A fried egg on top"],
     substitutions: ["Scrambled eggs and toast if you are out of beans"],
-    relatedMealIds: ["fried-eggs-and-toast", "full-english-breakfast"],
+    relatedMealIds: ["fried-eggs-and-toast", "full-english-breakfast", "mince-on-toast"],
     recipes: [{ label: "Beans on Toast (Not-HA)", recipeId: "beans-on-toast" }],
   },
   {
@@ -196,7 +208,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["united-kingdom", "australia", "new-zealand"],
     pairings: ["Tea", "Butter, jam, or honey"],
     substitutions: ["Toast or an English muffin"],
-    relatedMealIds: ["scone", "english-muffin-and-butter"],
+    relatedMealIds: ["scone", "english-muffin-and-butter", "vegemite-on-toast"],
     recipes: [
       { label: "Crumpets (Not-HA)", recipeId: "crumpets-butter" },
       { label: "Crumpets (HA)", recipeId: "crumpets-butter-ha" },
@@ -266,7 +278,14 @@ export const extraMealIdeas: MealIdea[] = [
     ],
     pairings: ["Coffee, tea, or milk", "Fruit or an egg"],
     substitutions: ["Butter only", "A rice cake if wheat is a problem"],
-    relatedMealIds: ["eggs-and-toast", "brioche-toast", "vegemite-on-toast"],
+    relatedMealIds: [
+      "eggs-and-toast",
+      "brioche-toast",
+      "vegemite-on-toast",
+      "pao-de-queijo-breakfast",
+      "cafe-con-leche-and-bread",
+      "fairy-bread",
+    ],
     recipes: [{ label: "Toast and Jam (HA)", recipeId: "toast-and-jam" }],
   },
   {
@@ -293,7 +312,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["china", "japan", "south-korea"],
     pairings: ["Pickles, egg, or youtiao", "Tea or soy milk"],
     substitutions: ["Steamed rice if you do not want porridge"],
-    relatedMealIds: ["japanese-rice-breakfast", "youtiao-and-soy-milk"],
+    relatedMealIds: ["japanese-rice-breakfast", "youtiao-and-soy-milk", "baozi-breakfast"],
     recipes: [{ label: "Congee with Egg (HA)", recipeId: "congee-with-egg" }],
   },
   {
@@ -305,7 +324,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["china"],
     pairings: ["Soy milk, hot or sweetened", "Congee if you want more"],
     substitutions: ["A steamed bun if you are out of dough sticks"],
-    relatedMealIds: ["congee-bowl", "baozi-breakfast"],
+    relatedMealIds: ["congee-bowl", "baozi-breakfast", "soy-milk-drink"],
     recipes: [
       { label: "Youtiao (Not-HA)", recipeId: "youtiao" },
       { label: "Youtiao (HA)", recipeId: "youtiao-ha" },
@@ -321,7 +340,12 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["china", "japan", "south-korea"],
     pairings: ["Soy milk or tea", "Congee on the side"],
     substitutions: ["Rice and leftovers if you do not want to steam"],
-    relatedMealIds: ["congee-bowl", "japanese-rice-breakfast"],
+    relatedMealIds: [
+      "congee-bowl",
+      "japanese-rice-breakfast",
+      "youtiao-and-soy-milk",
+      "dumplings-and-rice",
+    ],
     recipes: [
       { label: "Baozi (Not-HA)", recipeId: "baozi" },
       { label: "Baozi (HA)", recipeId: "baozi-ha" },
@@ -336,7 +360,13 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["japan"],
     pairings: ["Pickles, nori, or a rolled egg", "Green tea"],
     substitutions: ["Natto on rice if you skip the fish"],
-    relatedMealIds: ["natto-rice", "congee-bowl", "korean-rice-soup-breakfast"],
+    relatedMealIds: [
+      "natto-rice",
+      "congee-bowl",
+      "korean-rice-soup-breakfast",
+      "baozi-breakfast",
+      "fried-egg-rice-breakfast",
+    ],
     recipes: [
       { label: "Miso Soup (HA)", recipeId: "miso-soup" },
       { label: "Grilled Fish (HA)", recipeId: "grilled-fish-breakfast" },
@@ -364,7 +394,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["japan", "south-korea", "china", "united-states", "brazil", "mexico"],
     pairings: ["Soy sauce or salsa", "Tea or coffee"],
     substitutions: ["Leftover rice bowl at lunch"],
-    relatedMealIds: ["japanese-rice-breakfast", "leftover-rice-bowl-idea"],
+    relatedMealIds: ["japanese-rice-breakfast", "leftover-rice-bowl-idea", "natto-rice"],
     recipes: [
       { label: "Fried Egg Rice (Not-HA)", recipeId: "fried-egg-rice" },
       { label: "Fried Egg Rice (HA)", recipeId: "fried-egg-rice-ha" },
@@ -380,7 +410,12 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["south-korea"],
     pairings: ["Kimchi and a few side dishes", "Barley tea or water"],
     substitutions: ["Leftover stew over rice"],
-    relatedMealIds: ["japanese-rice-breakfast", "kimchi-stew", "leftover-rice-bowl-idea"],
+    relatedMealIds: [
+      "japanese-rice-breakfast",
+      "kimchi-stew",
+      "leftover-rice-bowl-idea",
+      "bibimbap-idea",
+    ],
     recipes: [
       { label: "Korean Breakfast Rice (Not-HA)", recipeId: "korean-breakfast-rice" },
       { label: "Korean Breakfast Rice (HA)", recipeId: "korean-breakfast-rice-ha" },
@@ -425,7 +460,12 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["mexico", "brazil", "europe", "italy"],
     pairings: ["Bolillo, pan dulce, or toast", "Butter or jam"],
     substitutions: ["Coffee and a pastry"],
-    relatedMealIds: ["pan-dulce", "coffee-drink", "toast-and-jam-breakfast"],
+    relatedMealIds: [
+      "pan-dulce",
+      "coffee-drink",
+      "toast-and-jam-breakfast",
+      "cafe-con-leche-drink",
+    ],
     recipes: [
       { label: "Café con Leche (Not-HA)", recipeId: "cafe-con-leche" },
       { label: "Café con Leche (HA)", recipeId: "cafe-con-leche-ha" },
@@ -485,7 +525,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["united-kingdom", "australia", "new-zealand", "canada"],
     pairings: ["Mushy peas or coleslaw", "Water, tea, or a soda"],
     substitutions: ["Baked fish and potatoes if you do not want to fry"],
-    relatedMealIds: ["salmon-and-sides", "burger-night"],
+    relatedMealIds: ["salmon-and-sides", "burger-night", "moules-frites"],
     recipes: [{ label: "Fish and Chips (Not-HA)", recipeId: "fish-and-chips" }],
   },
   {
@@ -608,7 +648,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["united-states", "australia", "canada", "united-kingdom"],
     pairings: ["Herbs, lime, and chili", "Water or tea"],
     substitutions: ["A simpler noodle soup if you do not want to simmer broth"],
-    relatedMealIds: ["ramen-bowl", "soup-night"],
+    relatedMealIds: ["ramen-bowl", "soup-night", "pad-thai-idea"],
     recipes: [{ label: "Phở (HA)", recipeId: "pho-bowl" }],
   },
   {
@@ -704,7 +744,13 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["united-kingdom", "australia", "new-zealand"],
     pairings: ["Peas or gravy", "Water or tea"],
     substitutions: ["Sausage and peppers if you skip the mash"],
-    relatedMealIds: ["sausage-and-peppers-idea", "shepherds-pie-idea", "pork-chops-plate"],
+    relatedMealIds: [
+      "sausage-and-peppers-idea",
+      "shepherds-pie-idea",
+      "pork-chops-plate",
+      "cottage-pie-idea",
+      "polenta-and-sausage",
+    ],
     recipes: [
       { label: "Bangers (Not-HA)", recipeId: "bangers" },
       { label: "Mashed Potatoes (Not-HA)", recipeId: "mashed-potatoes" },
@@ -749,7 +795,12 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["europe", "australia", "united-states"],
     pairings: ["Lemon, potatoes, or a salad", "Water"],
     substitutions: ["Baked chicken if you do not want to bread it"],
-    relatedMealIds: ["chicken-parm-idea", "baked-chicken-plate", "milanesa-plate"],
+    relatedMealIds: [
+      "chicken-parm-idea",
+      "baked-chicken-plate",
+      "milanesa-plate",
+      "chicken-parma-au",
+    ],
     recipes: [
       { label: "Schnitzel (Not-HA)", recipeId: "schnitzel" },
       { label: "Schnitzel (HA)", recipeId: "schnitzel-ha" },
@@ -866,7 +917,12 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["south-korea", "united-states", "japan", "australia"],
     pairings: ["Water or barley tea", "Kimchi"],
     substitutions: ["A leftover rice bowl with an egg"],
-    relatedMealIds: ["leftover-rice-bowl-idea", "korean-rice-soup-breakfast", "donburi-idea"],
+    relatedMealIds: [
+      "leftover-rice-bowl-idea",
+      "korean-rice-soup-breakfast",
+      "donburi-idea",
+      "kimchi-stew",
+    ],
     recipes: [
       { label: "Bibimbap (Not-HA)", recipeId: "bibimbap" },
       { label: "Bibimbap (HA)", recipeId: "bibimbap-ha" },
@@ -881,7 +937,13 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["south-korea"],
     pairings: ["Rice", "Water or barley tea"],
     substitutions: ["Leftover stew over rice the next day"],
-    relatedMealIds: ["soup-night", "korean-rice-soup-breakfast", "bibimbap-idea"],
+    relatedMealIds: [
+      "soup-night",
+      "korean-rice-soup-breakfast",
+      "bibimbap-idea",
+      "hot-pot-idea",
+      "tteokbokki-snack",
+    ],
     recipes: [
       { label: "Kimchi Jjigae (Not-HA)", recipeId: "kimchi-jjigae" },
       { label: "Kimchi Jjigae (HA)", recipeId: "kimchi-jjigae-ha" },
@@ -1049,7 +1111,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["japan", "south-korea"],
     pairings: ["Tea", "Pickles"],
     substitutions: ["A leftover rice bowl"],
-    relatedMealIds: ["kimbap-lunch", "leftover-rice-bowl-idea"],
+    relatedMealIds: ["kimbap-lunch", "leftover-rice-bowl-idea", "bento-lunch"],
     recipes: [{ label: "Onigiri (Not-HA)", recipeId: "onigiri" }],
   },
   {
@@ -1172,7 +1234,7 @@ export const extraMealIdeas: MealIdea[] = [
     regions: ["italy", "europe", "united-states", "australia"],
     pairings: ["Coffee"],
     substitutions: ["A simpler coffee pudding"],
-    relatedMealIds: ["pudding-dessert", "coffee-drink"],
+    relatedMealIds: ["pudding-dessert", "coffee-drink", "cannoli-idea"],
     recipes: [
       { label: "Tiramisu (Not-HA)", recipeId: "tiramisu" },
       { label: "Tiramisu (HA)", recipeId: "tiramisu-ha" },

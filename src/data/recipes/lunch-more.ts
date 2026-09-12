@@ -1437,7 +1437,7 @@ export const lunchMore: Recipe[] = [
     ha: "not-ha-assumed",
     healthRating: "healthy",
     eatOut: false,
-    relatedRecipeIds: ["burrito-bowl-ha"],
+    relatedRecipeIds: ["burrito-bowl-ha", "chipotle-chicken-bowl"],
     prepMinutes: 15,
     cookMinutes: 20,
     servings: 4,

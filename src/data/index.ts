@@ -152,6 +152,7 @@ export {
 export type { MealIdeaPhoto } from "./mealIdeaPhotos.ts";
 export { pickRandomId } from "./pickRandom.ts";
 export { isEatOutRecipe, isHomeRecipe, recipeTotalMinutes, relatedRecipes } from "./recipe.ts";
+export { missingReverseLinks } from "./related.ts";
 export { recipes } from "./recipes/index.ts";
 export {
   CUISINES,
