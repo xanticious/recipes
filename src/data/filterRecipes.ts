@@ -1,3 +1,4 @@
+import { eatOutSearchHaystack } from "./eatOutRestaurants.ts";
 import { isEatOutRecipe } from "./recipe.ts";
 import { matchesHaFilter } from "./ha.ts";
 import type { Cuisine, HaFilter, MealType, Recipe, TernaryFilter } from "./types.ts";
@@ -39,8 +40,11 @@ export function recipeMatchesFilters(recipe: Recipe, filters: RecipeFilters): bo
   }
 
   const query = filters.query?.trim().toLowerCase();
-  if (query && !recipe.title.toLowerCase().includes(query)) {
-    return false;
+  if (query) {
+    const haystack = isEatOutRecipe(recipe) ? eatOutSearchHaystack(recipe) : recipe.title;
+    if (!haystack.toLowerCase().includes(query)) {
+      return false;
+    }
   }
 
   return true;

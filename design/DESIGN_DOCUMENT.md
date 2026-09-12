@@ -113,7 +113,7 @@ No favorites in v1.
 
 ### 6.3 Eat Out
 
-A list of restaurant and takeout orders (`#/eat-out`). Same grouping and House Approval / cuisine / meal / search filters as Recipes. No ingredient lists; each entry is what we actually order.
+A list of restaurant and takeout orders (`#/eat-out`). Same grouping and House Approval / cuisine / meal / search filters as Recipes. No ingredient lists; each entry is what we actually order. Every order points at a **restaurant catalog** entry — one location, or every Davis County location when the chain is a franchise. Search matches the order name and the restaurant name.
 
 ### 6.4 Restaurants
 
@@ -173,9 +173,10 @@ Shown when a recipe is chosen from Recipes, Eat Out, or Random.
 1. Title
 2. HA chip (HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed) and health rating
 3. Meal type and cuisine
-4. The order: a short description of what to ask for
-5. Notes, if any
-6. Related recipes, if any
+4. Restaurant(s): name and city, linking to the Restaurants catalog. A franchise lists each location.
+5. The order: a short description of what to ask for
+6. Notes, if any
+7. Related recipes, if any
 
 No photos in v1. No in-page ingredient substitution.
 
@@ -211,7 +212,7 @@ A catalog of **full plates**, not single recipes (`#/meal-ideas`). When planning
 
 **Primary grouping:** occasion — Breakfast, Lunch, Dinner, Snack, Dessert, Drinks.
 
-**Filters:** exclusive occasion (including All), exclusive **region** (including All), and name search. A plate can have several region tags. The region filter keeps plates tagged for that place. The list shows abbreviated region tags next to each plate name (US, CA, MX, BR, UK, IT, EU, CN, JP, KR, AU, NZ). Full names stay in the expanded Common in section.
+**Filters:** exclusive occasion (including All), exclusive **region** (including All), exclusive **prep time** (All / < 20 / ~30 / ~60 / >75 minutes), and name search. A plate can have several region tags. The region filter keeps plates tagged for that place. The list shows abbreviated region tags next to each plate name (US, CA, MX, BR, UK, IT, EU, CN, JP, KR, AU, NZ). Full names stay in the expanded Common in section. Prep time is derived from linked home recipes in the book: HA / Not-HA siblings of the same dish use the faster total time, then the plate uses the slowest of those families (sides cook in parallel). Plates with no linked recipes count as under 20 minutes. Plates whose recipes are all missing stay hidden when a prep-time chip other than All is selected.
 
 **Display:** exclusive **List View** or **Pictures View**. List View is the name list; click a name to expand details on the page. Pictures View is a Pinterest-style photo board inside each occasion group, with the plate name under the image. Click a picture to open the same details in a panel. The last chosen display is stored locally on that device and used the next time Meal Ideas opens. A green checkmark next to the plate name means every linked recipe family has an HA version in the book (Steak and Potatoes when both steak and potatoes have HA recipes).
 
@@ -219,6 +220,7 @@ Click a plate name (list) or picture (pictures) to expand details:
 
 - **Photo** — Unsplash still of the plate (or a name placeholder). In List View it appears in the expanded details. In Pictures View it is the board thumbnail and also appears in the details panel. Fetched with `scripts/fetch-meal-idea-photos.ts`.
 - **Description** — a short appetizing blurb. It can open with a sensory hook and add a historical note, regional origin, or origin story. The point is to interest someone who is not craving a specific dish yet.
+- **Prep time** — how long the plate takes, from the linked home recipes (see filters above)
 - **Common in** — world regions where this plate is everyday fare
 - **Frequently paired with** — drinks and sides that usually show up with that plate
 - **Common substitutions** — easy swaps (almond milk, sourdough, rice instead of potatoes)
@@ -264,10 +266,11 @@ Recipes are a **hardcoded, curated collection** in the repo. The display layer s
 
 ### 7.3 Eat-out entry
 
-| Field         | Type     | Notes                                                       |
-| ------------- | -------- | ----------------------------------------------------------- |
-| `eatOut`      | `true`   |                                                             |
-| `description` | markdown | What to order. No ingredients list, no steps, no cook times |
+| Field           | Type           | Notes                                                                                           |
+| --------------- | -------------- | ----------------------------------------------------------------------------------------------- |
+| `eatOut`        | `true`         |                                                                                                 |
+| `description`   | markdown       | What to order. No ingredients list, no steps, no cook times                                     |
+| `restaurantIds` | list of string | Catalog restaurant ids. At least one. A franchise lists every Davis County location in the book |
 
 ### 7.4 Ingredient line
 
@@ -479,15 +482,15 @@ Keep all five meal types visible. Prefer ingredients from a normal supermarket.
 
 This repo is a static **Vite + TypeScript** app with **xState**, **CSS modules**, Oxlint, Oxfmt, Vitest, and GitHub Pages.
 
-| Concern  | Approach                                                                                                                                    |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                              |
-| Routing  | Client-side hash routes                                                                                                                     |
-| State    | xState for navigation, theme/font preferences, Recipes/Eat Out filters, Ingredients browse, Restaurants city filter and details, and Random |
-| Data     | Typed TypeScript for recipes, the ingredient catalog, and the restaurant catalog                                                            |
-| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                             |
-| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                             |
-| Tests    | Filtering (eat-out, HA, cuisine), related-recipe links, random, restaurant grouping, and catalog integrity                                  |
+| Concern  | Approach                                                                                                                                                                      |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                                                                |
+| Routing  | Client-side hash routes                                                                                                                                                       |
+| State    | xState for navigation, theme/font preferences, Recipes/Eat Out filters, Ingredients browse, Restaurants city filter and details, Meal Ideas (including prep time), and Random |
+| Data     | Typed TypeScript for recipes, the ingredient catalog, and the restaurant catalog                                                                                              |
+| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                                                               |
+| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                                                               |
+| Tests    | Filtering (eat-out, HA, cuisine, meal-idea prep time), related-recipe links, random, restaurant grouping, eat-out restaurant ids, and catalog integrity                       |
 
 URL shapes:
 
@@ -521,7 +524,7 @@ URL shapes:
 - One diet tag: **HA** (House Approved). Recipes and ingredients use HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed. Confirmed tags are household yes/no. Unconfirmed ingredients are assumed from lactose, gluten, cheese, and FODMAP metadata. Unconfirmed home recipes are assumed from that ingredient list (worst ingredient wins); eat-out stays Unknown until confirmed. No dynamic substitutions.
 - Related recipes link classic and HA (or other siblings).
 - Health rating: healthy / moderately healthy / unhealthy, color-coded thermometer.
-- Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search).
+- Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search). Meal Ideas: occasion, region, and prep time (< 20 / ~30 / ~60 / >75 minutes). Eat Out orders reference restaurant catalog ids (a franchise lists every location).
 - Nav: Home, Recipes, Eat Out, Restaurants, Ingredients, Guide, Random, font size, theme.
 - Theme and type size apply site-wide and persist locally.
 - Meal Ideas display (List View / Pictures View) persists locally.

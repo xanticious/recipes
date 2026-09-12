@@ -867,10 +867,7 @@ const coreMealIdeas: MealIdea[] = [
     pairings: ["Water or tea", "Cucumber or edamame"],
     substitutions: ["Leftover rice with canned fish"],
     relatedMealIds: ["leftover-rice-bowl-idea", "salmon-and-sides"],
-    recipes: [
-      { label: "Sushi Bowl (Not-HA)", recipeId: "sushi-bowl" },
-      { label: "Salmon Poke Bowl (No Onion, No Avocado)", recipeId: "salmon-poke-simple" },
-    ],
+    recipes: [{ label: "Sushi Bowl (Not-HA)", recipeId: "sushi-bowl" }],
   },
   {
     id: "hot-pocket",
@@ -1040,7 +1037,6 @@ const coreMealIdeas: MealIdea[] = [
     recipes: [
       { label: "Baked Chicken Thighs (HA)", recipeId: "baked-chicken-thighs" },
       { label: "BBQ Chicken (HA)", recipeId: "bbq-chicken" },
-      { label: "Grocery Rotisserie Chicken Plate", recipeId: "grocery-rotisserie-plate" },
       { label: "Steamed Rice (HA)", recipeId: "steamed-rice" },
       { label: "Roasted Green Beans (HA)", recipeId: "roasted-green-beans" },
     ],
@@ -1278,7 +1274,6 @@ const coreMealIdeas: MealIdea[] = [
     recipes: [
       { label: "Homemade Pizza (Not-HA)", recipeId: "homemade-pizza" },
       { label: "Homemade Pizza (HA)", recipeId: "homemade-pizza-ha" },
-      { label: "Pepperoni Pizza (Takeout)", recipeId: "pepperoni-pizza-night" },
     ],
   },
   {

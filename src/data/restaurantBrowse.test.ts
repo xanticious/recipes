@@ -12,12 +12,37 @@ import {
   RESTAURANT_CUISINES,
   restaurantDisplayName,
 } from "./restaurantBrowse.ts";
-import { restaurants } from "./restaurants/index.ts";
+import { restaurants, restaurantIdsByName } from "./restaurants/index.ts";
 import type { Restaurant } from "./types.ts";
 
 test("restaurant ids are unique", () => {
   const ids = restaurants.map((item) => item.id);
   expect(new Set(ids).size).toBe(ids.length);
+});
+
+test("restaurantIdsByName collects every franchise location", () => {
+  expect(restaurantIdsByName("Noodles & Company")).toEqual([
+    "noodles-and-company-farmington",
+    "noodles-and-company-layton",
+  ]);
+  expect(restaurantIdsByName("Blaze Pizza")).toEqual(["blaze-pizza-farmington"]);
+  expect(restaurantIdsByName("Chick-fil-A").length).toBeGreaterThan(2);
+  expect(restaurantIdsByName("Chick-fil-A")).toEqual(
+    expect.arrayContaining([
+      "chick-fil-a-centerville",
+      "chick-fil-a-farmington",
+      "chick-fil-a-layton",
+      "chick-fil-a-hill-field-layton",
+      "chick-fil-a-antelope-layton",
+    ]),
+  );
+  expect(restaurantIdsByName("FiiZ Drinks").length).toBeGreaterThan(2);
+  expect(restaurantIdsByName("FiiZ Drinks").every((id) => id.startsWith("fiiz-"))).toBe(true);
+  expect(restaurantIdsByName("In-N-Out Burger").length).toBeGreaterThan(0);
+  expect(restaurantIdsByName("Panda Express").length).toBeGreaterThan(0);
+  expect(restaurantIdsByName("Domino's").length).toBeGreaterThan(0);
+  expect(restaurantIdsByName("Joy Luck")).toEqual(["joy-luck-bountiful"]);
+  expect(restaurantIdsByName("No Such Place")).toEqual([]);
 });
 
 test("the catalog covers every Davis County city in the list", () => {

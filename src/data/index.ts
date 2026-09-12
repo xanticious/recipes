@@ -116,17 +116,23 @@ export { ingredientLookup, ingredients } from "./ingredients.ts";
 export {
   filterMealIdeas,
   groupMealIdeas,
+  formatMealIdeaPrepMinutes,
   isMealIdeaDisplay,
   isMealIdeaOccasion,
+  isMealIdeaPrepTime,
   isMealIdeaRegion,
   mealIdeaMatchesFilters,
   mealIdeaLookup,
+  mealIdeaPrepMinutes,
+  mealIdeaPrepTimeBucket,
   relatedMealIdeas,
   mealIdeaHasHaRecipes,
   mealIdeaRecipeFamily,
   resolveMealIdeaRecipes,
   MEAL_IDEA_OCCASION_FILTERS,
   MEAL_IDEA_OCCASION_FILTER_LABELS,
+  MEAL_IDEA_PREP_TIME_FILTERS,
+  MEAL_IDEA_PREP_TIME_FILTER_LABELS,
   MEAL_IDEA_REGION_FILTERS,
   MEAL_IDEA_REGION_FILTER_LABELS,
   MEAL_IDEA_DISPLAYS,
@@ -138,6 +144,7 @@ export type {
   MealIdeaDisplay,
   MealIdeaFilters,
   MealIdeaOccasionFilter,
+  MealIdeaPrepTimeFilter,
   MealIdeaRegionFilter,
   ResolvedMealIdeaRecipe,
 } from "./mealIdeaBrowse.ts";
@@ -201,7 +208,17 @@ export type {
   RestaurantCityFilter,
   RestaurantFilters,
 } from "./restaurantBrowse.ts";
-export { getRestaurant, restaurantLookup, restaurants } from "./restaurants/index.ts";
+export {
+  eatOutRestaurantBrands,
+  eatOutRestaurantNames,
+  eatOutRestaurants,
+} from "./eatOutRestaurants.ts";
+export {
+  getRestaurant,
+  restaurantIdsByName,
+  restaurantLookup,
+  restaurants,
+} from "./restaurants/index.ts";
 export type {
   AssumedHaStatus,
   Cuisine,
