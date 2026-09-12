@@ -479,10 +479,10 @@ Keep all five meal types visible. Prefer ingredients from a normal supermarket.
 
 This repo is a static **Vite + TypeScript** app with **xState**, **CSS modules**, Oxlint, Oxfmt, Vitest, and GitHub Pages.
 
-| Concern  | Approach                                                                                                                                    |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                              |
-| Routing  | Client-side hash routes                                                                                                                     |
+| Concern  | Approach                                                                                                                                                                    |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                                                              |
+| Routing  | Client-side hash routes                                                                                                                                                     |
 | State    | xState for navigation, theme/font preferences, Recipes/Eat Out filters, Meal Ideas filters and display, Ingredients browse, Restaurants city filter and details, and Random |
 | Data     | Typed TypeScript for recipes, meal ideas, the ingredient catalog, and the restaurant catalog                                                                                |
 | Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                                                             |

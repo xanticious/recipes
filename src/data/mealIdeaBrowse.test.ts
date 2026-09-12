@@ -65,7 +65,7 @@ test("related meals resolve and recipe links mark missing book entries", () => {
   const pork = lookup.get("pork-chops-plate");
   expect(pork).toBeDefined();
   const related = relatedMealIdeas(pork as MealIdea, lookup);
-  expect(related.map((idea) => idea.id)).toEqual([...(pork as MealIdea).relatedMealIds ?? []]);
+  expect(related.map((idea) => idea.id)).toEqual([...((pork as MealIdea).relatedMealIds ?? [])]);
   expect(related.map((idea) => idea.id)).toEqual(
     expect.arrayContaining(["chicken-rice-vegetables", "steak-and-potatoes"]),
   );

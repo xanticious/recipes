@@ -23,12 +23,7 @@ const coreMealIdeas: MealIdea[] = [
       "Banana, blueberries, or raspberries",
     ],
     substitutions: ["Almond milk or another plant milk"],
-    relatedMealIds: [
-      "granola-and-milk-idea",
-      "oatmeal-bowl",
-      "milk-drink",
-      "weet-bix",
-    ],
+    relatedMealIds: ["granola-and-milk-idea", "oatmeal-bowl", "milk-drink", "weet-bix"],
     recipes: [
       { label: "Cereal and Milk (Not-HA)", recipeId: "cereal-and-milk" },
       { label: "Cereal and Milk (HA)", recipeId: "cereal-and-milk-ha" },
@@ -115,12 +110,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Coffee, tea, or water", "Banana, blueberries, or a spoon of peanut butter"],
     substitutions: ["Almond milk", "Overnight oats if mornings are rushed"],
-    relatedMealIds: [
-      "yogurt-and-fruit",
-      "cereal-and-milk",
-      "grits",
-      "weet-bix",
-    ],
+    relatedMealIds: ["yogurt-and-fruit", "cereal-and-milk", "grits", "weet-bix"],
     recipes: [
       { label: "Blueberry Oatmeal (HA)", recipeId: "blueberry-oatmeal" },
       { label: "Cinnamon Oatmeal (HA)", recipeId: "cinnamon-oatmeal" },
@@ -185,13 +175,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Coffee, milk, or water", "Eggs, bacon, or fruit"],
     substitutions: ["French toast"],
-    relatedMealIds: [
-      "eggs-and-toast",
-      "french-toast",
-      "pancakes",
-      "waffles",
-      "crepes",
-    ],
+    relatedMealIds: ["eggs-and-toast", "french-toast", "pancakes", "waffles", "crepes"],
     recipes: [
       { label: "Banana Pancakes (Not-HA)", recipeId: "banana-pancakes" },
       { label: "Waffles (Not-HA)", recipeId: "gf-waffles" },
@@ -382,12 +366,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Coffee or orange juice", "Fruit, or ham and cheese inside"],
     substitutions: ["Brioche toast if you want it simpler"],
-    relatedMealIds: [
-      "bagel-and-cream-cheese",
-      "brioche-toast",
-      "toaster-strudel",
-      "scone",
-    ],
+    relatedMealIds: ["bagel-and-cream-cheese", "brioche-toast", "toaster-strudel", "scone"],
     recipes: [
       { label: "Croissants (Not-HA)", recipeId: "croissants" },
       { label: "Croissants (HA)", recipeId: "croissants-ha" },
@@ -511,13 +490,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Coffee, milk, or fruit", "Bacon or sausage if you want a bigger plate"],
     substitutions: ["Pancakes or brioche toast"],
-    relatedMealIds: [
-      "pancakes-or-waffles",
-      "brioche-toast",
-      "crepes",
-      "pancakes",
-      "waffles",
-    ],
+    relatedMealIds: ["pancakes-or-waffles", "brioche-toast", "crepes", "pancakes", "waffles"],
     recipes: [
       { label: "French Toast (Not-HA)", recipeId: "french-toast" },
       { label: "French Toast (HA)", recipeId: "french-toast-ha" },
@@ -547,12 +520,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "mexico"],
     pairings: ["Coffee or water", "Toast if the hash is light"],
     substitutions: ["Sweet potato hash"],
-    relatedMealIds: [
-      "bacon-and-eggs",
-      "eggs-and-toast",
-      "grits",
-      "breakfast-casserole-dinner",
-    ],
+    relatedMealIds: ["bacon-and-eggs", "eggs-and-toast", "grits", "breakfast-casserole-dinner"],
     recipes: [
       { label: "Potato Breakfast Hash (Not-HA)", recipeId: "breakfast-hash" },
       { label: "Potato Breakfast Hash (HA)", recipeId: "breakfast-hash-ha" },
@@ -682,12 +650,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand", "europe"],
     pairings: ["Water or tea", "Crackers if the sandwich is small"],
     substitutions: ["Rice cakes on the side instead of a second bread"],
-    relatedMealIds: [
-      "turkey-sandwich",
-      "grilled-cheese",
-      "soup-night",
-      "chili-bowl",
-    ],
+    relatedMealIds: ["turkey-sandwich", "grilled-cheese", "soup-night", "chili-bowl"],
     recipes: [
       { label: "Tomato Basil Soup (Not-HA)", recipeId: "tomato-basil-soup" },
       { label: "Tomato Basil Soup (HA)", recipeId: "tomato-basil-soup-ha" },
@@ -842,12 +805,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-states", "mexico", "canada"],
     pairings: ["Water or a soda", "Salsa, or tortilla chips"],
     substitutions: ["Wrap it as a burrito"],
-    relatedMealIds: [
-      "taco-night",
-      "quesadilla",
-      "leftover-rice-bowl-idea",
-      "rice-and-beans-plate",
-    ],
+    relatedMealIds: ["taco-night", "quesadilla", "leftover-rice-bowl-idea", "rice-and-beans-plate"],
     recipes: [
       { label: "Burrito Bowl (Not-HA)", recipeId: "burrito-bowl" },
       { label: "Burrito Bowl (HA)", recipeId: "burrito-bowl-ha" },
@@ -1089,12 +1047,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Pita, rice cakes, or crackers", "Water"],
     substitutions: ["A wrap"],
-    relatedMealIds: [
-      "salad-plate",
-      "wrap-lunch",
-      "edamame",
-      "caprese-plate",
-    ],
+    relatedMealIds: ["salad-plate", "wrap-lunch", "edamame", "caprese-plate"],
     recipes: [
       { label: "Hummus and Veggie Plate (Not-HA)", recipeId: "hummus-veggie-plate" },
       { label: "Hummus and Veggie Plate (HA)", recipeId: "hummus-veggie-plate-ha" },
@@ -1288,12 +1241,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["italy", "united-states", "europe", "canada", "australia"],
     pairings: ["Salad or garlic bread", "Water"],
     substitutions: ["Rice if you are out of pasta"],
-    relatedMealIds: [
-      "pasta-marinara",
-      "lasagna-night",
-      "chicken-parm-idea",
-      "baked-ziti-idea",
-    ],
+    relatedMealIds: ["pasta-marinara", "lasagna-night", "chicken-parm-idea", "baked-ziti-idea"],
     recipes: [
       { label: "Meatballs Marinara (Not-HA)", recipeId: "meatballs-marinara" },
       { label: "Swedish Meatballs (Not-HA)", recipeId: "swedish-meatballs" },
@@ -1585,12 +1533,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Bread or rice", "Water"],
     substitutions: ["Chili when you want it beanier"],
-    relatedMealIds: [
-      "chili-night",
-      "sunday-roast",
-      "feijoada-idea",
-      "japanese-curry-idea",
-    ],
+    relatedMealIds: ["chili-night", "sunday-roast", "feijoada-idea", "japanese-curry-idea"],
     recipes: [
       { label: "Beef Stew (Not-HA)", recipeId: "beef-stew" },
       { label: "Beef Stew (HA)", recipeId: "beef-stew-ha" },
@@ -1616,12 +1559,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["A green vegetable", "Water"],
     substitutions: ["Pork chops if steak is not in the budget"],
-    relatedMealIds: [
-      "pork-chops-plate",
-      "burger-night",
-      "carne-asada-plate",
-      "churrasco-plate",
-    ],
+    relatedMealIds: ["pork-chops-plate", "burger-night", "carne-asada-plate", "churrasco-plate"],
     recipes: [
       { label: "Grilled Steak (HA)", recipeId: "grilled-steak" },
       { label: "Mashed Potatoes (Not-HA)", recipeId: "mashed-potatoes" },
@@ -1680,12 +1618,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-states", "mexico"],
     pairings: ["Rice and beans", "Salsa", "Water"],
     substitutions: ["Tostadas if rolling tortillas feels like too much"],
-    relatedMealIds: [
-      "taco-night",
-      "tostadas-idea",
-      "tamale-pie-idea",
-      "mole-and-rice",
-    ],
+    relatedMealIds: ["taco-night", "tostadas-idea", "tamale-pie-idea", "mole-and-rice"],
     recipes: [
       { label: "Beef Enchiladas (Not-HA)", recipeId: "beef-enchiladas" },
       { label: "Beef Enchiladas (HA)", recipeId: "beef-enchiladas-ha" },
@@ -1811,12 +1744,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["italy", "united-states", "canada", "europe"],
     pairings: ["Broccoli or chicken", "Salad", "Water"],
     substitutions: ["Pesto pasta if you want something less heavy"],
-    relatedMealIds: [
-      "pasta-marinara",
-      "pesto-pasta-idea",
-      "shrimp-scampi-idea",
-      "carbonara-idea",
-    ],
+    relatedMealIds: ["pasta-marinara", "pesto-pasta-idea", "shrimp-scampi-idea", "carbonara-idea"],
     recipes: [
       { label: "Fettuccine Alfredo (Not-HA)", recipeId: "fettuccine-alfredo" },
       { label: "Fettuccine Alfredo (HA)", recipeId: "fettuccine-alfredo-ha" },
@@ -2064,12 +1992,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-kingdom", "australia", "new-zealand", "canada", "united-states"],
     pairings: ["Yogurt on the side", "Water"],
     substitutions: ["Leftover dal for lunch"],
-    relatedMealIds: [
-      "butter-chicken-idea",
-      "rice-and-beans-plate",
-      "soup-night",
-      "mapo-tofu-idea",
-    ],
+    relatedMealIds: ["butter-chicken-idea", "rice-and-beans-plate", "soup-night", "mapo-tofu-idea"],
     recipes: [
       { label: "Weeknight Dal (Not-HA)", recipeId: "weeknight-dal" },
       { label: "Weeknight Dal (HA)", recipeId: "weeknight-dal-ha" },
@@ -2462,12 +2385,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Coffee, tea, or milk"],
     substitutions: ["A granola bar if nothing baked is left"],
-    relatedMealIds: [
-      "muffin",
-      "doughnut-and-coffee",
-      "granola-bar",
-      "doughnut-dessert",
-    ],
+    relatedMealIds: ["muffin", "doughnut-and-coffee", "granola-bar", "doughnut-dessert"],
     recipes: [
       { label: "Leftover Muffin or Pastry (Not-HA)", recipeId: "leftover-muffin" },
       { label: "Leftover Muffin or Pastry (HA)", recipeId: "leftover-muffin-ha" },
@@ -2557,12 +2475,7 @@ const coreMealIdeas: MealIdea[] = [
     regions: ["united-states", "united-kingdom", "canada", "australia", "new-zealand"],
     pairings: ["Milk", "Ice cream"],
     substitutions: ["Blondies"],
-    relatedMealIds: [
-      "cookies-dessert",
-      "mug-cake",
-      "cake-or-cupcake",
-      "nanaimo-bar-snack",
-    ],
+    relatedMealIds: ["cookies-dessert", "mug-cake", "cake-or-cupcake", "nanaimo-bar-snack"],
     recipes: [
       { label: "Brownies (HA)", recipeId: "brownies" },
       { label: "Blondies (HA)", recipeId: "blondies" },
@@ -2712,12 +2625,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Coffee or milk"],
     substitutions: ["A muffin or leftover pastry"],
-    relatedMealIds: [
-      "doughnut-and-coffee",
-      "leftover-pastry-snack",
-      "cookies-dessert",
-      "churros",
-    ],
+    relatedMealIds: ["doughnut-and-coffee", "leftover-pastry-snack", "cookies-dessert", "churros"],
     recipes: [
       { label: "Doughnuts (Not-HA)", recipeId: "doughnuts" },
       { label: "Doughnuts (HA)", recipeId: "doughnuts-ha" },
@@ -2878,12 +2786,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Lemon if you want a little flavor"],
     substitutions: ["Sparkling water"],
-    relatedMealIds: [
-      "soda-drink",
-      "sports-drink",
-      "agua-fresca",
-      "barley-tea",
-    ],
+    relatedMealIds: ["soda-drink", "sports-drink", "agua-fresca", "barley-tea"],
     recipes: [{ label: "Water (HA)", recipeId: "glass-of-water" }],
   },
   {
@@ -2982,13 +2885,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["A cookie, churro, or nothing"],
     substitutions: ["Coffee if you want caffeine more than chocolate"],
-    relatedMealIds: [
-      "coffee-drink",
-      "churros",
-      "milk-drink",
-      "pan-dulce",
-      "atole-drink",
-    ],
+    relatedMealIds: ["coffee-drink", "churros", "milk-drink", "pan-dulce", "atole-drink"],
     recipes: [
       { label: "Hot Chocolate (Not-HA)", recipeId: "hot-chocolate-mug" },
       { label: "Hot Chocolate (HA)", recipeId: "hot-chocolate-mug-ha" },
@@ -3036,13 +2933,7 @@ const coreMealIdeas: MealIdea[] = [
     ],
     pairings: ["Pizza, burgers, or chips"],
     substitutions: ["Sparkling water if you want the fizz without the sugar"],
-    relatedMealIds: [
-      "water-drink",
-      "pizza-night",
-      "burger-night",
-      "sports-drink",
-      "guarana-soda",
-    ],
+    relatedMealIds: ["water-drink", "pizza-night", "burger-night", "sports-drink", "guarana-soda"],
     recipes: [{ label: "Soda (HA)", recipeId: "soda-pour" }],
   },
   {
