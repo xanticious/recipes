@@ -2,6 +2,8 @@
 
 Strict cook-through of every home recipe in the catalog (692) against the rubric below. Eat-out entries (8) have no ingredient lists or steps; they are noted at the end, not scored on C3–C5.
 
+**Snapshot.** This review scored 692 home recipes. As of 2026-09-12 the live catalog has 720 home recipes and 8 eat-out orders. Counts and findings below were not re-run against the later additions.
+
 This is evaluation only. Do not treat anything here as a fix list to apply blindly — later we will repair recipes one by one.
 
 ## Rubric
@@ -48,7 +50,7 @@ These show up often enough that they are catalog bugs, not one-off typos.
 
 **Titled HA but not HA.** `fettuccine-alfredo-ha` still uses lactose-free milk and Parmesan (both `not-ha-confirmed`). The notes claim Parmesan is the household lactose-clear hard cheese; the catalog disagrees. Related-recipe wiring on `fettuccine-alfredo` also points at a dozen unrelated Italian HA plates.
 
-**One-way related links.** HA Italian dinners point at their non-HA siblings; the non-HA recipes often do not point back (except Alfredo, which points at everyone). Pairing still exists; the UI “Related recipes” on the non-HA page will hide the conversion.
+**One-way related links.** HA Italian dinners point at their non-HA siblings; the non-HA recipes often do not point back (except Alfredo, which points at everyone). Pairing still exists; the UI “Related recipes” on the non-HA page will hide the conversion. Catalog tests now require related recipe and meal-idea ids to be stored both ways.
 
 ## Findings (failures only)
 

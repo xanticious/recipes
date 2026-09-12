@@ -5,8 +5,8 @@ would typically eat at one time on one recall day, for example:
 
 `toast, eggs, tea`
 
-These lists are **inspiration for a later Meal Ideas catalog page**: a full
-dinner in mind, with optional links out to recipes for the parts. They are
+These lists are **inspiration for the Meal Ideas catalog** (the live list is
+`src/data/mealIdeas.ts`). Do not import them as-is. They are
 **not a live catalog import** and were not scored as NHANES sitting counts.
 
 ## Survey

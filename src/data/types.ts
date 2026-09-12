@@ -32,6 +32,7 @@ export type MealIdea = {
   regions: readonly MealIdeaRegion[];
   pairings: readonly string[];
   substitutions?: readonly string[];
+  /** Other plates with real overlap. Store the reverse id on the other plate too. */
   relatedMealIds?: readonly string[];
   recipes?: readonly MealIdeaRecipeRef[];
 };
@@ -127,6 +128,7 @@ export type RecipeCore = {
    */
   ha: HaStatus;
   healthRating: HealthRating;
+  /** Sibling recipes (classic ↔ HA, or a related order). Store the reverse id too. */
   relatedRecipeIds?: readonly string[];
   notes?: string;
 };
