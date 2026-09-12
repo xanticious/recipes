@@ -41,6 +41,7 @@ test("restaurantIdsByName collects every franchise location", () => {
   expect(restaurantIdsByName("In-N-Out Burger").length).toBeGreaterThan(0);
   expect(restaurantIdsByName("Panda Express").length).toBeGreaterThan(0);
   expect(restaurantIdsByName("Domino's").length).toBeGreaterThan(0);
+  expect(restaurantIdsByName("Joy Luck")).toEqual(["joy-luck-bountiful"]);
   expect(restaurantIdsByName("No Such Place")).toEqual([]);
 });
 

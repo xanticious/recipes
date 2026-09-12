@@ -62,6 +62,7 @@ test("eat-out recipes have a description, restaurants, and no cook list", () => 
     "chick-fil-a-grilled-nuggets",
     "fiiz-pirate-jack",
     "dominos-gf-ham",
+    "joy-luck-strawberry-chicken",
   ]);
 });
 

@@ -100,4 +100,18 @@ export const eatOut: EatOutRecipe[] = [
     notes:
       "Olives or mushrooms — whichever they have that night. Gluten-free crust is the required base.",
   },
+  {
+    id: "joy-luck-strawberry-chicken",
+    title: "Egg drop soup, white rice, GF Strawberry Chicken (HA)",
+    mealType: "dinner",
+    cuisine: "asian",
+    specialOccasion: false,
+    ha: "ha-confirmed",
+    healthRating: "unhealthy",
+    eatOut: true,
+    restaurantIds: restaurantIdsByName("Joy Luck"),
+    description:
+      "At **Joy Luck**, **egg drop soup**, **white rice**, and **GF strawberry chicken**.",
+    notes: "Ask for gluten-free strawberry chicken. White rice, not fried rice.",
+  },
 ];
