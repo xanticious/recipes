@@ -145,16 +145,16 @@ A “try this ingredient” path:
 
 From `DESIGN_DOCUMENT.md` §13 and the same household needs, in rough usefulness order for this family:
 
-| Idea | Why | Watch-outs |
-| ---- | --- | ---------- |
-| Device-saved favorites / we made this | Unlocks rotation and “haven’t tried” | No accounts; stay on-device |
-| Weekly planner | We already have another system; this site should not replace it | Keep it optional, or only “pin this week’s plates” |
-| Scaling servings | Useful at cook time | Keep structured amounts; don’t turn steps into templates |
-| Recipe photos | Pictures View proved photos help people pick | Unsplash is fine for plates; household photos later |
-| Shopping list | Natural next step after a plate | Easy to become a planner; keep it “this plate → this grocery list” |
-| Export / import | Backup of device history, or a printed booklet | Catalog stays curated in the repo |
-| PWA / add to home screen | Phone on the counter | Static GitHub Pages can do this |
-| Browser editing | Household members could confirm HA without a PR | Conflicts with “curated in the repo”; maybe a JSON export of local tags instead |
+| Idea                                  | Why                                                             | Watch-outs                                                                      |
+| ------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Device-saved favorites / we made this | Unlocks rotation and “haven’t tried”                            | No accounts; stay on-device                                                     |
+| Weekly planner                        | We already have another system; this site should not replace it | Keep it optional, or only “pin this week’s plates”                              |
+| Scaling servings                      | Useful at cook time                                             | Keep structured amounts; don’t turn steps into templates                        |
+| Recipe photos                         | Pictures View proved photos help people pick                    | Unsplash is fine for plates; household photos later                             |
+| Shopping list                         | Natural next step after a plate                                 | Easy to become a planner; keep it “this plate → this grocery list”              |
+| Export / import                       | Backup of device history, or a printed booklet                  | Catalog stays curated in the repo                                               |
+| PWA / add to home screen              | Phone on the counter                                            | Static GitHub Pages can do this                                                 |
+| Browser editing                       | Household members could confirm HA without a PR                 | Conflicts with “curated in the repo”; maybe a JSON export of local tags instead |
 
 Stay out of: logins, per-person profiles, in-page ingredient swaps, FODMAP science on the landing page, household first names.
 
@@ -264,17 +264,17 @@ Utah / Wasatch Front household food that is barely in the recipe book:
 
 If the book should feel complete when someone filters Recipes, these cells are small:
 
-| Meal | Cuisine | Home recipes (approx.) |
-| ---- | ------- | ---------------------: |
-| Breakfast | Mediterranean | 3 |
-| Breakfast | Italian | 5 |
-| Breakfast | Indian | 5 |
-| Lunch | Indian | 4 |
-| Snack | Indian | 2 |
-| Snack | Mediterranean | 4 |
-| Dessert | Asian | 3 |
-| Dessert | Indian | 2 |
-| Dessert | Mexican | 4 |
+| Meal      | Cuisine       | Home recipes (approx.) |
+| --------- | ------------- | ---------------------: |
+| Breakfast | Mediterranean |                      3 |
+| Breakfast | Italian       |                      5 |
+| Breakfast | Indian        |                      5 |
+| Lunch     | Indian        |                      4 |
+| Snack     | Indian        |                      2 |
+| Snack     | Mediterranean |                      4 |
+| Dessert   | Asian         |                      3 |
+| Dessert   | Indian        |                      2 |
+| Dessert   | Mexican       |                      4 |
 
 Do not pad them with chef food. A few honest weeknight plates each is enough.
 
