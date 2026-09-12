@@ -22,3 +22,11 @@ export const restaurantLookup = new Map(restaurants.map((item) => [item.id, item
 export function getRestaurant(id: string): Restaurant | undefined {
   return restaurantLookup.get(id);
 }
+
+/** Every catalog location that shares this display name (a franchise). */
+export function restaurantIdsByName(name: string): string[] {
+  return restaurants
+    .filter((item) => item.name === name)
+    .toSorted((a, b) => a.city.localeCompare(b.city))
+    .map((item) => item.id);
+}

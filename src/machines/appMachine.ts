@@ -9,6 +9,7 @@ import {
   isMealIdeaDisplay,
   type MealIdeaDisplay,
   type MealIdeaOccasionFilter,
+  type MealIdeaPrepTimeFilter,
   type MealIdeaRegionFilter,
 } from "../data/mealIdeaBrowse.ts";
 import type { RestaurantCityFilter } from "../data/restaurantBrowse.ts";
@@ -57,6 +58,7 @@ export type RestaurantsBrowse = {
 export type MealIdeasBrowse = {
   occasion: MealIdeaOccasionFilter;
   region: MealIdeaRegionFilter;
+  prepTime: MealIdeaPrepTimeFilter;
   query: string;
   display: MealIdeaDisplay;
   expandedId: string | null;
@@ -115,9 +117,11 @@ export type AppEvent =
   | { type: "setRestaurantCity"; city: RestaurantCityFilter }
   | { type: "toggleRestaurant"; id: string }
   | { type: "closeRestaurant" }
+  | { type: "openRestaurant"; id: string }
   | { type: "openMealIdeas"; occasion?: MealIdeaOccasionFilter; region?: MealIdeaRegionFilter }
   | { type: "setMealIdeasOccasion"; occasion: MealIdeaOccasionFilter }
   | { type: "setMealIdeasRegion"; region: MealIdeaRegionFilter }
+  | { type: "setMealIdeasPrepTime"; prepTime: MealIdeaPrepTimeFilter }
   | { type: "setMealIdeasQuery"; query: string }
   | { type: "setMealIdeasDisplay"; display: MealIdeaDisplay }
   | { type: "toggleMealIdea"; id: string }
@@ -185,6 +189,7 @@ export function persistMealIdeasDisplay(display: MealIdeaDisplay): void {
 const emptyMealIdeas: MealIdeasBrowse = {
   occasion: "all",
   region: "all",
+  prepTime: "all",
   query: "",
   display: "list",
   expandedId: null,
@@ -463,6 +468,15 @@ export const appMachine = setup({
         }),
       }),
     },
+    openRestaurant: {
+      actions: assign({
+        route: { name: "restaurants" },
+        restaurants: ({ event }) => ({
+          city: "all",
+          expandedId: event.id,
+        }),
+      }),
+    },
     openMealIdeas: {
       actions: assign({
         route: { name: "mealIdeas" },
@@ -488,6 +502,15 @@ export const appMachine = setup({
         mealIdeas: ({ context, event }) => ({
           ...context.mealIdeas,
           region: event.region,
+          expandedId: null,
+        }),
+      }),
+    },
+    setMealIdeasPrepTime: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          prepTime: event.prepTime,
           expandedId: null,
         }),
       }),

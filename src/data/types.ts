@@ -144,6 +144,11 @@ export type HomeRecipe = RecipeCore & {
 export type EatOutRecipe = RecipeCore & {
   eatOut: true;
   description: string;
+  /**
+   * Restaurant catalog ids where we place this order. A franchise lists every
+   * Davis County location in the book.
+   */
+  restaurantIds: readonly string[];
 };
 
 export type Recipe = HomeRecipe | EatOutRecipe;

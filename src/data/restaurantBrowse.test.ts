@@ -12,12 +12,21 @@ import {
   RESTAURANT_CUISINES,
   restaurantDisplayName,
 } from "./restaurantBrowse.ts";
-import { restaurants } from "./restaurants/index.ts";
+import { restaurants, restaurantIdsByName } from "./restaurants/index.ts";
 import type { Restaurant } from "./types.ts";
 
 test("restaurant ids are unique", () => {
   const ids = restaurants.map((item) => item.id);
   expect(new Set(ids).size).toBe(ids.length);
+});
+
+test("restaurantIdsByName collects every franchise location", () => {
+  expect(restaurantIdsByName("Noodles & Company")).toEqual([
+    "noodles-and-company-farmington",
+    "noodles-and-company-layton",
+  ]);
+  expect(restaurantIdsByName("Blaze Pizza")).toEqual(["blaze-pizza-farmington"]);
+  expect(restaurantIdsByName("No Such Place")).toEqual([]);
 });
 
 test("the catalog covers every Davis County city in the list", () => {

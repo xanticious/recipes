@@ -4,6 +4,7 @@ import { classifyRecipeHa, ingredientHaStatus, isConfirmedHa } from "./ha.ts";
 import { ingredientLookup, ingredients } from "./ingredients.ts";
 import { isEatOutRecipe, isHomeRecipe, relatedRecipes } from "./recipe.ts";
 import { recipes } from "./recipes/index.ts";
+import { restaurants } from "./restaurants/index.ts";
 import { HA_STATUSES } from "./tags.ts";
 
 test("ingredient ids are unique", () => {
@@ -41,12 +42,22 @@ test("every home-recipe ingredient exists in the catalog", () => {
   expect(missing).toEqual([]);
 });
 
-test("eat-out recipes have a description and no cook list", () => {
+test("eat-out recipes have a description, restaurants, and no cook list", () => {
   const eatOut = recipes.filter(isEatOutRecipe);
   expect(eatOut.length).toBeGreaterThan(0);
+  const restaurantIds = new Set(restaurants.map((item) => item.id));
   for (const recipe of eatOut) {
     expect(recipe.description.trim().length).toBeGreaterThan(0);
+    expect(recipe.restaurantIds.length).toBeGreaterThan(0);
+    expect(new Set(recipe.restaurantIds).size).toBe(recipe.restaurantIds.length);
+    for (const id of recipe.restaurantIds) {
+      expect(restaurantIds.has(id)).toBe(true);
+    }
   }
+  expect(eatOut.map((recipe) => recipe.id)).toEqual([
+    "noodles-and-company-pad-thai",
+    "blaze-pizza-ham-mushroom",
+  ]);
 });
 
 test("related recipe ids exist and do not point at themselves", () => {

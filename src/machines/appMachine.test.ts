@@ -243,11 +243,24 @@ test("restaurant city filter resets details, and cards toggle and close", () => 
   actor.stop();
 });
 
+test("openRestaurant opens the restaurants page on that location", () => {
+  const actor = startApp();
+  actor.send({ type: "setRestaurantCity", city: "layton" });
+  actor.send({ type: "openRestaurant", id: "blaze-pizza-farmington" });
+  expect(actor.getSnapshot().context.route).toEqual({ name: "restaurants" });
+  expect(actor.getSnapshot().context.restaurants).toEqual({
+    city: "all",
+    expandedId: "blaze-pizza-farmington",
+  });
+  actor.stop();
+});
+
 test("meal ideas occasion filter resets the open card, and cards toggle and close", () => {
   const actor = startApp();
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "all",
     region: "all",
+    prepTime: "all",
     query: "",
     display: "list",
     expandedId: null,
@@ -261,6 +274,7 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "breakfast",
     region: "all",
+    prepTime: "all",
     query: "",
     display: "list",
     expandedId: null,
@@ -273,6 +287,17 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "breakfast",
     region: "japan",
+    prepTime: "all",
+    query: "",
+    display: "list",
+    expandedId: null,
+  });
+  actor.send({ type: "openMealIdea", id: "oatmeal-bowl" });
+  actor.send({ type: "setMealIdeasPrepTime", prepTime: "under-20" });
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "breakfast",
+    region: "japan",
+    prepTime: "under-20",
     query: "",
     display: "list",
     expandedId: null,
@@ -319,6 +344,7 @@ test("meal ideas display toggle is independent of filters", () => {
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "all",
     region: "all",
+    prepTime: "all",
     query: "",
     display: "pictures",
     expandedId: "pork-chops-plate",
@@ -327,6 +353,7 @@ test("meal ideas display toggle is independent of filters", () => {
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "breakfast",
     region: "all",
+    prepTime: "all",
     query: "",
     display: "pictures",
     expandedId: null,
