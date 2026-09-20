@@ -594,7 +594,8 @@ eating at one time on one recall day, for example:
 
 `pork chops, mashed potatoes, gravy, green beans, water`
 
-These lists are inspiration for a later **Meal Ideas** catalog page: a full dinner
+These lists are inspiration for the **Meal Ideas** catalog (the live list is
+`src/data/mealIdeas.ts`; do not import these files as-is): a full dinner
 in mind, with optional links out to recipes for the parts.
 
 ## How the lists were built

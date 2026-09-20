@@ -9,15 +9,16 @@ src/
   main.tsx                 # app entry
   components/              # React views: render actor state, send events
   machines/                # xState machines and actors (all app state)
-  data/                    # recipes, ingredient catalog, kitchen guide, restaurants
+  data/                    # recipes, meal ideas, ingredient catalog, kitchen guide, restaurants
   *.module.css             # styles colocated with the UI they style
 design/
   DESIGN_DOCUMENT.md       # product source of truth
+scripts/                   # HA classifier, photo fetch, analysis helpers
 ```
 
 - Colocate tests next to the code they cover (`*.test.ts`).
 - Keep recipe and ingredient data typed and structured. Do not store a whole recipe as one unmanaged markdown blob.
-- The current placeholder counter machine is not part of the product; replace it when building the real app.
+- Related recipe ids and related meal-idea ids are stored in both directions. Catalog tests fail if a listed relation has no reverse.
 
 ## Commands
 

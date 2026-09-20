@@ -180,7 +180,7 @@ Shown when a recipe is chosen from Recipes, Eat Out, or Random.
 6. Notes, if any
 7. Related recipes, if any
 
-No photos in v1. No in-page ingredient substitution.
+No recipe photos in v1. Meal Ideas, Ingredients, and Restaurants already use photos. No in-page ingredient substitution.
 
 Instructions and eat-out descriptions are rendered as formatted markdown: headings if needed, lists, emphasis, and enough vertical rhythm that the page is comfortable to cook (or order) from.
 
@@ -253,7 +253,7 @@ Recipes are a **hardcoded, curated collection** in the repo. The display layer s
 | `ha`               | enum               | `ha-confirmed` \| `ha-assumed` \| `unknown` \| `not-ha-assumed` \| `not-ha-confirmed`. Confirmed is household yes/no. Otherwise assumed from ingredients (eat-out: unknown) |
 | `healthRating`     | enum               | `healthy` \| `moderate` \| `unhealthy`. `moderate` displays as Moderately healthy                                                                                           |
 | `eatOut`           | boolean            | Discriminant for home vs restaurant                                                                                                                                         |
-| `relatedRecipeIds` | list, optional     | Sibling recipes (classic ↔ HA, or a related order)                                                                                                                          |
+| `relatedRecipeIds` | list, optional     | Sibling recipes (classic ↔ HA, or a related order). Store the reverse id on the sibling too                                                                                 |
 | `notes`            | markdown, optional | Extra prose                                                                                                                                                                 |
 
 ### 7.2 Home recipe
@@ -338,7 +338,7 @@ Restaurant cuisine buckets: American, Mexican, Italian, Asian, Mediterranean, In
 | `regions`        | list           | World regions where the plate is commonly eaten. At least one. A plate may list several |
 | `pairings`       | list of string | Frequently paired drinks and sides                                                      |
 | `substitutions`  | list, optional | Common swaps                                                                            |
-| `relatedMealIds` | list, optional | Other meal ideas with real overlap                                                      |
+| `relatedMealIds` | list, optional | Other meal ideas with real overlap. Store the reverse id on the other plate too         |
 | `recipes`        | list, optional | Linked recipes for the plate or a part                                                  |
 
 Region tags: United States, Canada, Mexico, Brazil, United Kingdom, Italy, Europe (continental, not UK/Italy), China, Japan, South Korea, Australia, New Zealand. Tag the places where the plate is ordinary home food, not everywhere it could theoretically appear.
@@ -493,10 +493,10 @@ This repo is a static **Vite + TypeScript** app with **xState**, **CSS modules**
 | Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                                                                                                |
 | Routing  | Client-side hash routes                                                                                                                                                                                       |
 | State    | xState for navigation, the nav overlay, recipe focus mode, theme/font/keep-screen-on preferences, catalog filters, Meal Ideas (including prep time and display), Random, and whether the filter panel is open |
-| Data     | Typed TypeScript for recipes, the ingredient catalog, and the restaurant catalog                                                                                                                              |
+| Data     | Typed TypeScript for recipes, meal ideas, the ingredient catalog, and the restaurant catalog                                                                                                                  |
 | Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                                                                                               |
 | Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                                                                                               |
-| Tests    | Filtering (eat-out, HA, cuisine, meal-idea prep time), related-recipe links, random, restaurant grouping, eat-out restaurant ids, and catalog integrity                                                       |
+| Tests    | Filtering (eat-out, HA, cuisine, meal-idea prep time), related-recipe and related-meal links, random, restaurant grouping, eat-out restaurant ids, and catalog integrity                                      |
 
 URL shapes:
 
@@ -504,6 +504,7 @@ URL shapes:
 - `/recipes` — Recipes (home cooking)
 - `/recipes/:id` — detail (home or eat-out)
 - `/eat-out` — Eat Out
+- `/meal-ideas` — Meal Ideas (full plates)
 - `/restaurants` — Davis County restaurant catalog
 - `/ingredients` — ingredient catalog (`#/fodmap-ingredients` still opens this page)
 - `/guide` — kitchen guide
@@ -516,7 +517,7 @@ URL shapes:
 - Weekly planner
 - Device-saved favorites / “we made this”
 - Fill restaurant popular menu items and `isFavorite` as the household actually uses places
-- Photos
+- Recipe photos (Meal Ideas, Ingredients, and Restaurants already have photos)
 - Export / import
 - More HA conversions and eat-out orders as the household actually uses them
 
@@ -528,7 +529,7 @@ URL shapes:
 - Special occasion = icon/asterisk, not a separate list.
 - Structured ingredients for home recipes; eat-out entries are descriptions.
 - One diet tag: **HA** (House Approved). Recipes and ingredients use HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed. Confirmed tags are household yes/no. Unconfirmed ingredients are assumed from lactose, gluten, cheese, and FODMAP metadata. Unconfirmed home recipes are assumed from that ingredient list (worst ingredient wins); eat-out stays Unknown until confirmed. No dynamic substitutions.
-- Related recipes link classic and HA (or other siblings).
+- Related recipes and related meal ideas are stored in both directions (classic ↔ HA, or other siblings).
 - Health rating: healthy / moderately healthy / unhealthy, color-coded thermometer.
 - Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); Meal Ideas All / HA / NOT-HA (whether every linked recipe family has an HA version) plus occasion, region, and prep time (< 20 / ~30 / ~60 / >75 minutes); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search). Eat Out orders reference restaurant catalog ids (a franchise lists every location).
 - Filter panels start collapsed to search + Filter (Meal Ideas also List | Pics). The open/closed state lives in the app machine.
@@ -538,7 +539,7 @@ URL shapes:
 - Meal Ideas display (List View / Pictures View) persists locally.
 - No household first names in code or copy.
 
-## 15. Implementation order
+## 15. What v1 shipped
 
 1. App shell: nav, routing, theme, font size, responsive layout.
 2. Recipe data type (home vs eat-out), HA, health rating, related recipes.
@@ -547,5 +548,6 @@ URL shapes:
 5. Recipes grouping, filters, and search (home cooking only).
 6. Eat Out page for restaurant orders.
 7. Random with the same filters and “roll again.”
-8. Fill and convert recipes as the household cooks them.
-9. Pass for typography (especially dark-mode recipe reading) and mobile layout.
+8. Meal Ideas (list and pictures), Ingredients, and Restaurants catalogs with photos.
+9. Fill and convert recipes as the household cooks them.
+10. Pass for typography (especially dark-mode recipe reading) and mobile layout.
