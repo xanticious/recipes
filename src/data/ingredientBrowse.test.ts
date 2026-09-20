@@ -156,6 +156,7 @@ test("recipesUsingIngredient lists home recipes and skips eat-out", () => {
       healthRating: "healthy",
       eatOut: true,
       description: "Grilled nuggets.",
+      restaurantIds: ["blaze-pizza-farmington"],
     },
   ]);
   expect(recipesUsingIngredient("beef", index).map((recipe) => recipe.id)).toEqual(["chili"]);

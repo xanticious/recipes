@@ -4,12 +4,15 @@ import { useAppActor } from "../actors.tsx";
 import {
   CATALOG_IMAGE_PANEL,
   filterMealIdeas,
+  formatMealIdeaPrepMinutes,
   groupMealIdeas,
   MEAL_IDEA_DISPLAYS,
   MEAL_IDEA_DISPLAY_LABELS,
   MEAL_IDEA_OCCASION_FILTERS,
   MEAL_IDEA_OCCASION_FILTER_LABELS,
   MEAL_IDEA_OCCASION_LABELS,
+  MEAL_IDEA_PREP_TIME_FILTERS,
+  MEAL_IDEA_PREP_TIME_FILTER_LABELS,
   MEAL_IDEA_REGION_FILTERS,
   MEAL_IDEA_REGION_FILTER_LABELS,
   MEAL_IDEA_REGION_ABBREVS,
@@ -19,6 +22,7 @@ import {
   mealIdeaLookup,
   mealIdeaMatchesFilters,
   mealIdeaPinSize,
+  mealIdeaPrepMinutes,
   relatedMealIdeas,
   resolveMealIdeaRecipes,
   mealIdeas,
@@ -51,12 +55,15 @@ function scrollMealIdeaCardIntoView(card: HTMLElement) {
 export function MealIdeasPage() {
   const appActor = useAppActor();
   const browse = useSelector(appActor, (snapshot) => snapshot.context.mealIdeas);
-  const matches = filterMealIdeas(mealIdeas, browse);
+  const matches = filterMealIdeas(mealIdeas, browse, recipeById);
   const grouped = groupMealIdeas(matches);
   const pictures = browse.display === "pictures";
   const openIdea = browse.expandedId ? lookup.get(browse.expandedId) : undefined;
   const hasFilters =
-    browse.occasion !== "all" || browse.region !== "all" || browse.query.trim().length > 0;
+    browse.occasion !== "all" ||
+    browse.region !== "all" ||
+    browse.prepTime !== "all" ||
+    browse.query.trim().length > 0;
   const pendingScrollId = useRef<string | null>(null);
 
   useLayoutEffect(() => {
@@ -74,7 +81,7 @@ export function MealIdeasPage() {
     pendingScrollId.current = null;
     scrollMealIdeaCardIntoView(card);
     card.querySelector<HTMLButtonElement>("[aria-expanded='true']")?.focus({ preventScroll: true });
-  }, [browse.expandedId, browse.occasion, browse.region, browse.query, pictures]);
+  }, [browse.expandedId, browse.occasion, browse.region, browse.prepTime, browse.query, pictures]);
 
   useEffect(() => {
     if (!browse.expandedId) {
@@ -103,12 +110,26 @@ export function MealIdeasPage() {
       appActor.send({ type: "setMealIdeasRegion", region: "all" });
     }
     if (
+      browse.prepTime !== "all" &&
+      !mealIdeaMatchesFilters(
+        idea,
+        { occasion: "all", region: "all", prepTime: browse.prepTime, query: "" },
+        recipeById,
+      )
+    ) {
+      appActor.send({ type: "setMealIdeasPrepTime", prepTime: "all" });
+    }
+    if (
       browse.query.trim() &&
-      !mealIdeaMatchesFilters(idea, {
-        occasion: "all",
-        region: "all",
-        query: browse.query,
-      })
+      !mealIdeaMatchesFilters(
+        idea,
+        {
+          occasion: "all",
+          region: "all",
+          query: browse.query,
+        },
+        recipeById,
+      )
     ) {
       appActor.send({ type: "setMealIdeasQuery", query: "" });
     }
@@ -182,6 +203,25 @@ export function MealIdeasPage() {
         </fieldset>
 
         <fieldset className={styles.group}>
+          <legend>Prep Time</legend>
+          <div className={styles.chips}>
+            {MEAL_IDEA_PREP_TIME_FILTERS.map((prepTime) => (
+              <button
+                key={prepTime}
+                type="button"
+                className={styles.chip}
+                aria-pressed={browse.prepTime === prepTime}
+                onClick={() => {
+                  appActor.send({ type: "setMealIdeasPrepTime", prepTime });
+                }}
+              >
+                {MEAL_IDEA_PREP_TIME_FILTER_LABELS[prepTime]}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset className={styles.group}>
           <legend>Display</legend>
           <div className={styles.chips}>
             {MEAL_IDEA_DISPLAYS.map((display) => (
@@ -213,7 +253,9 @@ export function MealIdeasPage() {
       </div>
 
       {matches.length === 0 ? (
-        <p className={styles.empty}>Nothing matches. Loosen the occasion, region, or search.</p>
+        <p className={styles.empty}>
+          Nothing matches. Loosen the occasion, region, prep time, or search.
+        </p>
       ) : (
         <>
           <p className={styles.count}>
@@ -315,6 +357,20 @@ export function MealIdeasPage() {
   );
 }
 
+function MealIdeaPrepTime({ idea }: { idea: MealIdea }) {
+  const minutes = mealIdeaPrepMinutes(idea, recipeById);
+  return (
+    <section className={styles.block} aria-labelledby={`${idea.id}-prep`}>
+      <h3 id={`${idea.id}-prep`}>Prep time</h3>
+      <p className={styles.regions}>
+        {minutes === undefined
+          ? "Not sure yet — linked recipes are not in the book."
+          : formatMealIdeaPrepMinutes(minutes)}
+      </p>
+    </section>
+  );
+}
+
 function MealIdeaHaCheck({ show }: { show: boolean }) {
   if (!show) {
     return null;
@@ -393,6 +449,7 @@ function MealIdeaDetails({ idea, onRelated }: { idea: MealIdea; onRelated: (id: 
         <h3 id={`${idea.id}-description`}>Description</h3>
         <p className={styles.description}>{idea.description}</p>
       </section>
+      <MealIdeaPrepTime idea={idea} />
       <section className={styles.block} aria-labelledby={`${idea.id}-regions`}>
         <h3 id={`${idea.id}-regions`}>Common in</h3>
         <p className={styles.regions}>

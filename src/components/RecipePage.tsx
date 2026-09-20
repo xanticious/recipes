@@ -1,6 +1,8 @@
 import { useAppActor } from "../actors.tsx";
 import {
   CUISINE_LABELS,
+  duplicateRestaurantNames,
+  eatOutRestaurants,
   getIngredient,
   HA_FULL_LABEL,
   HA_LABEL,
@@ -13,10 +15,12 @@ import {
   recipes,
   recipeTotalMinutes,
   relatedRecipes,
+  restaurantDisplayName,
+  restaurants,
   type IngredientLine,
   type Recipe,
 } from "../data/index.ts";
-import { handleRouteClick, openRandomFromFilters } from "../navigation.ts";
+import { handleRouteClick, goOpenRestaurant, openRandomFromFilters } from "../navigation.ts";
 import { routeToHash } from "../routing.ts";
 import { MarkdownText } from "./MarkdownText.tsx";
 import { RecipeMarks } from "./RecipeMarks.tsx";
@@ -31,6 +35,8 @@ const FRACTIONS: Record<string, string> = {
   "0.67": "2/3",
   "0.75": "3/4",
 };
+
+const duplicateRestaurantNamesInCatalog = duplicateRestaurantNames(restaurants);
 
 function formatAmount(amount: number): string {
   const whole = Math.floor(amount);
@@ -139,6 +145,8 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
   const home = isHomeRecipe(recipe) ? recipe : null;
   const eatOut = isEatOutRecipe(recipe) ? recipe : null;
   const total = home ? recipeTotalMinutes(home) : null;
+  const duplicateNames = duplicateRestaurantNamesInCatalog;
+  const places = eatOut ? eatOutRestaurants(eatOut) : [];
 
   return (
     <article className={styles.page}>
@@ -203,20 +211,51 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
       </header>
 
       {eatOut ? (
-        <section className={styles.order} aria-labelledby="order-heading">
-          <h2 id="order-heading">The order</h2>
-          <p>
-            <MarkdownText text={eatOut.description} />
-          </p>
-          {eatOut.notes ? (
-            <div className={styles.notes}>
-              <h3>Notes</h3>
-              <p>
-                <MarkdownText text={eatOut.notes} />
-              </p>
-            </div>
+        <>
+          {places.length > 0 ? (
+            <section className={styles.restaurants} aria-labelledby="restaurants-heading">
+              <h2 id="restaurants-heading">{places.length === 1 ? "Restaurant" : "Restaurants"}</h2>
+              <ul>
+                {places.map((place) => (
+                  <li key={place.id}>
+                    <a
+                      href={routeToHash({ name: "restaurants" })}
+                      onClick={(event) => {
+                        if (
+                          event.metaKey ||
+                          event.ctrlKey ||
+                          event.shiftKey ||
+                          event.altKey ||
+                          event.button !== 0
+                        ) {
+                          return;
+                        }
+                        event.preventDefault();
+                        goOpenRestaurant(appActor, place.id);
+                      }}
+                    >
+                      {restaurantDisplayName(place, duplicateNames)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ) : null}
-        </section>
+          <section className={styles.order} aria-labelledby="order-heading">
+            <h2 id="order-heading">The order</h2>
+            <p>
+              <MarkdownText text={eatOut.description} />
+            </p>
+            {eatOut.notes ? (
+              <div className={styles.notes}>
+                <h3>Notes</h3>
+                <p>
+                  <MarkdownText text={eatOut.notes} />
+                </p>
+              </div>
+            ) : null}
+          </section>
+        </>
       ) : null}
 
       {home ? (

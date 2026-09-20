@@ -35,6 +35,11 @@ export function goOpenEatOut(appActor: AppActor): void {
   syncHash({ name: "eatOut" });
 }
 
+export function goOpenRestaurant(appActor: AppActor, id: string): void {
+  appActor.send({ type: "openRestaurant", id });
+  syncHash({ name: "restaurants" });
+}
+
 export function handleRouteClick(
   event: MouseEvent<HTMLAnchorElement>,
   appActor: AppActor,

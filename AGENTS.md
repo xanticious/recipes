@@ -39,6 +39,6 @@ Also available: `npm run dev` (Vite), `npm run build` (typecheck + static `dist/
 
 - **Comments:** use them sparingly. Prefer clear names and structure. Comment only when the _why_ is not obvious from the code.
 - **DRY:** extract shared logic. Do not duplicate filter rules or machine behavior.
-- **State:** all app state lives in xState machines / actors. Do not use `useState()` (or other React state hooks) for app state. React is for rendering and displaying actor snapshots and for sending events. Navigation, filters, theme, font size, Ingredients filters and details, Restaurants city filter and details, and Random belong in machines.
+- **State:** all app state lives in xState machines / actors. Do not use `useState()` (or other React state hooks) for app state. React is for rendering and displaying actor snapshots and for sending events. Navigation, filters, theme, font size, Ingredients filters and details, Restaurants city filter and details, Meal Ideas (including prep time), and Random belong in machines.
 - **Styling:** CSS modules only (`*.module.css`), colocated with the component. Theme and type-scale tokens go on `:root` / `html` (`data-theme`, `data-font-size`).
 - **Dependencies:** add open-source packages only when needed. License must be MIT or similarly permissive. No proprietary or copyleft-restrictive packages.

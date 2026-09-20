@@ -1,11 +1,14 @@
 import { expect, test } from "vitest";
 import {
   filterMealIdeas,
+  formatMealIdeaPrepMinutes,
   groupMealIdeas,
   isMealIdeaDisplay,
   mealIdeaHasHaRecipes,
   mealIdeaLookup,
   mealIdeaPinSize,
+  mealIdeaPrepMinutes,
+  mealIdeaPrepTimeBucket,
   mealIdeaRecipeFamily,
   relatedMealIdeas,
   resolveMealIdeaRecipes,
@@ -171,4 +174,58 @@ test("a meal idea has HA recipes when every linked family has an HA version", ()
     ),
   ).toBe(true);
   expect(mealIdeaHasHaRecipes({ ...mixed, recipes: undefined }, recipeById)).toBe(false);
+});
+
+test("prep time buckets split under 20, around 30, around 60, and over 75", () => {
+  expect(mealIdeaPrepTimeBucket(0)).toBe("under-20");
+  expect(mealIdeaPrepTimeBucket(19)).toBe("under-20");
+  expect(mealIdeaPrepTimeBucket(20)).toBe("around-30");
+  expect(mealIdeaPrepTimeBucket(44)).toBe("around-30");
+  expect(mealIdeaPrepTimeBucket(45)).toBe("around-60");
+  expect(mealIdeaPrepTimeBucket(75)).toBe("around-60");
+  expect(mealIdeaPrepTimeBucket(76)).toBe("over-75");
+  expect(formatMealIdeaPrepMinutes(1)).toBe("1 minute");
+  expect(formatMealIdeaPrepMinutes(30)).toBe("30 minutes");
+});
+
+test("prep time filter uses the slowest linked home-recipe family", () => {
+  const recipeById = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+  const cereal = mealIdeas.find((idea) => idea.id === "cereal-and-milk");
+  expect(cereal).toBeDefined();
+  expect(mealIdeaPrepMinutes(cereal as MealIdea, recipeById)).toBeLessThan(20);
+  expect(
+    filterMealIdeas(
+      mealIdeas,
+      { occasion: "all", region: "all", prepTime: "under-20", query: "" },
+      recipeById,
+    ).some((idea) => idea.id === "cereal-and-milk"),
+  ).toBe(true);
+
+  const empty: MealIdea = {
+    id: "water-only",
+    title: "Water",
+    occasion: "drinks",
+    description: "A glass of water with nothing else on the table for a test of empty recipes.",
+    regions: ["united-states"],
+    pairings: [],
+  };
+  expect(mealIdeaPrepMinutes(empty, recipeById)).toBe(0);
+
+  const missingOnly: MealIdea = {
+    id: "missing-only",
+    title: "Missing Plate",
+    occasion: "dinner",
+    description: "A test plate whose recipes are not in the book yet so prep time is unknown.",
+    regions: ["united-states"],
+    pairings: [],
+    recipes: [{ label: "Imaginary Roast" }],
+  };
+  expect(mealIdeaPrepMinutes(missingOnly, recipeById)).toBeUndefined();
+  expect(
+    filterMealIdeas(
+      [missingOnly],
+      { occasion: "all", region: "all", prepTime: "under-20", query: "" },
+      recipeById,
+    ),
+  ).toEqual([]);
 });
