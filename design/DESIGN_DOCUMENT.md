@@ -51,20 +51,22 @@ Do not put household first names in the product, the copy, or the code. The diet
 
 ## 6. Site map and navigation
 
-Every page shares a top bar.
+Every page shares a compact top bar: a hamburger button, **Family Recipes** (home), and the current section name. The hamburger opens a left overlay with the destinations below, plus font size and theme. Overlay, buttons, and toggles work with a mouse or a finger. The same chrome is used at every width.
 
-| Control          | Placement          | Behavior                                        |
-| ---------------- | ------------------ | ----------------------------------------------- |
-| Site name / Home | Left               | Goes to the landing page                        |
-| Recipes          | Center / nav links | Home-cooking recipe index                       |
-| Meal Ideas       | Center / nav links | Full plates (protein + sides + drink)           |
-| Eat Out          | Center / nav links | Restaurant and takeout orders                   |
-| Restaurants      | Center / nav links | Davis County restaurant catalog                 |
-| Ingredients      | Center / nav links | Ingredient catalog                              |
-| Guide            | Center / nav links | Single kitchen guide                            |
-| Random           | Center / nav links | Opens the random picker, then a matching recipe |
-| Font size        | Menu bar           | Small / Medium / Large                          |
-| Theme            | Top right          | Light / Dark toggle                             |
+| Control          | Placement                    | Behavior                                        |
+| ---------------- | ---------------------------- | ----------------------------------------------- |
+| Menu             | Top bar, left                | Opens or closes the left overlay                |
+| Site name / Home | Top bar, beside the menu     | Goes to the landing page                        |
+| Section name     | Top bar, after the site name | Current section (Home, Recipes, Meal Ideas, …)  |
+| Recipes          | Overlay                      | Home-cooking recipe index                       |
+| Meal Ideas       | Overlay                      | Full plates (protein + sides + drink)           |
+| Eat Out          | Overlay                      | Restaurant and takeout orders                   |
+| Restaurants      | Overlay                      | Davis County restaurant catalog                 |
+| Ingredients      | Overlay                      | Ingredient catalog                              |
+| Guide            | Overlay                      | Single kitchen guide                            |
+| Random           | Overlay                      | Opens the random picker, then a matching recipe |
+| Font size        | Overlay                      | Small / Medium / Large                          |
+| Theme            | Overlay                      | Light / Dark                                    |
 
 ### 6.1 Landing — “Family Recipes”
 
@@ -181,9 +183,11 @@ No photos in v1. No in-page ingredient substitution.
 
 Instructions and eat-out descriptions are rendered as formatted markdown: headings if needed, lists, emphasis, and enough vertical rhythm that the page is comfortable to cook (or order) from.
 
+**Focus mode** (home recipes and eat-out entries): a **Focus mode** button on the recipe page hides the top bar, tags, tag copy, meal/cuisine/health, prep/servings, Random again, and related recipes. What remains is the recipe name, ingredients and steps (or the order), and notes. While it is on, **Keep screen on** (Screen Wake Lock when the browser allows it; otherwise disabled) and **Exit Focus mode** stay on the page. Escape also exits. The mode does not persist across visits or when leaving the recipe. Keep screen on defaults to on and is stored on the device.
+
 ### 6.7 Random
 
-Available from the top bar on every page.
+Available from the overlay menu on every page.
 
 The reader may:
 
@@ -211,9 +215,9 @@ A catalog of **full plates**, not single recipes (`#/meal-ideas`). When planning
 
 **Primary grouping:** occasion — Breakfast, Lunch, Dinner, Snack, Dessert, Drinks.
 
-**Filters:** exclusive occasion (including All), exclusive **region** (including All), and name search. A plate can have several region tags. The region filter keeps plates tagged for that place. The list shows abbreviated region tags next to each plate name (US, CA, MX, BR, UK, IT, EU, CN, JP, KR, AU, NZ). Full names stay in the expanded Common in section.
+**Filters:** exclusive occasion (including All), exclusive **region** (including All), exclusive **House approval** All / HA / NOT-HA, and name search. A plate can have several region tags. The region filter keeps plates tagged for that place. HA keeps plates where every linked recipe family has an HA version in the book (the green checkmark). NOT-HA keeps the rest. The list shows abbreviated region tags next to each plate name (US, CA, MX, BR, UK, IT, EU, CN, JP, KR, AU, NZ). Full names stay in the expanded Common in section.
 
-**Display:** exclusive **List View** or **Pictures View**. List View is the name list; click a name to expand details on the page. Pictures View is a Pinterest-style photo board inside each occasion group, with the plate name under the image. Click a picture to open the same details in a panel. The last chosen display is stored locally on that device and used the next time Meal Ideas opens. A green checkmark next to the plate name means every linked recipe family has an HA version in the book (Steak and Potatoes when both steak and potatoes have HA recipes).
+**Display:** exclusive **List View** or **Pictures View**, chosen with a **List | Pics** toggle that stays in the collapsed filter bar. List View is the name list; click a name to expand details on the page. Pictures View is a Pinterest-style photo board inside each occasion group, with the plate name under the image. Click a picture to open the same details in a panel. The last chosen display is stored locally on that device and used the next time Meal Ideas opens. A green checkmark next to the plate name means every linked recipe family has an HA version in the book (Steak and Potatoes when both steak and potatoes have HA recipes).
 
 Click a plate name (list) or picture (pictures) to expand details:
 
@@ -437,21 +441,23 @@ The Ingredients page shows derived diet notes, not the raw flags:
 ### 10.1 Theme
 
 - Light mode and dark mode.
-- Toggle in the top right, on every page.
+- Toggle in the left overlay, on every page.
 - Persist the choice on the device.
 - Dark recipe text should read like a calm markdown preview.
 
 ### 10.2 Font size
 
-- Small / Medium / Large control in the menu bar.
+- Small / Medium / Large control in the left overlay.
 - Applies to the whole app, every page.
 - Persist on the device.
 - Medium is the default.
 
 ### 10.3 Responsive layout
 
-- Desktop: top bar in one row; Recipes and Eat Out can use a readable multi-column or grouped list; recipe page has a clear ingredients + steps layout (ingredients can sit beside steps when there is width).
-- Mobile: stacked nav or a compact menu; ingredients above steps; filters that do not steal the whole viewport permanently.
+- Desktop and mobile share one compact top bar (hamburger, Family Recipes, current section). The hamburger opens a left overlay with destinations, font size, and theme. Overlay and controls work with mouse and touch.
+- Recipes and Eat Out can use a readable multi-column or grouped list; recipe page has a clear ingredients + steps layout (ingredients can sit beside steps when there is width).
+- Mobile: ingredients above steps; filters that do not steal the whole viewport permanently.
+- **Filter bar:** Recipes, Eat Out, Meal Ideas, Ingredients, Restaurants, and Random start with filters collapsed. The collapsed row is a search box (when the page has one) and a Filter button. Meal Ideas also shows List | Pics on that row. Filter expands the rest of the chips. Applied filters keep the Filter button marked even when the panel is closed.
 - Touch targets on Random, filters, and toggles should be easy on a phone.
 
 ### 10.4 Recipe typography
@@ -479,15 +485,15 @@ Keep all five meal types visible. Prefer ingredients from a normal supermarket.
 
 This repo is a static **Vite + TypeScript** app with **xState**, **CSS modules**, Oxlint, Oxfmt, Vitest, and GitHub Pages.
 
-| Concern  | Approach                                                                                                                                    |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                              |
-| Routing  | Client-side hash routes                                                                                                                     |
-| State    | xState for navigation, theme/font preferences, Recipes/Eat Out filters, Ingredients browse, Restaurants city filter and details, and Random |
-| Data     | Typed TypeScript for recipes, the ingredient catalog, and the restaurant catalog                                                            |
-| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                             |
-| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                             |
-| Tests    | Filtering (eat-out, HA, cuisine), related-recipe links, random, restaurant grouping, and catalog integrity                                  |
+| Concern  | Approach                                                                                                                                                                            |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                                                                      |
+| Routing  | Client-side hash routes                                                                                                                                                             |
+| State    | xState for navigation, the nav overlay, recipe focus mode, theme/font/keep-screen-on preferences, catalog filters, Meal Ideas display, Random, and whether the filter panel is open |
+| Data     | Typed TypeScript for recipes, the ingredient catalog, and the restaurant catalog                                                                                                    |
+| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                                                                     |
+| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                                                                     |
+| Tests    | Filtering (eat-out, HA, cuisine), related-recipe links, random, restaurant grouping, and catalog integrity                                                                          |
 
 URL shapes:
 
@@ -521,9 +527,11 @@ URL shapes:
 - One diet tag: **HA** (House Approved). Recipes and ingredients use HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed. Confirmed tags are household yes/no. Unconfirmed ingredients are assumed from lactose, gluten, cheese, and FODMAP metadata. Unconfirmed home recipes are assumed from that ingredient list (worst ingredient wins); eat-out stays Unknown until confirmed. No dynamic substitutions.
 - Related recipes link classic and HA (or other siblings).
 - Health rating: healthy / moderately healthy / unhealthy, color-coded thermometer.
-- Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search).
-- Nav: Home, Recipes, Eat Out, Restaurants, Ingredients, Guide, Random, font size, theme.
-- Theme and type size apply site-wide and persist locally.
+- Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); Meal Ideas All / HA / NOT-HA (whether every linked recipe family has an HA version); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search).
+- Filter panels start collapsed to search + Filter (Meal Ideas also List | Pics). The open/closed state lives in the app machine.
+- Nav: compact bar (hamburger, Family Recipes, current section). Overlay: Home, Recipes, Meal Ideas, Eat Out, Restaurants, Ingredients, Guide, Random, font size, theme.
+- Theme, type size, and Keep screen on apply site-wide (Keep screen on is used in recipe Focus mode) and persist locally.
+- Recipe Focus mode hides chrome and catalog metadata on a recipe page; it does not persist across routes or visits.
 - Meal Ideas display (List View / Pictures View) persists locally.
 - No household first names in code or copy.
 

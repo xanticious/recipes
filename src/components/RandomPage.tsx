@@ -11,11 +11,18 @@ import {
   TERNARY_FILTERS,
 } from "../data/index.ts";
 import { openRandomFromFilters } from "../navigation.ts";
+import { CollapsibleFilters, FilterChip, FilterGroup } from "./CollapsibleFilters.tsx";
 import styles from "./RandomPage.module.css";
 
 export function RandomPage() {
   const appActor = useAppActor();
   const random = useSelector(appActor, (snapshot) => snapshot.context.random);
+  const filtersOpen = useSelector(appActor, (snapshot) => snapshot.context.filtersOpen);
+  const hasFilters =
+    random.mealType !== null ||
+    random.cuisine !== null ||
+    random.eatOut !== "all" ||
+    random.ha !== "all";
 
   return (
     <div className={styles.page}>
@@ -27,111 +34,100 @@ export function RandomPage() {
         </p>
       </header>
 
-      <fieldset className={styles.group}>
-        <legend>Meal type</legend>
-        <div className={styles.chips}>
+      <CollapsibleFilters
+        id="random-filters"
+        expanded={filtersOpen}
+        onToggle={() => {
+          appActor.send({ type: "toggleFilters" });
+        }}
+        hasFilters={hasFilters}
+        onClear={() => {
+          appActor.send({ type: "clearRandomFilters" });
+        }}
+        end={
           <button
             type="button"
-            className={styles.chip}
-            aria-pressed={random.mealType === null}
+            className={styles.roll}
+            onClick={() => {
+              openRandomFromFilters(appActor);
+            }}
+          >
+            Random
+          </button>
+        }
+      >
+        <FilterGroup legend="Meal type">
+          <FilterChip
+            pressed={random.mealType === null}
             onClick={() => {
               appActor.send({ type: "setRandomMealType", mealType: null });
             }}
           >
             Any
-          </button>
+          </FilterChip>
           {MEAL_TYPES.map((mealType) => (
-            <button
+            <FilterChip
               key={mealType}
-              type="button"
-              className={styles.chip}
-              aria-pressed={random.mealType === mealType}
+              pressed={random.mealType === mealType}
               onClick={() => {
                 appActor.send({ type: "setRandomMealType", mealType });
               }}
             >
               {MEAL_TYPE_LABELS[mealType]}
-            </button>
+            </FilterChip>
           ))}
-        </div>
-      </fieldset>
+        </FilterGroup>
 
-      <fieldset className={styles.group}>
-        <legend>Where</legend>
-        <div className={styles.chips}>
+        <FilterGroup legend="Where">
           {TERNARY_FILTERS.map((value) => (
-            <button
+            <FilterChip
               key={value}
-              type="button"
-              className={styles.chip}
-              aria-pressed={random.eatOut === value}
+              pressed={random.eatOut === value}
               onClick={() => {
                 appActor.send({ type: "setRandomEatOut", eatOut: value });
               }}
             >
               {EAT_OUT_FILTER_LABELS[value]}
-            </button>
+            </FilterChip>
           ))}
-        </div>
-      </fieldset>
+        </FilterGroup>
 
-      <fieldset className={styles.group}>
-        <legend>House approval</legend>
-        <div className={styles.chips}>
+        <FilterGroup legend="House approval">
           {HA_FILTERS.map((value) => (
-            <button
+            <FilterChip
               key={value}
-              type="button"
-              className={styles.chip}
-              aria-pressed={random.ha === value}
+              pressed={random.ha === value}
               onClick={() => {
                 appActor.send({ type: "setRandomHa", ha: value });
               }}
             >
               {HA_FILTER_LABELS[value]}
-            </button>
+            </FilterChip>
           ))}
-        </div>
-      </fieldset>
+        </FilterGroup>
 
-      <fieldset className={styles.group}>
-        <legend>Cuisine</legend>
-        <div className={styles.chips}>
-          <button
-            type="button"
-            className={styles.chip}
-            aria-pressed={random.cuisine === null}
+        <FilterGroup legend="Cuisine">
+          <FilterChip
+            pressed={random.cuisine === null}
             onClick={() => {
               appActor.send({ type: "setRandomCuisine", cuisine: null });
             }}
           >
             Any
-          </button>
+          </FilterChip>
           {CUISINES.map((cuisine) => (
-            <button
+            <FilterChip
               key={cuisine}
-              type="button"
-              className={styles.chip}
-              aria-pressed={random.cuisine === cuisine}
+              pressed={random.cuisine === cuisine}
               onClick={() => {
                 appActor.send({ type: "setRandomCuisine", cuisine });
               }}
             >
               {CUISINE_LABELS[cuisine]}
-            </button>
+            </FilterChip>
           ))}
-        </div>
-      </fieldset>
-
-      <button
-        type="button"
-        className={styles.roll}
-        onClick={() => {
-          openRandomFromFilters(appActor);
-        }}
-      >
-        Random
-      </button>
+        </FilterGroup>
+      </CollapsibleFilters>
 
       {random.noMatch ? (
         <p className={styles.miss} role="status">

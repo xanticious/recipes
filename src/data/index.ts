@@ -129,14 +129,18 @@ export {
   MEAL_IDEA_OCCASION_FILTER_LABELS,
   MEAL_IDEA_REGION_FILTERS,
   MEAL_IDEA_REGION_FILTER_LABELS,
+  MEAL_IDEA_HA_FILTERS,
+  MEAL_IDEA_HA_FILTER_LABELS,
   MEAL_IDEA_DISPLAYS,
   MEAL_IDEA_DISPLAY_LABELS,
+  MEAL_IDEA_DISPLAY_SHORT_LABELS,
   mealIdeaPinSize,
 } from "./mealIdeaBrowse.ts";
 export type {
   GroupedMealIdeas,
   MealIdeaDisplay,
   MealIdeaFilters,
+  MealIdeaHaFilter,
   MealIdeaOccasionFilter,
   MealIdeaRegionFilter,
   ResolvedMealIdeaRecipe,

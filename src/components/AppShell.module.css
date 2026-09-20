@@ -6,15 +6,71 @@
 
 .bar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 0.5rem 1rem;
-  padding: 0.65rem 1rem;
+  gap: 0.5rem 0.75rem;
+  padding: 0.4rem 0.85rem;
+  padding-left: max(0.65rem, env(safe-area-inset-left));
+  padding-right: max(0.85rem, env(safe-area-inset-right));
   border-bottom: 1px solid var(--border);
   background: var(--bg-raised);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 30;
+}
+
+.menuButton {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.menuButton:hover {
+  border-color: var(--accent-border);
+}
+
+.menuButton[aria-expanded="true"] {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 14px;
+}
+
+.menuIcon span {
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transform-origin: center;
+}
+
+.menuButton[aria-expanded="true"] .menuIcon span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menuButton[aria-expanded="true"] .menuIcon span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButton[aria-expanded="true"] .menuIcon span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .brand {
@@ -27,7 +83,9 @@
   min-height: 44px;
   display: inline-flex;
   align-items: center;
-  padding-inline: 0.25rem;
+  padding-inline: 0.15rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .brand:hover {
@@ -38,22 +96,76 @@
   color: var(--accent);
 }
 
+.section {
+  margin: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.overlay {
+  position: fixed;
+  top: var(--app-bar-height, 3.25rem);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+}
+
+.panel {
+  width: min(22rem, calc(100% - 2.75rem));
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-raised);
+  border-right: 1px solid var(--border);
+  padding: 0.75rem 0.75rem max(1rem, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  box-shadow: 6px 0 24px rgba(42, 33, 28, 0.12);
+}
+
+.scrim {
+  flex: 1 1 auto;
+  min-width: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(42, 33, 28, 0.4);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+html[data-theme="dark"] .scrim {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+html[data-theme="dark"] .panel {
+  box-shadow: 6px 0 24px rgba(0, 0, 0, 0.35);
+}
+
 .nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .navLink {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
   min-height: 44px;
   padding: 0.35rem 0.85rem;
-  border-radius: 999px;
+  border-radius: 10px;
   color: var(--text);
   text-decoration: none;
   border: 1px solid transparent;
+  touch-action: manipulation;
 }
 
 .navLink:hover {
@@ -67,15 +179,31 @@
   color: var(--text-h);
 }
 
-.fonts,
-.theme {
+.prefs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.prefGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.prefLabel {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
-}
-
-.theme {
-  margin-left: auto;
 }
 
 .chip {
@@ -89,6 +217,7 @@
   background: var(--bg);
   color: var(--text);
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .chip:hover {
@@ -116,12 +245,11 @@
   padding: 1.25rem 1rem 2rem;
 }
 
-@media (min-width: 800px) {
-  .bar {
-    flex-wrap: nowrap;
-    padding: 0.55rem 1.25rem;
-  }
+.mainFocus {
+  padding-top: 0.85rem;
+}
 
+@media (min-width: 800px) {
   .main {
     padding: 2.25rem 2rem 5rem;
   }
@@ -129,33 +257,8 @@
   .mainWide {
     padding: 1.5rem 1.25rem 2.5rem;
   }
-}
 
-@media (max-width: 799px) {
-  .bar {
-    display: grid;
-    grid-template-columns: 1fr auto;
-  }
-
-  .brand {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .theme {
-    grid-column: 2;
-    grid-row: 1;
-    margin-left: 0;
-    justify-self: end;
-  }
-
-  .nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-  }
-
-  .fonts {
-    grid-column: 1 / -1;
-    grid-row: 3;
+  .mainFocus {
+    padding-top: 1rem;
   }
 }

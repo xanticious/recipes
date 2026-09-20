@@ -13,9 +13,12 @@ export type MealIdeaOccasionFilter = "all" | MealIdeaOccasion;
 
 export type MealIdeaRegionFilter = "all" | MealIdeaRegion;
 
+export type MealIdeaHaFilter = "all" | "ha" | "not-ha";
+
 export type MealIdeaFilters = {
   occasion: MealIdeaOccasionFilter;
   region: MealIdeaRegionFilter;
+  ha: MealIdeaHaFilter;
   query: string;
 };
 
@@ -50,6 +53,14 @@ export const MEAL_IDEA_REGION_FILTER_LABELS: Record<MealIdeaRegionFilter, string
   ...MEAL_IDEA_REGION_LABELS,
 };
 
+export const MEAL_IDEA_HA_FILTERS: readonly MealIdeaHaFilter[] = ["all", "ha", "not-ha"];
+
+export const MEAL_IDEA_HA_FILTER_LABELS: Record<MealIdeaHaFilter, string> = {
+  all: "All",
+  ha: "HA",
+  "not-ha": "NOT-HA",
+};
+
 export const MEAL_IDEA_DISPLAYS = ["list", "pictures"] as const;
 
 export type MealIdeaDisplay = (typeof MEAL_IDEA_DISPLAYS)[number];
@@ -57,6 +68,11 @@ export type MealIdeaDisplay = (typeof MEAL_IDEA_DISPLAYS)[number];
 export const MEAL_IDEA_DISPLAY_LABELS: Record<MealIdeaDisplay, string> = {
   list: "List View",
   pictures: "Pictures View",
+};
+
+export const MEAL_IDEA_DISPLAY_SHORT_LABELS: Record<MealIdeaDisplay, string> = {
+  list: "List",
+  pictures: "Pics",
 };
 
 const MEAL_IDEA_PIN_SIZES = [
@@ -86,11 +102,23 @@ export function mealIdeaLookup(ideas: readonly MealIdea[]): ReadonlyMap<string, 
   return new Map(ideas.map((idea) => [idea.id, idea]));
 }
 
-export function mealIdeaMatchesFilters(idea: MealIdea, filters: MealIdeaFilters): boolean {
+const EMPTY_RECIPE_BY_ID: ReadonlyMap<string, Recipe> = new Map();
+
+export function mealIdeaMatchesFilters(
+  idea: MealIdea,
+  filters: MealIdeaFilters,
+  hasHaRecipes = false,
+): boolean {
   if (filters.occasion !== "all" && idea.occasion !== filters.occasion) {
     return false;
   }
   if (filters.region !== "all" && !idea.regions.includes(filters.region)) {
+    return false;
+  }
+  if (filters.ha === "ha" && !hasHaRecipes) {
+    return false;
+  }
+  if (filters.ha === "not-ha" && hasHaRecipes) {
     return false;
   }
   const query = filters.query.trim().toLowerCase();
@@ -111,8 +139,18 @@ export function mealIdeaMatchesFilters(idea: MealIdea, filters: MealIdeaFilters)
   return haystack.includes(query);
 }
 
-export function filterMealIdeas(ideas: readonly MealIdea[], filters: MealIdeaFilters): MealIdea[] {
-  return ideas.filter((idea) => mealIdeaMatchesFilters(idea, filters));
+export function filterMealIdeas(
+  ideas: readonly MealIdea[],
+  filters: MealIdeaFilters,
+  recipeById: ReadonlyMap<string, Recipe> = EMPTY_RECIPE_BY_ID,
+): MealIdea[] {
+  return ideas.filter((idea) =>
+    mealIdeaMatchesFilters(
+      idea,
+      filters,
+      filters.ha === "all" ? false : mealIdeaHasHaRecipes(idea, recipeById),
+    ),
+  );
 }
 
 export function groupMealIdeas(ideas: readonly MealIdea[]): GroupedMealIdeas[] {

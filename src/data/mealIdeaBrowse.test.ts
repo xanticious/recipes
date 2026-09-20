@@ -29,20 +29,31 @@ test("meal ideas are grouped in occasion order", () => {
 });
 
 test("occasion and name search filter the list", () => {
-  const dinners = filterMealIdeas(mealIdeas, { occasion: "dinner", region: "all", query: "" });
+  const dinners = filterMealIdeas(mealIdeas, {
+    occasion: "dinner",
+    region: "all",
+    ha: "all",
+    query: "",
+  });
   expect(dinners.every((idea) => idea.occasion === "dinner")).toBe(true);
   expect(dinners.some((idea) => idea.id === "pork-chops-plate")).toBe(true);
 
   const cereal = filterMealIdeas(mealIdeas, {
     occasion: "all",
     region: "all",
+    ha: "all",
     query: "almond milk",
   });
   expect(cereal.map((idea) => idea.id)).toContain("cereal-and-milk");
 });
 
 test("region filter keeps plates tagged for that region", () => {
-  const japan = filterMealIdeas(mealIdeas, { occasion: "all", region: "japan", query: "" });
+  const japan = filterMealIdeas(mealIdeas, {
+    occasion: "all",
+    region: "japan",
+    ha: "all",
+    query: "",
+  });
   expect(japan.some((idea) => idea.id === "japanese-rice-breakfast")).toBe(true);
   expect(japan.every((idea) => idea.regions.includes("japan"))).toBe(true);
 });
@@ -54,7 +65,12 @@ test("every region has a unique list abbreviation", () => {
 });
 
 test("name search matches region abbreviations", () => {
-  const japan = filterMealIdeas(mealIdeas, { occasion: "all", region: "all", query: "JP" });
+  const japan = filterMealIdeas(mealIdeas, {
+    occasion: "all",
+    region: "all",
+    ha: "all",
+    query: "JP",
+  });
   expect(japan.some((idea) => idea.id === "japanese-rice-breakfast")).toBe(true);
   expect(japan.every((idea) => idea.regions.includes("japan"))).toBe(true);
 });
@@ -112,6 +128,7 @@ test("name search matches descriptions", () => {
   const battleCreek = filterMealIdeas(mealIdeas, {
     occasion: "all",
     region: "all",
+    ha: "all",
     query: "Battle Creek",
   });
   expect(battleCreek.map((idea) => idea.id)).toContain("cereal-and-milk");
@@ -136,6 +153,27 @@ test("recipe family strips HA suffixes", () => {
   expect(mealIdeaRecipeFamily("Grilled Steak (HA)")).toBe("Grilled Steak");
   expect(mealIdeaRecipeFamily("Mashed Potatoes (Not-HA)")).toBe("Mashed Potatoes");
   expect(mealIdeaRecipeFamily("Roasted Green Beans")).toBe("Roasted Green Beans");
+});
+
+test("HA filter keeps plates with HA recipes and NOT-HA keeps the rest", () => {
+  const recipeById = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+  const ha = filterMealIdeas(
+    mealIdeas,
+    { occasion: "all", region: "all", ha: "ha", query: "" },
+    recipeById,
+  );
+  const notHa = filterMealIdeas(
+    mealIdeas,
+    { occasion: "all", region: "all", ha: "not-ha", query: "" },
+    recipeById,
+  );
+  expect(ha.some((idea) => idea.id === "steak-and-potatoes")).toBe(true);
+  expect(ha.some((idea) => idea.id === "breakfast-smoothie")).toBe(false);
+  expect(notHa.some((idea) => idea.id === "breakfast-smoothie")).toBe(true);
+  expect(notHa.some((idea) => idea.id === "steak-and-potatoes")).toBe(false);
+  expect(ha.length + notHa.length).toBe(mealIdeas.length);
+  expect(ha.every((idea) => mealIdeaHasHaRecipes(idea, recipeById))).toBe(true);
+  expect(notHa.every((idea) => !mealIdeaHasHaRecipes(idea, recipeById))).toBe(true);
 });
 
 test("a meal idea has HA recipes when every linked family has an HA version", () => {

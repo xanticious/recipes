@@ -2,7 +2,13 @@ import { useActorRef, useSelector } from "@xstate/react";
 import { createContext, useContext, useEffect, type ReactNode } from "react";
 import type { ActorRefFrom } from "xstate";
 import { appMachine } from "./machines/appMachine.ts";
-import { persistFontSize, persistTheme, prefsMachine } from "./machines/prefsMachine.ts";
+import {
+  persistFontSize,
+  persistKeepScreenAwake,
+  persistTheme,
+  prefsMachine,
+} from "./machines/prefsMachine.ts";
+import { canRequestScreenWakeLock } from "./wakeLock.ts";
 
 export type AppActor = ActorRefFrom<typeof appMachine>;
 export type PrefsActor = ActorRefFrom<typeof prefsMachine>;
@@ -20,6 +26,8 @@ export function AppActorsProvider({ children }: { children: ReactNode }) {
 
   const theme = useSelector(prefsActor, (snapshot) => snapshot.context.theme);
   const fontSize = useSelector(prefsActor, (snapshot) => snapshot.context.fontSize);
+  const keepScreenAwake = useSelector(prefsActor, (snapshot) => snapshot.context.keepScreenAwake);
+  const focusMode = useSelector(appActor, (snapshot) => snapshot.context.focusMode);
 
   useEffect(() => {
     persistTheme(theme);
@@ -32,6 +40,10 @@ export function AppActorsProvider({ children }: { children: ReactNode }) {
   }, [fontSize]);
 
   useEffect(() => {
+    persistKeepScreenAwake(keepScreenAwake);
+  }, [keepScreenAwake]);
+
+  useEffect(() => {
     const onHashChange = () => {
       appActor.send({ type: "hashChanged", hash: window.location.hash });
     };
@@ -40,6 +52,59 @@ export function AppActorsProvider({ children }: { children: ReactNode }) {
       window.removeEventListener("hashchange", onHashChange);
     };
   }, [appActor]);
+
+  useEffect(() => {
+    if (!focusMode || !keepScreenAwake || !canRequestScreenWakeLock()) {
+      appActor.send({ type: "setWakeLockHeld", held: false });
+      return;
+    }
+
+    let cancelled = false;
+    let sentinel: WakeLockSentinel | null = null;
+
+    const requestLock = async () => {
+      if (cancelled || document.visibilityState !== "visible") {
+        return;
+      }
+      try {
+        sentinel = await navigator.wakeLock.request("screen");
+        if (cancelled) {
+          await sentinel.release();
+          sentinel = null;
+          return;
+        }
+        sentinel.addEventListener("release", () => {
+          if (!cancelled) {
+            appActor.send({ type: "setWakeLockHeld", held: false });
+          }
+        });
+        appActor.send({ type: "setWakeLockHeld", held: true });
+      } catch {
+        sentinel = null;
+        if (!cancelled) {
+          appActor.send({ type: "setWakeLockHeld", held: false });
+        }
+      }
+    };
+
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") {
+        void requestLock();
+      }
+    };
+
+    void requestLock();
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      cancelled = true;
+      document.removeEventListener("visibilitychange", onVisibility);
+      if (sentinel) {
+        void sentinel.release();
+      }
+      appActor.send({ type: "setWakeLockHeld", held: false });
+    };
+  }, [appActor, focusMode, keepScreenAwake]);
 
   return (
     <AppActorsContext.Provider value={{ prefsActor, appActor }}>

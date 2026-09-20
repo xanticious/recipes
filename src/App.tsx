@@ -1,4 +1,5 @@
 import { useSelector } from "@xstate/react";
+import { useLayoutEffect } from "react";
 import { useAppActor } from "./actors.tsx";
 import { AppShell } from "./components/AppShell.tsx";
 import { EatOutPage } from "./components/EatOutPage.tsx";
@@ -11,11 +12,18 @@ import { MealIdeasPage } from "./components/MealIdeasPage.tsx";
 import { RandomPage } from "./components/RandomPage.tsx";
 import { RecipePage } from "./components/RecipePage.tsx";
 import { RestaurantsPage } from "./components/RestaurantsPage.tsx";
+import { scrollPageToTop } from "./navigation.ts";
+import { routeToHash } from "./routing.ts";
 import styles from "./app.module.css";
 
 export function App() {
   const appActor = useAppActor();
   const route = useSelector(appActor, (snapshot) => snapshot.context.route);
+  const hash = routeToHash(route);
+
+  useLayoutEffect(() => {
+    scrollPageToTop();
+  }, [hash]);
 
   return (
     <AppShell>

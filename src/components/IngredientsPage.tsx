@@ -27,6 +27,13 @@ import {
 } from "../data/index.ts";
 import { IngredientDetails } from "./IngredientDetails.tsx";
 import { IngredientPhoto } from "./IngredientPhoto.tsx";
+import {
+  CollapsibleFilters,
+  FilterChip,
+  FilterField,
+  FilterGroup,
+  FilterSelect,
+} from "./CollapsibleFilters.tsx";
 import styles from "./IngredientsPage.module.css";
 
 const usage = recipesByIngredientId(recipes);
@@ -34,6 +41,7 @@ const usage = recipesByIngredientId(recipes);
 export function IngredientsPage() {
   const appActor = useAppActor();
   const browse = useSelector(appActor, (snapshot) => snapshot.context.ingredients);
+  const filtersOpen = useSelector(appActor, (snapshot) => snapshot.context.filtersOpen);
   const matches = filterBrowsedIngredients(ingredients, {
     ha: browse.ha,
     query: browse.query,
@@ -77,13 +85,29 @@ export function IngredientsPage() {
         </p>
       </header>
 
-      <div className={styles.filters}>
-        <label className={styles.searchLabel}>
-          <span className={styles.searchCaption}>Category</span>
-          <select
-            className={styles.combobox}
+      <CollapsibleFilters
+        id="ingredients-filters"
+        search={{
+          value: browse.query,
+          placeholder: "Garlic, cheddar…",
+          ariaLabel: "Search ingredients by name",
+          onChange: (query) => {
+            appActor.send({ type: "setIngredientsQuery", query });
+          },
+        }}
+        expanded={filtersOpen}
+        onToggle={() => {
+          appActor.send({ type: "toggleFilters" });
+        }}
+        hasFilters={hasFilters}
+        onClear={() => {
+          appActor.send({ type: "clearIngredientsFilters" });
+        }}
+      >
+        <FilterField label="Category">
+          <FilterSelect
             value={browse.section ?? ""}
-            aria-label="Filter ingredients by category"
+            ariaLabel="Filter ingredients by category"
             onChange={(event) => {
               const value = event.target.value;
               appActor.send({
@@ -98,93 +122,55 @@ export function IngredientsPage() {
                 {INGREDIENT_SECTION_LABELS[section]}
               </option>
             ))}
-          </select>
-        </label>
+          </FilterSelect>
+        </FilterField>
 
-        <label className={styles.searchLabel}>
-          <span className={styles.searchCaption}>Search by name</span>
-          <input
-            className={styles.search}
-            type="search"
-            value={browse.query}
-            placeholder="Garlic, cheddar…"
-            aria-label="Search ingredients by name"
-            onChange={(event) => {
-              appActor.send({ type: "setIngredientsQuery", query: event.target.value });
-            }}
-          />
-        </label>
+        <FilterGroup legend="House approval">
+          {INGREDIENT_HA_FILTERS.map((value) => (
+            <FilterChip
+              key={value}
+              pressed={browse.ha === value}
+              onClick={() => {
+                appActor.send({ type: "setIngredientsHa", ha: value });
+              }}
+            >
+              {INGREDIENT_HA_FILTER_LABELS[value]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
 
-        <fieldset className={styles.group}>
-          <legend>House approval</legend>
-          <div className={styles.chips}>
-            {INGREDIENT_HA_FILTERS.map((value) => (
-              <button
-                key={value}
-                type="button"
-                className={styles.chip}
-                aria-pressed={browse.ha === value}
-                onClick={() => {
-                  appActor.send({ type: "setIngredientsHa", ha: value });
-                }}
-              >
-                {INGREDIENT_HA_FILTER_LABELS[value]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset className={styles.group}>
-          <legend>FODMAP level</legend>
-          <div className={styles.chips}>
-            {FODMAP_BROWSE_LEVELS.map((level) => (
-              <button
-                key={level}
-                type="button"
-                className={styles.chip}
-                aria-pressed={browse.level === level}
-                onClick={() => {
-                  appActor.send({ type: "setIngredientsFodmapLevel", level });
-                }}
-              >
-                {FODMAP_BROWSE_LEVEL_LABELS[level]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
+        <FilterGroup legend="FODMAP level">
+          {FODMAP_BROWSE_LEVELS.map((level) => (
+            <FilterChip
+              key={level}
+              pressed={browse.level === level}
+              onClick={() => {
+                appActor.send({ type: "setIngredientsFodmapLevel", level });
+              }}
+            >
+              {FODMAP_BROWSE_LEVEL_LABELS[level]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
 
         {showTypes ? (
-          <fieldset className={styles.group}>
-            <legend>{browse.level === "medium" ? "Medium Fodmap type" : "High Fodmap type"}</legend>
-            <div className={styles.chips}>
-              {FODMAP_BROWSE_TYPES.map((fodmapType) => (
-                <button
-                  key={fodmapType}
-                  type="button"
-                  className={styles.chip}
-                  aria-pressed={browse.type === fodmapType}
-                  onClick={() => {
-                    appActor.send({ type: "setIngredientsFodmapType", fodmapType });
-                  }}
-                >
-                  {FODMAP_BROWSE_TYPE_LABELS[fodmapType]}
-                </button>
-              ))}
-            </div>
-          </fieldset>
+          <FilterGroup
+            legend={browse.level === "medium" ? "Medium Fodmap type" : "High Fodmap type"}
+          >
+            {FODMAP_BROWSE_TYPES.map((fodmapType) => (
+              <FilterChip
+                key={fodmapType}
+                pressed={browse.type === fodmapType}
+                onClick={() => {
+                  appActor.send({ type: "setIngredientsFodmapType", fodmapType });
+                }}
+              >
+                {FODMAP_BROWSE_TYPE_LABELS[fodmapType]}
+              </FilterChip>
+            ))}
+          </FilterGroup>
         ) : null}
-
-        <button
-          type="button"
-          className={styles.clear}
-          disabled={!hasFilters}
-          onClick={() => {
-            appActor.send({ type: "clearIngredientsFilters" });
-          }}
-        >
-          Clear filters
-        </button>
-      </div>
+      </CollapsibleFilters>
 
       {matches.length === 0 ? (
         <p className={styles.empty} role="status">

@@ -8,6 +8,13 @@ import { routeToHash, type Route } from "./routing.ts";
 
 export type AppActor = ActorRefFrom<typeof appMachine>;
 
+export function scrollPageToTop(): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+  window.scrollTo(0, 0);
+}
+
 export function syncHash(route: Route): void {
   const hash = routeToHash(route);
   if (window.location.hash !== hash) {

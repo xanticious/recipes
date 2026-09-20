@@ -8,6 +8,7 @@ import type { IngredientSection } from "../data/ingredientBrowse.ts";
 import {
   isMealIdeaDisplay,
   type MealIdeaDisplay,
+  type MealIdeaHaFilter,
   type MealIdeaOccasionFilter,
   type MealIdeaRegionFilter,
 } from "../data/mealIdeaBrowse.ts";
@@ -57,6 +58,7 @@ export type RestaurantsBrowse = {
 export type MealIdeasBrowse = {
   occasion: MealIdeaOccasionFilter;
   region: MealIdeaRegionFilter;
+  ha: MealIdeaHaFilter;
   query: string;
   display: MealIdeaDisplay;
   expandedId: string | null;
@@ -74,6 +76,10 @@ export type IngredientCategorizer = {
 
 export type AppContext = {
   route: Route;
+  filtersOpen: boolean;
+  navOpen: boolean;
+  focusMode: boolean;
+  wakeLockHeld: boolean;
   explore: CatalogFilters;
   eatOutCatalog: CatalogFilters;
   random: RandomFilters;
@@ -86,6 +92,12 @@ export type AppContext = {
 export type AppEvent =
   | { type: "navigate"; route: Route }
   | { type: "hashChanged"; hash: string }
+  | { type: "toggleNav" }
+  | { type: "closeNav" }
+  | { type: "enterFocusMode" }
+  | { type: "exitFocusMode" }
+  | { type: "setWakeLockHeld"; held: boolean }
+  | { type: "toggleFilters" }
   | { type: "openExplore"; mealType?: MealType }
   | { type: "openEatOut" }
   | { type: "setExploreQuery"; query: string }
@@ -102,6 +114,7 @@ export type AppEvent =
   | { type: "setRandomCuisine"; cuisine: Cuisine | null }
   | { type: "setRandomEatOut"; eatOut: TernaryFilter }
   | { type: "setRandomHa"; ha: HaFilter }
+  | { type: "clearRandomFilters" }
   | { type: "randomMiss" }
   | { type: "openRandomRecipe"; id: string }
   | { type: "setIngredientsHa"; ha: IngredientHaFilter }
@@ -118,6 +131,7 @@ export type AppEvent =
   | { type: "openMealIdeas"; occasion?: MealIdeaOccasionFilter; region?: MealIdeaRegionFilter }
   | { type: "setMealIdeasOccasion"; occasion: MealIdeaOccasionFilter }
   | { type: "setMealIdeasRegion"; region: MealIdeaRegionFilter }
+  | { type: "setMealIdeasHa"; ha: MealIdeaHaFilter }
   | { type: "setMealIdeasQuery"; query: string }
   | { type: "setMealIdeasDisplay"; display: MealIdeaDisplay }
   | { type: "toggleMealIdea"; id: string }
@@ -185,6 +199,7 @@ export function persistMealIdeasDisplay(display: MealIdeaDisplay): void {
 const emptyMealIdeas: MealIdeasBrowse = {
   occasion: "all",
   region: "all",
+  ha: "all",
   query: "",
   display: "list",
   expandedId: null,
@@ -195,6 +210,19 @@ function mealIdeasForRoute(mealIdeas: MealIdeasBrowse, route: Route): MealIdeasB
     return mealIdeas;
   }
   return { ...mealIdeas, expandedId: null };
+}
+
+function chromeForRoute(
+  context: AppContext,
+  route: Route,
+): Pick<AppContext, "route" | "navOpen" | "focusMode" | "wakeLockHeld" | "mealIdeas"> {
+  return {
+    route,
+    navOpen: false,
+    focusMode: false,
+    wakeLockHeld: false,
+    mealIdeas: mealIdeasForRoute(context.mealIdeas, route),
+  };
 }
 
 const emptyCategorizer: IngredientCategorizer = {
@@ -225,6 +253,10 @@ export const appMachine = setup({
   id: "app",
   context: ({ input }) => ({
     route: input?.route ?? parseHash(currentHash()),
+    filtersOpen: false,
+    navOpen: false,
+    focusMode: false,
+    wakeLockHeld: false,
     explore: emptyCatalog,
     eatOutCatalog: emptyCatalog,
     random: emptyRandom,
@@ -238,35 +270,60 @@ export const appMachine = setup({
   }),
   on: {
     navigate: {
-      actions: assign(({ context, event }) => ({
-        route: event.route,
-        mealIdeas: mealIdeasForRoute(context.mealIdeas, event.route),
-      })),
+      actions: assign(({ context, event }) => chromeForRoute(context, event.route)),
     },
     hashChanged: {
       guard: ({ context, event }) => !routesEqual(context.route, parseHash(event.hash)),
-      actions: assign(({ context, event }) => {
-        const route = parseHash(event.hash);
-        return {
-          route,
-          mealIdeas: mealIdeasForRoute(context.mealIdeas, route),
-        };
+      actions: assign(({ context, event }) => chromeForRoute(context, parseHash(event.hash))),
+    },
+    toggleNav: {
+      guard: ({ context }) => !context.focusMode,
+      actions: assign({
+        navOpen: ({ context }) => !context.navOpen,
+      }),
+    },
+    closeNav: {
+      actions: assign({
+        navOpen: false,
+      }),
+    },
+    enterFocusMode: {
+      guard: ({ context }) => context.route.name === "recipe" && !context.focusMode,
+      actions: assign({
+        focusMode: true,
+        navOpen: false,
+      }),
+    },
+    exitFocusMode: {
+      actions: assign({
+        focusMode: false,
+        wakeLockHeld: false,
+      }),
+    },
+    setWakeLockHeld: {
+      actions: assign({
+        wakeLockHeld: ({ event }) => event.held,
+      }),
+    },
+    toggleFilters: {
+      actions: assign({
+        filtersOpen: ({ context }) => !context.filtersOpen,
       }),
     },
     openExplore: {
-      actions: assign({
-        route: { name: "explore" },
-        explore: ({ event }) => ({
+      actions: assign(({ context, event }) => ({
+        ...chromeForRoute(context, { name: "explore" }),
+        explore: {
           ...emptyCatalog,
           mealTypes: event.mealType ? [event.mealType] : [],
-        }),
-      }),
+        },
+      })),
     },
     openEatOut: {
-      actions: assign({
-        route: { name: "eatOut" },
+      actions: assign(({ context }) => ({
+        ...chromeForRoute(context, { name: "eatOut" }),
         eatOutCatalog: emptyCatalog,
-      }),
+      })),
     },
     setExploreQuery: {
       actions: assign({
@@ -366,20 +423,28 @@ export const appMachine = setup({
         }),
       }),
     },
+    clearRandomFilters: {
+      actions: assign({
+        random: ({ context }) => ({
+          ...emptyRandom,
+          lastRecipeId: context.random.lastRecipeId,
+        }),
+      }),
+    },
     randomMiss: {
       actions: assign({
         random: ({ context }) => ({ ...context.random, noMatch: true }),
       }),
     },
     openRandomRecipe: {
-      actions: assign({
-        route: ({ event }) => ({ name: "recipe", id: event.id, fromRandom: true }),
-        random: ({ context, event }) => ({
+      actions: assign(({ context, event }) => ({
+        ...chromeForRoute(context, { name: "recipe", id: event.id, fromRandom: true }),
+        random: {
           ...context.random,
           lastRecipeId: event.id,
           noMatch: false,
-        }),
-      }),
+        },
+      })),
     },
     setIngredientsHa: {
       actions: assign({
@@ -464,15 +529,15 @@ export const appMachine = setup({
       }),
     },
     openMealIdeas: {
-      actions: assign({
-        route: { name: "mealIdeas" },
-        mealIdeas: ({ context, event }) => ({
+      actions: assign(({ context, event }) => ({
+        ...chromeForRoute(context, { name: "mealIdeas" }),
+        mealIdeas: {
           ...emptyMealIdeas,
           display: context.mealIdeas.display,
           occasion: event.occasion ?? "all",
           region: event.region ?? "all",
-        }),
-      }),
+        },
+      })),
     },
     setMealIdeasOccasion: {
       actions: assign({
@@ -488,6 +553,15 @@ export const appMachine = setup({
         mealIdeas: ({ context, event }) => ({
           ...context.mealIdeas,
           region: event.region,
+          expandedId: null,
+        }),
+      }),
+    },
+    setMealIdeasHa: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          ha: event.ha,
           expandedId: null,
         }),
       }),
