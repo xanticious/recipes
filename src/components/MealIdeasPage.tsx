@@ -4,6 +4,7 @@ import { useAppActor } from "../actors.tsx";
 import {
   CATALOG_IMAGE_PANEL,
   filterMealIdeas,
+  formatMealIdeaPrepMinutes,
   groupMealIdeas,
   MEAL_IDEA_DISPLAYS,
   MEAL_IDEA_DISPLAY_LABELS,
@@ -13,6 +14,8 @@ import {
   MEAL_IDEA_OCCASION_FILTERS,
   MEAL_IDEA_OCCASION_FILTER_LABELS,
   MEAL_IDEA_OCCASION_LABELS,
+  MEAL_IDEA_PREP_TIME_FILTERS,
+  MEAL_IDEA_PREP_TIME_FILTER_LABELS,
   MEAL_IDEA_REGION_FILTERS,
   MEAL_IDEA_REGION_FILTER_LABELS,
   MEAL_IDEA_REGION_ABBREVS,
@@ -22,6 +25,7 @@ import {
   mealIdeaLookup,
   mealIdeaMatchesFilters,
   mealIdeaPinSize,
+  mealIdeaPrepMinutes,
   relatedMealIdeas,
   resolveMealIdeaRecipes,
   mealIdeas,
@@ -69,6 +73,7 @@ export function MealIdeasPage() {
     browse.occasion !== "all" ||
     browse.region !== "all" ||
     browse.ha !== "all" ||
+    browse.prepTime !== "all" ||
     browse.query.trim().length > 0;
   const pendingScrollId = useRef<string | null>(null);
 
@@ -87,7 +92,15 @@ export function MealIdeasPage() {
     pendingScrollId.current = null;
     scrollMealIdeaCardIntoView(card);
     card.querySelector<HTMLButtonElement>("[aria-expanded='true']")?.focus({ preventScroll: true });
-  }, [browse.expandedId, browse.occasion, browse.region, browse.ha, browse.query, pictures]);
+  }, [
+    browse.expandedId,
+    browse.occasion,
+    browse.region,
+    browse.ha,
+    browse.prepTime,
+    browse.query,
+    pictures,
+  ]);
 
   useEffect(() => {
     if (!browse.expandedId) {
@@ -122,6 +135,16 @@ export function MealIdeasPage() {
       appActor.send({ type: "setMealIdeasHa", ha: "all" });
     }
     if (
+      browse.prepTime !== "all" &&
+      !mealIdeaMatchesFilters(
+        idea,
+        { occasion: "all", region: "all", ha: "all", prepTime: browse.prepTime, query: "" },
+        recipeById,
+      )
+    ) {
+      appActor.send({ type: "setMealIdeasPrepTime", prepTime: "all" });
+    }
+    if (
       browse.query.trim() &&
       !mealIdeaMatchesFilters(
         idea,
@@ -129,9 +152,10 @@ export function MealIdeasPage() {
           occasion: "all",
           region: "all",
           ha: "all",
+          prepTime: "all",
           query: browse.query,
         },
-        mealIdeasWithHaRecipes.has(idea.id),
+        recipeById,
       )
     ) {
       appActor.send({ type: "setMealIdeasQuery", query: "" });
@@ -226,11 +250,25 @@ export function MealIdeasPage() {
             </FilterChip>
           ))}
         </FilterGroup>
+
+        <FilterGroup legend="Prep Time">
+          {MEAL_IDEA_PREP_TIME_FILTERS.map((prepTime) => (
+            <FilterChip
+              key={prepTime}
+              pressed={browse.prepTime === prepTime}
+              onClick={() => {
+                appActor.send({ type: "setMealIdeasPrepTime", prepTime });
+              }}
+            >
+              {MEAL_IDEA_PREP_TIME_FILTER_LABELS[prepTime]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
       </CollapsibleFilters>
 
       {matches.length === 0 ? (
         <p className={styles.empty}>
-          Nothing matches. Loosen the occasion, region, House approval, or search.
+          Nothing matches. Loosen the occasion, region, House approval, prep time, or search.
         </p>
       ) : (
         <>
@@ -333,6 +371,20 @@ export function MealIdeasPage() {
   );
 }
 
+function MealIdeaPrepTime({ idea }: { idea: MealIdea }) {
+  const minutes = mealIdeaPrepMinutes(idea, recipeById);
+  return (
+    <section className={styles.block} aria-labelledby={`${idea.id}-prep`}>
+      <h3 id={`${idea.id}-prep`}>Prep time</h3>
+      <p className={styles.regions}>
+        {minutes === undefined
+          ? "Not sure yet — linked recipes are not in the book."
+          : formatMealIdeaPrepMinutes(minutes)}
+      </p>
+    </section>
+  );
+}
+
 function MealIdeaHaCheck({ show }: { show: boolean }) {
   if (!show) {
     return null;
@@ -411,6 +463,7 @@ function MealIdeaDetails({ idea, onRelated }: { idea: MealIdea; onRelated: (id: 
         <h3 id={`${idea.id}-description`}>Description</h3>
         <p className={styles.description}>{idea.description}</p>
       </section>
+      <MealIdeaPrepTime idea={idea} />
       <section className={styles.block} aria-labelledby={`${idea.id}-regions`}>
         <h3 id={`${idea.id}-regions`}>Common in</h3>
         <p className={styles.regions}>

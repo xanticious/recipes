@@ -10,6 +10,7 @@ import {
   type MealIdeaDisplay,
   type MealIdeaHaFilter,
   type MealIdeaOccasionFilter,
+  type MealIdeaPrepTimeFilter,
   type MealIdeaRegionFilter,
 } from "../data/mealIdeaBrowse.ts";
 import type { RestaurantCityFilter } from "../data/restaurantBrowse.ts";
@@ -59,6 +60,7 @@ export type MealIdeasBrowse = {
   occasion: MealIdeaOccasionFilter;
   region: MealIdeaRegionFilter;
   ha: MealIdeaHaFilter;
+  prepTime: MealIdeaPrepTimeFilter;
   query: string;
   display: MealIdeaDisplay;
   expandedId: string | null;
@@ -128,10 +130,12 @@ export type AppEvent =
   | { type: "setRestaurantCity"; city: RestaurantCityFilter }
   | { type: "toggleRestaurant"; id: string }
   | { type: "closeRestaurant" }
+  | { type: "openRestaurant"; id: string }
   | { type: "openMealIdeas"; occasion?: MealIdeaOccasionFilter; region?: MealIdeaRegionFilter }
   | { type: "setMealIdeasOccasion"; occasion: MealIdeaOccasionFilter }
   | { type: "setMealIdeasRegion"; region: MealIdeaRegionFilter }
   | { type: "setMealIdeasHa"; ha: MealIdeaHaFilter }
+  | { type: "setMealIdeasPrepTime"; prepTime: MealIdeaPrepTimeFilter }
   | { type: "setMealIdeasQuery"; query: string }
   | { type: "setMealIdeasDisplay"; display: MealIdeaDisplay }
   | { type: "toggleMealIdea"; id: string }
@@ -200,6 +204,7 @@ const emptyMealIdeas: MealIdeasBrowse = {
   occasion: "all",
   region: "all",
   ha: "all",
+  prepTime: "all",
   query: "",
   display: "list",
   expandedId: null,
@@ -528,6 +533,15 @@ export const appMachine = setup({
         }),
       }),
     },
+    openRestaurant: {
+      actions: assign({
+        route: { name: "restaurants" },
+        restaurants: ({ event }) => ({
+          city: "all",
+          expandedId: event.id,
+        }),
+      }),
+    },
     openMealIdeas: {
       actions: assign(({ context, event }) => ({
         ...chromeForRoute(context, { name: "mealIdeas" }),
@@ -562,6 +576,15 @@ export const appMachine = setup({
         mealIdeas: ({ context, event }) => ({
           ...context.mealIdeas,
           ha: event.ha,
+          expandedId: null,
+        }),
+      }),
+    },
+    setMealIdeasPrepTime: {
+      actions: assign({
+        mealIdeas: ({ context, event }) => ({
+          ...context.mealIdeas,
+          prepTime: event.prepTime,
           expandedId: null,
         }),
       }),

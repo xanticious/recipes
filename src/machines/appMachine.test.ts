@@ -243,6 +243,18 @@ test("restaurant city filter resets details, and cards toggle and close", () => 
   actor.stop();
 });
 
+test("openRestaurant opens the restaurants page on that location", () => {
+  const actor = startApp();
+  actor.send({ type: "setRestaurantCity", city: "layton" });
+  actor.send({ type: "openRestaurant", id: "blaze-pizza-farmington" });
+  expect(actor.getSnapshot().context.route).toEqual({ name: "restaurants" });
+  expect(actor.getSnapshot().context.restaurants).toEqual({
+    city: "all",
+    expandedId: "blaze-pizza-farmington",
+  });
+  actor.stop();
+});
+
 test("meal ideas occasion filter resets the open card, and cards toggle and close", () => {
   const actor = startApp();
   expect(actor.getSnapshot().context.filtersOpen).toBe(false);
@@ -250,6 +262,7 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
     occasion: "all",
     region: "all",
     ha: "all",
+    prepTime: "all",
     query: "",
     display: "list",
     expandedId: null,
@@ -264,6 +277,7 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
     occasion: "breakfast",
     region: "all",
     ha: "all",
+    prepTime: "all",
     query: "",
     display: "list",
     expandedId: null,
@@ -277,6 +291,18 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
     occasion: "breakfast",
     region: "japan",
     ha: "all",
+    prepTime: "all",
+    query: "",
+    display: "list",
+    expandedId: null,
+  });
+  actor.send({ type: "openMealIdea", id: "oatmeal-bowl" });
+  actor.send({ type: "setMealIdeasPrepTime", prepTime: "under-20" });
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "breakfast",
+    region: "japan",
+    ha: "all",
+    prepTime: "under-20",
     query: "",
     display: "list",
     expandedId: null,
@@ -324,6 +350,7 @@ test("meal ideas display toggle is independent of filters", () => {
     occasion: "all",
     region: "all",
     ha: "all",
+    prepTime: "all",
     query: "",
     display: "pictures",
     expandedId: "pork-chops-plate",
@@ -333,6 +360,7 @@ test("meal ideas display toggle is independent of filters", () => {
     occasion: "breakfast",
     region: "all",
     ha: "all",
+    prepTime: "all",
     query: "",
     display: "pictures",
     expandedId: null,

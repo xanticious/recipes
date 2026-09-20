@@ -22,3 +22,11 @@ export const restaurantLookup = new Map(restaurants.map((item) => [item.id, item
 export function getRestaurant(id: string): Restaurant | undefined {
   return restaurantLookup.get(id);
 }
+
+/** Every catalog location for this brand, including names like "Chick-fil-A (Antelope)". */
+export function restaurantIdsByName(name: string): string[] {
+  return restaurants
+    .filter((item) => item.name === name || item.name.startsWith(`${name} (`))
+    .toSorted((a, b) => a.city.localeCompare(b.city) || a.name.localeCompare(b.name))
+    .map((item) => item.id);
+}

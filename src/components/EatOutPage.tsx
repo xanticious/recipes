@@ -10,11 +10,11 @@ export function EatOutPage() {
   return (
     <RecipeIndex
       title="Eat Out"
-      lede="The restaurant and takeout orders we actually get."
+      lede="The restaurant and takeout orders we actually get, tied to places in the Restaurants catalog."
       catalog={recipes}
       filters={eatOutCatalog}
       eatOut="yes"
-      searchPlaceholder="Nuggets, pizza…"
+      searchPlaceholder="Pad Thai, pizza, Noodles…"
       onQuery={(query) => {
         appActor.send({ type: "setEatOutQuery", query });
       }}
