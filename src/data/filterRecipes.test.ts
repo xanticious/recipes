@@ -30,6 +30,7 @@ function eatOut(
     ha: "ha-confirmed",
     healthRating: "healthy",
     eatOut: true,
+    restaurantIds: ["blaze-pizza-farmington"],
     ...partial,
   };
 }
@@ -95,6 +96,20 @@ test("meal type and cuisine filters combine", () => {
 test("name search is case-insensitive", () => {
   const matches = filterRecipes(all, { query: "blue" });
   expect(matches.map((item) => item.id)).toEqual(["oats"]);
+});
+
+test("eat-out search matches restaurant names", () => {
+  const named = eatOut({
+    id: "pad-thai",
+    title: "Pad Thai, with Shrimp, no green onions (HA)",
+    description: "Pad Thai with shrimp.",
+    restaurantIds: ["noodles-and-company-farmington", "noodles-and-company-layton"],
+  });
+  expect(filterRecipes([named], { query: "noodles" }).map((item) => item.id)).toEqual(["pad-thai"]);
+  expect(filterRecipes([named], { query: "farmington" }).map((item) => item.id)).toEqual([
+    "pad-thai",
+  ]);
+  expect(filterRecipes([named], { query: "chipotle" })).toEqual([]);
 });
 
 test("empty filters return every recipe", () => {

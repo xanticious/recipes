@@ -4,12 +4,18 @@ import { useAppActor } from "../actors.tsx";
 import {
   CATALOG_IMAGE_PANEL,
   filterMealIdeas,
+  formatMealIdeaPrepMinutes,
   groupMealIdeas,
   MEAL_IDEA_DISPLAYS,
   MEAL_IDEA_DISPLAY_LABELS,
+  MEAL_IDEA_DISPLAY_SHORT_LABELS,
+  MEAL_IDEA_HA_FILTERS,
+  MEAL_IDEA_HA_FILTER_LABELS,
   MEAL_IDEA_OCCASION_FILTERS,
   MEAL_IDEA_OCCASION_FILTER_LABELS,
   MEAL_IDEA_OCCASION_LABELS,
+  MEAL_IDEA_PREP_TIME_FILTERS,
+  MEAL_IDEA_PREP_TIME_FILTER_LABELS,
   MEAL_IDEA_REGION_FILTERS,
   MEAL_IDEA_REGION_FILTER_LABELS,
   MEAL_IDEA_REGION_ABBREVS,
@@ -19,12 +25,19 @@ import {
   mealIdeaLookup,
   mealIdeaMatchesFilters,
   mealIdeaPinSize,
+  mealIdeaPrepMinutes,
   relatedMealIdeas,
   resolveMealIdeaRecipes,
   mealIdeas,
   recipes,
   type MealIdea,
 } from "../data/index.ts";
+import {
+  CollapsibleFilters,
+  FilterChip,
+  FilterGroup,
+  FilterSegmentedToggle,
+} from "./CollapsibleFilters.tsx";
 import { MealIdeaPhoto } from "./MealIdeaPhoto.tsx";
 import { handleRouteClick } from "../navigation.ts";
 import { routeToHash } from "../routing.ts";
@@ -51,12 +64,17 @@ function scrollMealIdeaCardIntoView(card: HTMLElement) {
 export function MealIdeasPage() {
   const appActor = useAppActor();
   const browse = useSelector(appActor, (snapshot) => snapshot.context.mealIdeas);
-  const matches = filterMealIdeas(mealIdeas, browse);
+  const filtersOpen = useSelector(appActor, (snapshot) => snapshot.context.filtersOpen);
+  const matches = filterMealIdeas(mealIdeas, browse, recipeById);
   const grouped = groupMealIdeas(matches);
   const pictures = browse.display === "pictures";
   const openIdea = browse.expandedId ? lookup.get(browse.expandedId) : undefined;
   const hasFilters =
-    browse.occasion !== "all" || browse.region !== "all" || browse.query.trim().length > 0;
+    browse.occasion !== "all" ||
+    browse.region !== "all" ||
+    browse.ha !== "all" ||
+    browse.prepTime !== "all" ||
+    browse.query.trim().length > 0;
   const pendingScrollId = useRef<string | null>(null);
 
   useLayoutEffect(() => {
@@ -74,7 +92,15 @@ export function MealIdeasPage() {
     pendingScrollId.current = null;
     scrollMealIdeaCardIntoView(card);
     card.querySelector<HTMLButtonElement>("[aria-expanded='true']")?.focus({ preventScroll: true });
-  }, [browse.expandedId, browse.occasion, browse.region, browse.query, pictures]);
+  }, [
+    browse.expandedId,
+    browse.occasion,
+    browse.region,
+    browse.ha,
+    browse.prepTime,
+    browse.query,
+    pictures,
+  ]);
 
   useEffect(() => {
     if (!browse.expandedId) {
@@ -102,13 +128,35 @@ export function MealIdeasPage() {
     if (browse.region !== "all" && !idea.regions.includes(browse.region)) {
       appActor.send({ type: "setMealIdeasRegion", region: "all" });
     }
+    if (browse.ha === "ha" && !mealIdeasWithHaRecipes.has(idea.id)) {
+      appActor.send({ type: "setMealIdeasHa", ha: "all" });
+    }
+    if (browse.ha === "not-ha" && mealIdeasWithHaRecipes.has(idea.id)) {
+      appActor.send({ type: "setMealIdeasHa", ha: "all" });
+    }
+    if (
+      browse.prepTime !== "all" &&
+      !mealIdeaMatchesFilters(
+        idea,
+        { occasion: "all", region: "all", ha: "all", prepTime: browse.prepTime, query: "" },
+        recipeById,
+      )
+    ) {
+      appActor.send({ type: "setMealIdeasPrepTime", prepTime: "all" });
+    }
     if (
       browse.query.trim() &&
-      !mealIdeaMatchesFilters(idea, {
-        occasion: "all",
-        region: "all",
-        query: browse.query,
-      })
+      !mealIdeaMatchesFilters(
+        idea,
+        {
+          occasion: "all",
+          region: "all",
+          ha: "all",
+          prepTime: "all",
+          query: browse.query,
+        },
+        recipeById,
+      )
     ) {
       appActor.send({ type: "setMealIdeasQuery", query: "" });
     }
@@ -128,92 +176,100 @@ export function MealIdeasPage() {
         </p>
       </header>
 
-      <div className={styles.filters}>
-        <label className={styles.searchLabel}>
-          <span className={styles.searchCaption}>Search by name</span>
-          <input
-            className={styles.search}
-            type="search"
-            value={browse.query}
-            placeholder="Pork chops, cereal, taco…"
-            aria-label="Search meal ideas by name"
-            onChange={(event) => {
-              appActor.send({ type: "setMealIdeasQuery", query: event.target.value });
+      <CollapsibleFilters
+        id="meal-ideas-filters"
+        search={{
+          value: browse.query,
+          placeholder: "Pork chops, cereal, taco…",
+          ariaLabel: "Search meal ideas by name",
+          onChange: (query) => {
+            appActor.send({ type: "setMealIdeasQuery", query });
+          },
+        }}
+        toolbar={
+          <FilterSegmentedToggle
+            value={browse.display}
+            options={MEAL_IDEA_DISPLAYS.map((display) => ({
+              value: display,
+              label: MEAL_IDEA_DISPLAY_SHORT_LABELS[display],
+              name: MEAL_IDEA_DISPLAY_LABELS[display],
+            }))}
+            ariaLabel="Display"
+            onChange={(display) => {
+              appActor.send({ type: "setMealIdeasDisplay", display });
             }}
           />
-        </label>
+        }
+        expanded={filtersOpen}
+        onToggle={() => {
+          appActor.send({ type: "toggleFilters" });
+        }}
+        hasFilters={hasFilters}
+        onClear={() => {
+          appActor.send({ type: "clearMealIdeasFilters" });
+        }}
+      >
+        <FilterGroup legend="Occasion">
+          {MEAL_IDEA_OCCASION_FILTERS.map((occasion) => (
+            <FilterChip
+              key={occasion}
+              pressed={browse.occasion === occasion}
+              onClick={() => {
+                appActor.send({ type: "setMealIdeasOccasion", occasion });
+              }}
+            >
+              {MEAL_IDEA_OCCASION_FILTER_LABELS[occasion]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
 
-        <fieldset className={styles.group}>
-          <legend>Occasion</legend>
-          <div className={styles.chips}>
-            {MEAL_IDEA_OCCASION_FILTERS.map((occasion) => (
-              <button
-                key={occasion}
-                type="button"
-                className={styles.chip}
-                aria-pressed={browse.occasion === occasion}
-                onClick={() => {
-                  appActor.send({ type: "setMealIdeasOccasion", occasion });
-                }}
-              >
-                {MEAL_IDEA_OCCASION_FILTER_LABELS[occasion]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
+        <FilterGroup legend="Region">
+          {MEAL_IDEA_REGION_FILTERS.map((region) => (
+            <FilterChip
+              key={region}
+              pressed={browse.region === region}
+              onClick={() => {
+                appActor.send({ type: "setMealIdeasRegion", region });
+              }}
+            >
+              {MEAL_IDEA_REGION_FILTER_LABELS[region]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
 
-        <fieldset className={styles.group}>
-          <legend>Region</legend>
-          <div className={styles.chips}>
-            {MEAL_IDEA_REGION_FILTERS.map((region) => (
-              <button
-                key={region}
-                type="button"
-                className={styles.chip}
-                aria-pressed={browse.region === region}
-                onClick={() => {
-                  appActor.send({ type: "setMealIdeasRegion", region });
-                }}
-              >
-                {MEAL_IDEA_REGION_FILTER_LABELS[region]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
+        <FilterGroup legend="House approval">
+          {MEAL_IDEA_HA_FILTERS.map((value) => (
+            <FilterChip
+              key={value}
+              pressed={browse.ha === value}
+              onClick={() => {
+                appActor.send({ type: "setMealIdeasHa", ha: value });
+              }}
+            >
+              {MEAL_IDEA_HA_FILTER_LABELS[value]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
 
-        <fieldset className={styles.group}>
-          <legend>Display</legend>
-          <div className={styles.chips}>
-            {MEAL_IDEA_DISPLAYS.map((display) => (
-              <button
-                key={display}
-                type="button"
-                className={styles.chip}
-                aria-pressed={browse.display === display}
-                onClick={() => {
-                  appActor.send({ type: "setMealIdeasDisplay", display });
-                }}
-              >
-                {MEAL_IDEA_DISPLAY_LABELS[display]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <button
-          type="button"
-          className={styles.clear}
-          disabled={!hasFilters}
-          onClick={() => {
-            appActor.send({ type: "clearMealIdeasFilters" });
-          }}
-        >
-          Clear filters
-        </button>
-      </div>
+        <FilterGroup legend="Prep Time">
+          {MEAL_IDEA_PREP_TIME_FILTERS.map((prepTime) => (
+            <FilterChip
+              key={prepTime}
+              pressed={browse.prepTime === prepTime}
+              onClick={() => {
+                appActor.send({ type: "setMealIdeasPrepTime", prepTime });
+              }}
+            >
+              {MEAL_IDEA_PREP_TIME_FILTER_LABELS[prepTime]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
+      </CollapsibleFilters>
 
       {matches.length === 0 ? (
-        <p className={styles.empty}>Nothing matches. Loosen the occasion, region, or search.</p>
+        <p className={styles.empty}>
+          Nothing matches. Loosen the occasion, region, House approval, prep time, or search.
+        </p>
       ) : (
         <>
           <p className={styles.count}>
@@ -315,6 +371,20 @@ export function MealIdeasPage() {
   );
 }
 
+function MealIdeaPrepTime({ idea }: { idea: MealIdea }) {
+  const minutes = mealIdeaPrepMinutes(idea, recipeById);
+  return (
+    <section className={styles.block} aria-labelledby={`${idea.id}-prep`}>
+      <h3 id={`${idea.id}-prep`}>Prep time</h3>
+      <p className={styles.regions}>
+        {minutes === undefined
+          ? "Not sure yet — linked recipes are not in the book."
+          : formatMealIdeaPrepMinutes(minutes)}
+      </p>
+    </section>
+  );
+}
+
 function MealIdeaHaCheck({ show }: { show: boolean }) {
   if (!show) {
     return null;
@@ -393,6 +463,7 @@ function MealIdeaDetails({ idea, onRelated }: { idea: MealIdea; onRelated: (id: 
         <h3 id={`${idea.id}-description`}>Description</h3>
         <p className={styles.description}>{idea.description}</p>
       </section>
+      <MealIdeaPrepTime idea={idea} />
       <section className={styles.block} aria-labelledby={`${idea.id}-regions`}>
         <h3 id={`${idea.id}-regions`}>Common in</h3>
         <p className={styles.regions}>

@@ -15,6 +15,7 @@ import {
 } from "../data/index.ts";
 import { RestaurantDetails } from "./RestaurantDetails.tsx";
 import { RestaurantPhoto } from "./RestaurantPhoto.tsx";
+import { CollapsibleFilters, FilterChip, FilterGroup } from "./CollapsibleFilters.tsx";
 import styles from "./RestaurantsPage.module.css";
 
 const CITY_FILTERS = ["all", ...RESTAURANT_CITIES] as const;
@@ -22,6 +23,7 @@ const CITY_FILTERS = ["all", ...RESTAURANT_CITIES] as const;
 export function RestaurantsPage() {
   const appActor = useAppActor();
   const browse = useSelector(appActor, (snapshot) => snapshot.context.restaurants);
+  const filtersOpen = useSelector(appActor, (snapshot) => snapshot.context.filtersOpen);
   const matches = filterRestaurants(restaurants, { city: browse.city });
   const grouped = groupRestaurants(matches);
   const duplicateNames = duplicateRestaurantNames(restaurants);
@@ -29,6 +31,7 @@ export function RestaurantsPage() {
   const openRestaurantName = openRestaurant
     ? restaurantDisplayName(openRestaurant, duplicateNames)
     : undefined;
+  const hasFilters = browse.city !== "all";
 
   useEffect(() => {
     if (!browse.expandedId) {
@@ -55,26 +58,31 @@ export function RestaurantsPage() {
         </p>
       </header>
 
-      <div className={styles.filters}>
-        <fieldset className={styles.group}>
-          <legend>City</legend>
-          <div className={styles.chips}>
-            {CITY_FILTERS.map((city) => (
-              <button
-                key={city}
-                type="button"
-                className={styles.chip}
-                aria-pressed={browse.city === city}
-                onClick={() => {
-                  appActor.send({ type: "setRestaurantCity", city });
-                }}
-              >
-                {city === "all" ? "All" : RESTAURANT_CITY_LABELS[city]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-      </div>
+      <CollapsibleFilters
+        id="restaurants-filters"
+        expanded={filtersOpen}
+        onToggle={() => {
+          appActor.send({ type: "toggleFilters" });
+        }}
+        hasFilters={hasFilters}
+        onClear={() => {
+          appActor.send({ type: "setRestaurantCity", city: "all" });
+        }}
+      >
+        <FilterGroup legend="City">
+          {CITY_FILTERS.map((city) => (
+            <FilterChip
+              key={city}
+              pressed={browse.city === city}
+              onClick={() => {
+                appActor.send({ type: "setRestaurantCity", city });
+              }}
+            >
+              {city === "all" ? "All" : RESTAURANT_CITY_LABELS[city]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
+      </CollapsibleFilters>
 
       {matches.length === 0 ? (
         <p className={styles.empty} role="status">

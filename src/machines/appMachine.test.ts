@@ -243,11 +243,26 @@ test("restaurant city filter resets details, and cards toggle and close", () => 
   actor.stop();
 });
 
+test("openRestaurant opens the restaurants page on that location", () => {
+  const actor = startApp();
+  actor.send({ type: "setRestaurantCity", city: "layton" });
+  actor.send({ type: "openRestaurant", id: "blaze-pizza-farmington" });
+  expect(actor.getSnapshot().context.route).toEqual({ name: "restaurants" });
+  expect(actor.getSnapshot().context.restaurants).toEqual({
+    city: "all",
+    expandedId: "blaze-pizza-farmington",
+  });
+  actor.stop();
+});
+
 test("meal ideas occasion filter resets the open card, and cards toggle and close", () => {
   const actor = startApp();
+  expect(actor.getSnapshot().context.filtersOpen).toBe(false);
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "all",
     region: "all",
+    ha: "all",
+    prepTime: "all",
     query: "",
     display: "list",
     expandedId: null,
@@ -261,6 +276,8 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "breakfast",
     region: "all",
+    ha: "all",
+    prepTime: "all",
     query: "",
     display: "list",
     expandedId: null,
@@ -273,6 +290,19 @@ test("meal ideas occasion filter resets the open card, and cards toggle and clos
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "breakfast",
     region: "japan",
+    ha: "all",
+    prepTime: "all",
+    query: "",
+    display: "list",
+    expandedId: null,
+  });
+  actor.send({ type: "openMealIdea", id: "oatmeal-bowl" });
+  actor.send({ type: "setMealIdeasPrepTime", prepTime: "under-20" });
+  expect(actor.getSnapshot().context.mealIdeas).toEqual({
+    occasion: "breakfast",
+    region: "japan",
+    ha: "all",
+    prepTime: "under-20",
     query: "",
     display: "list",
     expandedId: null,
@@ -319,6 +349,8 @@ test("meal ideas display toggle is independent of filters", () => {
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "all",
     region: "all",
+    ha: "all",
+    prepTime: "all",
     query: "",
     display: "pictures",
     expandedId: "pork-chops-plate",
@@ -327,6 +359,8 @@ test("meal ideas display toggle is independent of filters", () => {
   expect(actor.getSnapshot().context.mealIdeas).toEqual({
     occasion: "breakfast",
     region: "all",
+    ha: "all",
+    prepTime: "all",
     query: "",
     display: "pictures",
     expandedId: null,
@@ -349,6 +383,48 @@ test("meal ideas display reads the last choice from local storage", () => {
   expect(readStoredMealIdeasDisplay()).toBe("list");
 });
 
+test("meal ideas HA filter is exclusive and resets the open card", () => {
+  const actor = startApp();
+  actor.send({ type: "toggleMealIdea", id: "pork-chops-plate" });
+  actor.send({ type: "setMealIdeasHa", ha: "ha" });
+  expect(actor.getSnapshot().context.mealIdeas.ha).toBe("ha");
+  expect(actor.getSnapshot().context.mealIdeas.expandedId).toBeNull();
+  actor.send({ type: "setMealIdeasHa", ha: "not-ha" });
+  expect(actor.getSnapshot().context.mealIdeas.ha).toBe("not-ha");
+  actor.send({ type: "clearMealIdeasFilters" });
+  expect(actor.getSnapshot().context.mealIdeas.ha).toBe("all");
+  actor.stop();
+});
+
+test("clearRandomFilters resets chips and keeps the last recipe", () => {
+  const actor = startApp();
+  actor.send({ type: "setRandomMealType", mealType: "dinner" });
+  actor.send({ type: "setRandomCuisine", cuisine: "american" });
+  actor.send({ type: "setRandomEatOut", eatOut: "no" });
+  actor.send({ type: "setRandomHa", ha: "ha-confirmed" });
+  actor.send({ type: "openRandomRecipe", id: "chili" });
+  actor.send({ type: "clearRandomFilters" });
+  expect(actor.getSnapshot().context.random).toEqual({
+    mealType: null,
+    cuisine: null,
+    eatOut: "all",
+    ha: "all",
+    lastRecipeId: "chili",
+    noMatch: false,
+  });
+  actor.stop();
+});
+
+test("the filter panel starts collapsed and toggles", () => {
+  const actor = startApp();
+  expect(actor.getSnapshot().context.filtersOpen).toBe(false);
+  actor.send({ type: "toggleFilters" });
+  expect(actor.getSnapshot().context.filtersOpen).toBe(true);
+  actor.send({ type: "toggleFilters" });
+  expect(actor.getSnapshot().context.filtersOpen).toBe(false);
+  actor.stop();
+});
+
 test("randomMiss keeps filters and flags the empty result", () => {
   const actor = startApp();
   actor.send({ type: "setRandomMealType", mealType: "dessert" });
@@ -357,5 +433,68 @@ test("randomMiss keeps filters and flags the empty result", () => {
   expect(actor.getSnapshot().context.random.mealType).toBe("dessert");
   expect(actor.getSnapshot().context.random.ha).toBe("ha-confirmed");
   expect(actor.getSnapshot().context.random.noMatch).toBe(true);
+  actor.stop();
+});
+
+test("the nav overlay toggles and closes", () => {
+  const actor = startApp();
+  expect(actor.getSnapshot().context.navOpen).toBe(false);
+  actor.send({ type: "toggleNav" });
+  expect(actor.getSnapshot().context.navOpen).toBe(true);
+  actor.send({ type: "toggleNav" });
+  expect(actor.getSnapshot().context.navOpen).toBe(false);
+  actor.send({ type: "toggleNav" });
+  actor.send({ type: "closeNav" });
+  expect(actor.getSnapshot().context.navOpen).toBe(false);
+  actor.stop();
+});
+
+test("navigating closes the menu and leaves focus mode", () => {
+  const actor = startApp();
+  actor.send({ type: "toggleNav" });
+  expect(actor.getSnapshot().context.navOpen).toBe(true);
+  actor.send({
+    type: "navigate",
+    route: { name: "recipe", id: "chili", fromRandom: false },
+  });
+  expect(actor.getSnapshot().context.navOpen).toBe(false);
+  actor.send({ type: "enterFocusMode" });
+  expect(actor.getSnapshot().context.focusMode).toBe(true);
+  actor.send({ type: "toggleNav" });
+  expect(actor.getSnapshot().context.navOpen).toBe(false);
+  actor.send({ type: "navigate", route: { name: "explore" } });
+  expect(actor.getSnapshot().context.focusMode).toBe(false);
+  actor.stop();
+});
+
+test("focus mode is only for recipe pages", () => {
+  const actor = startApp();
+  actor.send({ type: "enterFocusMode" });
+  expect(actor.getSnapshot().context.focusMode).toBe(false);
+  actor.send({
+    type: "navigate",
+    route: { name: "recipe", id: "chili", fromRandom: false },
+  });
+  actor.send({ type: "enterFocusMode" });
+  expect(actor.getSnapshot().context.focusMode).toBe(true);
+  actor.send({ type: "setWakeLockHeld", held: true });
+  expect(actor.getSnapshot().context.wakeLockHeld).toBe(true);
+  actor.send({ type: "exitFocusMode" });
+  expect(actor.getSnapshot().context.focusMode).toBe(false);
+  expect(actor.getSnapshot().context.wakeLockHeld).toBe(false);
+  actor.stop();
+});
+
+test("hash changes close the overlay and focus mode", () => {
+  const actor = startApp();
+  actor.send({
+    type: "navigate",
+    route: { name: "recipe", id: "chili", fromRandom: false },
+  });
+  actor.send({ type: "enterFocusMode" });
+  actor.send({ type: "hashChanged", hash: "#/recipes" });
+  expect(actor.getSnapshot().context.route).toEqual({ name: "explore" });
+  expect(actor.getSnapshot().context.focusMode).toBe(false);
+  expect(actor.getSnapshot().context.navOpen).toBe(false);
   actor.stop();
 });

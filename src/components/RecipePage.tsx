@@ -1,6 +1,9 @@
-import { useAppActor } from "../actors.tsx";
+import { useSelector } from "@xstate/react";
+import { useAppActor, usePrefsActor } from "../actors.tsx";
 import {
   CUISINE_LABELS,
+  duplicateRestaurantNames,
+  eatOutRestaurants,
   getIngredient,
   HA_FULL_LABEL,
   HA_LABEL,
@@ -13,11 +16,14 @@ import {
   recipes,
   recipeTotalMinutes,
   relatedRecipes,
+  restaurantDisplayName,
+  restaurants,
   type IngredientLine,
   type Recipe,
 } from "../data/index.ts";
-import { handleRouteClick, openRandomFromFilters } from "../navigation.ts";
+import { handleRouteClick, goOpenRestaurant, openRandomFromFilters } from "../navigation.ts";
 import { routeToHash } from "../routing.ts";
+import { canRequestScreenWakeLock } from "../wakeLock.ts";
 import { MarkdownText } from "./MarkdownText.tsx";
 import { RecipeMarks } from "./RecipeMarks.tsx";
 import styles from "./RecipePage.module.css";
@@ -31,6 +37,8 @@ const FRACTIONS: Record<string, string> = {
   "0.67": "2/3",
   "0.75": "3/4",
 };
+
+const duplicateRestaurantNamesInCatalog = duplicateRestaurantNames(restaurants);
 
 function formatAmount(amount: number): string {
   const whole = Math.floor(amount);
@@ -130,7 +138,11 @@ function RelatedRecipes({ recipe }: { recipe: Recipe }) {
 
 export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean }) {
   const appActor = useAppActor();
+  const prefsActor = usePrefsActor();
+  const focusMode = useSelector(appActor, (snapshot) => snapshot.context.focusMode);
+  const keepScreenAwake = useSelector(prefsActor, (snapshot) => snapshot.context.keepScreenAwake);
   const recipe = recipes.find((item) => item.id === id);
+  const wakeLockAvailable = canRequestScreenWakeLock();
 
   if (!recipe) {
     return <RecipeNotFound />;
@@ -139,10 +151,45 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
   const home = isHomeRecipe(recipe) ? recipe : null;
   const eatOut = isEatOutRecipe(recipe) ? recipe : null;
   const total = home ? recipeTotalMinutes(home) : null;
+  const duplicateNames = duplicateRestaurantNamesInCatalog;
+  const places = eatOut ? eatOutRestaurants(eatOut) : [];
 
   return (
-    <article className={styles.page}>
-      {fromRandom ? (
+    <article className={styles.page} data-focus-mode={focusMode ? "true" : undefined}>
+      {focusMode ? (
+        <div className={styles.focusBar}>
+          <button
+            type="button"
+            className={styles.focusControl}
+            aria-pressed={keepScreenAwake}
+            aria-label={
+              wakeLockAvailable ? "Keep screen on" : "Keep screen on, unavailable on this device"
+            }
+            data-active={keepScreenAwake ? "true" : undefined}
+            disabled={!wakeLockAvailable}
+            onClick={() => {
+              prefsActor.send({
+                type: "setKeepScreenAwake",
+                keepScreenAwake: !keepScreenAwake,
+              });
+            }}
+          >
+            Keep screen on
+            {keepScreenAwake ? <span className={styles.appliedMark} aria-hidden="true" /> : null}
+          </button>
+          <button
+            type="button"
+            className={styles.focusControl}
+            onClick={() => {
+              appActor.send({ type: "exitFocusMode" });
+            }}
+          >
+            Exit Focus mode
+          </button>
+        </div>
+      ) : null}
+
+      {fromRandom && !focusMode ? (
         <p className={styles.randomBar}>
           <button
             type="button"
@@ -165,22 +212,39 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
             </abbr>
           ) : null}
         </h1>
-        {recipe.specialOccasion ? <p className={styles.occasion}>Special occasion</p> : null}
+        {focusMode ? null : (
+          <button
+            type="button"
+            className={styles.focusEnter}
+            onClick={() => {
+              appActor.send({ type: "enterFocusMode" });
+            }}
+          >
+            Focus mode
+          </button>
+        )}
+        {focusMode || !recipe.specialOccasion ? null : (
+          <p className={styles.occasion}>Special occasion</p>
+        )}
 
-        <div className={styles.marks}>
-          <RecipeMarks recipe={recipe} />
-        </div>
-        {recipe.ha !== "ha-confirmed" ? (
+        {focusMode ? null : (
+          <div className={styles.marks}>
+            <RecipeMarks recipe={recipe} />
+          </div>
+        )}
+        {focusMode || recipe.ha === "ha-confirmed" ? null : (
           <p className={styles.haNote}>
             {RECIPE_HA_TAG_TITLES[recipe.ha]}. {HA_LABEL} means {HA_FULL_LABEL}.
           </p>
-        ) : null}
+        )}
 
-        <p className={styles.meta}>
-          {MEAL_TYPE_LABELS[recipe.mealType]} · {CUISINE_LABELS[recipe.cuisine]} ·{" "}
-          {HEALTH_RATING_LABELS[recipe.healthRating]}
-        </p>
-        {home && total !== null ? (
+        {focusMode ? null : (
+          <p className={styles.meta}>
+            {MEAL_TYPE_LABELS[recipe.mealType]} · {CUISINE_LABELS[recipe.cuisine]} ·{" "}
+            {HEALTH_RATING_LABELS[recipe.healthRating]}
+          </p>
+        )}
+        {focusMode || !home || total === null ? null : (
           <dl className={styles.times}>
             <div>
               <dt>Prep</dt>
@@ -199,24 +263,55 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
               <dd>{home.servings}</dd>
             </div>
           </dl>
-        ) : null}
+        )}
       </header>
 
       {eatOut ? (
-        <section className={styles.order} aria-labelledby="order-heading">
-          <h2 id="order-heading">The order</h2>
-          <p>
-            <MarkdownText text={eatOut.description} />
-          </p>
-          {eatOut.notes ? (
-            <div className={styles.notes}>
-              <h3>Notes</h3>
-              <p>
-                <MarkdownText text={eatOut.notes} />
-              </p>
-            </div>
+        <>
+          {places.length > 0 ? (
+            <section className={styles.restaurants} aria-labelledby="restaurants-heading">
+              <h2 id="restaurants-heading">{places.length === 1 ? "Restaurant" : "Restaurants"}</h2>
+              <ul>
+                {places.map((place) => (
+                  <li key={place.id}>
+                    <a
+                      href={routeToHash({ name: "restaurants" })}
+                      onClick={(event) => {
+                        if (
+                          event.metaKey ||
+                          event.ctrlKey ||
+                          event.shiftKey ||
+                          event.altKey ||
+                          event.button !== 0
+                        ) {
+                          return;
+                        }
+                        event.preventDefault();
+                        goOpenRestaurant(appActor, place.id);
+                      }}
+                    >
+                      {restaurantDisplayName(place, duplicateNames)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           ) : null}
-        </section>
+          <section className={styles.order} aria-labelledby="order-heading">
+            <h2 id="order-heading">The order</h2>
+            <p>
+              <MarkdownText text={eatOut.description} />
+            </p>
+            {eatOut.notes ? (
+              <div className={styles.notes}>
+                <h3>Notes</h3>
+                <p>
+                  <MarkdownText text={eatOut.notes} />
+                </p>
+              </div>
+            ) : null}
+          </section>
+        </>
       ) : null}
 
       {home ? (
@@ -250,7 +345,7 @@ export function RecipePage({ id, fromRandom }: { id: string; fromRandom: boolean
         </div>
       ) : null}
 
-      <RelatedRecipes recipe={recipe} />
+      {focusMode ? null : <RelatedRecipes recipe={recipe} />}
     </article>
   );
 }

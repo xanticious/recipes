@@ -1,11 +1,14 @@
+import { useSelector } from "@xstate/react";
 import { useAppActor } from "../actors.tsx";
 import {
   CUISINES,
   CUISINE_LABELS,
+  eatOutRestaurantBrands,
   filterRecipes,
   groupRecipes,
   HA_FILTER_LABELS,
   HA_FILTERS,
+  isEatOutRecipe,
   MEAL_TYPES,
   MEAL_TYPE_LABELS,
   type Cuisine,
@@ -16,6 +19,7 @@ import {
 import type { CatalogFilters } from "../machines/appMachine.ts";
 import { handleRouteClick } from "../navigation.ts";
 import { routeToHash } from "../routing.ts";
+import { CollapsibleFilters, FilterChip, FilterGroup } from "./CollapsibleFilters.tsx";
 import styles from "./ExplorePage.module.css";
 import { RecipeMarks } from "./RecipeMarks.tsx";
 
@@ -47,6 +51,7 @@ export function RecipeIndex({
   onClear,
 }: RecipeIndexProps) {
   const appActor = useAppActor();
+  const filtersOpen = useSelector(appActor, (snapshot) => snapshot.context.filtersOpen);
   const matches = filterRecipes(catalog, {
     mealTypes: filters.mealTypes,
     cuisines: filters.cuisines,
@@ -68,82 +73,63 @@ export function RecipeIndex({
         <p className={styles.lede}>{lede}</p>
       </header>
 
-      <div className={styles.filters}>
-        <label className={styles.searchLabel}>
-          <span className={styles.searchCaption}>Search by name</span>
-          <input
-            className={styles.search}
-            type="search"
-            value={filters.query}
-            placeholder={searchPlaceholder}
-            aria-label={`Search ${title.toLowerCase()} by name`}
-            onChange={(event) => {
-              onQuery(event.target.value);
-            }}
-          />
-        </label>
+      <CollapsibleFilters
+        id={eatOut === "yes" ? "eat-out-filters" : "recipes-filters"}
+        search={{
+          value: filters.query,
+          placeholder: searchPlaceholder,
+          ariaLabel: `Search ${title.toLowerCase()} by name`,
+          onChange: onQuery,
+        }}
+        expanded={filtersOpen}
+        onToggle={() => {
+          appActor.send({ type: "toggleFilters" });
+        }}
+        hasFilters={hasFilters}
+        onClear={onClear}
+      >
+        <FilterGroup legend="Meal type">
+          {MEAL_TYPES.map((mealType) => (
+            <FilterChip
+              key={mealType}
+              pressed={filters.mealTypes.includes(mealType)}
+              onClick={() => {
+                onToggleMealType(mealType);
+              }}
+            >
+              {MEAL_TYPE_LABELS[mealType]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
 
-        <fieldset className={styles.group}>
-          <legend>Meal type</legend>
-          <div className={styles.chips}>
-            {MEAL_TYPES.map((mealType) => (
-              <button
-                key={mealType}
-                type="button"
-                className={styles.chip}
-                aria-pressed={filters.mealTypes.includes(mealType)}
-                onClick={() => {
-                  onToggleMealType(mealType);
-                }}
-              >
-                {MEAL_TYPE_LABELS[mealType]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
+        <FilterGroup legend="House approval">
+          {HA_FILTERS.map((value) => (
+            <FilterChip
+              key={value}
+              pressed={filters.ha === value}
+              onClick={() => {
+                onSetHa(value);
+              }}
+            >
+              {HA_FILTER_LABELS[value]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
 
-        <fieldset className={styles.group}>
-          <legend>House approval</legend>
-          <div className={styles.chips}>
-            {HA_FILTERS.map((value) => (
-              <button
-                key={value}
-                type="button"
-                className={styles.chip}
-                aria-pressed={filters.ha === value}
-                onClick={() => {
-                  onSetHa(value);
-                }}
-              >
-                {HA_FILTER_LABELS[value]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset className={styles.group}>
-          <legend>Cuisine</legend>
-          <div className={styles.chips}>
-            {CUISINES.map((cuisine) => (
-              <button
-                key={cuisine}
-                type="button"
-                className={styles.chip}
-                aria-pressed={filters.cuisines.includes(cuisine)}
-                onClick={() => {
-                  onToggleCuisine(cuisine);
-                }}
-              >
-                {CUISINE_LABELS[cuisine]}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
-        <button type="button" className={styles.clear} disabled={!hasFilters} onClick={onClear}>
-          Clear filters
-        </button>
-      </div>
+        <FilterGroup legend="Cuisine">
+          {CUISINES.map((cuisine) => (
+            <FilterChip
+              key={cuisine}
+              pressed={filters.cuisines.includes(cuisine)}
+              onClick={() => {
+                onToggleCuisine(cuisine);
+              }}
+            >
+              {CUISINE_LABELS[cuisine]}
+            </FilterChip>
+          ))}
+        </FilterGroup>
+      </CollapsibleFilters>
 
       {matches.length === 0 ? (
         <p className={styles.empty} role="status">
@@ -185,6 +171,11 @@ export function RecipeIndex({
                             </abbr>
                           ) : null}
                           <RecipeMarks recipe={recipe} compact />
+                          {isEatOutRecipe(recipe) ? (
+                            <span className={styles.place}>
+                              {eatOutRestaurantBrands(recipe).join(", ")}
+                            </span>
+                          ) : null}
                         </a>
                       </li>
                     ))}

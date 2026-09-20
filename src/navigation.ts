@@ -8,6 +8,13 @@ import { routeToHash, type Route } from "./routing.ts";
 
 export type AppActor = ActorRefFrom<typeof appMachine>;
 
+export function scrollPageToTop(): void {
+  if (typeof window === "undefined") {
+    return;
+  }
+  window.scrollTo(0, 0);
+}
+
 export function syncHash(route: Route): void {
   const hash = routeToHash(route);
   if (window.location.hash !== hash) {
@@ -33,6 +40,11 @@ export function goOpenMealIdeas(appActor: AppActor, occasion?: MealIdeaOccasionF
 export function goOpenEatOut(appActor: AppActor): void {
   appActor.send({ type: "openEatOut" });
   syncHash({ name: "eatOut" });
+}
+
+export function goOpenRestaurant(appActor: AppActor, id: string): void {
+  appActor.send({ type: "openRestaurant", id });
+  syncHash({ name: "restaurants" });
 }
 
 export function handleRouteClick(

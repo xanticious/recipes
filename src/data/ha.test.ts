@@ -200,6 +200,7 @@ test("recipe HA follows the worst ingredient and never confirms", () => {
         healthRating: "healthy",
         eatOut: true,
         description: "Grilled nuggets.",
+        restaurantIds: ["blaze-pizza-farmington"],
       },
       lookup,
     ),

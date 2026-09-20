@@ -1,11 +1,14 @@
 import { expect, test } from "vitest";
 import {
   filterMealIdeas,
+  formatMealIdeaPrepMinutes,
   groupMealIdeas,
   isMealIdeaDisplay,
   mealIdeaHasHaRecipes,
   mealIdeaLookup,
   mealIdeaPinSize,
+  mealIdeaPrepMinutes,
+  mealIdeaPrepTimeBucket,
   mealIdeaRecipeFamily,
   relatedMealIdeas,
   resolveMealIdeaRecipes,
@@ -30,20 +33,34 @@ test("meal ideas are grouped in occasion order", () => {
 });
 
 test("occasion and name search filter the list", () => {
-  const dinners = filterMealIdeas(mealIdeas, { occasion: "dinner", region: "all", query: "" });
+  const dinners = filterMealIdeas(mealIdeas, {
+    occasion: "dinner",
+    region: "all",
+    ha: "all",
+    prepTime: "all",
+    query: "",
+  });
   expect(dinners.every((idea) => idea.occasion === "dinner")).toBe(true);
   expect(dinners.some((idea) => idea.id === "pork-chops-plate")).toBe(true);
 
   const cereal = filterMealIdeas(mealIdeas, {
     occasion: "all",
     region: "all",
+    ha: "all",
+    prepTime: "all",
     query: "almond milk",
   });
   expect(cereal.map((idea) => idea.id)).toContain("cereal-and-milk");
 });
 
 test("region filter keeps plates tagged for that region", () => {
-  const japan = filterMealIdeas(mealIdeas, { occasion: "all", region: "japan", query: "" });
+  const japan = filterMealIdeas(mealIdeas, {
+    occasion: "all",
+    region: "japan",
+    ha: "all",
+    prepTime: "all",
+    query: "",
+  });
   expect(japan.some((idea) => idea.id === "japanese-rice-breakfast")).toBe(true);
   expect(japan.every((idea) => idea.regions.includes("japan"))).toBe(true);
 });
@@ -55,7 +72,13 @@ test("every region has a unique list abbreviation", () => {
 });
 
 test("name search matches region abbreviations", () => {
-  const japan = filterMealIdeas(mealIdeas, { occasion: "all", region: "all", query: "JP" });
+  const japan = filterMealIdeas(mealIdeas, {
+    occasion: "all",
+    region: "all",
+    ha: "all",
+    prepTime: "all",
+    query: "JP",
+  });
   expect(japan.some((idea) => idea.id === "japanese-rice-breakfast")).toBe(true);
   expect(japan.every((idea) => idea.regions.includes("japan"))).toBe(true);
 });
@@ -120,6 +143,8 @@ test("name search matches descriptions", () => {
   const battleCreek = filterMealIdeas(mealIdeas, {
     occasion: "all",
     region: "all",
+    ha: "all",
+    prepTime: "all",
     query: "Battle Creek",
   });
   expect(battleCreek.map((idea) => idea.id)).toContain("cereal-and-milk");
@@ -144,6 +169,27 @@ test("recipe family strips HA suffixes", () => {
   expect(mealIdeaRecipeFamily("Grilled Steak (HA)")).toBe("Grilled Steak");
   expect(mealIdeaRecipeFamily("Mashed Potatoes (Not-HA)")).toBe("Mashed Potatoes");
   expect(mealIdeaRecipeFamily("Roasted Green Beans")).toBe("Roasted Green Beans");
+});
+
+test("HA filter keeps plates with HA recipes and NOT-HA keeps the rest", () => {
+  const recipeById = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+  const ha = filterMealIdeas(
+    mealIdeas,
+    { occasion: "all", region: "all", ha: "ha", prepTime: "all", query: "" },
+    recipeById,
+  );
+  const notHa = filterMealIdeas(
+    mealIdeas,
+    { occasion: "all", region: "all", ha: "not-ha", prepTime: "all", query: "" },
+    recipeById,
+  );
+  expect(ha.some((idea) => idea.id === "steak-and-potatoes")).toBe(true);
+  expect(ha.some((idea) => idea.id === "breakfast-smoothie")).toBe(false);
+  expect(notHa.some((idea) => idea.id === "breakfast-smoothie")).toBe(true);
+  expect(notHa.some((idea) => idea.id === "steak-and-potatoes")).toBe(false);
+  expect(ha.length + notHa.length).toBe(mealIdeas.length);
+  expect(ha.every((idea) => mealIdeaHasHaRecipes(idea, recipeById))).toBe(true);
+  expect(notHa.every((idea) => !mealIdeaHasHaRecipes(idea, recipeById))).toBe(true);
 });
 
 test("a meal idea has HA recipes when every linked family has an HA version", () => {
@@ -179,4 +225,58 @@ test("a meal idea has HA recipes when every linked family has an HA version", ()
     ),
   ).toBe(true);
   expect(mealIdeaHasHaRecipes({ ...mixed, recipes: undefined }, recipeById)).toBe(false);
+});
+
+test("prep time buckets split under 20, around 30, around 60, and over 75", () => {
+  expect(mealIdeaPrepTimeBucket(0)).toBe("under-20");
+  expect(mealIdeaPrepTimeBucket(19)).toBe("under-20");
+  expect(mealIdeaPrepTimeBucket(20)).toBe("around-30");
+  expect(mealIdeaPrepTimeBucket(44)).toBe("around-30");
+  expect(mealIdeaPrepTimeBucket(45)).toBe("around-60");
+  expect(mealIdeaPrepTimeBucket(75)).toBe("around-60");
+  expect(mealIdeaPrepTimeBucket(76)).toBe("over-75");
+  expect(formatMealIdeaPrepMinutes(1)).toBe("1 minute");
+  expect(formatMealIdeaPrepMinutes(30)).toBe("30 minutes");
+});
+
+test("prep time filter uses the slowest linked home-recipe family", () => {
+  const recipeById = new Map(recipes.map((recipe) => [recipe.id, recipe]));
+  const cereal = mealIdeas.find((idea) => idea.id === "cereal-and-milk");
+  expect(cereal).toBeDefined();
+  expect(mealIdeaPrepMinutes(cereal as MealIdea, recipeById)).toBeLessThan(20);
+  expect(
+    filterMealIdeas(
+      mealIdeas,
+      { occasion: "all", region: "all", ha: "all", prepTime: "under-20", query: "" },
+      recipeById,
+    ).some((idea) => idea.id === "cereal-and-milk"),
+  ).toBe(true);
+
+  const empty: MealIdea = {
+    id: "water-only",
+    title: "Water",
+    occasion: "drinks",
+    description: "A glass of water with nothing else on the table for a test of empty recipes.",
+    regions: ["united-states"],
+    pairings: [],
+  };
+  expect(mealIdeaPrepMinutes(empty, recipeById)).toBe(0);
+
+  const missingOnly: MealIdea = {
+    id: "missing-only",
+    title: "Missing Plate",
+    occasion: "dinner",
+    description: "A test plate whose recipes are not in the book yet so prep time is unknown.",
+    regions: ["united-states"],
+    pairings: [],
+    recipes: [{ label: "Imaginary Roast" }],
+  };
+  expect(mealIdeaPrepMinutes(missingOnly, recipeById)).toBeUndefined();
+  expect(
+    filterMealIdeas(
+      [missingOnly],
+      { occasion: "all", region: "all", ha: "all", prepTime: "under-20", query: "" },
+      recipeById,
+    ),
+  ).toEqual([]);
 });
