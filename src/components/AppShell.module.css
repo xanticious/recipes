@@ -17,6 +17,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
+  overflow-x: clip;
 }
 
 .menuButton {
@@ -105,6 +106,50 @@
   white-space: nowrap;
   font-weight: 600;
   color: var(--text-muted);
+}
+
+.barNav {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin-left: auto;
+  flex-shrink: 0;
+  width: max-content;
+}
+
+.bar:not([data-inline-nav="true"]) .barNav {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  margin: 0;
+}
+
+.bar[data-inline-nav="true"] .section {
+  display: none;
+}
+
+.barLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.2rem 0.55rem;
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+.barLink:hover {
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+.barLink[aria-current="page"] {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--text-h);
 }
 
 .overlay {

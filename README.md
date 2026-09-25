@@ -2,16 +2,16 @@
 
 A static family cookbook: what we actually cook, order, and keep in the kitchen. Vite, TypeScript, React, xState, CSS modules. The product scope lives in `design/DESIGN_DOCUMENT.md`.
 
-This is a **catalog**, not a weekly planner. Household diet notes use **HA** (House Approved): we can serve it without interfering with our food allergies, and it does not taste bad to all of us.
+This is a **catalog**, not a weekly planner. Household diet notes use **HA** (House Approved): a meal, recipe, or restaurant order doesn't interfere with any of our family's allergies or dietary restrictions, and hasn't been vetoed. The Substitution Guide is where that definition and the household swaps live.
 
 ## Main features
 
 - **Meal Ideas** — “What should we have for dinner?” Everyday plates with simple names, not chef tasting menus. A plate is the whole sitting (protein, sides, drink), tagged by occasion and by the world regions where people actually eat it.
-- **Restaurants** — “What restaurants are in Davis County, Utah?” A local directory for trying a place we did not already know about.
+- **Restaurants** — “What restaurants are in Davis County and Weber County, Utah?” A local directory for trying a place we did not already know about.
 - **Ingredients** — “A comprehensive list of ingredients that recipes can be made from.” Gluten, lactose, and FODMAP notes help us notice when a recipe uses something we cannot eat, and they sometimes suggest something new to try.
 - **Recipes** — “A list of recipes for common foods and meals.” When a dish normally uses an allergy ingredient, we keep two recipes instead of one recipe with swap notes — for example **Taco Soup** and **Taco Soup (HA)**.
 - **Eat Out** — “What are our favorite restaurant orders?” After spending so long hunting for menu items that fit allergies and diet, this is also “what can I actually order there?”
-- **Guide** — “A simple guide for what allergies we have and common substitutions.”
+- **Substitution Guide** — “What House Approved means for our family, and the swaps we actually use.”
 
 ## Meal Style Guide
 

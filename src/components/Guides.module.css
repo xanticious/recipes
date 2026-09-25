@@ -48,6 +48,51 @@
   max-width: 42rem;
 }
 
+.ha {
+  margin: 0;
+  max-width: 42rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin: 0.25rem 0 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-raised);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.table thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: var(--chip-bg);
+}
+
+.table tbody th {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .cardGrid,
 .cardGridTwo {
   display: grid;
@@ -181,22 +226,6 @@
 .recipeLink:hover,
 .relatedLink:hover {
   color: var(--accent);
-}
-
-.exploreBtn {
-  font: inherit;
-  align-self: flex-start;
-  min-height: 44px;
-  padding: 0.4rem 1.1rem;
-  border-radius: 999px;
-  border: 1px solid var(--accent-border);
-  background: var(--accent-bg);
-  color: var(--text-h);
-  cursor: pointer;
-}
-
-.exploreBtn:hover {
-  border-color: var(--accent);
 }
 
 @media (min-width: 800px) {

@@ -1,16 +1,20 @@
 import { expect, test } from "vitest";
 import {
+  DAVIS_RESTAURANT_CITIES,
   duplicateRestaurantNames,
   filterRestaurants,
   groupRestaurants,
   isRestaurantCity,
   isRestaurantCuisine,
+  isRestaurantDisplay,
   POPULAR_MENU_SLOTS,
   popularMenuSlots,
   primaryCuisine,
   RESTAURANT_CITIES,
+  RESTAURANT_CITY_LABELS,
   RESTAURANT_CUISINES,
   restaurantDisplayName,
+  WEBER_RESTAURANT_CITIES,
 } from "./restaurantBrowse.ts";
 import { restaurants, restaurantIdsByName } from "./restaurants/index.ts";
 import type { Restaurant } from "./types.ts";
@@ -24,6 +28,7 @@ test("restaurantIdsByName collects every franchise location", () => {
   expect(restaurantIdsByName("Noodles & Company")).toEqual([
     "noodles-and-company-farmington",
     "noodles-and-company-layton",
+    "noodles-and-company-riverdale",
   ]);
   expect(restaurantIdsByName("Blaze Pizza")).toEqual(["blaze-pizza-farmington"]);
   expect(restaurantIdsByName("Chick-fil-A").length).toBeGreaterThan(2);
@@ -45,7 +50,20 @@ test("restaurantIdsByName collects every franchise location", () => {
   expect(restaurantIdsByName("No Such Place")).toEqual([]);
 });
 
-test("the catalog covers every Davis County city in the list", () => {
+test("city filters split Davis and Weber and sort each by name", () => {
+  const labels = (cities: readonly (typeof RESTAURANT_CITIES)[number][]) =>
+    cities.map((city) => RESTAURANT_CITY_LABELS[city]);
+  expect(labels(DAVIS_RESTAURANT_CITIES)).toEqual([...labels(DAVIS_RESTAURANT_CITIES)].toSorted());
+  expect(labels(WEBER_RESTAURANT_CITIES)).toEqual([...labels(WEBER_RESTAURANT_CITIES)].toSorted());
+  expect(new Set([...DAVIS_RESTAURANT_CITIES, ...WEBER_RESTAURANT_CITIES])).toEqual(
+    new Set(RESTAURANT_CITIES),
+  );
+  expect(DAVIS_RESTAURANT_CITIES.length + WEBER_RESTAURANT_CITIES.length).toBe(
+    RESTAURANT_CITIES.length,
+  );
+});
+
+test("the catalog covers every city in the list", () => {
   const cities = new Set(restaurants.map((item) => item.city));
   expect(cities).toEqual(new Set(RESTAURANT_CITIES));
   expect(restaurants.length).toBeGreaterThanOrEqual(50);
@@ -55,10 +73,21 @@ test("every restaurant has a primary cuisine and five popular items", () => {
   for (const item of restaurants) {
     expect(item.cuisines.length).toBeGreaterThan(0);
     expect(RESTAURANT_CUISINES).toContain(item.cuisines[0]);
-    expect(item.popularMenuItems).toHaveLength(POPULAR_MENU_SLOTS);
+    expect(item.popularMenuItems.length).toBeLessThanOrEqual(POPULAR_MENU_SLOTS);
     expect(item.popularMenuItems.every((name) => name.length > 0)).toBe(true);
     expect(item.isFavorite).toBe(false);
   }
+  const davisCities = new Set([
+    "bountiful",
+    "centerville",
+    "farmington",
+    "kaysville",
+    "layton",
+    "north-salt-lake",
+    "woods-cross",
+  ]);
+  const davis = restaurants.filter((item) => davisCities.has(item.city));
+  expect(davis.every((item) => item.popularMenuItems.length === POPULAR_MENU_SLOTS)).toBe(true);
 });
 
 test("city filter keeps only that city", () => {
@@ -66,6 +95,10 @@ test("city filter keeps only that city", () => {
   expect(layton.length).toBeGreaterThan(0);
   expect(layton.every((item) => item.city === "layton")).toBe(true);
   expect(filterRestaurants(restaurants, { city: "all" })).toHaveLength(restaurants.length);
+  const searched = filterRestaurants(restaurants, { city: "all", query: "chick-fil-a" });
+  expect(searched.length).toBeGreaterThan(0);
+  expect(searched.every((item) => item.name.toLowerCase().includes("chick-fil-a"))).toBe(true);
+  expect(filterRestaurants(restaurants, { city: "roy", query: "zzz-no-such-place" })).toEqual([]);
 });
 
 test("grouping uses primary cuisine, sorted by name, and skips empty categories", () => {
@@ -127,8 +160,15 @@ test("popular menu slots always fill five rows", () => {
   ]);
 });
 
+test("display is list or pictures", () => {
+  expect(isRestaurantDisplay("list")).toBe(true);
+  expect(isRestaurantDisplay("pictures")).toBe(true);
+  expect(isRestaurantDisplay("gallery")).toBe(false);
+});
+
 test("type guards accept cities and cuisines", () => {
   expect(isRestaurantCity("kaysville")).toBe(true);
+  expect(isRestaurantCity("ogden")).toBe(true);
   expect(isRestaurantCity("clearfield")).toBe(false);
   expect(isRestaurantCuisine("bbq")).toBe(true);
   expect(isRestaurantCuisine("fast-food")).toBe(true);

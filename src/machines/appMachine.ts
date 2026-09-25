@@ -13,7 +13,11 @@ import {
   type MealIdeaPrepTimeFilter,
   type MealIdeaRegionFilter,
 } from "../data/mealIdeaBrowse.ts";
-import type { RestaurantCityFilter } from "../data/restaurantBrowse.ts";
+import {
+  isRestaurantDisplay,
+  type RestaurantCityFilter,
+  type RestaurantDisplay,
+} from "../data/restaurantBrowse.ts";
 import type { CategorizerColumn } from "../data/ingredientCategorizer.ts";
 import type {
   Cuisine,
@@ -53,6 +57,8 @@ export type IngredientsBrowse = {
 
 export type RestaurantsBrowse = {
   city: RestaurantCityFilter;
+  query: string;
+  display: RestaurantDisplay;
   expandedId: string | null;
 };
 
@@ -128,6 +134,9 @@ export type AppEvent =
   | { type: "closeIngredient" }
   | { type: "clearIngredientsFilters" }
   | { type: "setRestaurantCity"; city: RestaurantCityFilter }
+  | { type: "setRestaurantQuery"; query: string }
+  | { type: "setRestaurantDisplay"; display: RestaurantDisplay }
+  | { type: "clearRestaurantFilters" }
   | { type: "toggleRestaurant"; id: string }
   | { type: "closeRestaurant" }
   | { type: "openRestaurant"; id: string }
@@ -178,8 +187,29 @@ const emptyIngredients: IngredientsBrowse = {
 
 const emptyRestaurants: RestaurantsBrowse = {
   city: "all",
+  query: "",
+  display: "pictures",
   expandedId: null,
 };
+
+export const RESTAURANTS_DISPLAY_STORAGE_KEY = "family-recipes-restaurants-display";
+
+export function readStoredRestaurantDisplay(): RestaurantDisplay {
+  if (typeof localStorage === "undefined") {
+    return "pictures";
+  }
+  const stored = localStorage.getItem(RESTAURANTS_DISPLAY_STORAGE_KEY);
+  if (stored !== null && isRestaurantDisplay(stored)) {
+    return stored;
+  }
+  return "pictures";
+}
+
+export function persistRestaurantDisplay(display: RestaurantDisplay): void {
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem(RESTAURANTS_DISPLAY_STORAGE_KEY, display);
+  }
+}
 
 export const MEAL_IDEAS_DISPLAY_STORAGE_KEY = "family-recipes-meal-ideas-display";
 
@@ -266,7 +296,10 @@ export const appMachine = setup({
     eatOutCatalog: emptyCatalog,
     random: emptyRandom,
     ingredients: emptyIngredients,
-    restaurants: emptyRestaurants,
+    restaurants: {
+      ...emptyRestaurants,
+      display: readStoredRestaurantDisplay(),
+    },
     mealIdeas: {
       ...emptyMealIdeas,
       display: readStoredMealIdeasDisplay(),
@@ -511,9 +544,40 @@ export const appMachine = setup({
     },
     setRestaurantCity: {
       actions: assign({
-        restaurants: ({ event }) => ({
+        restaurants: ({ context, event }) => ({
+          ...context.restaurants,
           city: event.city,
           expandedId: null,
+        }),
+      }),
+    },
+    setRestaurantQuery: {
+      actions: assign({
+        restaurants: ({ context, event }) => ({
+          ...context.restaurants,
+          query: event.query,
+        }),
+      }),
+    },
+    setRestaurantDisplay: {
+      actions: [
+        assign({
+          restaurants: ({ context, event }) => ({
+            ...context.restaurants,
+            display: event.display,
+          }),
+        }),
+        ({ event }) => {
+          persistRestaurantDisplay(event.display);
+        },
+      ],
+    },
+    clearRestaurantFilters: {
+      actions: assign({
+        restaurants: ({ context }) => ({
+          ...emptyRestaurants,
+          display: context.restaurants.display,
+          expandedId: context.restaurants.expandedId,
         }),
       }),
     },
@@ -536,8 +600,10 @@ export const appMachine = setup({
     openRestaurant: {
       actions: assign({
         route: { name: "restaurants" },
-        restaurants: ({ event }) => ({
+        restaurants: ({ context, event }) => ({
           city: "all",
+          query: "",
+          display: context.restaurants.display,
           expandedId: event.id,
         }),
       }),

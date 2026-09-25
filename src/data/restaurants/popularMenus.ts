@@ -655,3 +655,149 @@ export const groceryDeliMenu = [
   "Bakery donuts",
   "Sushi",
 ] as const;
+
+export const freddysMenu = [
+  "Double steakburger",
+  "Freddy's Freeze",
+  "Shoestring fries",
+  "Chicago dog",
+  "Cheese curds",
+] as const;
+
+export const longhornMenu = [
+  "Flo's Filet",
+  "Outlaw Ribeye",
+  "Parmesan crusted chicken",
+  "Wild West Shrimp",
+  "Seasoned fries",
+] as const;
+
+export const zaxbysMenu = [
+  "Chicken Fingerz",
+  "Wings and things",
+  "Zalad",
+  "Fried pickles",
+  "Texas toast",
+] as const;
+
+export const davesHotChickenMenu = [
+  "Dave's slider",
+  "Tenders",
+  "Cheese fries",
+  "Shake",
+  "Slusher",
+] as const;
+
+export const dennysMenu = [
+  "Grand Slam",
+  "Moons Over My Hammy",
+  "Build Your Own Grand Slam",
+  "Club sandwich",
+  "Classic burger",
+] as const;
+
+export const paneraMenu = [
+  "Broccoli cheddar soup",
+  "You Pick Two",
+  "Chipotle chicken avocado melt",
+  "Bacon turkey bravo",
+  "Kitchen sink cookie",
+] as const;
+
+export const shakeShackMenu = [
+  "ShackBurger",
+  "SmokeShack",
+  "Crinkle-cut fries",
+  "Cheese fries",
+  "Shake",
+] as const;
+
+export const superChixMenu = [
+  "Super Chix sandwich",
+  "Spicy chicken sandwich",
+  "Tenders",
+  "Fries",
+  "Shake",
+] as const;
+
+export const dunkinMenu = [
+  "Original Blend coffee",
+  "Glazed donut",
+  "Bacon egg and cheese",
+  "Iced coffee",
+  "Munchkins",
+] as const;
+
+export const wienerschnitzelMenu = [
+  "Chili cheese dog",
+  "Corn dog",
+  "Chili fries",
+  "Junkyard dog",
+  "Soft-serve cone",
+] as const;
+
+export const scootersMenu = [
+  "Caramelicious",
+  "Scooter's Special",
+  "Shaken espresso",
+  "Smoothie",
+  "Pastry",
+] as const;
+
+export const sodaliciousMenu = [
+  "Dirty Dr Pepper",
+  "Dirty soda",
+  "Italian soda",
+  "Frozen soda",
+  "Cookie",
+] as const;
+
+export const tropicalSmoothieMenu = [
+  "Sunrise Sunset smoothie",
+  "Island Green smoothie",
+  "Chicken pesto flatbread",
+  "Thai chicken wrap",
+  "Bacon egg and cheese wrap",
+] as const;
+
+export const groundsForCoffeeMenu = [
+  "Drip coffee",
+  "Latte",
+  "Mocha",
+  "Cold brew",
+  "Pastry",
+] as const;
+
+export const loloHawaiianMenu = [
+  "Hawaiian plate",
+  "Kalua pork",
+  "Chicken katsu",
+  "Loco moco",
+  "Macaroni salad",
+] as const;
+
+export const cheddarsMenu = [
+  "Honey butter croissants",
+  "Chicken tenders",
+  "Half-pound burger",
+  "Santa Fe salad",
+  "Country fried steak",
+] as const;
+
+export const missionBbqMenu = [
+  "Brisket",
+  "Pulled pork",
+  "Cornbread",
+  "Mac and cheese",
+  "Banana pudding",
+] as const;
+
+export const jDawgsMenu = ["J Dawg", "Chili cheese dog", "Cheese curds", "Fries", "Shake"] as const;
+
+export const playaBowlsMenu = [
+  "Acai bowl",
+  "Pitaya bowl",
+  "Green bowl",
+  "Smoothie",
+  "Oatmeal",
+] as const;

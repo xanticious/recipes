@@ -165,7 +165,23 @@ export type RestaurantCity =
   | "kaysville"
   | "layton"
   | "north-salt-lake"
-  | "woods-cross";
+  | "woods-cross"
+  | "ogden"
+  | "roy"
+  | "south-ogden"
+  | "riverdale"
+  | "north-ogden"
+  | "west-haven"
+  | "pleasant-view"
+  | "harrisville"
+  | "washington-terrace"
+  | "farr-west"
+  | "hooper"
+  | "plain-city"
+  | "marriott-slaterville"
+  | "uintah"
+  | "huntsville"
+  | "eden";
 
 export type RestaurantCuisine =
   | "american"

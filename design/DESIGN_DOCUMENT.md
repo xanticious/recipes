@@ -14,7 +14,7 @@ v1 already has a large catalog. It can keep growing without changing the page mo
 - Show recipes a family can actually make: grocery-store ingredients, no chef technique, reasonable prep.
 - Mix **core rotation** staples with a smaller set of **special occasion** meals.
 - Include a few **eat-out** orders (fast food and restaurants) as catalog entries, not as recipes with ingredients.
-- Tag a recipe **HA** (House Approved) when we can serve it without interfering with our food allergies and it does not taste bad to all of us. Do not hide conversions behind in-page ingredient swaps.
+- Tag a recipe **HA** (House Approved) when it doesn't interfere with any of our family's allergies or dietary restrictions, and hasn't been vetoed. Do not hide conversions behind in-page ingredient swaps.
 - When both a regular version and an HA version exist, keep them as **separate recipes** and link them under Related recipes.
 - Make recipe instructions pleasant to read: well-spaced typography, light and dark themes, and a readable markdown-style layout.
 - Work well on desktop and mobile.
@@ -37,45 +37,46 @@ The following are out of scope for the first release. Several are desirable late
 
 ## 4. Users and access
 
-The audience is this household. The site is a public static site (GitHub Pages is already wired in this repo). There is no authentication. Household preferences that matter in the browser — theme, font size, and Meal Ideas display (list vs pictures) — are stored locally on that device.
+The audience is this household. The site is a public static site (GitHub Pages is already wired in this repo). There is no authentication. Household preferences that matter in the browser — theme, font size, and Meal Ideas and Restaurants display (list vs pictures) — are stored locally on that device.
 
 Do not put household first names in the product, the copy, or the code. The diet tag is **HA** (House Approved).
 
 ## 5. Product principles
 
 1. **Practical first.** If it takes a specialty store, a long marinade, or restaurant technique, it is not a core recipe.
-2. **HA means House Approved.** A recipe is HA if we can serve it without interfering with our food allergies and it does not taste bad to all of us. Not “could fit after you pick swaps.”
+2. **HA means House Approved.** A meal, recipe, or restaurant order is HA when it doesn't interfere with any of our family's allergies or dietary restrictions, and hasn't been vetoed. The Substitution Guide states that once. Not “could fit after you pick swaps.”
 3. **Two recipes, not one recipe with chips.** A regular Fettuccine Alfredo and an HA Fettuccine Alfredo are siblings, linked as related recipes.
 4. **Readable over clever.** The recipe page should feel like a good markdown viewer: clear hierarchy, generous spacing, nothing cramped.
 5. **Honest eat-out entries.** A restaurant order is a description of what we actually get, not a fake ingredient list.
 
 ## 6. Site map and navigation
 
-Every page shares a compact top bar: a hamburger button, **Family Recipes** (home), and the current section name. The hamburger opens a left overlay with the destinations below, plus font size and theme. Overlay, buttons, and toggles work with a mouse or a finger. The same chrome is used at every width.
+Every page shares a compact top bar: a hamburger button, **Family Recipes** (home), and the current section name. The hamburger stays on the left and opens a left overlay with the destinations below, plus font size and theme. When the bar is wide enough for those destinations on one line, they also appear in the top bar and the section name is hidden — the current destination is marked on its link. Overlay, buttons, and toggles work with a mouse or a finger.
 
-| Control          | Placement                    | Behavior                                        |
-| ---------------- | ---------------------------- | ----------------------------------------------- |
-| Menu             | Top bar, left                | Opens or closes the left overlay                |
-| Site name / Home | Top bar, beside the menu     | Goes to the landing page                        |
-| Section name     | Top bar, after the site name | Current section (Home, Recipes, Meal Ideas, …)  |
-| Recipes          | Overlay                      | Home-cooking recipe index                       |
-| Meal Ideas       | Overlay                      | Full plates (protein + sides + drink)           |
-| Eat Out          | Overlay                      | Restaurant and takeout orders                   |
-| Restaurants      | Overlay                      | Davis County restaurant catalog                 |
-| Ingredients      | Overlay                      | Ingredient catalog                              |
-| Guide            | Overlay                      | Single kitchen guide                            |
-| Random           | Overlay                      | Opens the random picker, then a matching recipe |
-| Font size        | Overlay                      | Small / Medium / Large                          |
-| Theme            | Overlay                      | Light / Dark                                    |
+| Control            | Placement                     | Behavior                                         |
+| ------------------ | ----------------------------- | ------------------------------------------------ |
+| Menu               | Top bar, left                 | Opens or closes the left overlay                 |
+| Site name / Home   | Top bar, beside the menu      | Goes to the landing page                         |
+| Section name       | Top bar, after the site name  | Current section, until destinations fit inline   |
+| Home               | Overlay; top bar when it fits | Landing page                                     |
+| Meal Ideas         | Overlay; top bar when it fits | Full plates (protein + sides + drink)            |
+| Restaurants        | Overlay; top bar when it fits | Davis County and Weber County restaurant catalog |
+| Recipes            | Overlay; top bar when it fits | Home-cooking recipe index                        |
+| Random Recipe      | Overlay; top bar when it fits | Opens the random picker, then a matching recipe  |
+| Ingredients        | Overlay; top bar when it fits | Ingredient catalog                               |
+| Substitution Guide | Overlay; top bar when it fits | Single kitchen guide                             |
+| Eat Out            | Overlay; top bar when it fits | Restaurant and takeout orders                    |
+| Font size          | Overlay                       | Small / Medium / Large                           |
+| Theme              | Overlay                       | Light / Dark                                     |
 
 ### 6.1 Landing — “Family Recipes”
 
 - Short welcome: this is our family cookbook for weeknight cooking, special occasions, and a few takeout orders.
-- **HA** means House Approved: we can serve it without interfering with our food allergies, and it does not taste bad to all of us.
+- House Approved is explained once, on the Substitution Guide.
 - Links to **browse by meal** (Breakfast, Lunch, Dinner, Snack, Dessert) — these open Recipes (home cooking).
 - A link to **Meal Ideas** (full plates, not single recipes).
 - A link to **Eat Out**.
-- A link to **Restaurants** (Davis County places to eat).
+- A link to **Restaurants** (Davis County and Weber County places to eat).
 - A link to **Ingredients**.
 - A link to the **Guide**.
 - Do not explain FODMAP science or categories on the landing page.
@@ -119,15 +120,19 @@ A list of restaurant and takeout orders (`#/eat-out`). Same grouping and House A
 
 ### 6.4 Restaurants
 
-A card catalog of places to eat in Davis County (`#/restaurants`). This is separate from Eat Out: Eat Out is household orders; Restaurants is a local directory.
+A card catalog of places to eat in Davis County and Weber County (`#/restaurants`). This is separate from Eat Out: Eat Out is household orders; Restaurants is a local directory.
 
-Cities in the catalog: Bountiful, Centerville, Farmington, Kaysville, Layton, North Salt Lake, Woods Cross.
+Cities in the catalog: Bountiful, Centerville, Farmington, Kaysville, Layton, North Salt Lake, Woods Cross, Ogden, Roy, South Ogden, Riverdale, North Ogden, West Haven, Pleasant View, Harrisville, Washington Terrace, Farr West, Hooper, Plain City, Marriott-Slaterville, Uintah, Huntsville, Eden.
 
-**City (exclusive):** All, or one of those cities.
+**Search:** name, above the city filter.
 
-**Grouping:** cuisine, in this order: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Fast Food, Dessert, Drinks, Grocery, Other. Cards are alphabetical by name inside each cuisine, then by city when names match. A restaurant may list extra cuisine types; grouping uses the first (primary) cuisine. When the same restaurant has more than one city in the catalog, the card and details title show the city in parentheses, e.g. Texas Roadhouse (Bountiful).
+**City (exclusive):** All, then Davis County cities A–Z, then Weber County cities A–Z.
 
-Each card is a placeholder or Street View storefront photo with the restaurant name below. Click a card for:
+**Grouping:** cuisine, in this order: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Fast Food, Dessert, Drinks, Grocery, Other. Cards are alphabetical by name inside each cuisine, then by city when names match. A restaurant may list extra cuisine types; grouping uses the first (primary) cuisine. When the same restaurant has more than one city in the catalog, the picture card and details title show the city in parentheses, e.g. Texas Roadhouse (Bountiful).
+
+**Display:** exclusive **List View** or **Pictures View**, chosen with a **List | Pics** toggle that stays in the collapsed filter bar. Pictures View is the default: wider photo cards with the restaurant name below. Click a card to open details in a panel. List View is the name list, with the city beside each name; click a name to expand the same details on the page. The last chosen display is stored locally on that device and used the next time Restaurants opens.
+
+Each picture card is a placeholder or Street View storefront photo with the restaurant name below. Open a restaurant for:
 
 - City
 - Cuisine type(s)
@@ -200,13 +205,17 @@ The reader may:
 
 If nothing matches, say so and leave the filters in place so they can loosen them.
 
-### 6.8 Guide
+### 6.8 Substitution Guide
 
-One page (`#/guide`). Household cooking notes, not medical advice. Keep the disclaimer that this is not a diagnosis or treatment plan. The page itself stays impersonal:
+One page (`#/guide`), titled **Substitution Guide**.
 
-- **HA** means House Approved. A recipe is HA if we can serve it without interfering with our food allergies and it does not taste bad to all of us.
-- Sourdough bread is an okay alternative to wheat bread.
-- Substitutions as separate points (almond milk for milk; Daiya dairy-free cheddar shreds for cheddar; Follow Your Heart dairy-free American cheese slices for American cheese; sourdough for wheat/white bread; and the other household swaps)
+Disclaimer at the top: this is the substitution guide used by our family. The restrictions and dislikes here may not apply to another family. Ask people what their restrictions are, and how strict they are, before using a guide like this.
+
+House Approved appears once, in this sentence: House Approved (HA) means a meal, recipe, or restaurant order doesn't interfere with any of our family's allergies, dietary restrictions, and hasn't been vetoed.
+
+One substitutions section. Intro: what you use depends on the meal or recipe, but here are some common substitutions we use. Then a two-column table, Original and Substitution (almond milk for milk, Daiya dairy-free cheddar shreds for shredded cheddar, Daiya cheddar slices or Follow Your Heart dairy-free American cheese slices for sliced cheddar, sourdough for wheat or white bread, and the other household swaps).
+
+No browse button at the bottom of the page.
 
 Old per-tag allergy and eating-pattern guides are out of scope.
 
@@ -313,17 +322,17 @@ LF, GF, HA, and FODMAP notes are shown in the Ingredients details dialog.
 
 ### 7.6 Restaurant catalog
 
-A typed list of Davis County restaurants, separate from eat-out recipe entries.
+A typed list of Davis County and Weber County restaurants, separate from eat-out recipe entries.
 
-| Field              | Type           | Notes                                                                               |
-| ------------------ | -------------- | ----------------------------------------------------------------------------------- |
-| `id`               | string         | Stable slug, unique across cities                                                   |
-| `name`             | string         | Display name                                                                        |
-| `city`             | enum           | Bountiful, Centerville, Farmington, Kaysville, Layton, North Salt Lake, Woods Cross |
-| `description`      | string         | Short prose about the place                                                         |
-| `cuisines`         | list           | At least one. First value is the grouping category                                  |
-| `popularMenuItems` | list of string | Up to five. Empty strings are omitted; unused slots show as blank in the UI         |
-| `isFavorite`       | boolean        | Catalog placeholder for later household tagging. Defaults to false                  |
+| Field              | Type           | Notes                                                                                                                                                                                                                   |
+| ------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`               | string         | Stable slug, unique across cities                                                                                                                                                                                       |
+| `name`             | string         | Display name                                                                                                                                                                                                            |
+| `city`             | enum           | Davis County cities plus Ogden, Roy, South Ogden, Riverdale, North Ogden, West Haven, Pleasant View, Harrisville, Washington Terrace, Farr West, Hooper, Plain City, Marriott-Slaterville, Uintah, Huntsville, and Eden |
+| `description`      | string         | Short prose about the place                                                                                                                                                                                             |
+| `cuisines`         | list           | At least one. First value is the grouping category                                                                                                                                                                      |
+| `popularMenuItems` | list of string | Up to five. Empty strings are omitted; unused slots show as blank in the UI                                                                                                                                             |
+| `isFavorite`       | boolean        | Catalog placeholder for later household tagging. Defaults to false                                                                                                                                                      |
 
 Restaurant cuisine buckets: American, Mexican, Italian, Asian, Mediterranean, Indian, BBQ, Breakfast & Cafe, Fast Food, Dessert, Drinks, Grocery, Other.
 
@@ -385,7 +394,7 @@ Most recipes should be **core rotation**: repeatable weeknights.
 
 **HA** means **House Approved**. Recipes and ingredients use the same five-way House Approval status.
 
-A recipe or order is HA if we can serve it without interfering with our food allergies and it does not taste bad to all of us.
+A meal, recipe, or restaurant order is HA when it doesn't interfere with any of our family's allergies or dietary restrictions, and hasn't been vetoed. The Substitution Guide is the only place that sentence is shown.
 
 Sourdough bread is an okay alternative to wheat bread.
 
@@ -457,10 +466,10 @@ The Ingredients page shows derived diet notes, not the raw flags:
 
 ### 10.3 Responsive layout
 
-- Desktop and mobile share one compact top bar (hamburger, Family Recipes, current section). The hamburger opens a left overlay with destinations, font size, and theme. Overlay and controls work with mouse and touch.
+- Every width uses one compact top bar (hamburger, Family Recipes, current section). The hamburger stays on the left and opens a left overlay with destinations, font size, and theme. When the bar is wide enough, the same destinations sit on that bar in one line and the section name hides. Overlay and controls work with mouse and touch.
 - Recipes and Eat Out can use a readable multi-column or grouped list; recipe page has a clear ingredients + steps layout (ingredients can sit beside steps when there is width).
 - Mobile: ingredients above steps; filters that do not steal the whole viewport permanently.
-- **Filter bar:** Recipes, Eat Out, Meal Ideas, Ingredients, Restaurants, and Random start with filters collapsed. The collapsed row is a search box (when the page has one) and a Filter button. Meal Ideas also shows List | Pics on that row. Filter expands the rest of the chips. Applied filters keep the Filter button marked even when the panel is closed.
+- **Filter bar:** Recipes, Eat Out, Meal Ideas, Ingredients, Restaurants, and Random start with filters collapsed. The collapsed row is a search box (when the page has one) and a Filter button. Meal Ideas and Restaurants also show List | Pics on that row. Filter expands the rest of the chips. Applied filters keep the Filter button marked even when the panel is closed.
 - Touch targets on Random, filters, and toggles should be easy on a phone.
 
 ### 10.4 Recipe typography
@@ -488,15 +497,15 @@ Keep all five meal types visible. Prefer ingredients from a normal supermarket.
 
 This repo is a static **Vite + TypeScript** app with **xState**, **CSS modules**, Oxlint, Oxfmt, Vitest, and GitHub Pages.
 
-| Concern  | Approach                                                                                                                                                                                                      |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                                                                                                |
-| Routing  | Client-side hash routes                                                                                                                                                                                       |
-| State    | xState for navigation, the nav overlay, recipe focus mode, theme/font/keep-screen-on preferences, catalog filters, Meal Ideas (including prep time and display), Random, and whether the filter panel is open |
-| Data     | Typed TypeScript for recipes, meal ideas, the ingredient catalog, and the restaurant catalog                                                                                                                  |
-| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                                                                                               |
-| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                                                                                               |
-| Tests    | Filtering (eat-out, HA, cuisine, meal-idea prep time), related-recipe and related-meal links, random, restaurant grouping, eat-out restaurant ids, and catalog integrity                                      |
+| Concern  | Approach                                                                                                                                                                                                                                       |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting  | Static `dist/`, existing GitHub Pages workflow                                                                                                                                                                                                 |
+| Routing  | Client-side hash routes                                                                                                                                                                                                                        |
+| State    | xState for navigation, the nav overlay, recipe focus mode, theme/font/keep-screen-on preferences, catalog filters, Meal Ideas (including prep time and display), Restaurants (including display), Random, and whether the filter panel is open |
+| Data     | Typed TypeScript for recipes, meal ideas, the ingredient catalog, and the restaurant catalog                                                                                                                                                   |
+| Styling  | CSS modules + theme and type-scale custom properties (`data-theme`, `data-font-size` on `html`)                                                                                                                                                |
+| Markdown | Render step/note/description markdown only; do not store the whole recipe as one unmanaged file                                                                                                                                                |
+| Tests    | Filtering (eat-out, HA, cuisine, meal-idea prep time), related-recipe and related-meal links, random, restaurant grouping, eat-out restaurant ids, and catalog integrity                                                                       |
 
 URL shapes:
 
@@ -505,7 +514,7 @@ URL shapes:
 - `/recipes/:id` — detail (home or eat-out)
 - `/eat-out` — Eat Out
 - `/meal-ideas` — Meal Ideas (full plates)
-- `/restaurants` — Davis County restaurant catalog
+- `/restaurants` — Davis County and Weber County restaurant catalog
 - `/ingredients` — ingredient catalog (`#/fodmap-ingredients` still opens this page)
 - `/guide` — kitchen guide
 - `/random` — random picker
@@ -532,11 +541,11 @@ URL shapes:
 - Related recipes and related meal ideas are stored in both directions (classic ↔ HA, or other siblings).
 - Health rating: healthy / moderately healthy / unhealthy, color-coded thermometer.
 - Filters: HA - Confirmed / HA - Assumed / Unknown / Not-HA Assumed / Not-HA Confirmed (Recipes, Eat Out, Random, and Ingredients); Meal Ideas All / HA / NOT-HA (whether every linked recipe family has an HA version) plus occasion, region, and prep time (< 20 / ~30 / ~60 / >75 minutes); category, name search, and FODMAP level / type (Ingredients); cuisine (plus meal type and name search). Eat Out orders reference restaurant catalog ids (a franchise lists every location).
-- Filter panels start collapsed to search + Filter (Meal Ideas also List | Pics). The open/closed state lives in the app machine.
-- Nav: compact bar (hamburger, Family Recipes, current section). Overlay: Home, Recipes, Meal Ideas, Eat Out, Restaurants, Ingredients, Guide, Random, font size, theme.
+- Filter panels start collapsed to search + Filter (Meal Ideas and Restaurants also List | Pics). The open/closed state lives in the app machine.
+- Nav: compact bar (hamburger, Family Recipes, current section). The same destinations also sit in the bar when they fit on one line; the section name hides then. Overlay and inline bar, in order: Home, Meal Ideas, Restaurants, Recipes, Random Recipe, Ingredients, Substitution Guide, Eat Out, then font size and theme.
 - Theme, type size, and Keep screen on apply site-wide (Keep screen on is used in recipe Focus mode) and persist locally.
 - Recipe Focus mode hides chrome and catalog metadata on a recipe page; it does not persist across routes or visits.
-- Meal Ideas display (List View / Pictures View) persists locally.
+- Meal Ideas and Restaurants display (List View / Pictures View) persist locally. Pictures is the default for Restaurants.
 - No household first names in code or copy.
 
 ## 15. What v1 shipped

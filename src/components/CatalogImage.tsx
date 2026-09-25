@@ -43,16 +43,22 @@ export function CatalogImage({
         </div>
         {showCredit ? (
           <figcaption className={styles.credit}>
-            Photo by{" "}
-            <a
-              className={styles.creditLink}
-              href={image.credit.url}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {image.credit.photographer}
-            </a>{" "}
-            on {image.credit.source}
+            {image.credit.url ? (
+              <>
+                Photo by{" "}
+                <a
+                  className={styles.creditLink}
+                  href={image.credit.url}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {image.credit.photographer}
+                </a>{" "}
+                on {image.credit.source}
+              </>
+            ) : (
+              image.credit.source
+            )}
           </figcaption>
         ) : null}
       </figure>

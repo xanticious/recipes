@@ -5,7 +5,7 @@ export {
   recipeMatchesFilters,
 } from "./filterRecipes.ts";
 export { kitchenGuide, GUIDE_DISCLAIMER } from "./guide.ts";
-export type { GuideSection, GuideSwap } from "./guide.ts";
+export type { GuideSubstitution } from "./guide.ts";
 export {
   assumedHaFromStatuses,
   assumedRecipeHa,
@@ -199,18 +199,25 @@ export {
   groupRestaurants,
   isRestaurantCity,
   isRestaurantCuisine,
+  isRestaurantDisplay,
   POPULAR_MENU_SLOTS,
   popularMenuSlots,
   primaryCuisine,
+  DAVIS_RESTAURANT_CITIES,
   RESTAURANT_CITIES,
+  WEBER_RESTAURANT_CITIES,
   RESTAURANT_CITY_LABELS,
   RESTAURANT_CUISINE_LABELS,
   RESTAURANT_CUISINES,
+  RESTAURANT_DISPLAYS,
+  RESTAURANT_DISPLAY_LABELS,
+  RESTAURANT_DISPLAY_SHORT_LABELS,
   restaurantDisplayName,
 } from "./restaurantBrowse.ts";
 export type {
   GroupedRestaurants,
   RestaurantCityFilter,
+  RestaurantDisplay,
   RestaurantFilters,
 } from "./restaurantBrowse.ts";
 export {

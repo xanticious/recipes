@@ -1,4 +1,4 @@
-import { restaurantIdsByName } from "../restaurants/index.ts";
+import { davisRestaurantIdsByName } from "../restaurants/index.ts";
 import type { EatOutRecipe } from "../types.ts";
 
 export const eatOut: EatOutRecipe[] = [
@@ -11,7 +11,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "moderate",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("Noodles & Company"),
+    restaurantIds: davisRestaurantIdsByName("Noodles & Company"),
     description:
       "At **Noodles & Company**, order **Pad Thai with shrimp** and **no green onions**. Keep the rice noodles, egg, bean sprouts, peanuts, and lime as they come.",
     notes:
@@ -27,7 +27,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "moderate",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("Blaze Pizza"),
+    restaurantIds: davisRestaurantIdsByName("Blaze Pizza"),
     description:
       "At **Blaze Pizza**, build your own: **gluten-free crust**, **classic red sauce**, **ham** and **mushrooms**, and **oregano**. Skip cheese.",
     notes: "Stay off the cheese station. Oregano is at the finish with the other dried herbs.",
@@ -41,7 +41,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "unhealthy",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("Panda Express"),
+    restaurantIds: davisRestaurantIdsByName("Panda Express"),
     description:
       "At **Panda Express**, a **plate**: **half white rice**, **half super greens**, **orange chicken**, and **mushroom chicken**.",
   },
@@ -54,7 +54,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "unhealthy",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("In-N-Out Burger"),
+    restaurantIds: davisRestaurantIdsByName("In-N-Out Burger"),
     description:
       "At **In-N-Out**, a **hamburger protein style** (lettuce wrap), **no onion**, and **fries**.",
     notes:
@@ -69,7 +69,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "moderate",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("Chick-fil-A"),
+    restaurantIds: davisRestaurantIdsByName("Chick-fil-A"),
     description:
       "At **Chick-fil-A**, **grilled chicken nuggets**, **waffle fries**, and a **lemonade**.",
   },
@@ -82,7 +82,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "unhealthy",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("FiiZ Drinks"),
+    restaurantIds: davisRestaurantIdsByName("FiiZ Drinks"),
     description: "At **FiiZ**, a **Pirate Jack**: **24 oz Dr. Pepper**, **no cream**.",
     notes: "Ask for no cream so it stays a straight Dr. Pepper, not a dirty soda.",
   },
@@ -95,7 +95,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "moderate",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("Domino's"),
+    restaurantIds: davisRestaurantIdsByName("Domino's"),
     description: "At **Domino's**, **gluten-free crust** with **ham** and **olives or mushrooms**.",
     notes:
       "Olives or mushrooms — whichever they have that night. Gluten-free crust is the required base.",
@@ -109,7 +109,7 @@ export const eatOut: EatOutRecipe[] = [
     ha: "ha-confirmed",
     healthRating: "unhealthy",
     eatOut: true,
-    restaurantIds: restaurantIdsByName("Joy Luck"),
+    restaurantIds: davisRestaurantIdsByName("Joy Luck"),
     description:
       "At **Joy Luck**, **egg drop soup**, **white rice**, and **GF strawberry chicken**.",
     notes: "Ask for gluten-free strawberry chicken. White rice, not fried rice.",

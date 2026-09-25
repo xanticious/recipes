@@ -3,7 +3,9 @@ import { afterEach, expect, test, vi } from "vitest";
 import {
   appMachine,
   MEAL_IDEAS_DISPLAY_STORAGE_KEY,
+  RESTAURANTS_DISPLAY_STORAGE_KEY,
   readStoredMealIdeasDisplay,
+  readStoredRestaurantDisplay,
 } from "./appMachine.ts";
 
 function startApp() {
@@ -225,13 +227,25 @@ test("restaurant city filter resets details, and cards toggle and close", () => 
   const actor = startApp();
   expect(actor.getSnapshot().context.restaurants).toEqual({
     city: "all",
+    query: "",
+    display: "pictures",
     expandedId: null,
   });
   actor.send({ type: "toggleRestaurant", id: "sills-cafe-layton" });
   expect(actor.getSnapshot().context.restaurants.expandedId).toBe("sills-cafe-layton");
+  actor.send({ type: "setRestaurantQuery", query: "cafe" });
   actor.send({ type: "setRestaurantCity", city: "layton" });
   expect(actor.getSnapshot().context.restaurants).toEqual({
     city: "layton",
+    query: "cafe",
+    display: "pictures",
+    expandedId: null,
+  });
+  actor.send({ type: "clearRestaurantFilters" });
+  expect(actor.getSnapshot().context.restaurants).toEqual({
+    city: "all",
+    query: "",
+    display: "pictures",
     expandedId: null,
   });
   actor.send({ type: "toggleRestaurant", id: "sills-cafe-layton" });
@@ -250,9 +264,50 @@ test("openRestaurant opens the restaurants page on that location", () => {
   expect(actor.getSnapshot().context.route).toEqual({ name: "restaurants" });
   expect(actor.getSnapshot().context.restaurants).toEqual({
     city: "all",
+    query: "",
+    display: "pictures",
     expandedId: "blaze-pizza-farmington",
   });
   actor.stop();
+});
+
+test("restaurant display toggle is independent of filters", () => {
+  const actor = startApp();
+  actor.send({ type: "setRestaurantDisplay", display: "list" });
+  actor.send({ type: "setRestaurantCity", city: "layton" });
+  actor.send({ type: "setRestaurantQuery", query: "cafe" });
+  actor.send({ type: "toggleRestaurant", id: "sills-cafe-layton" });
+  expect(actor.getSnapshot().context.restaurants.display).toBe("list");
+  actor.send({ type: "clearRestaurantFilters" });
+  expect(actor.getSnapshot().context.restaurants).toEqual({
+    city: "all",
+    query: "",
+    display: "list",
+    expandedId: "sills-cafe-layton",
+  });
+  actor.send({ type: "openRestaurant", id: "blaze-pizza-farmington" });
+  expect(actor.getSnapshot().context.restaurants).toEqual({
+    city: "all",
+    query: "",
+    display: "list",
+    expandedId: "blaze-pizza-farmington",
+  });
+  actor.send({ type: "setRestaurantDisplay", display: "pictures" });
+  expect(actor.getSnapshot().context.restaurants.display).toBe("pictures");
+  actor.stop();
+});
+
+test("restaurant display reads the last choice from local storage", () => {
+  expect(readStoredRestaurantDisplay()).toBe("pictures");
+  stubLocalStorage({ [RESTAURANTS_DISPLAY_STORAGE_KEY]: "list" });
+  expect(readStoredRestaurantDisplay()).toBe("list");
+  const actor = startApp();
+  expect(actor.getSnapshot().context.restaurants.display).toBe("list");
+  actor.send({ type: "setRestaurantDisplay", display: "pictures" });
+  expect(readStoredRestaurantDisplay()).toBe("pictures");
+  actor.stop();
+  stubLocalStorage({ [RESTAURANTS_DISPLAY_STORAGE_KEY]: "gallery" });
+  expect(readStoredRestaurantDisplay()).toBe("pictures");
 });
 
 test("meal ideas occasion filter resets the open card, and cards toggle and close", () => {

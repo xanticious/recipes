@@ -12,12 +12,8 @@ export function LandingPage() {
         <h1>Family Recipes</h1>
         <p className={styles.lede}>
           This is our family cookbook: weeknight dinners, a few special-occasion meals, and the
-          takeout orders we actually get. Practical food, grocery-store ingredients, and a short
-          kitchen guide.
-        </p>
-        <p className={styles.lede}>
-          HA means House Approved: we can serve it without interfering with our food allergies, and
-          it does not taste bad to any of us :) .
+          takeout orders we actually get. Practical food, grocery-store ingredients, and a
+          substitution guide.
         </p>
       </header>
 
@@ -75,7 +71,7 @@ export function LandingPage() {
               goToRoute(appActor, { name: "restaurants" });
             }}
           >
-            Davis County restaurants
+            Davis County and Weber County restaurants
           </button>
         </div>
       </section>
@@ -96,7 +92,7 @@ export function LandingPage() {
       </section>
 
       <section className={styles.section} aria-labelledby="guide-heading">
-        <h2 id="guide-heading">Kitchen guide</h2>
+        <h2 id="guide-heading">Substitution Guide</h2>
         <p>What House Approved means, and the substitutions we use.</p>
         <div className={styles.mealRow}>
           <button

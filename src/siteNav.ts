@@ -7,13 +7,13 @@ export type PrimaryNavItem = {
 
 export const PRIMARY_NAV: readonly PrimaryNavItem[] = [
   { label: "Home", route: { name: "landing" } },
-  { label: "Recipes", route: { name: "explore" } },
   { label: "Meal Ideas", route: { name: "mealIdeas" } },
-  { label: "Eat Out", route: { name: "eatOut" } },
   { label: "Restaurants", route: { name: "restaurants" } },
+  { label: "Recipes", route: { name: "explore" } },
+  { label: "Random Recipe", route: { name: "random" } },
   { label: "Ingredients", route: { name: "ingredients" } },
-  { label: "Guide", route: { name: "guide" } },
-  { label: "Random", route: { name: "random" } },
+  { label: "Substitution Guide", route: { name: "guide" } },
+  { label: "Eat Out", route: { name: "eatOut" } },
 ];
 
 export function sectionTitle(route: Route): string {
@@ -30,9 +30,9 @@ export function sectionTitle(route: Route): string {
     case "ingredients":
       return "Ingredients";
     case "guide":
-      return "Guide";
+      return "Substitution Guide";
     case "random":
-      return "Random";
+      return "Random Recipe";
     case "mealIdeas":
       return "Meal Ideas";
     case "ingredientCategorizer":

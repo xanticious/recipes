@@ -1,0 +1,193 @@
+decision,reason,name,street,naics,license_description,cuisines
+drop,"institution, mobile, or convenience",Rocky Mountain Burger Bus,671 MONROE BLVD,7223,MOBILE FOOD TRUCK. COOK FOOD ON SITE. COMMISSARY / COMMERCIAL KITCHEN @ 671 MONROE BLVD. BUS-TRUCK STORED @ BUSINESS ADDRESS.,
+drop,"institution, mobile, or convenience",Northern Utah Grounds for Coffee,4401 HARRISON BLVD,7225,Coffee Cart Inside IHC/McKay Dee Hospital,
+drop,special food service without a storefront,Hilton Garden Inn - Ogden,2271 WASHINGTON BLVD,7223,"On Premise Banquet W/ Beer, Wine & Liquor",
+drop,special food service without a storefront,Ogden Eccles Conference Center,2415 WASHINGTON BLVD,7223,"On Premise Banquet W/ Beer, Wine & Liquor for Ogden Eccles Conference Center",
+drop,special food service without a storefront,Taqueria y Tortas El Paraiso,2581 WASHINGTON BLVD,7223,Sidewalk Vendor / Food Cart,
+drop,special food service without a storefront,Taqueria La Tapatia,2529 WASHINGTON BLVD,7223,Sidewalk Vendor / Food Cart,
+drop,special food service without a storefront,Courtyard Ogden,247 24TH ST,7223,"On-Premise Banquet W/ Beer, Wine & Liquor",
+drop,"institution, mobile, or convenience",Taboo Pizza,3017 HARRISON BLVD,7225,Food Trailer for Taboo Pizza,
+drop,convenience store,Kwick Shop 2,675 N MONROE BLVD,44512,"Neighborhood Grocery Market with ""A"" Beer",
+drop,"institution, mobile, or convenience",Maverik Inc,689 WASHINGTON BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Karmart Convenience Store,205 HARRISON BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Common Cents Stores,1184 WALL AVE,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Ogden Mini Mart Store No 8,1015 12TH ST,44512,"Convenience Store ""A"" Beer with Gas Pumps Station",
+drop,"institution, mobile, or convenience",Maverik Inc,1212 WALL AVE,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Ogden Mini Mart Store 4,1177 12TH ST,44512,"Convenience Store ""A"" Beer with Gas Pumps Station",
+drop,"institution, mobile, or convenience",Easy Shop,251 17TH ST,44512,"Convenience Store ""A"" Beer",
+drop,"institution, mobile, or convenience",Ogden Mini Mart Store No 6,1879 W 2550 S,44512,"Convenience Store ""A"" Beer with Gas Pumps Station",
+drop,convenience store,Blue's C-store,1125 W 3300 S,44512,Convenient Store w/Grilled Foods & Off Premise Beer Sales,
+drop,"institution, mobile, or convenience",7-eleven Store,4186 HARRISON BLVD,44512,"Convenience Store ""A"" Beer",
+drop,"institution, mobile, or convenience",36 Market,903 36TH ST,44512,"Convenience Store ""A"" Beer",
+drop,"institution, mobile, or convenience",Petro-mart Iii,2388 HARRISON BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Top Stop Convenience Stores C21,2120 WALL AVE,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Benson Chevron,2098 HARRISON BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Maverik Inc,2810 WASHINGTON BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Corner Mart,2983 WASHINGTON BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Superior Convenience Store,2985 LINCOLN AVE,44512,"Convenience Store ""A"" Beer with Gas Pump Station - NOT Cooking Food",
+drop,"institution, mobile, or convenience",Stop & Go Market,809 28TH ST,44512,"Convenience Store ""A"" Beer",
+drop,"institution, mobile, or convenience",Kwick Shop,803 25TH ST,44512,"Convenience Store ""A"" Beer",
+drop,"institution, mobile, or convenience",7-eleven Store,803 24TH ST,44512,"Convenience Store ""A"" Beer",
+drop,"institution, mobile, or convenience",Blair's Sinclair,2991 MONROE BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Common Cents Stores,3563 WALL AVE,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Sns Quick Stop,110 PATTERSON ST,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",7-eleven Store #35692 a,3405 WASHINGTON BLVD,44512,"Convenience Store ""A"" Beer with Gas Pump Station",
+drop,"institution, mobile, or convenience",Fast Stop,3186 WASHINGTON BLVD,44512,"Convenience Store ""A"" Beer",
+drop,"institution, mobile, or convenience",Usa Mini Mart,3031 HARRISON BLVD,44512,"Convenience Store ""A"" Beer",
+keep,active food license,Papa John's,1258 N WASHINGTON BLVD,7225,TAKE OUT PIZZA & DELIVERY,italian
+keep,active food license,Marco's Pizza,114 N WASHINGTON BLVD,7225,Carryout / Delivery Pizza Restaurant,italian
+keep,active food license,Steinys Family Sports Grill,119 N 600 W,7225,Restaurant w/Beer & Wine,american
+keep,active food license,The Dragon Restaurant,303 WASHINGTON BLVD,7225,CHINESE RESTAURANT,asian
+keep,active food license,Chick-fil-A,1120 WASHINGTON BLVD,7225,Chick-Fil-A Restaurant,fast-food
+keep,active food license,Lolo Hawaiian BBQ,310 12TH ST,7225,HAWAIIAN RESTAURANT. QUICK SERVICE,bbq
+keep,active food license,Arctic Circle,325 WASHINGTON BLVD,7225,QUICK SERVICE RESTAURANT WITH DRIVE-THROUGH.,fast-food
+keep,active food license,Maria's Snack Shop,1036 CENTURY DR,7225,Retail Sales of Snacks & Drinks inside Ogden Indoor Soccer,other
+keep,active food license,Del Taco,1160 WALL AVE,7225,"MEXICAN FAST FOOD, OPEN 24 HOURS A DAY.",fast-food|mexican
+keep,active food license,Rock Bottom Lounge,317 WASHINGTON BLVD,7224,Social Club/Rest/D Beer/Liquor/Cabaret,other
+keep,active food license,Black Bear Diner,366 12TH ST,7225,RESTAURANT / DINER,breakfast|american
+keep,active food license,Wendy's,1176 WASHINGTON BLVD,7225,Fast Food Restaurant,fast-food
+keep,active food license,Golden Corral,988 WASHINGTON BLVD,7225,RESTAURANT,american
+keep,active food license,Burger King,361 2ND ST,7225,Fast Food Restaurant,fast-food
+keep,active food license,Ogden Pizzeria,936 WASHINGTON BLVD,7225,Pizza & Pasta Restaurant,italian
+keep,active food license,Starbucks,1135 WASHINGTON BLVD,7225,CAFE- SELLING COFFEE AND COFFEE RELATED PRODUCTS,drinks
+keep,active food license,Jersey Mike's,218 12TH ST,7225,Submarine Style Sandwich Shop,fast-food
+keep,active food license,El Paisa Grill,460 W 12TH ST,7225,"Mexican Restuarant w/ Beer, Wine & Liquor",mexican
+keep,active food license,Javiers 3,703 WASHINGTON BLVD,7225,MEXICAN RESTAURANT,mexican
+keep,active food license,Carl's Jr.,180 12TH ST,7225,Fast Food Restaurant,fast-food
+keep,active food license,Fraternal Order of Eagles,975 WALL AVE,7224,"PRIVATE CLUB - D Beer, Wine, Liquor & Cabaret",other
+keep,active food license,McDonald's,1111 WASHINGTON BLVD,7225,Fast Food Restaurant,fast-food
+keep,active food license,Pizza Hut (Washington Blvd),205 WASHINGTON BLVD,7225,Pizza Restaurant - Delivery & Carry Out ONLY,italian
+keep,active food license,Dar's,240 WASHINGTON BLVD,7224,"PRIVATE CLUB w/Beer, Wine & Liquor",other
+keep,active food license,Baskin-Robbins (Washington Blvd),1188 WASHINGTON BLVD,7225,Selling Ice Cream and Ice Cream Products,dessert
+keep,active food license,My Tacoland,788 WALL AVE,7225,Mexican Restaurant with Taco Truck,mexican
+keep,active food license,Carnitas El Casito,675 MONROE BLVD,7225,Fast Food Mexican Restaurant,mexican
+keep,active food license,Ohana Sushi & Asian Cuisine,476 12TH ST,7225,Restaurant w/Beer & Wine,asian
+keep,active food license,Panda Express,206 12TH ST,7225,CHINESE FOOD RESTAURANT,asian|fast-food
+keep,active food license,Ruan Thai Restaurant,215 W 12TH ST,7225,Thai Restaurant,asian
+keep,active food license,Thomas Cuisine Management,475 W 13TH ST,7225,Contract Food Service Inside Fresenius Corporate Office,other
+keep,active food license,Talisman Brewing Company,1258 GIBSON AVE,7224,Tavern - North West Corner of Brewery Building,drinks
+keep,active food license,Beans & Brews (Wall Ave),1275 WALL AVE,7225,SPECIALTY COFFEE HOUSE,drinks
+keep,active food license,Cafe Zupas,1293 WALL AVE,7225,FAST CASUAL RESTAURANT,american
+keep,active food license,Zaxby's,141 W 12TH ST,7225,Fast Food / Casual Restaurant,fast-food
+keep,active food license,Little Caesars,1287 WALL AVE,7225,"FAST FOOD, TAKE- OUT PIZZA",italian
+keep,active food license,Freddy's Frozen Custard & Steakburgers,235 12TH ST,7225,Dine in Restaurant - Frozen Custard & Steakburgers with a Drive Thru Option,american
+keep,active food license,Subway (12th St),147 12TH ST,7225,SUBWAY SANDWICHES,fast-food
+keep,active food license,The Habit Burger Grill,335 12TH ST,7225,Fast Food Restaurant,fast-food
+keep,active food license,Kneaders,1953 WASHINGTON BLVD,7225,Bakery & Cafe,breakfast
+keep,active food license,Prairie Schooner Restaurant & Steak House,445 PARK BLVD,7225,"Steak House Restaurant w/Beer, Wine & Liquor",american
+keep,active food license,K F C,1216 GRANT AVE,7225,KENTUCKY FRIED CHICKEN AND A & W ROOTBEER,other
+keep,active food license,The Rusted Spoon,1310 WALL AVE,7225,FULL SERVICE RESTARUANT- NO ALCOHOL,other
+keep,active food license,Maple Express,475 12TH ST,7225,CHINESE RESTURANT,asian
+keep,active food license,IHOP,189 12TH ST,7225,"FAMILY RESTAURANT,  OPEN 24 HRS.",breakfast
+keep,active food license,Dylan's Drive In,981 12TH ST,7225,"FAST FOOD, MILK SHAKES",fast-food
+keep,active food license,Chipotle,1269 WASHINGTON BLVD,7225,Mexican Restaurant,mexican
+keep,active food license,Timbermine Steakhouse,1701 PARK BLVD,7225,RESTAURANT WITH  B BEER/ LIQUOR/ WINE,american
+keep,active food license,Arby's (12th St),275 12TH ST,7225,Fast Food Restaurant,fast-food
+keep,active food license,Cupbop,141 12TH ST,7225,Korean BBQ Restaurant,asian
+keep,active food license,Taco Bell (12th St),365 12TH ST,7225,FAST FOOD RESTAURANT,fast-food|mexican
+keep,active food license,Wing Wah Gourmet,465 12TH ST,7225,Chinese Restaurant with Beer & Wine,asian
+keep,active food license,Coffee Links,287 PARK BLVD,7225,"COFFEE SHOP, TEA, DESSERTS, SMOOTHIES, SANDWICHES.",dessert
+keep,active food license,The Greenery Restaurant,1875 VALLEY DR,7225,Restaurant w/Beer & Wine,american
+keep,active food license,Popyey's,217 12TH ST,7225,FAST FOOD RESTAURANT ( POPEYE'S LOUISIANA FRIED CHICKEN & SHRIMP),fast-food
+keep,active food license,Gigs Tavern,975 W 24TH ST,7224,Full Service Bar & Grill,drinks
+keep,active food license,Blue Sapphire Gentlemen's Club,2706 S 1900 W,7224,"Sexually Oriented Business - Club w/Restuarant, Beer, Wine & Liquor",other
+keep,active food license,Roosters B St Brewing Co,2325 B AVE,7224,Social Club/Restaurant/Beer/Wine/Liquor,american
+keep,active food license,Lachulavista Enterprises,1125 W 3300 S,7225,Mexican Restaurant,mexican
+keep,active food license,Jamba,4396 HARRISON BLVD,7225,"Blended Smoothie, Smoothie Bowls, Juices & Snacks",drinks
+keep,active food license,Taco Bell (Harrison Blvd),4312 HARRISON BLVD,7225,FAST FOOD RESTAURANT,fast-food|mexican
+keep,active food license,Swig,4286 HARRISON BLVD,7225,Restaurant Serving Soda and Cookies,drinks
+keep,active food license,University Broiler & Grill,4342 HARRISON BLVD,7225,Restaurant w/B Beer,american
+keep,active food license,Javier's Authentic Mexican Food,4874 HARRISON BLVD,7225,"MEXICAN RESTAURANT W/BEER, WINE & LIQUOR",mexican
+keep,active food license,Arby's (Harrison Blvd),4740 HARRISON BLVD,7225,FAST FOOD RESTAURANT,fast-food
+keep,active food license,Taco Time,4773 HARRISON BLVD,7225,Mexican Fast Food Restaruant,fast-food|mexican
+keep,active food license,Pizza Hut (Harrison Blvd),4789 HARRISON BLVD,7225,Pizza Restaurant - Delivery & Carry Out ONLY,italian
+keep,active food license,Virgs - Ogden,4649 HARRISON BLVD,7225,RESTAURANT,american
+keep,active food license,Ligoris,4780 OLD POST RD,7225,Italian Restaurant - Pizza & Pasta,italian
+keep,active food license,Beans & Brews (Harrison Blvd),4201 HARRISON BLVD,7225,SPECIALTY COFFEE HOUSE,drinks
+keep,active food license,Sushi Totto,1216 E 4800 S,7225,"Suchi, Sashim Restaurant w/Beer & Wine",asian
+keep,active food license,Sushi Pro,4337 HARRISON BLVD,7225,Sushi Restaurant w/ Beer & Wine,asian
+keep,active food license,Hug-hes Cafe,1220 E 4800 S,7225,Restaurant w/Beer & Wine,breakfast
+keep,active food license,Thai Palm Kitchen,4844 HARRISON BLVD,7225,Thai Food Restaurant with Beer & Wine,asian
+keep,active food license,Jimmy John's,3685 HARRISON BLVD,7225,Quick Service Sandwich Restaurant,fast-food
+keep,active food license,Baskin-Robbins (Harrison Blvd),3675 HARRISON BLVD,7225,Selling Ice Cream and Ice Cream Products,dessert
+keep,active food license,Daily Rise Downtown,2314 WASHINGTON BLVD,7225,Full Service Coffee Cafe. Serving Espresso Based & Non Espresso Drinks,drinks
+keep,active food license,Five Guys,2325 WASHINGTON BLVD,7225,BURGER & FRY RESTAURANT,fast-food
+keep,active food license,Tokyo Station,2259 WASHINGTON BLVD,7225,TEPPANYAKI STEAKHOUSE & SUSHI BAR W/ BEER & WINE,asian
+keep,active food license,The Sonora Grill,2310 KIESEL AVE,7225,"Mexican Restaurnant w/Beer, Wine & Liquor",mexican
+keep,active food license,Subway (Kiesel Ave),2378 KIESEL AVE,7225,FAST FOOD SUB SANDWICH RESTAURANT,fast-food
+keep,active food license,O-town Beach Club,2330 LINCOLN AVE,7224,Seasonal Bar (O-Town Beach Club) @ Lindquist Field Baseball Stadium,drinks
+keep,active food license,Laan Thai Restaurant,2327 WASHINGTON BLVD,7225,Thai Food Restaurant w/Beer & Wine,asian
+keep,active food license,The Garden Grille & Lounge,2271 WASHINGTON BLVD,7225,"Restaurant W/Beer, Wine & Liquor inside Hilton Garden Inn",american
+keep,active food license,Original Philadelphia Cheesesteaks,2054 HARRISON BLVD,7225,Cheesesteak Restaurant,american
+keep,active food license,Asael Farr & Sons Company,274 21ST ST,7225,Ice Cream Parlor,dessert
+keep,active food license,Costa Vida,334 23RD ST,7225,MEXICAN FAST FOOD RESTAURANT,mexican
+keep,active food license,Utog Brewing Company,2331 GRANT AVE,7225,Restaurant/D Beer/Wine/Liquor,american
+keep,active food license,Yu's Maple Garden Chinese Restaurant,2501 WALL AVE,7225,"Chinese Restaurant. Dine-In, Take Out and Delivery",asian
+keep,active food license,Union Grill,315 24TH ST,7225,"Restaurant w/Beer, Wine & Liquor",american
+keep,active food license,The Daily Rise Expresso,2865 WASHINGTON BLVD,7225,SPECIALTY COFFEE DRIVE-THRU,drinks
+keep,active food license,Wb's Neighborhood Daily,455 25TH ST,7225,Full Service Alcohol Restaurant & Coffee Bar,drinks
+keep,active food license,Historic Kokomo Club,216 25TH ST,7224,Social Club w/D Beer & Liquor,other
+keep,active food license,The City Club,264 25TH ST,7224,Social Club (Bar) w/Restaurant/D Beer/Liquor/Cabaret,drinks
+keep,active food license,Waffle Love,109 25TH ST,7225,MAKE AND SELL WAFFLES,breakfast
+keep,active food license,Grounds for Coffee,111 25TH ST,7225,COFFEE AND SANDWICH SHOP,drinks
+keep,active food license,Alleged,205 25TH ST,7224,Social Club w/Restaurant & Cabaret,american
+keep,active food license,Wiseguy Comedy,269 25TH ST,7225,Restaurant w/Beer & Live Comedy,american
+keep,active food license,Roosters 25th Street Brewing Company,253 25TH ST,7225,"Restaurant w/Beer, Wine & Liquor",american
+keep,active food license,Tona,210 25TH ST,7225,Sushi Bar & Grill w/Beer & Wine,asian
+keep,active food license,Rovalis Ristorante Italiano,174 25TH ST,7225,"Italian Restaurant/Coffice Bar w/ Beer, Wine, Liquor & Cabaret",italian
+keep,active food license,Ivan's Icecream and Snowies,2665 WASHINGTON BLVD,7225,"ICE CREAM CONES (SCOOPED), CORN ON THE COB ETC",dessert
+keep,active food license,Mi Puebla Restaurant,2665 WASHINGTON BLVD,7225,MEXICAN RESTAURANT,mexican
+keep,active food license,Rosas Cafe,2660 WASHINGTON BLVD,7225,MEXICAN RESTAURANT,mexican
+keep,active food license,Pearl Milk Tea Club,110 25TH ST,7225,WOMENS BOUTIQUE / GIFT SHOP / SMOOTHIES & HAND MADE DRINKS,drinks
+keep,active food license,Lee's Mongolian BBQ,2866 WASHINGTON BLVD,7225,"Asian Mongolian BBQ Restaurant w/Beer, Wine & Liquor",bbq
+keep,active food license,Jo Jo Bowls and Boba,252 25TH ST,7225,"Rice Bowls, Tea and Boba Restaurant w/Beer & Wine",drinks
+keep,active food license,Wasatch Roasting Company,2436 GRANT AVE,7225,COFFEE SHOP & ROASTERY,drinks
+keep,active food license,Unspoken,211 25TH ST,7224,Social Club/Bar,asian
+keep,active food license,Taqueria y Tortas El Paraiso,2665 WALL AVE,7225,MEXICAN FOOD RESTAURANT,mexican
+keep,active food license,Lit Arcade Bar,2432 WASHINGTON BLVD,7225,"Arcade, Restuarant & Bar w/ Beer, Wine & Liquor",drinks
+keep,active food license,Stellas American & Italian Bistro,225 25TH ST,7225,Italian Restaurant w/Beer & Wine,italian
+keep,active food license,Costa Del Sol,2433 ADAMS AVE,7225,Mexican Restaurant,mexican
+keep,active food license,Brewski's on Historic 25th,244 25TH ST,7224,Social Club W/Restaurant/D Beer/Liquor & Cabaret,american
+keep,active food license,La Ferrovia Italian Ristorante,234 25TH ST,7225,Italian Restaurant w/ Beer & Wine,italian
+keep,active food license,Warren's Craft Burger,258 25TH ST,7225,"Restaurant w/Beer, Wine & Liquor",american
+keep,active food license,Lucky Slice Ogden,207 25TH ST,7225,Fast Casual Pizzeria w/Beer & Wine,italian
+keep,active food license,Sapori Italian Bakery & Cafe,325 24TH ST,7225,Italian Style Bakery & Cafe,dessert
+keep,active food license,The Coffee Compound,2417 GRANT AVE,7225,COFFEE SHOP,drinks
+keep,active food license,Angry Goat Pub & Kitchen,2570 WASHINGTON BLVD,7224,(Bar) Restaurant/D Beer/Liquor and Cabaret,drinks
+keep,active food license,Menchie's,329 24TH ST,7225,SELF - SERVE FROZEN YOGURT / FROZEN DESERT,dessert
+keep,active food license,Slackwater,209 24TH ST,7225,Restaurant w/ Beer & Wine,american
+keep,active food license,The Bistro at Courtyard Ogden,247 24TH ST,7225,"Restaurant W/Beer, Wine & Liquor inside Courtyard Ogden Hotel",american
+keep,active food license,El Pollo Rico,807 26TH ST,7225,Fast Food Mexican Restaurant,mexican
+keep,active food license,Prego Cafes,2464 JEFFERSON AVE,7225,Cafe/Restaurant inside Weber County Library,breakfast
+keep,active food license,Kamikaze's,2408 ADAMS AVE,7224,SOCIAL CLUB -- D BEER & LIQUOR,other
+keep,active food license,Patricia's Mexican Restaurant,3303 WASHINGTON BLVD,7225,MEXICAN RESTAURANT,mexican
+keep,active food license,Arby's (Washington Blvd),3385 WASHINGTON BLVD,7225,FAST FOOD RESTAURANT,fast-food
+keep,active food license,Carnitas Michoacan Mexican Restaurant,3233 WASHINGTON BLVD,7225,Mexican Restaurant,mexican
+keep,active food license,Chila's Tacos,3359 GRANT AVE,7225,RESTAURANT - MEXICAN FOOD,mexican
+keep,active food license,Longhorn Steakhouse,3647 WALL AVE,7225,"Restaurant w/Beer, Wine & Liquor",american
+keep,active food license,Moore's Family Diner,3558 WALL AVE,7225,FAMILY DINER,breakfast
+keep,active food license,Rancherito's Mexican Food Ogden,3527 WASHINGTON BLVD,7225,MEXICAN FAST FOOD,mexican
+keep,active food license,Aguachiles y Clamatos El Pariente,385 PATTERSON ST,7225,SEAFOOD RESTAURANT W/ BEER,mexican
+keep,active food license,Taqueria Los Agaves,3513 RIVERDALE RD,7225,MEXICAN RESTAURANT - NO ALCOHOL,mexican
+keep,active food license,Lucky Slice Events,3560 RIVERDALE RD,7223,Food Trucks Selling Pizza by the Slice,italian
+keep,active food license,El Changarro Loco,3037 WASHINGTON BLVD,7225,"FRUIT CUPS, SODAS, CANDIES, SHAVED ICE, SANDWICHES, TORTAS, AND HOT DOGS",drinks
+keep,active food license,Kaffe Mercantile of Ogden,1221 26TH ST,7225,"COFFEE, TEA AND PASTRY SHOP (BAKED GOODS THAT ARE FOR SALE ARE BAKED ON THE PROPERTY)",drinks
+keep,active food license,La Isla Del Sabor,3180 WASHINGTON BLVD,7225,"FAST FOOD RESTAURANT. FRUIT COCKTAILS, SUNDAYS, SHRIMP COCKTAIL, CAKES, CHILINDRINAS, SNOW CONES, ICE CREAM.",dessert
+keep,active food license,Northern Ut Grounds for Coffee,3005 HARRISON BLVD,7225,Coffee Shop & Cafe,drinks
+keep,active food license,Taboo Pizza,3017 HARRISON BLVD,7225,Take Out / Delivery Pizza Restaurant,italian
+keep,active food license,Neveria Wendolyn,749 W 24TH ST,7225,Ice Cream Shop,dessert
+keep,active food license,Ogden Valley Pizza,216 12TH ST,7225,Pizza Take Out and Delivery,italian
+keep,active food license,Dutch Bros,316 12TH ST,7225,Drive Thru Coffee Shop,drinks
+keep,active food license,Anaya's Market Ogden Numero Seis,150 N WASHINGTON BLVD,4451,"Hispanic Grocery Store ""A"" Beer",grocery
+keep,active food license,Natural Grocers By Vitamin Cottage,270 12TH ST,4451,"RETAIL SALES OF ORGANIC FOOD, VITAMINS & SUPPLEMENTS.",grocery
+keep,active food license,Ocean Mart Wholesale,1018 WASHINGTON BLVD,4451,"Grocery Store ""A"" Beer",grocery
+keep,active food license,WinCo Foods,205 W 12TH ST,4451,"Grocery Store ""A"" Beer",grocery
+keep,active food license,Walmart,1959 WALL AVE,4451,"Grocery, Variety Store w/ Class A Beer",grocery
+keep,active food license,Fresh Market,2044 HARRISON BLVD,4451,"Grocery Store ""A"" Beer",grocery
+keep,active food license,Saltnhops,443 27TH ST,4451,Neighborhood Store w/Beer Sales,grocery
+keep,active food license,Anaya's Market Ogden,346 30TH ST,4451,"Hispanic Grocery Store ""A"" Beer",grocery
+keep,active food license,Rancho Markets,905 26TH ST,4451,"Grocery Store ""A"" Beer",grocery
+keep,active food license,Super Groceries,511 31ST ST,4451,"Neighborhood Grocery Market with ""A"" Beer",grocery
+keep,active food license,Carl's Super Saver,3135 HARRISON BLVD,4451,RETAIL SALES OF GENERAL GROCERYS AND MERCHANDISE,grocery
+keep,active food license,Aspen Mills Bread Co of Utah,3457 WALL AVE,3118,WHOLESALE BAKERY. NO RETAIL SALES. PRODUCTION ONLY,dessert
+keep,active food license,Tortilleria El Angel,3180 WASHINGTON BLVD,3118,FLOUR & CORN TORTILLA BAKERY,dessert

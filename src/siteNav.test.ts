@@ -8,10 +8,23 @@ test("sectionTitle names each route", () => {
   expect(sectionTitle({ name: "eatOut" })).toBe("Eat Out");
   expect(sectionTitle({ name: "restaurants" })).toBe("Restaurants");
   expect(sectionTitle({ name: "ingredients" })).toBe("Ingredients");
-  expect(sectionTitle({ name: "guide" })).toBe("Guide");
-  expect(sectionTitle({ name: "random" })).toBe("Random");
+  expect(sectionTitle({ name: "guide" })).toBe("Substitution Guide");
+  expect(sectionTitle({ name: "random" })).toBe("Random Recipe");
   expect(sectionTitle({ name: "mealIdeas" })).toBe("Meal Ideas");
   expect(sectionTitle({ name: "ingredientCategorizer" })).toBe("Ingredient categorizer");
+});
+
+test("primary nav follows the household order", () => {
+  expect(PRIMARY_NAV.map((item) => item.label)).toEqual([
+    "Home",
+    "Meal Ideas",
+    "Restaurants",
+    "Recipes",
+    "Random Recipe",
+    "Ingredients",
+    "Substitution Guide",
+    "Eat Out",
+  ]);
 });
 
 test("Recipes stays current while reading a recipe", () => {

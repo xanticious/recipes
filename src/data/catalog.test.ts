@@ -115,13 +115,10 @@ test("special-occasion marks and the Alfredo pair are present", () => {
   expect(converted?.relatedRecipeIds).toContain("fettuccine-alfredo");
 });
 
-test("the kitchen guide has House Approved meaning and substitutions", () => {
-  expect(kitchenGuide.sections.map((section) => section.id)).toEqual([
-    "ha",
-    "sourdough",
-    "substitutions",
-  ]);
-  expect(kitchenGuide.sections.some((section) => (section.items?.length ?? 0) > 0)).toBe(true);
+test("the substitution guide has House Approved meaning and substitutions", () => {
+  expect(kitchenGuide.ha).toContain("House Approved (HA)");
+  expect(kitchenGuide.substitutions.length).toBeGreaterThan(0);
+  expect(kitchenGuide.substitutions.map((row) => row.original)).toContain("Milk");
 });
 
 test("exported cheddar carries lactose; lifestyle flags are gone", () => {

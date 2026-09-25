@@ -140,22 +140,36 @@ function bearingDegrees(from: LatLng, to: LatLng): number {
   return ((Math.atan2(y, x) * 180) / Math.PI + 360) % 360;
 }
 
+function writePhotoEntry(id: string, photo: RestaurantPhoto): string {
+  if (photo.source === "generated") {
+    if (photo.imageId) {
+      return `  ${tsString(id)}: { source: "generated", imageId: ${tsString(photo.imageId)} },`;
+    }
+    return `  ${tsString(id)}: { source: "generated" },`;
+  }
+  return `  ${tsString(id)}: { photographer: ${tsString(photo.photographer)}, creditUrl: ${tsString(photo.creditUrl)}, source: "streetview" },`;
+}
+
 function writeDataModule(photos: Readonly<Record<string, RestaurantPhoto>>): string {
   const entries = Object.entries(photos).toSorted(([a], [b]) => a.localeCompare(b));
-  const lines = entries.map(
-    ([id, photo]) =>
-      `  ${tsString(id)}: { photographer: ${tsString(photo.photographer)}, creditUrl: ${tsString(photo.creditUrl)}, source: ${tsString(photo.source)} },`,
-  );
-  return `export type RestaurantPhotoSource = "streetview";
+  const lines = entries.map(([id, photo]) => writePhotoEntry(id, photo));
+  return `export type RestaurantPhotoSource = "streetview" | "generated";
 
-export type RestaurantPhoto = {
-  photographer: string;
-  creditUrl: string;
-  source: RestaurantPhotoSource;
-};
+export type RestaurantPhoto =
+  | {
+      photographer: string;
+      creditUrl: string;
+      source: "streetview";
+    }
+  | {
+      source: "generated";
+      /** Franchise locations share this file. Omitted when the file name is this restaurant id. */
+      imageId?: string;
+    };
 
 export const RESTAURANT_PHOTO_SOURCE_LABELS: Record<RestaurantPhotoSource, string> = {
   streetview: "Street View",
+  generated: "AI illustration",
 };
 
 /** Filled by \`scripts/fetch-restaurant-photos.ts\` when a storefront photo is saved. */
@@ -415,12 +429,13 @@ async function downloadJpeg(url: string, dest: string): Promise<boolean> {
   return true;
 }
 
-async function clearOldPhotos(): Promise<void> {
+async function clearOldPhotos(keepIds: ReadonlySet<string>): Promise<void> {
   await mkdir(OUT_DIR, { recursive: true });
   const files = await readdir(OUT_DIR);
   await Promise.all(
     files
       .filter((file) => file.endsWith(".jpg") || file.endsWith(".jpeg") || file.endsWith(".webp"))
+      .filter((file) => !keepIds.has(file.replace(/\.(jpe?g|webp)$/i, "")))
       .map((file) => unlink(path.join(OUT_DIR, file))),
   );
 }
@@ -430,10 +445,15 @@ async function main(): Promise<void> {
   const key = requireApiKey();
   await mkdir(OUT_DIR, { recursive: true });
   const replace = process.env.STREETVIEW_REPLACE === "1";
+  const generated = Object.fromEntries(
+    Object.entries(RESTAURANT_PHOTOS).filter(([, photo]) => photo.source === "generated"),
+  );
   if (replace) {
-    await clearOldPhotos();
+    await clearOldPhotos(new Set(Object.keys(generated)));
   }
-  const photos: Record<string, RestaurantPhoto> = replace ? {} : { ...RESTAURANT_PHOTOS };
+  const photos: Record<string, RestaurantPhoto> = replace
+    ? { ...generated }
+    : { ...RESTAURANT_PHOTOS };
   if (replace) {
     await writeFile(DATA_FILE, writeDataModule(photos), "utf8");
   }
@@ -444,6 +464,10 @@ async function main(): Promise<void> {
   for (const [index, restaurant] of catalog.entries()) {
     process.stdout.write(`[${String(index + 1)}/${String(catalog.length)}] ${restaurant.id} … `);
     const dest = path.join(OUT_DIR, `${restaurant.id}.jpg`);
+    if (photos[restaurant.id]?.source === "generated") {
+      console.log("generated");
+      continue;
+    }
     if (photos[restaurant.id] && existsSync(dest)) {
       console.log("exists");
       continue;

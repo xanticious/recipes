@@ -16,6 +16,25 @@ const FONT_SIZE_LABELS: Record<FontSize, string> = {
 const THEMES: readonly Theme[] = ["light", "dark"];
 const PANEL_ID = "app-nav-panel";
 
+function inlineNavFits(input: {
+  barWidth: number;
+  paddingLeft: number;
+  paddingRight: number;
+  gap: number;
+  menuWidth: number;
+  brandWidth: number;
+  navWidth: number;
+}): boolean {
+  const needed =
+    input.paddingLeft +
+    input.paddingRight +
+    input.menuWidth +
+    input.brandWidth +
+    input.navWidth +
+    input.gap * 2;
+  return input.navWidth > 0 && input.barWidth + 0.5 >= needed;
+}
+
 function panelFocusables(panel: HTMLElement): HTMLElement[] {
   return [...panel.querySelectorAll<HTMLElement>("a[href], button:not(:disabled)")];
 }
@@ -30,6 +49,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   const fontSize = useSelector(prefsActor, (snapshot) => snapshot.context.fontSize);
   const barRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const brandRef = useRef<HTMLAnchorElement>(null);
+  const barNavRef = useRef<HTMLElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const onLanding = route.name === "landing";
   const wideMain =
@@ -47,13 +68,41 @@ export function AppShell({ children }: { children: ReactNode }) {
     const apply = () => {
       root.style.setProperty("--app-bar-height", `${String(bar.getBoundingClientRect().height)}px`);
     };
-    apply();
-    const observer = new ResizeObserver(apply);
+    const applyInlineNav = () => {
+      const nav = barNavRef.current;
+      const menu = menuButtonRef.current;
+      const brand = brandRef.current;
+      if (!nav || !menu || !brand) {
+        return;
+      }
+      const computed = getComputedStyle(bar);
+      const fits = inlineNavFits({
+        barWidth: bar.clientWidth,
+        paddingLeft: Number.parseFloat(computed.paddingLeft) || 0,
+        paddingRight: Number.parseFloat(computed.paddingRight) || 0,
+        gap: Number.parseFloat(computed.columnGap) || 0,
+        menuWidth: menu.offsetWidth,
+        brandWidth: brand.offsetWidth,
+        navWidth: nav.scrollWidth,
+      });
+      const next = fits ? "true" : "false";
+      if (bar.dataset.inlineNav !== next) {
+        bar.dataset.inlineNav = next;
+      }
+      nav.toggleAttribute("inert", !fits);
+      nav.setAttribute("aria-hidden", fits ? "false" : "true");
+    };
+    const applyAll = () => {
+      apply();
+      applyInlineNav();
+    };
+    applyAll();
+    const observer = new ResizeObserver(applyAll);
     observer.observe(bar);
     return () => {
       observer.disconnect();
     };
-  }, [focusMode, fontSize]);
+  }, [focusMode, fontSize, route]);
 
   useEffect(() => {
     if (!navOpen) {
@@ -155,6 +204,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </span>
           </button>
           <a
+            ref={brandRef}
             className={styles.brand}
             href={routeToHash({ name: "landing" })}
             aria-current={onLanding ? "page" : undefined}
@@ -165,6 +215,24 @@ export function AppShell({ children }: { children: ReactNode }) {
             Family Recipes
           </a>
           <p className={styles.section}>{sectionTitle(route)}</p>
+          <nav ref={barNavRef} className={styles.barNav} aria-label="Primary">
+            {PRIMARY_NAV.map((item) => {
+              const current = navItemIsCurrent(route, item);
+              return (
+                <a
+                  key={item.label}
+                  className={styles.barLink}
+                  href={routeToHash(item.route)}
+                  aria-current={current ? "page" : undefined}
+                  onClick={(event) => {
+                    handleRouteClick(event, appActor, item.route);
+                  }}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
         </header>
       )}
       {navOpen && !focusMode ? (

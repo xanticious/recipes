@@ -73,10 +73,10 @@ export function CollapsibleFilters({
   );
 }
 
-export function FilterGroup({ legend, children }: { legend: string; children: ReactNode }) {
+export function FilterGroup({ legend, children }: { legend?: string; children: ReactNode }) {
   return (
     <fieldset className={styles.group}>
-      <legend>{legend}</legend>
+      {legend ? <legend>{legend}</legend> : null}
       <div className={styles.chips}>{children}</div>
     </fieldset>
   );
